@@ -1,37 +1,36 @@
-# georgiajayy.github.io
+# georgiajayy.github.io ☠
 
-Portfolio of **Georgia Jayy**, a junior data analyst and freelance creative working across sport, culture, music and entertainment.
+the portfolio of georgia jayy.
+junior data analyst. freelance creative. professional overthinker.
 
-Live at: https://georgiajayy.github.io
+→ https://georgiajayy.github.io
 
-## What's in here
+## about
 
-| File | What it is |
-| --- | --- |
-| `index.html` | The whole site: layout, styles, the Data Slasher minigame, the search bar and the Chat of Doom |
-| `Georgia_Summers_CV.pdf` | CV, linked from the Contact section |
-| `favicon.ico`, `favicon.svg`, `apple-touch-icon.png`, `icon-512.png` | Skull-and-crossbones site icons |
-| `assets/` | Extra logo files (seal logo and stone wordmark) for socials or future use |
+i find the story hiding in the data, then tell it like a music video.
+sport, culture, music and entertainment. fans, feelings, the numbers behind them.
+when i'm not in a spreadsheet, i'm behind a camera: content, videography, editing, production.
 
-No frameworks and no build step. It's plain HTML, CSS and JavaScript.
+## projects
 
-## Publish with VS Code and GitHub Pages
+★ **lionesses euro 2025**
+spain created twice the chances. england still won. i wanted to know how.
+[dashboard](https://lionesses-euro2025.streamlit.app/) · [video](https://youtu.be/RWfnlJrw5b4) · [code](https://github.com/georgiajayy/lionesses-euro2025)
 
-1. On GitHub, create a **new public repository** named exactly `georgiajayy.github.io`. Leave it empty (no README).
-2. In VS Code, open the Command Palette (`Ctrl+Shift+P`, or `Cmd+Shift+P` on Mac), run **Git: Clone**, and paste `https://github.com/georgiajayy/georgiajayy.github.io.git`. Choose a folder and open it.
-3. Copy everything from this folder into the cloned folder.
-4. Open the **Source Control** panel (the branch icon on the left), type a message like `first launch`, then click **Commit** and **Sync Changes** (or **Publish Branch**).
-5. On GitHub, go to the repo's **Settings → Pages**. Under *Build and deployment*, set the source to **Deploy from a branch**, choose `main` and `/ (root)`, then click **Save**.
-6. Wait a minute or two, then visit https://georgiajayy.github.io.
+★ more coming soon. if they survive.
 
-To preview locally first, install the **Live Server** extension in VS Code, then right-click `index.html` and choose **Open with Live Server**.
+## also on the site
 
-## Still to fill in
+- a minigame where you slash screaming bar charts
+- a friendly ghoul who checks in on you
+- a manifesto against 47-slice pie charts
 
-Search `index.html` (`Ctrl+F`) for these:
+## find me
 
-- `[CITY]`: where you're based (info panel)
-- `[PROJECT 2]` to `[PROJECT 6]`: future releases (they show as COMING SOON)
-- The three Lionesses Euro 2025 buttons (OPEN THE DASHBOARD, WATCH ON YOUTUBE, CODE ON GITHUB) still point to `#`. Replace each `href="#"` with the real link.
+- email · work.georgiajayy@gmail.com
+- linkedin · https://www.linkedin.com/in/georgiajayysummers/
+- github · https://github.com/georgiajayy
 
-After editing, commit and sync again, and the live site updates within a minute or two.
+---
+
+best viewed at night. ☠
