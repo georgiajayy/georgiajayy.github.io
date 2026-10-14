@@ -12,15 +12,22 @@
 <meta property="og:description" content="Data stories, sport, culture and a minigame of doom.">
 <meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="description" content="Portfolio of Georgia Jayy: junior data analyst and freelance creative working across sport, culture, music and entertainment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&amp;display=swap">
 <style>
 html,body{margin:0;height:100%;background:#000}
-main{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(24px,5vh,56px);padding:24px;box-sizing:border-box}
 main img{display:block;width:min(1100px,92vw);height:auto}
+.risk{margin:0;color:#FFF;font-family:'Courier Prime','Courier New',monospace;font-weight:700;font-size:clamp(15px,2.4vw,26px);letter-spacing:.45em;text-align:center;padding:14px 22px 14px calc(22px + .45em);border:3px double #FF40A0;text-shadow:0 0 8px rgba(255,64,160,.7);animation:flick 6s steps(1) infinite}
+@keyframes flick{0%,100%{opacity:1}31%{opacity:.25}32%{opacity:1}34%{opacity:.4}35%{opacity:1}72%{opacity:.6}73%{opacity:1}}
+@media (max-width: 480px){.risk{letter-spacing:.2em;font-size:14px;padding:12px 14px 12px calc(14px + .2em);white-space:nowrap}}
+@media (prefers-reduced-motion: reduce){.risk{animation:none}}
 </style>
 </head>
 <body>
 <main>
 <picture><source srcset="assets/logo-drip.webp" type="image/webp"><img src="assets/logo-drip.png" alt="Georgia Jayy" width="1562" height="876"></picture>
+<p class="risk">ENTER AT YOUR OWN RiSK</p>
 </main>
 </body>
 </html>
