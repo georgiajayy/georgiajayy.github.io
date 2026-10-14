@@ -4,98 +4,389 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bio · Georgia Jayy</title>
-<meta name="description" content="About Georgia Jayy: junior data analyst and freelance creative.">
-<meta property="og:title" content="Bio · Georgia Jayy">
-<meta property="og:description" content="About Georgia Jayy: junior data analyst and freelance creative.">
+<meta name="description" content="The G Files: the story of G, data analyst, football coach and professional overthinker, as a flippable scrapbook diary.">
+<meta property="og:title" content="The G Files · Georgia Jayy">
+<meta property="og:description" content="The story of G, as a flippable scrapbook diary.">
 <meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=Kalam:wght@400;700&amp;display=swap">
 <style>
-:root{--pink:#FF69B4}
-html,body{margin:0;background:#000;color:#FFF}
-body{font-family:'Alegreya',Georgia,serif;font-size:18px;line-height:1.65}
-a{color:var(--pink)}
-.page{max-width:900px;margin:0 auto;padding:24px clamp(16px,4vw,48px) 64px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.top img{width:min(220px,50vw);height:auto;display:block}
-.nav{display:flex;gap:20px;flex-wrap:wrap;font-family:'Permanent Marker','Marker Felt',cursive;font-size:20px;filter:url(#rough)}
-.nav a{color:#FFF;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
-.nav a[aria-current]{color:var(--pink)}
-.nav a:hover,.nav a:focus-visible{color:var(--pink);outline:none}
-h1{font-family:'Permanent Marker','Marker Felt',cursive;font-weight:400;font-size:clamp(56px,11vw,120px);line-height:1;margin:48px 0 8px;display:inline-block;transform:rotate(-2deg);filter:url(#rough-lg)}
-.kicker{font-family:'Special Elite',monospace;color:var(--pink);letter-spacing:3px;font-size:14px;margin:0 0 32px}
-h2{font-family:'Special Elite',monospace;font-weight:400;font-size:24px;margin:44px 0 10px;display:inline-block;background:var(--pink);color:#000;padding:0 10px}
-p{margin:0 0 16px;max-width:62ch}
-.card{border:2px solid #FFF;padding:20px 22px;margin:16px 0;border-radius:3px 12px 4px 10px}
-.card h3{font-family:'Special Elite',monospace;font-weight:400;font-size:22px;margin:0 0 8px}
-.links{display:flex;flex-wrap:wrap;gap:10px 18px;font-family:'Special Elite',monospace;font-size:16px}
-.links a{color:#000;background:#FFF;text-decoration:none;padding:3px 10px}
-.links a:hover,.links a:focus-visible{background:var(--pink);outline:none}
-.list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
-.list li{border:1px dashed var(--pink);padding:4px 12px;font-family:'Special Elite',monospace;font-size:15px}
-.soon{font-family:'Special Elite',monospace;color:#9a9a9a}
-footer{margin-top:64px;font-family:'Special Elite',monospace;font-size:13px;color:var(--pink);text-align:center}
+/* Layout: one full-screen stage; a two-page spiral-bound spread on wide screens, one page on narrow ones. Pages scale with the screen. */
+:root{
+  --hot:#FF3E9A;--hot-dk:#D81B78;--pink:#FF69B4;--paper:#FFFDF7;--ink:#2B2230;--line:rgba(80,130,215,.28);--margin:rgba(255,62,154,.6);
+  --vh:100vh;
+}
+@supports (height:100dvh){:root{--vh:100dvh}}
+html,body{margin:0;background:#000;color:#FFF;height:100%}
+body{font-family:'Kalam','Comic Sans MS',cursive;overflow:hidden}
+.stage{height:var(--vh);display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));box-sizing:border-box}
+.bar{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Special Elite','Courier New',monospace;letter-spacing:2px;font-size:14px}
+.bar a{color:#FFF;text-decoration:none;border:1px solid #FFF;padding:5px 10px}
+.bar a:hover,.bar a:focus-visible{background:#FFF;color:#000;outline:none}
+.bar .issue{color:var(--pink)}
+
+.book{--h:min(calc(var(--vh) - 120px),calc((100vw - 40px) / 1.44));height:var(--h);width:calc(var(--h) * 1.44);position:relative;container-type:size;perspective:2800px;flex:0 0 auto}
+.single .book{--h:min(calc(var(--vh) - 120px),calc((100vw - 32px) / 0.72));width:calc(var(--h) * 0.72)}
+.spread{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.single .spread{grid-template-columns:1fr}
+.single .slot.l{display:none}
+.slot{position:relative;min-width:0;cursor:pointer}
+.slot.blank{cursor:default}
+.slot.l > .pg{box-shadow:inset -3cqh 0 4cqh -2.5cqh rgba(0,0,0,.35)}
+.slot.r > .pg{box-shadow:inset 3cqh 0 4cqh -2.5cqh rgba(0,0,0,.35)}
+.single .slot.r > .pg{box-shadow:none}
+/* spiral binding */
+.rings{position:absolute;left:50%;top:2.5cqh;bottom:2.5cqh;width:4.4cqh;transform:translateX(-50%);z-index:7;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,#1b1b1b 0 .75cqh,transparent .8cqh) 0 0/4.4cqh 4.6cqh repeat-y,
+             radial-gradient(ellipse 2.1cqh 1cqh at 50% 50%,transparent 0 .55cqh,#c9c9cf .6cqh,#8d8d95 .95cqh,transparent 1cqh) 0 0/4.4cqh 4.6cqh repeat-y}
+.single .rings{left:0;transform:translateX(-35%)}
+
+.leaf{position:absolute;top:0;height:100%;width:50%;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.45,.05,.3,1);z-index:5}
+.single .leaf{width:100%;transition:transform .55s ease-in,opacity .55s ease-in}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face.back{transform:rotateY(180deg)}
+.face.front > .pg{box-shadow:inset 3cqh 0 4cqh -2.5cqh rgba(0,0,0,.35)}
+.face.back > .pg{box-shadow:inset -3cqh 0 4cqh -2.5cqh rgba(0,0,0,.35)}
+
+.ctrl{display:flex;align-items:center;gap:18px;font-family:'Special Elite','Courier New',monospace;letter-spacing:2px}
+.ctrl button{font:inherit;font-size:15px;background:#000;color:#FFF;border:1px solid #FFF;padding:7px 14px;cursor:pointer;letter-spacing:2px}
+.ctrl button:hover:not(:disabled),.ctrl button:focus-visible{background:var(--pink);border-color:var(--pink);color:#000;outline:none}
+.ctrl button:disabled{opacity:.3;cursor:default}
+.count{font-size:14px;color:#ccc;font-variant-numeric:tabular-nums;min-width:7ch;text-align:center}
+
+/* ---------- diary pages ---------- */
+.pg{position:absolute;inset:0;box-sizing:border-box;overflow:hidden;color:var(--ink);padding:5.5cqh 5cqh 7cqh 9cqh;font-size:2.6cqh;line-height:3.9cqh;display:flex;flex-direction:column;gap:1.6cqh;
+  background-color:var(--paper);
+  background-image:linear-gradient(90deg,transparent 6.4cqh,var(--margin) 6.4cqh,var(--margin) calc(6.4cqh + 2px),transparent calc(6.4cqh + 2px)),
+                   repeating-linear-gradient(180deg,transparent 0 calc(3.9cqh - 1px),var(--line) calc(3.9cqh - 1px) 3.9cqh);
+  background-position:0 0,0 1.8cqh}
+.pg p{margin:0}
+.pg a{color:inherit}
+.date{font-family:'Special Elite',monospace;font-size:1.7cqh;letter-spacing:.3cqh;color:var(--hot-dk);line-height:1}
+.entry{margin:0;font-family:'Permanent Marker','Marker Felt',cursive;font-weight:400;font-size:5cqh;line-height:1.1;align-self:flex-start;
+  background:linear-gradient(transparent 52%,rgba(255,105,180,.55) 52%,rgba(255,105,180,.55) 88%,transparent 88%);padding:0 .6cqh;transform:rotate(-1.5deg)}
+.sticky{align-self:flex-start;position:relative;background:#FFE873;color:#2B2230;font-family:'Permanent Marker',cursive;font-size:3.3cqh;line-height:1.2;padding:2.2cqh 2.4cqh 2.6cqh;max-width:78%;transform:rotate(-2.5deg);box-shadow:0 1cqh 1.6cqh rgba(0,0,0,.18)}
+.sticky.p{background:#FFC4E1;transform:rotate(2deg);align-self:flex-end}
+.sticky.b{background:#BDE7FF}
+.sticky::before,.polaroid::before,.label::before{content:'';position:absolute;top:-1.6cqh;left:50%;width:11cqh;height:3.2cqh;transform:translateX(-50%) rotate(-4deg);
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.55) 0 .8cqh,rgba(255,105,180,.55) .8cqh 1.6cqh);opacity:.9}
+.doodle{position:absolute;color:var(--hot);font-size:5cqh;line-height:1;opacity:.85;pointer-events:none;font-family:'Kalam',cursive}
+.run{position:absolute;left:9cqh;right:5cqh;bottom:2.4cqh;display:flex;justify-content:space-between;font-family:'Special Elite',monospace;font-size:1.4cqh;letter-spacing:.3cqh;color:var(--hot-dk);line-height:1}
+.hl{background:linear-gradient(transparent 55%,rgba(255,232,115,.9) 55%);padding:0 .3cqh}
+
+/* polaroids */
+.polaroid{position:absolute;background:#FFF;padding:1.2cqh 1.2cqh 4.4cqh;box-shadow:0 1cqh 2cqh rgba(0,0,0,.28);text-decoration:none;color:var(--ink)}
+.polaroid .ph{display:block;background:#111;overflow:hidden}
+.polaroid img{display:block;width:100%;height:100%;object-fit:contain}
+.polaroid .cap{position:absolute;left:0;right:0;bottom:.8cqh;text-align:center;font-family:'Permanent Marker',cursive;font-size:2cqh;line-height:1.2}
+
+/* covers */
+.cover{padding:0;color:#FFF;background-color:var(--hot);
+  background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.5px),radial-gradient(circle at 30% 20%,rgba(255,255,255,.18),transparent 55%),radial-gradient(circle at 80% 90%,rgba(0,0,0,.18),transparent 60%);
+  background-size:1.2cqh 1.2cqh,auto,auto;background-position:0 0,0 0,0 0}
+.cover::before{content:'';position:absolute;inset:2.4cqh;border:.35cqh dashed rgba(255,255,255,.7);border-radius:1.6cqh;pointer-events:none}
+.strap{position:absolute;right:0;top:40%;width:8cqh;height:11cqh;background:var(--hot-dk);border-radius:1.4cqh 0 0 1.4cqh;box-shadow:-.4cqh .6cqh 1.2cqh rgba(0,0,0,.25)}
+.strap::after{content:'';position:absolute;left:2cqh;top:50%;width:3.6cqh;height:3.6cqh;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#c9c9cf 45%,#86868f)}
+.label{position:absolute;left:12%;right:16%;top:12%;background:#FFF;color:#111;padding:3cqh 3cqh 2.6cqh;text-align:center;transform:rotate(-2deg);box-shadow:0 1cqh 1.8cqh rgba(0,0,0,.22)}
+.label h1{margin:0;font-family:'Permanent Marker',cursive;font-weight:400;font-size:7.4cqh;line-height:1}
+.label .sq{display:block;height:1.6cqh;margin:1cqh auto 1.2cqh;width:70%;background:radial-gradient(circle at 50% 0,transparent 1cqh,var(--hot) 1.05cqh 1.45cqh,transparent 1.5cqh) 0 .2cqh/2.6cqh 1.6cqh repeat-x}
+.label .priv{font-family:'Special Elite',monospace;font-size:2cqh;letter-spacing:.5cqh;color:var(--hot-dk)}
+.label .hire{font-family:'Kalam',cursive;font-size:2.3cqh}
+.badge{position:absolute;display:grid;place-items:center;border-radius:50%;text-align:center;font-family:'Permanent Marker',cursive;line-height:1;box-shadow:0 .6cqh 1.2cqh rgba(0,0,0,.25)}
+.badge.a{width:13cqh;height:13cqh;background:#111;color:var(--pink);font-size:2.8cqh;right:9%;bottom:30%;transform:rotate(12deg)}
+.badge.b{width:9cqh;height:9cqh;background:#FFE873;color:#111;font-size:4.4cqh;left:8%;top:52%;transform:rotate(-10deg)}
+.badge.c{width:10cqh;height:10cqh;background:#FFF;color:var(--hot);font-size:5.2cqh;right:20%;top:52%;transform:rotate(8deg)}
+.cover .polaroid{left:9%;bottom:7%;width:24cqh;transform:rotate(-6deg)}
+.cover .polaroid .ph{height:30cqh}
+
+/* contents */
+.toc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.toc button{all:unset;cursor:pointer;display:flex;align-items:baseline;gap:1.2cqh;width:100%;font-size:2.6cqh;line-height:3.9cqh;box-sizing:border-box}
+.toc button:hover b,.toc button:focus-visible b{background:rgba(255,105,180,.35)}
+.toc button:focus-visible{outline:.3cqh dashed var(--ink);outline-offset:.2cqh}
+.toc .n{color:var(--hot);min-width:3cqh;font-family:'Permanent Marker',cursive}
+.toc b{font-weight:700}
+.toc .dots{flex:1;border-bottom:.3cqh dotted currentColor;transform:translateY(-.6cqh);opacity:.5}
+.washi{align-self:flex-start;font-family:'Special Elite',monospace;font-size:1.6cqh;letter-spacing:.3cqh;padding:.8cqh 1.6cqh;line-height:1.4;transform:rotate(-1.5deg);
+  background:repeating-linear-gradient(-45deg,rgba(255,105,180,.45) 0 1cqh,rgba(255,255,255,.6) 1cqh 2cqh);color:#111}
+
+.rawk{font-family:'Permanent Marker',cursive;font-size:6.2cqh;line-height:1;color:var(--hot);transform:rotate(-4deg);margin:1cqh 0}
+.stickers{display:flex;flex-wrap:wrap;gap:1.2cqh;position:relative;z-index:2}
+.stickers a{font-family:'Special Elite',monospace;font-size:1.9cqh;line-height:1.3;text-decoration:none;background:#FFF;color:#111;padding:.7cqh 1.4cqh;border-radius:.6cqh;transform:rotate(var(--t,0deg));box-shadow:0 .4cqh .8cqh rgba(0,0,0,.25)}
+.stickers a:hover,.stickers a:focus-visible{background:#FFE873;outline:none}
+.back-cover .label{top:9%}
+.back-cover .msg{position:absolute;left:12%;right:12%;top:46%;display:flex;flex-direction:column;gap:2cqh}
+.back-cover .msg p{font-family:'Permanent Marker',cursive;font-size:3.2cqh;line-height:1.25;transform:rotate(-1deg)}
+
+@media (prefers-reduced-motion:reduce){.leaf{transition:none!important}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<filter id="rough" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="rough-lg" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter>
-</svg>
-<div class="page">
-<header class="top">
-<a href="./" aria-label="Back to the homepage"><picture><source srcset="assets/logo-drip.webp" type="image/webp"><img src="assets/logo-drip.png" alt="Georgia Jayy" width="1562" height="876"></picture></a>
-<nav class="nav" aria-label="Pages">
-<a href="./">HOME</a>
-<a href="bio.html" aria-current="page">BIO</a>
-<a href="data.html">DATA</a>
-<a href="creative.html">CREATIVE</a>
-<a href="games.html">GAMES</a>
-</nav>
-</header>
-<main>
-<h1>BIO</h1>
-<p class="kicker">DATA ANALYST ★ FOOTBALL COACH ★ PROFESSIONAL OVERTHINKER</p>
-<p>rawr XD hi, i'm G. gather round, this is my story.</p>
+<div class="stage">
+  <div class="bar">
+    <a href="./">&larr; HOME</a>
+    <span class="issue">THE G FILES ★ PRIVATE</span>
+  </div>
 
-<h2>I. The CD Years</h2>
-<p>Our tale begins with a ten-year-old and a CD collection that got completely out of hand. While other kids collected stickers, young G was building towers of albums, reading every sleeve note, and kicking a football against any wall that would take it. Music, film, sport: she wanted all of it, and she wanted it loud.</p>
+  <div class="book" id="book" aria-roledescription="diary" aria-label="The G Files">
+    <div class="spread">
+      <div class="slot l" id="slotL"></div>
+      <div class="slot r" id="slotR" aria-live="polite"></div>
+    </div>
+    <div class="rings" aria-hidden="true"></div>
+  </div>
 
-<h2>II. Behind the Camera</h2>
-<p>Years later, deep in a Media (Film Production) degree at UCL, news arrived on the wind: COPA90 needed a production intern. It was summer 2023. She fell upon the opportunity like a punk on a battered guitar, digging up stories for football content that went on to hit 1M+ views across TikTok and Instagram, and getting stuck into branded shoots for Nike, Adidas, EA Sports and UEFA.</p>
-<p>In June 2024 she graduated with a 2:1, threw her cap in the air, and walked straight back onto the pitch.</p>
-
-<h2>III. For the Girls</h2>
-<p>What followed was a full tour of the beautiful game. Grassroots campaigns at Bloomsbury Football Foundation. Growing a football charity's following by 2,000+ in under three months at League Leaders. Then the big one: the Google Pixel Powerhouse Project, researching and shaping campaigns with Arsenal, BBC Sport, ITV Sport and The FA to push the women's game further than ever.</p>
-<p>Along the way she dug into culture for the content team at 411, and today she's the digital media specialist at BLAQ UK (UK Black Pride).</p>
-
-<h2>IV. The Spreadsheet Awakens</h2>
-<p>But one question kept haunting her: what actually makes fans tick? Vibes could only take her so far. So in summer 2026 she armed herself with Generation UK's Data Analytics programme and emerged fluent in SQL, Python, Excel and Power BI. She still cries at a bad pie chart.</p>
-
-<h2>V. Coach G</h2>
-<p>Then, in October 2026, she made it official: an FA-qualified football coach, with safeguarding and first aid badges to match. So yes, she will make you do drills.</p>
-
-<h2>After Dark</h2>
-<p>When the laptop closes, she's watching horror films with the lights off or building tiny cursed mini games for the internet. Then! She! RAWKS! OUT!!!111</p>
-
-<h2>To Be Continued...</h2>
-<p>Football, data, culture and storytelling, all colliding at once. Hire her before she haunts you.</p>
-<p>amen.</p>
-
-<h2>Find me</h2>
-<div class="links">
-<a href="mailto:work.georgiajayy@gmail.com">work.georgiajayy@gmail.com</a>
-<a href="https://www.linkedin.com/in/georgiajayysummers/" target="_blank" rel="noopener">LinkedIn</a>
-<a href="https://github.com/georgiajayy" target="_blank" rel="noopener">GitHub</a>
-<a href="https://www.instagram.com/ge0rgiajayy/" target="_blank" rel="noopener">Instagram</a>
-<a href="Georgia_Summers_CV.pdf" download>CV ↓</a>
+  <div class="ctrl">
+    <button type="button" id="prev" aria-label="Previous page">&lsaquo; PREV</button>
+    <span class="count" id="count">1 / 9</span>
+    <button type="button" id="next" aria-label="Next page">NEXT &rsaquo;</button>
+  </div>
 </div>
-</main>
-<footer>© GEORGiA JAYY</footer>
+
+<!-- the diary's pages, cloned into view by the script -->
+<div id="src" hidden>
+
+  <article class="pg cover">
+    <div class="label">
+      <h1>THE G FILES</h1>
+      <span class="sq" aria-hidden="true"></span>
+      <div class="priv">PRIVATE ★ KEEP OUT</div>
+      <div class="hire">(unless you're hiring)</div>
+    </div>
+    <span class="badge b" aria-hidden="true">★</span>
+    <span class="badge c" aria-hidden="true">♥</span>
+    <span class="badge a">rawr<br>XD</span>
+    <span class="polaroid"><span class="ph"><img src="assets/vibe-coder.png" alt="G holding a laptop, asking: How can I vibe code this?"></span><span class="cap">me, vibe coding</span></span>
+    <span class="strap" aria-hidden="true"></span>
+  </article>
+
+  <article class="pg">
+    <span class="date">PAGE ONE ★ READ IT ANYWAY</span>
+    <h2 class="entry">what's in here</h2>
+    <p class="sticky p">rawr XD hi, i'm G. gather round, this is my story.</p>
+    <ol class="toc">
+      <li><button type="button" data-go="2"><span class="n">#1</span><b>The CD Years</b><span class="dots"></span><span>3</span></button></li>
+      <li><button type="button" data-go="3"><span class="n">#2</span><b>Behind the Camera</b><span class="dots"></span><span>4</span></button></li>
+      <li><button type="button" data-go="4"><span class="n">#3</span><b>For the Girls</b><span class="dots"></span><span>5</span></button></li>
+      <li><button type="button" data-go="5"><span class="n">#4</span><b>The Spreadsheet Awakens</b><span class="dots"></span><span>6</span></button></li>
+      <li><button type="button" data-go="6"><span class="n">#5</span><b>Coach G</b><span class="dots"></span><span>7</span></button></li>
+      <li><button type="button" data-go="7"><span class="n">☾</span><b>After Dark</b><span class="dots"></span><span>8</span></button></li>
+      <li><button type="button" data-go="8"><span class="n">∞</span><b>To Be Continued...</b><span class="dots"></span><span>9</span></button></li>
+    </ol>
+    <span class="washi">DATA ANALYST ★ FOOTBALL COACH ★ PROFESSIONAL OVERTHINKER</span>
+    <span class="doodle" style="right:5cqh;top:5cqh;transform:rotate(14deg)">☆</span>
+    <div class="run"><span>THE G FILES ★ PRIVATE</span><span>2</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="date">ENTRY #1 ★ AGE 10</span>
+    <h2 class="entry">The CD Years</h2>
+    <p>Dear diary, our tale begins with a ten-year-old and a CD collection that got <span class="hl">completely out of hand.</span> While other kids collected stickers, young G was building towers of albums, reading every sleeve note, and kicking a football against any wall that would take it.</p>
+    <p class="sticky">Music, film, sport: she wanted all of it, and she wanted it LOUD.</p>
+    <span class="doodle" style="right:6cqh;bottom:9cqh;transform:rotate(-12deg);font-size:7cqh">♫</span>
+    <span class="doodle" style="right:16cqh;bottom:14cqh;transform:rotate(10deg)">♥</span>
+    <div class="run"><span>THE G FILES ★ PRIVATE</span><span>3</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="date">ENTRY #2 ★ SUMMER 2023</span>
+    <h2 class="entry">Behind the Camera</h2>
+    <p>Years later, deep in a Media (Film Production) degree at UCL, news arrived on the wind: COPA90 needed a production intern.</p>
+    <p class="sticky p">She fell upon it like a punk on a battered guitar.</p>
+    <p>She dug up stories for football content that hit <span class="hl">1M+ views</span> across TikTok and Instagram, and got stuck into branded shoots for Nike, Adidas, EA Sports and UEFA.</p>
+    <p>June 2024: graduated with a 2:1, threw her cap in the air, and walked straight back onto the pitch.</p>
+    <div class="run"><span>THE G FILES ★ PRIVATE</span><span>4</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="date">ENTRY #3 ★ 2024 → 2026</span>
+    <h2 class="entry">For the Girls</h2>
+    <p>Next came a full tour of the beautiful game. Grassroots campaigns at Bloomsbury Football Foundation. Growing a football charity's following by <span class="hl">2,000+ in under three months</span> at League Leaders.</p>
+    <p>Then the big one: the Google Pixel Powerhouse Project, shaping campaigns with Arsenal, BBC Sport, ITV Sport and The FA.</p>
+    <p class="sticky b">Mission: push the women's game further than ever.</p>
+    <p>Then culture research for 411's content team, and now digital media specialist at BLAQ UK (UK Black Pride).</p>
+    <div class="run"><span>THE G FILES ★ PRIVATE</span><span>5</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="date">ENTRY #4 ★ SUMMER 2026</span>
+    <h2 class="entry">The Spreadsheet Awakens</h2>
+    <p>One question kept haunting her: <span class="hl">what actually makes fans tick?</span> Vibes could only take her so far.</p>
+    <p>So she armed herself with Generation UK's Data Analytics programme and came out fluent in SQL, Python, Excel and Power BI.</p>
+    <p class="sticky p">She still cries at a bad pie chart. ☹</p>
+    <span class="doodle" style="right:6cqh;top:6cqh;transform:rotate(10deg)">☠</span>
+    <div class="run"><span>THE G FILES ★ PRIVATE</span><span>6</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="date">ENTRY #5 ★ OCTOBER 2026</span>
+    <h2 class="entry">Coach G</h2>
+    <p>Then she made it official: an <span class="hl">FA-qualified football coach</span>, with safeguarding and first aid badges to match.</p>
+    <p class="sticky">So yes, she WILL make you do drills.</p>
+    <span class="washi">FA LEVEL 1 ★ SAFEGUARDING ★ FIRST AID</span>
+    <span class="doodle" style="right:7cqh;bottom:10cqh;transform:rotate(-8deg);font-size:7cqh">⚽</span>
+    <div class="run"><span>THE G FILES ★ PRIVATE</span><span>7</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="date">LATE NIGHT ENTRY ★ 2:13AM</span>
+    <h2 class="entry">After Dark</h2>
+    <p>When the laptop closes, she's watching horror films with the lights off or building tiny cursed mini games for the internet.</p>
+    <p class="rawk">THEN! SHE! RAWKS! OUT!!!111</p>
+    <a class="polaroid" href="games.html" style="right:6cqh;bottom:8cqh;width:22cqh;transform:rotate(5deg)" aria-label="Want to play a game? Enter the games archive"><span class="ph" style="height:19cqh"><img src="assets/games-sign.png" alt="Hazard sign: want to play a game?"></span><span class="cap">play a game?</span></a>
+    <div class="run"><span>THE G FILES ★ PRIVATE</span><span>8</span></div>
+  </article>
+
+  <article class="pg cover back-cover">
+    <div class="label">
+      <h1 style="font-size:5.6cqh">TO BE CONTINUED...</h1>
+      <span class="sq" aria-hidden="true"></span>
+      <div class="hire">football, data, culture &amp; storytelling, all colliding at once</div>
+    </div>
+    <div class="msg">
+      <p>Hire her before she haunts you. amen.</p>
+      <div class="stickers">
+        <a href="mailto:work.georgiajayy@gmail.com" style="--t:-3deg">work.georgiajayy@gmail.com</a>
+        <a href="https://www.linkedin.com/in/georgiajayysummers/" target="_blank" rel="noopener" style="--t:2deg">LinkedIn</a>
+        <a href="https://github.com/georgiajayy" target="_blank" rel="noopener" style="--t:-2deg">GitHub</a>
+        <a href="https://www.instagram.com/ge0rgiajayy/" target="_blank" rel="noopener" style="--t:3deg">Instagram</a>
+        <a href="https://open.spotify.com/user/u0swet40w9urvwnha1s0jv1f4" target="_blank" rel="noopener" style="--t:-1deg">Spotify</a>
+        <a href="Georgia_Summers_CV.pdf" download style="--t:2deg">CV ↓</a>
+      </div>
+    </div>
+    <span class="badge c" style="top:auto;bottom:10%;right:12%" aria-hidden="true">☠</span>
+  </article>
+
 </div>
+
+<script>
+(function () {
+  var src = document.getElementById('src');
+  var pages = Array.prototype.slice.call(src.children);
+  var N = pages.length;
+  var book = document.getElementById('book');
+  var slotL = document.getElementById('slotL'), slotR = document.getElementById('slotR');
+  var prevB = document.getElementById('prev'), nextB = document.getElementById('next'), count = document.getElementById('count');
+  var mq = window.matchMedia('(max-width: 820px), (max-aspect-ratio: 1/1)');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var single = mq.matches, pos = 0, busy = false;
+
+  // ransom-note headings
+  pages.forEach(function (pg) {
+    Array.prototype.forEach.call(pg.querySelectorAll('.ransom'), function (h) {
+      var text = h.textContent; h.setAttribute('aria-label', text); h.textContent = '';
+      var k = 0;
+      text.split(' ').forEach(function (word) {
+        var w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
+        word.split('').forEach(function (ch) {
+          var s = document.createElement('span');
+          var r = (k * 7 + ch.charCodeAt(0)) % 5;
+          s.className = 'c r' + r; s.textContent = ch;
+          s.style.transform = 'rotate(' + (((k * 37) % 11) - 5) + 'deg) translateY(' + (((k * 13) % 5) - 2) * 0.15 + 'cqh)';
+          w.appendChild(s); k++;
+        });
+        h.appendChild(w);
+      });
+    });
+  });
+
+  function clone(i) { return i >= 0 && i < N ? pages[i].cloneNode(true) : null; }
+  function fill(slot, i) {
+    slot.innerHTML = '';
+    var c = clone(i);
+    slot.classList.toggle('blank', !c);
+    if (c) slot.appendChild(c);
+  }
+  function maxPos() { return single ? N - 1 : Math.floor(N / 2); }
+  function left(k) { return 2 * k - 1; }
+  function right(k) { return 2 * k; }
+  function render() {
+    document.body.classList.toggle('single', single);
+    if (single) { fill(slotR, pos); slotL.innerHTML = ''; }
+    else { fill(slotL, left(pos)); fill(slotR, right(pos)); }
+    prevB.disabled = pos <= 0; nextB.disabled = pos >= maxPos();
+    var shown = single ? (pos + 1) : Math.min(right(pos) + 1, N);
+    count.textContent = shown + ' / ' + N;
+  }
+  function face(cls, i) {
+    var f = document.createElement('div'); f.className = 'face ' + cls;
+    var c = clone(i); if (c) f.appendChild(c); else f.style.background = '#000';
+    return f;
+  }
+  function done(leaf, newPos) {
+    var finished = false;
+    function end() { if (finished) return; finished = true; leaf.remove(); pos = newPos; render(); busy = false; }
+    leaf.addEventListener('transitionend', end); setTimeout(end, 900);
+  }
+  function flip(dir) {
+    if (busy) return;
+    var np = pos + dir;
+    if (np < 0 || np > maxPos()) return;
+    if (reduce.matches) { pos = np; render(); return; }
+    busy = true;
+    var leaf = document.createElement('div'); leaf.className = 'leaf';
+    if (single) {
+      if (dir > 0) {
+        leaf.appendChild(face('front', pos)); leaf.style.left = '0'; leaf.style.transformOrigin = 'left center';
+        book.appendChild(leaf); fill(slotR, np);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(-100deg)'; leaf.style.opacity = '0'; }); });
+      } else {
+        leaf.appendChild(face('front', np)); leaf.style.left = '0'; leaf.style.transformOrigin = 'left center';
+        leaf.style.transform = 'rotateY(-100deg)'; leaf.style.opacity = '0';
+        book.appendChild(leaf);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(0deg)'; leaf.style.opacity = '1'; }); });
+      }
+    } else if (dir > 0) {
+      leaf.style.left = '50%'; leaf.style.transformOrigin = 'left center';
+      leaf.appendChild(face('front', right(pos))); leaf.appendChild(face('back', left(np)));
+      book.appendChild(leaf); fill(slotR, right(np));
+      requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(-180deg)'; }); });
+    } else {
+      leaf.style.left = '0'; leaf.style.transformOrigin = 'right center';
+      leaf.appendChild(face('back', right(np)));
+      var fr = face('front', left(pos)); fr.firstChild && (fr.firstChild.style.boxShadow = 'inset -3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)');
+      leaf.appendChild(fr);
+      var bk = leaf.querySelector('.face.back'); if (bk.firstChild) bk.firstChild.style.boxShadow = 'inset 3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)';
+      book.appendChild(leaf); fill(slotL, left(np));
+      requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(180deg)'; }); });
+    }
+    done(leaf, np);
+  }
+  function goPage(p) {
+    if (busy) return;
+    pos = single ? p : Math.floor((p + 1) / 2); render();
+  }
+
+  prevB.addEventListener('click', function () { flip(-1); });
+  nextB.addEventListener('click', function () { flip(1); });
+  slotR.addEventListener('click', function (e) { if (e.target.closest('a,button')) return; flip(1); });
+  slotL.addEventListener('click', function (e) { if (e.target.closest('a,button')) return; flip(-1); });
+  book.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]'); if (b) { e.stopPropagation(); goPage(+b.getAttribute('data-go')); }
+  }, true);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { flip(1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { flip(-1); }
+  });
+  var sx = null;
+  book.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  book.addEventListener('touchend', function (e) {
+    if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 40) flip(dx < 0 ? 1 : -1);
+  });
+  function onMode() {
+    var page = single ? pos : Math.max(0, left(pos));
+    single = mq.matches;
+    pos = single ? page : Math.floor((page + 1) / 2);
+    render();
+  }
+  if (mq.addEventListener) mq.addEventListener('change', onMode); else mq.addListener(onMode);
+  render();
+})();
+</script>
 </body>
 </html>
