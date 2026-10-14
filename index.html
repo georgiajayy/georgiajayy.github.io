@@ -95,10 +95,9 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .quick{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 22px;font-size:20px}
 .quick > a, .quick .ic{transform:rotate(-2deg)!important}
 }
-.games-sign{display:block;width:100%;max-width:380px;margin:0 auto;transition:transform .2s ease,filter .2s ease}
+.games-sign{display:block;width:100%;max-width:380px;margin:0 auto;-webkit-tap-highlight-color:transparent}
+.games-sign:focus:not(:focus-visible){outline:none}
 .games-sign img{display:block;width:100%;height:auto}
-.games-sign:hover,.games-sign:focus-visible{transform:rotate(-3deg) scale(1.03);filter:drop-shadow(0 0 18px rgba(182,255,59,.55));outline:none}
-@media (prefers-reduced-motion:reduce){.games-sign{transition:none}}
 </style>
 </head>
 <body>
