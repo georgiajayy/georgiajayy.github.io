@@ -15,7 +15,7 @@
 <meta name="description" content="Portfolio of Georgia Jayy: junior data analyst and freelance creative working across sport, culture, music and entertainment.">
 <link rel="alternate" type="application/rss+xml" title="Dead Notes · Georgia Jayy" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=Courier+Prime:wght@400;700&amp;family=UnifrakturMaguntia&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Silkscreen&amp;family=Permanent+Marker&amp;family=Courier+Prime:wght@400;700&amp;family=UnifrakturMaguntia&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
 <style>
 :root{--pink:#FF69B4;--ink:#000;--paper:#FFF}
 html,body{margin:0;background:#000;color:#FFF}
@@ -128,6 +128,13 @@ a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 input[type=text],input[type=search],textarea{cursor:text}
 .logo-link{display:block}
 .logo-link:focus-visible{outline:2px dashed #E62E2E;outline-offset:6px}
+.blinkie{width:150px;height:20px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:5px;margin:0 0 10px;background:#E62E2E;border:1px solid #000;outline:1px solid #E62E2E;outline-offset:1px;font-family:'Silkscreen','Courier New',monospace;font-size:8px;letter-spacing:.5px;color:#000;overflow:hidden;animation:blk 1s steps(1) infinite}
+.blinkie .dot{width:5px;height:5px;border-radius:50%;background:#FFF;flex:0 0 auto;animation:blkd 1s steps(1) infinite}
+.blinkie .bt{white-space:nowrap;animation:blkt 1s steps(1) infinite}
+@keyframes blk{0%{background:#E62E2E}50%{background:#000}}
+@keyframes blkt{0%{color:#000}50%{color:#E62E2E}}
+@keyframes blkd{0%{background:#FFF}50%{background:#E62E2E}}
+@media (prefers-reduced-motion:reduce){.blinkie,.blinkie .dot,.blinkie .bt{animation:none}}
 </style>
 </head>
 <body>
@@ -138,6 +145,7 @@ input[type=text],input[type=search],textarea{cursor:text}
 <aside class="side" aria-label="Menu and blog feed">
 <div class="side-in">
 <section class="rss" aria-labelledby="rss-h">
+<div class="blinkie" role="img" aria-label="Live from the crypt"><span class="dot"></span><span class="bt">LIVE FROM THE CRYPT</span><span class="dot"></span></div>
 <div class="rss-top"><h2 class="sb-h" id="rss-h">Dead Notes Feed</h2><a class="rss-btn" href="feed.xml">RSS</a></div>
 <ul id="feed"><li>summoning posts...</li></ul>
 </section>
