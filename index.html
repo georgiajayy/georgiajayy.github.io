@@ -126,9 +126,19 @@ body{padding:var(--band)}
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
 input[type=text],input[type=search],textarea{cursor:text}
+/* blood dripping down from the top of the page */
+.blood{position:absolute;top:var(--band);left:var(--band);right:var(--band);height:75vh;pointer-events:none;z-index:0;overflow:visible}
+.wrap{position:relative;z-index:1}
+.blood svg{display:block;width:100%;height:100%;overflow:visible}
+.blood .d{transform-box:fill-box;transform-origin:top;transform:scaleY(0);animation:bleed var(--t) cubic-bezier(.35,.0,.25,1) var(--w) forwards}
+.blood .drop{opacity:0;animation:fall var(--ft) ease-in var(--fw) infinite}
+@keyframes bleed{to{transform:scaleY(1)}}
+@keyframes fall{0%{opacity:0;transform:translateY(0)}6%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateY(var(--fd))}}
+@media (prefers-reduced-motion:reduce){.blood .d{animation:none;transform:none}.blood .drop{display:none}}
 </style>
 </head>
 <body>
+<div class="blood" id="blood" aria-hidden="true"></div>
 <div class="band t" aria-hidden="true"></div><div class="band r" aria-hidden="true"></div><div class="band b" aria-hidden="true"></div><div class="band l" aria-hidden="true"></div>
 <div class="wrap">
 
@@ -404,6 +414,63 @@ function doomReply(key) {
   document.getElementById('doom-close').addEventListener('click', function () { toggle(false); fab.focus(); });
   form.addEventListener('submit', function (e) { e.preventDefault(); var v = input.value.trim(); if (!v || busy) return; input.value = ''; say(v, doomRoute(v)); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel.style.display !== 'none') { toggle(false); fab.focus(); } });
+})();
+</script>
+<script>
+(function () {
+  var box = document.getElementById('blood'), NS = 'http://www.w3.org/2000/svg', last = 0;
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function el(n, at) { var e = document.createElementNS(NS, n); for (var k in at) e.setAttribute(k, at[k]); return e; }
+  function draw() {
+    var W = box.clientWidth, H = box.clientHeight;
+    if (!W || Math.abs(W - last) < 40) return; last = W;
+    box.innerHTML = '';
+    var svg = el('svg', {viewBox: '0 0 ' + W + ' ' + H, preserveAspectRatio: 'none'});
+    var defs = el('defs', {});
+    var g = el('linearGradient', {id: 'bl', x1: 0, y1: 0, x2: 0, y2: 1});
+    g.appendChild(el('stop', {offset: 0, 'stop-color': '#7A1214'}));
+    g.appendChild(el('stop', {offset: .35, 'stop-color': '#E62E2E'}));
+    g.appendChild(el('stop', {offset: 1, 'stop-color': '#B01E22'}));
+    defs.appendChild(g);
+    var f = el('filter', {id: 'grit', x: '-5%', y: '-5%', width: '110%', height: '110%'});
+    f.appendChild(el('feTurbulence', {type: 'fractalNoise', baseFrequency: '0.035', numOctaves: 2, seed: 3, result: 'n'}));
+    f.appendChild(el('feDisplacementMap', {in: 'SourceGraphic', in2: 'n', scale: 6, xChannelSelector: 'R', yChannelSelector: 'G'}));
+    defs.appendChild(f);
+    svg.appendChild(defs);
+    var grp = el('g', {fill: 'url(#bl)', filter: 'url(#grit)'});
+    // wavy pool along the top
+    var d = 'M0 0 H' + W + ' V10', x = W;
+    while (x > 0) { var nx = Math.max(0, x - rnd(30, 90)); d += ' Q' + ((x + nx) / 2) + ' ' + rnd(14, 30) + ' ' + nx + ' ' + rnd(8, 16); x = nx; }
+    grp.appendChild(el('path', {d: d + ' Z'}));
+    // drips
+    var n = Math.round(W / 55);
+    for (var i = 0; i < n; i++) {
+      var cx = rnd(0, W), w = rnd(5, 16), len = Math.pow(Math.random(), 1.6) * H * 0.95 + 25;
+      var r = w / 2, top = 6;
+      var p = 'M' + (cx - r) + ' ' + top + ' C' + (cx - r) + ' ' + (top + len * .4) + ' ' + (cx - r * .7) + ' ' + (top + len * .8) + ' ' + (cx - r * .85) + ' ' + (top + len) +
+              ' A' + (r * .95) + ' ' + (r * 1.1) + ' 0 0 0 ' + (cx + r * .85) + ' ' + (top + len) +
+              ' C' + (cx + r * .7) + ' ' + (top + len * .8) + ' ' + (cx + r) + ' ' + (top + len * .4) + ' ' + (cx + r) + ' ' + top + ' Z';
+      var drip = el('path', {d: p, class: 'd'});
+      drip.style.setProperty('--t', rnd(2.5, 9).toFixed(2) + 's');
+      drip.style.setProperty('--w', rnd(0, 2.5).toFixed(2) + 's');
+      grp.appendChild(drip);
+      if (Math.random() < .35) {
+        var drop = el('ellipse', {cx: cx, cy: top + len + r * 1.6, rx: r * .7, ry: r * 1.05, class: 'drop'});
+        drop.style.setProperty('--ft', rnd(1.6, 3.2).toFixed(2) + 's');
+        drop.style.setProperty('--fw', rnd(4, 11).toFixed(2) + 's');
+        drop.style.setProperty('--fd', rnd(120, 420).toFixed(0) + 'px');
+        grp.appendChild(drop);
+      }
+    }
+    svg.appendChild(grp);
+    // gloss highlights
+    var gl = el('g', {fill: 'rgba(255,255,255,.28)'});
+    Array.prototype.forEach.call(grp.querySelectorAll('.d'), function (dp, k) { if (k % 3) return; });
+    svg.appendChild(gl);
+    box.appendChild(svg);
+  }
+  var tid; window.addEventListener('resize', function () { clearTimeout(tid); tid = setTimeout(draw, 250); });
+  draw();
 })();
 </script>
 </body>
