@@ -95,7 +95,8 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .quick{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 22px;font-size:20px}
 .quick > a, .quick .ic{transform:rotate(-2deg)!important}
 }
-.games-sign{display:block;width:100%;max-width:380px;margin:0 auto;-webkit-tap-highlight-color:transparent}
+.games-sign{display:block;align-self:flex-end;width:min(340px,100%);-webkit-tap-highlight-color:transparent}
+@media (max-width:600px){.games-sign{align-self:center}}
 .games-sign:focus:not(:focus-visible){outline:none}
 .games-sign img{display:block;width:100%;height:auto}
 /* moving skull-and-crossbones banner around the page edge */
@@ -147,7 +148,6 @@ body{padding:var(--band)}
 </section>
 </div>
 </aside>
-<a class="games-sign" href="games.html" aria-label="Want to play a game? Enter the games archive"><picture><source srcset="assets/games-sign.webp" type="image/webp"><img src="assets/games-sign.png" alt="Infectious substance hazard sign: want to play a game? Click here to enter" width="640" height="572" loading="lazy"></picture></a>
 </div>
 
 <main class="main">
@@ -181,6 +181,7 @@ body{padding:var(--band)}
 </nav>
 </div>
 </div>
+<a class="games-sign" href="games.html" aria-label="Want to play a game? Enter the games archive"><picture><source srcset="assets/games-sign.webp" type="image/webp"><img src="assets/games-sign.png" alt="Infectious substance hazard sign: want to play a game? Click here to enter" width="640" height="572" loading="lazy"></picture></a>
 <footer>© GEORGiA JAYY</footer>
 </main>
 
