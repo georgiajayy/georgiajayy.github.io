@@ -61,7 +61,12 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .logo-box .logo{width:100%}
 .vibe-row{display:flex;align-items:center;gap:24px;margin-top:-1%}
 .vibe{display:block;flex:0 0 34%;width:34%;height:auto}
-.srch{flex:1 1 0;min-width:0;position:relative;display:flex;flex-direction:column;gap:8px}
+.vibe-side{flex:1 1 0;min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:space-around;gap:28px}
+.bmc{align-self:flex-end;display:inline-flex;align-items:center;gap:10px;background:var(--pink);color:#000;font-family:'Permanent Marker','Marker Felt',cursive;font-size:22px;text-decoration:none;padding:8px 18px 9px;border:3px solid #FFF;border-radius:4px 14px 6px 12px;transform:rotate(3deg);filter:url(#rough);transition:transform .15s ease,background .15s ease}
+.bmc svg{width:24px;height:24px;fill:currentColor}
+.bmc:hover,.bmc:focus-visible{background:#FFF;transform:rotate(-2deg) scale(1.05);outline:none}
+@media (prefers-reduced-motion:reduce){.bmc{transition:none}}
+.srch{flex:0 0 auto;min-width:0;position:relative;display:flex;flex-direction:column;gap:8px}
 .srch-label{font-family:'Special Elite',monospace;color:var(--pink);font-size:14px;letter-spacing:3px}
 .srch-box{display:flex;align-items:center;border:2px solid #FFF;background:#000}
 .srch-box:focus-within{border-color:var(--pink)}
@@ -78,7 +83,7 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .srch-res a:hover,.srch-res a.on,.srch-res a:focus-visible{background:var(--pink);outline:none}
 .srch-res a:hover b,.srch-res a.on b,.srch-res a:focus-visible b,.srch-res a:hover small,.srch-res a.on small,.srch-res a:focus-visible small{color:#000}
 .srch-none{padding:10px 12px;font-family:'Special Elite',monospace;color:#ccc}
-@media (max-width:560px){.vibe-row{flex-direction:column;align-items:stretch}.vibe{width:60%;flex-basis:auto;margin:0 auto}}
+@media (max-width:560px){.vibe-row{flex-direction:column;align-items:stretch}.bmc{align-self:center}.vibe{width:60%;flex-basis:auto;margin:0 auto}}
 .quick{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:26px;font-family:'Permanent Marker','Marker Felt',cursive;font-size:24px;filter:url(#rough)}
 .quick a{color:#FFF;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px;display:inline-block}
 .quick > a:nth-child(1){transform:rotate(-4deg)}
@@ -137,10 +142,13 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 <div class="logo-box"><picture><source srcset="assets/logo-drip.webp" type="image/webp"><img class="logo" src="assets/logo-drip.png" alt="Georgia Jayy" width="1562" height="876"></picture>
 <div class="vibe-row">
 <img class="vibe" src="assets/vibe-coder.png" alt="Illustration of Georgia in an emo outfit holding a laptop, asking: How can I vibe code this?" width="700" height="1161">
+<div class="vibe-side">
+<a class="bmc" href="https://buymeacoffee.com/georgiajayy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8Zm13 1.5h1.5a2.5 2.5 0 0 1 0 5H17v-2h1.5a.5.5 0 0 0 0-1H17v-2ZM3 20.5h17v1.5H3v-1.5ZM8 2.5c0 1-1 1.5-1 2.5s1 1.5 1 2.5H6.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H8Zm4 0c0 1-1 1.5-1 2.5s1 1.5 1 2.5h-1.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H12Z"/></svg>donate to me!</a>
 <div class="srch" role="search">
 <label class="srch-label" for="srch-q">SEARCH THE ARCHiVE</label>
 <div class="srch-box"><input id="srch-q" type="search" placeholder="..." autocomplete="off" aria-controls="srch-res" aria-expanded="false"><span class="srch-ic" aria-hidden="true">&#9760;</span></div>
 <ul class="srch-res" id="srch-res" hidden></ul>
+</div>
 </div>
 </div>
 </div>
