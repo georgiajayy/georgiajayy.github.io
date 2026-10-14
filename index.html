@@ -15,7 +15,7 @@
 <meta name="description" content="Portfolio of Georgia Jayy: junior data analyst and freelance creative working across sport, culture, music and entertainment.">
 <link rel="alternate" type="application/rss+xml" title="Dead Notes · Georgia Jayy" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=Courier+Prime:wght@400;700&amp;family=UnifrakturMaguntia&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
 <style>
 :root{--pink:#FF69B4;--ink:#000;--paper:#FFF}
 html,body{margin:0;background:#000;color:#FFF}
@@ -115,6 +115,12 @@ body{padding:var(--band)}
 @keyframes bandU{to{background-position:0 calc(var(--zl) * -1)}}
 @media (max-width:600px){:root{--band:20px;--zl:40px}}
 @media (prefers-reduced-motion:reduce){.band{animation:none}}
+/* Chat of Doom */
+.chatfab{display:flex;align-items:center;gap:10px;background:#FFF;color:#000;border:2px solid #FFF;font-family:'Courier Prime',monospace;font-weight:700;font-size:14px;letter-spacing:2px;padding:10px 16px;min-height:48px;cursor:pointer;box-shadow:0 0 0 2px #000}
+.chatfab:hover{background:#000;color:#FFF}
+.chip{background:#000;color:#FFF;border:1px solid #FFF;font-family:'Courier Prime',monospace;font-size:13px;padding:8px 10px;min-height:40px;cursor:pointer}
+.chip:hover{background:#FFF;color:#000}
+.chatfab:focus-visible,.chip:focus-visible{outline:3px solid #FFF;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -278,6 +284,121 @@ body{padding:var(--band)}
     else if (ev.key === 'Escape') { q.value = ''; close(); }
   });
   document.addEventListener('click', function (ev) { if (!ev.target.closest('.srch')) close(); });
+})();
+</script>
+<div class="doom-wrap" style="position: fixed; right: calc(var(--band) + 14px); bottom: calc(var(--band) + 14px); z-index: 60; display: flex; flex-direction: column; align-items: flex-end; gap: 12px">
+<div id="doom-panel" style="display: none">
+<div role="dialog" aria-label="Chat of Doom" style="width: min(360px, calc(100vw - 40px)); height: min(540px, 72vh); background: #000000; border: 3px double #FFFFFF; display: flex; flex-direction: column; font-family: 'Courier Prime', monospace; color: #FFFFFF">
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 12px; border-bottom: 1px solid #FFFFFF">
+<svg aria-hidden="true" width="30" height="30" viewBox="0 0 72 64"><path d="M36 3 C22 3 14 13 14 25 C14 33 18 38 22 40 L22 50 C22 52 24 53 26 53 L46 53 C48 53 50 52 50 50 L50 40 C54 38 58 33 58 25 C58 13 50 3 36 3 Z" fill="#FFFFFF"></path><ellipse cx="27" cy="26" rx="6.5" ry="7.5" fill="#000000"></ellipse><ellipse cx="45" cy="26" rx="6.5" ry="7.5" fill="#000000"></ellipse><path d="M36 33 L32.5 40 L39.5 40 Z" fill="#000000"></path><path d="M28 53 V45 M33 53 V45 M39 53 V45 M44 53 V45" stroke="#000000" stroke-width="2"></path></svg>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-family: 'UnifrakturMaguntia', serif; font-size: 24px; line-height: 1.1">Chat of Doom</span><span style="font-size: 10px; letter-spacing: 2px">FRIENDLY WELLBEiNG CHECK-iN</span></div>
+<button type="button" class="chip" aria-label="Close chat" id="doom-close" style="width: 44px; height: 44px; padding: 0; font-size: 18px">✕</button>
+</div>
+<div id="doom-msgs" aria-live="polite" style="flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px"></div>
+<div id="doom-opts" style="display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 12px; border-top: 1px dotted #FFFFFF"></div>
+<form id="doom-form" style="display: flex; border-top: 1px solid #FFFFFF; margin: 0">
+<label for="chat-input" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Message Doom</label>
+<input id="chat-input" type="text" placeholder="type to Doom..." autocomplete="off" style="flex: 1; min-width: 0; background: #000000; color: #FFFFFF; border: none; font-family: 'Courier Prime', monospace; font-size: 15px; padding: 12px; outline: none">
+<button type="submit" style="background: #FFFFFF; color: #000000; border: none; font-family: 'Courier Prime', monospace; font-weight: 700; letter-spacing: 2px; padding: 0 14px; min-height: 44px; cursor: pointer">SEND</button>
+</form>
+<span style="font-size: 11px; line-height: 1.4; padding: 6px 12px; border-top: 1px solid #FFFFFF">Doom is a little script, not a professional or live AI. Need to talk to someone? Samaritans: 116 123.</span>
+</div>
+</div>
+<button type="button" id="doom-fab" class="chatfab" aria-expanded="false" aria-label="Open Chat of Doom, a friendly wellbeing check-in"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 72 64"><path d="M36 3 C22 3 14 13 14 25 C14 33 18 38 22 40 L22 50 C22 52 24 53 26 53 L46 53 C48 53 50 52 50 50 L50 40 C54 38 58 33 58 25 C58 13 50 3 36 3 Z" fill="currentColor"></path><ellipse cx="27" cy="26" rx="6.5" ry="7.5" fill="#FFFFFF"></ellipse><ellipse cx="45" cy="26" rx="6.5" ry="7.5" fill="#FFFFFF"></ellipse><path d="M36 33 L32.5 40 L39.5 40 Z" fill="#FFFFFF"></path><path d="M28 53 V45 M33 53 V45 M39 53 V45 M44 53 V45" stroke="#FFFFFF" stroke-width="2"></path></svg><span>CHAT OF DOOM</span></button>
+</div>
+<script>
+var DOOM_SUPPORT = "You deserve proper support from real humans. In the UK you can:\n• Call Samaritans on 116 123, free, any time\n• Text SHOUT to 85258\n• Call NHS 111 and choose the mental health option\nIf you're in danger right now, call 999.\nI'm just a little script, but I'm really glad you're here.";
+var DOOM_TIPS = [
+  "Drink a glass of water. Even ghouls get dehydrated.",
+  "Stand up and stretch for one minute. Reach for the ceiling like you're escaping a coffin.",
+  "Try box breathing: in for 4, hold for 4, out for 4, hold for 4. Repeat four times.",
+  "Step outside for five minutes. Fresh air beats the crypt every time.",
+  "Text someone you like, just to say hi. Connection is a superpower.",
+  "Write down three small things that went okay today. Small counts.",
+  "Put on one song you love, full volume. Headbang optional.",
+  "Close ten browser tabs. Feel the weight leave your soul.",
+  "Look at something far away for 20 seconds. Your eyes will thank you."
+];
+var DOOM_FACTS = [
+  "Octopuses have three hearts. Imagine the heartbreak.",
+  "A group of crows is called a murder. Dramatic, but fair.",
+  "Honey never really spoils. Edible honey has been found in ancient Egyptian tombs.",
+  "Bananas are very slightly radioactive. Spooky snacks.",
+  "Wombat poo is cube-shaped. Nature is the real horror movie."
+];
+function doomPick(list) { return list[Math.floor(Math.random() * list.length)]; }
+function doomNode(key) {
+  var BYE = 'bye for now', TIP = 'give me a tip', MORE = 'i need more support', CHAT = 'just chatting';
+  switch (key) {
+    case 'start': return { text: "Boo! I'm Doom, the friendliest ghoul on the internet. No actual doom here, just a check-in.\nHow's your soul doing today?", opts: ['thriving', 'okay-ish', 'tired', 'stressed', 'low', 'not great at all'] };
+    case 'thriving': return { text: "Love that for you. The whole graveyard is cheering. What's been good today?", opts: [CHAT, TIP, BYE] };
+    case 'okay-ish': return { text: "Okay-ish is completely valid. Even skeletons have meh days. Fancy a tiny reset?", opts: [TIP, CHAT, BYE] };
+    case 'tired': return { text: "Rest is not a crime. When did you last have some water, or look away from a screen?", opts: [TIP, MORE, BYE] };
+    case 'stressed': return { text: "Let's breathe together.\nIn for 4... hold for 4... out for 6.\nDo that three times. Better, worse, or about the same?", opts: ['better', 'about the same', 'worse'] };
+    case 'better': return { text: "Nice. Your lungs deserve a medal. Want another tip for the road?", opts: [TIP, BYE] };
+    case 'about the same': return { text: "That's okay, stress doesn't melt on command. It can help to write down the one thing worrying you most, then the smallest next step you could take.", opts: [TIP, MORE, BYE] };
+    case 'worse': return { text: "Thank you for being honest. You don't have to sort everything out right now. Talking to someone could really help.", opts: [MORE, TIP, BYE] };
+    case 'low': return { text: "I'm sorry you're feeling low. That's heavy, and you don't have to carry it alone. Reaching out to someone you trust, like a friend, family or your GP, can make a real difference.", opts: [MORE, TIP, CHAT] };
+    case 'not great at all': return { text: "I'm really sorry things feel this hard. " + DOOM_SUPPORT, opts: [TIP, 'start over'] };
+    case MORE: return { text: DOOM_SUPPORT, opts: [TIP, 'start over'] };
+    case CHAT: return { text: "Love a chat. Random question from the crypt: what song have you had on repeat lately? Type it in, or ask me for something fun.", opts: ['tell me something fun', TIP, BYE] };
+    case 'tell me something fun': case 'another one': return { text: doomPick(DOOM_FACTS), opts: ['another one', TIP, BYE] };
+    case TIP: case 'another tip': return { text: doomPick(DOOM_TIPS), opts: ['another tip', MORE, BYE] };
+    case BYE: return { text: "Bye for now! Be kind to yourself. The crypt is always open if you want another check-in.", opts: ['start over'] };
+    case 'start over': case 'check in again': return doomNode('start');
+    case 'free': return { text: "Thanks for sharing that with me. I'm only a little script, so I might not get everything, but I'm listening. Want a tip, or shall we check in on how you're feeling?", opts: [TIP, 'check in again', MORE] };
+  }
+  return doomNode('free');
+}
+function doomRoute(text) {
+  var t = String(text).toLowerCase();
+  if (/suicid|kill myself|end it all|end my life|self.?harm|hurt myself|harm myself|want to die|don'?t want to (be here|live)|no reason to live/.test(t)) return 'not great at all';
+  if (/stress|anxious|anxiety|overwhelm|panic|worried|worry/.test(t)) return 'stressed';
+  if (/\b(sad|low|down|lonely|alone|depress|cry|crying)\b/.test(t)) return 'low';
+  if (/tired|exhausted|sleepy|no sleep|burnt out|burned out/.test(t)) return 'tired';
+  if (/\b(good|great|happy|amazing|thriving|brilliant|excited)\b/.test(t)) return 'thriving';
+  if (/\b(okay|ok|fine|meh|alright)\b/.test(t)) return 'okay-ish';
+  if (/support|helpline|talk to someone/.test(t)) return 'i need more support';
+  if (/\btip|help me\b/.test(t)) return 'give me a tip';
+  if (/\b(bye|thanks|thank you|cheers)\b/.test(t)) return 'bye for now';
+  if (/fun|joke|fact|bored/.test(t)) return 'tell me something fun';
+  if (/song|music|band|album|listening/.test(t)) return 'song';
+  return 'free';
+}
+function doomReply(key) {
+  if (key === 'song') return { text: "Excellent taste, obviously. Music is basically free therapy for the undead. How are you feeling today, honestly?", opts: ['thriving', 'okay-ish', 'tired', 'stressed', 'low'] };
+  return doomNode(key);
+}
+
+(function () {
+  var panel = document.getElementById('doom-panel'), fab = document.getElementById('doom-fab');
+  var list = document.getElementById('doom-msgs'), opts = document.getElementById('doom-opts');
+  var form = document.getElementById('doom-form'), input = document.getElementById('chat-input');
+  var started = false, busy = false;
+  function bubble(text, mine) {
+    var d = document.createElement('div');
+    d.style.cssText = 'align-self:' + (mine ? 'flex-end' : 'flex-start') + ';max-width:85%;padding:8px 10px;border:1px solid #FFFFFF;background:' + (mine ? '#FFFFFF' : '#000000') + ';color:' + (mine ? '#000000' : '#FFFFFF') + ';white-space:pre-line;font-size:14px;line-height:1.45';
+    d.textContent = text; list.appendChild(d); list.scrollTop = list.scrollHeight;
+  }
+  function setOpts(arr) {
+    opts.innerHTML = '';
+    arr.forEach(function (o) { var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = o; b.addEventListener('click', function () { say(o, o); }); opts.appendChild(b); });
+  }
+  function say(text, key) {
+    if (busy) return; busy = true;
+    bubble(text, true); setOpts([]);
+    var t = document.createElement('span'); t.style.cssText = 'font-size:13px;letter-spacing:2px'; t.textContent = 'Doom is typing...'; list.appendChild(t); list.scrollTop = list.scrollHeight;
+    setTimeout(function () { t.remove(); var n = doomReply(key); bubble(n.text, false); setOpts(n.opts); busy = false; }, 650);
+  }
+  function toggle(open) {
+    panel.style.display = open ? 'block' : 'none'; fab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && !started) { started = true; var n = doomReply('start'); bubble(n.text, false); setOpts(n.opts); }
+    if (open) input.focus();
+  }
+  fab.addEventListener('click', function () { toggle(panel.style.display === 'none'); });
+  document.getElementById('doom-close').addEventListener('click', function () { toggle(false); fab.focus(); });
+  form.addEventListener('submit', function (e) { e.preventDefault(); var v = input.value.trim(); if (!v || busy) return; input.value = ''; say(v, doomRoute(v)); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel.style.display !== 'none') { toggle(false); fab.focus(); } });
 })();
 </script>
 </body>
