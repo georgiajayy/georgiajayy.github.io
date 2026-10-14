@@ -41,17 +41,6 @@ a{color:var(--pink)}
 /* main area */
 .main{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px}
 .logo{display:block;width:min(640px,100%);height:auto;margin:0 auto}
-.stars{color:var(--pink);letter-spacing:.5em;text-align:center;overflow:hidden;white-space:nowrap;font-size:14px}
-.welcome{text-align:center;font-size:18px;line-height:1.6}
-.welcome p{margin:0}
-.kicker{font-family:'Special Elite',monospace;color:var(--pink);font-size:15px}
-.cols{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
-.log{flex:1 1 320px;min-width:0}
-.log h3{margin:0 0 10px;font-family:'Special Elite',monospace;font-weight:400;font-size:18px}
-.log p{margin:0 0 16px}
-.log b{color:var(--pink);font-weight:400;font-family:'Special Elite',monospace}
-.stamps{flex:0 1 220px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.stamp{aspect-ratio:1;border:1px dashed var(--pink);display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:12px;color:var(--pink)}
 footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;color:var(--pink)}
 @media (max-width: 860px){.side{order:2;flex-basis:100%}.main{order:1}}
 
@@ -115,13 +104,13 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 <nav aria-label="Main">
 <h2 class="sb-h">Act I</h2>
 <ul class="sb-menu">
-<li><a class="hl" href="#">1. About me</a> a short line about who you are</li>
-<li><a class="hl" href="#">2. Credits</a> who you have made things with</li>
+<li><a class="hl" href="bio.html">1. About me</a> a short line about who you are</li>
+<li><a class="hl" href="creative.html#credits">2. Credits</a> who you have made things with</li>
 <li><a class="hl" href="#">3. CV</a> the paper version, download it</li>
 </ul>
 <h2 class="sb-h">Library</h2>
 <ul class="sb-menu">
-<li><a class="hl" href="#">4. Releases</a> projects that are live right now</li>
+<li><a class="hl" href="data.html">4. Releases</a> projects that are live right now</li>
 <li><a class="hl" href="#">5. Project Archive</a> pre-loved projects, dug back up</li>
 <li><a class="hl" href="#">6. The Tarot</a> skills, drawn as cards</li>
 </ul>
@@ -157,9 +146,9 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 <div class="head-right">
 <a class="bmc" href="https://buymeacoffee.com/georgiajayy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8Zm13 1.5h1.5a2.5 2.5 0 0 1 0 5H17v-2h1.5a.5.5 0 0 0 0-1H17v-2ZM3 20.5h17v1.5H3v-1.5ZM8 2.5c0 1-1 1.5-1 2.5s1 1.5 1 2.5H6.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H8Zm4 0c0 1-1 1.5-1 2.5s1 1.5 1 2.5h-1.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H12Z"/></svg>donate to me!</a>
 <nav class="quick" aria-label="Quick links">
-<a href="#">BIO</a>
-<a href="#">DATA</a>
-<a href="#">CREATIVE</a>
+<a href="bio.html">BIO</a>
+<a href="data.html">DATA</a>
+<a href="creative.html">CREATIVE</a>
 <a class="cv" href="Georgia_Summers_CV.pdf" target="_blank" rel="noopener" download>CV &#8595;</a>
 <span class="ic">
 <a href="https://github.com/georgiajayy" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
@@ -169,25 +158,6 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 </span>
 </nav>
 </div>
-</div>
-<div class="stars" aria-hidden="true">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
-<div class="welcome">
-<p>placeholder welcome line goes here</p>
-<p>a second line, a little longer, says what this site is about</p>
-<p>and a third line to set the mood</p>
-<p>You are visitor #[counter] &#160; Since [date]</p>
-</div>
-<div class="welcome"><span class="kicker">Currently listening:</span><br>[song] by [artist]</div>
-<div class="stars" aria-hidden="true">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
-<div class="cols">
-<section class="log">
-<h3>latest update...</h3>
-<p><b>[Month]:</b> Placeholder text for an update. A sentence or two about something new on the site, with a <a href="#">link to the page</a>.</p>
-<p><b>[Month]:</b> Another update goes here. This is just random text to show how a longer paragraph wraps in this typeface and how much space it takes up.</p>
-<p><b>[Month]:</b> A short one.</p>
-<p><b>[Month]:</b> One more placeholder entry, so you can see how the log stacks as it grows over time.</p>
-</section>
-<div class="stamps" aria-label="Stamp grid placeholder"><div class="stamp"><span>stamp 1</span></div><div class="stamp"><span>stamp 2</span></div><div class="stamp"><span>stamp 3</span></div><div class="stamp"><span>stamp 4</span></div><div class="stamp"><span>stamp 5</span></div><div class="stamp"><span>stamp 6</span></div><div class="stamp"><span>stamp 7</span></div><div class="stamp"><span>stamp 8</span></div><div class="stamp"><span>stamp 9</span></div><div class="stamp"><span>stamp 10</span></div><div class="stamp"><span>stamp 11</span></div><div class="stamp"><span>stamp 12</span></div></div>
 </div>
 <footer>© GEORGiA JAYY</footer>
 </main>
@@ -218,10 +188,12 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 <script>
 (function () {
   var INDEX = [
-    {t: 'About me', d: 'Junior data analyst and freelance creative: production, editing, videography.', k: 'about bio who georgia g junior data analyst freelance creative sport culture music entertainment fans', h: '#'},
-    {t: 'Credits', d: 'Arsenal FC, BBC Sport, ITV Sport, The FA, Nike, Adidas, UEFA, BFI.', k: 'credits arsenal bbc sport itv fa football association nike adidas uefa british film institute bfi clients', h: '#'},
+    {t: 'Data', d: 'Data projects: Lionesses Euro 2025 and more.', k: 'data analysis projects python sql dashboards analyst', h: 'data.html'},
+    {t: 'Creative', d: 'Content, videography, editing and production.', k: 'creative video videography editing production content camera', h: 'creative.html'},
+    {t: 'About me', d: 'Junior data analyst and freelance creative: production, editing, videography.', k: 'about bio who georgia g junior data analyst freelance creative sport culture music entertainment fans', h: 'bio.html'},
+    {t: 'Credits', d: 'Arsenal FC, BBC Sport, ITV Sport, The FA, Nike, Adidas, UEFA, BFI.', k: 'credits arsenal bbc sport itv fa football association nike adidas uefa british film institute bfi clients', h: 'creative.html#credits'},
     {t: 'CV', d: 'The paper version. Download it.', k: 'cv resume download pdf experience hire', h: 'Georgia_Summers_CV.pdf'},
-    {t: 'Releases', d: 'Projects that are live right now.', k: 'releases projects portfolio work data', h: '#'},
+    {t: 'Releases', d: 'Projects that are live right now.', k: 'releases projects portfolio work data', h: 'data.html'},
     {t: 'Lionesses Euro 2025', d: 'How England won the final despite Spain creating twice the chances.', k: 'lionesses euro 2025 england spain xg expected goals football womens statsbomb python streamlit dashboard project archive data', h: 'projects/lionesses-euro-2025.html'},
     {t: 'Project Archive', d: 'Pre-loved projects, dug back up.', k: 'archive old projects past', h: '#'},
     {t: 'The Tarot', d: 'Skills, drawn as cards: Python, SQL, Power BI, Excel, Streamlit, videography.', k: 'tarot skills tools python sql power bi excel streamlit pandas videography editing meltwater', h: '#'},
