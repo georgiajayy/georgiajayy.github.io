@@ -127,14 +127,14 @@ html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Cs
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
 input[type=text],input[type=search],textarea{cursor:text}
 /* blood dripping down from the top of the page */
-.blood{position:absolute;top:var(--band);left:var(--band);right:var(--band);height:75vh;pointer-events:none;z-index:0;overflow:visible}
+.blood{position:absolute;top:var(--band);left:var(--band);right:var(--band);height:100vh;pointer-events:none;z-index:0}
+.blood svg{display:block;width:100%;height:100%}
 .wrap{position:relative;z-index:1}
-.blood svg{display:block;width:100%;height:100%;overflow:visible}
-.blood .d{transform-box:fill-box;transform-origin:top;transform:scaleY(0);animation:bleed var(--t) cubic-bezier(.35,.0,.25,1) var(--w) forwards}
-.blood .drop{opacity:0;animation:fall var(--ft) ease-in var(--fw) infinite}
-@keyframes bleed{to{transform:scaleY(1)}}
-@keyframes fall{0%{opacity:0;transform:translateY(0)}6%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateY(var(--fd))}}
-@media (prefers-reduced-motion:reduce){.blood .d{animation:none;transform:none}.blood .drop{display:none}}
+.blood .ooze{animation:ooze var(--t) cubic-bezier(.5,.02,.18,1) var(--w) both}
+.blood .drop{opacity:0;animation:fall var(--ft) cubic-bezier(.55,0,1,.45) var(--fw) infinite}
+@keyframes ooze{from{transform:translateY(var(--from))}to{transform:translateY(0)}}
+@keyframes fall{0%{opacity:0;transform:translateY(0) scaleY(.6)}8%{opacity:1;transform:translateY(4px) scaleY(1.15)}90%{opacity:1}100%{opacity:0;transform:translateY(var(--fd)) scaleY(1.3)}}
+@media (prefers-reduced-motion:reduce){.blood .ooze{animation:none}.blood .drop{display:none}}
 </style>
 </head>
 <body>
@@ -421,52 +421,87 @@ function doomReply(key) {
   var box = document.getElementById('blood'), NS = 'http://www.w3.org/2000/svg', last = 0;
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function el(n, at) { var e = document.createElementNS(NS, n); for (var k in at) e.setAttribute(k, at[k]); return e; }
+  function f(n) { return n.toFixed(1); }
+  function grad(id, horiz, stops) {
+    var g = el('linearGradient', horiz ? {id: id, x1: 0, y1: 0, x2: 1, y2: 0} : {id: id, x1: 0, y1: 0, x2: 0, y2: 1});
+    stops.forEach(function (s) { g.appendChild(el('stop', {offset: s[0], 'stop-color': s[1]})); });
+    return g;
+  }
+  function dripPath(cx, w, y0, len) {
+    var h = w / 2, fl = Math.min(w * 0.9, 10), n = w * 0.2, R = w * 0.48, yb = y0 + len, wob = (Math.random() - .5) * w * 0.5;
+    var neck = yb - R * 0.7;
+    return 'M' + f(cx - h - fl) + ' ' + f(y0 - 2) +
+      ' C' + f(cx - h) + ' ' + f(y0 - 2) + ' ' + f(cx - h) + ' ' + f(y0 + fl * 0.6) + ' ' + f(cx - h) + ' ' + f(y0 + fl * 1.4) +
+      ' C' + f(cx - h * 0.92 + wob) + ' ' + f(y0 + len * 0.4) + ' ' + f(cx - n * 1.6 - wob * 0.4) + ' ' + f(neck - R * 2.2) + ' ' + f(cx - n) + ' ' + f(neck) +
+      ' A' + f(R) + ' ' + f(R * 1.08) + ' 0 1 0 ' + f(cx + n) + ' ' + f(neck) +
+      ' C' + f(cx + n * 1.6 - wob * 0.4) + ' ' + f(neck - R * 2.2) + ' ' + f(cx + h * 0.92 + wob) + ' ' + f(y0 + len * 0.4) + ' ' + f(cx + h) + ' ' + f(y0 + fl * 1.4) +
+      ' C' + f(cx + h) + ' ' + f(y0 + fl * 0.6) + ' ' + f(cx + h) + ' ' + f(y0 - 2) + ' ' + f(cx + h + fl) + ' ' + f(y0 - 2) + ' Z';
+  }
+  function wobble(w) { return (Math.random() - .5) * w * 0.3; }
   function draw() {
     var W = box.clientWidth, H = box.clientHeight;
     if (!W || Math.abs(W - last) < 40) return; last = W;
     box.innerHTML = '';
-    var svg = el('svg', {viewBox: '0 0 ' + W + ' ' + H, preserveAspectRatio: 'none'});
+    var svg = el('svg', {viewBox: '0 0 ' + W + ' ' + H});
     var defs = el('defs', {});
-    var g = el('linearGradient', {id: 'bl', x1: 0, y1: 0, x2: 0, y2: 1});
-    g.appendChild(el('stop', {offset: 0, 'stop-color': '#7A1214'}));
-    g.appendChild(el('stop', {offset: .35, 'stop-color': '#E62E2E'}));
-    g.appendChild(el('stop', {offset: 1, 'stop-color': '#B01E22'}));
-    defs.appendChild(g);
-    var f = el('filter', {id: 'grit', x: '-5%', y: '-5%', width: '110%', height: '110%'});
-    f.appendChild(el('feTurbulence', {type: 'fractalNoise', baseFrequency: '0.035', numOctaves: 2, seed: 3, result: 'n'}));
-    f.appendChild(el('feDisplacementMap', {in: 'SourceGraphic', in2: 'n', scale: 6, xChannelSelector: 'R', yChannelSelector: 'G'}));
-    defs.appendChild(f);
+    defs.appendChild(grad('bdrip', true, [[0, '#4A0709'], [.22, '#A81B20'], [.42, '#E62E2E'], [.58, '#D9282C'], [.85, '#8C1418'], [1, '#4A0709']]));
+    defs.appendChild(grad('bpool', false, [[0, '#3E0507'], [.45, '#9E1A1F'], [.85, '#D9282C'], [1, '#B71F24']]));
+    var sh = el('filter', {id: 'bsh', x: '-20%', y: '-20%', width: '140%', height: '140%'});
+    sh.appendChild(el('feDropShadow', {dx: 0, dy: 2, stdDeviation: 1.6, 'flood-color': '#000', 'flood-opacity': .55}));
+    defs.appendChild(sh);
     svg.appendChild(defs);
-    var grp = el('g', {fill: 'url(#bl)', filter: 'url(#grit)'});
-    // wavy pool along the top
-    var d = 'M0 0 H' + W + ' V10', x = W;
-    while (x > 0) { var nx = Math.max(0, x - rnd(30, 90)); d += ' Q' + ((x + nx) / 2) + ' ' + rnd(14, 30) + ' ' + nx + ' ' + rnd(8, 16); x = nx; }
-    grp.appendChild(el('path', {d: d + ' Z'}));
-    // drips
-    var n = Math.round(W / 55);
+
+    // pool edge: organic lobes
+    var depth = [], x = 0, pts = [];
+    while (x < W + 40) { pts.push([x, rnd(12, 26)]); x += rnd(18, 46); }
+    function poolY(px) {
+      for (var i = 1; i < pts.length; i++) if (pts[i][0] >= px) {
+        var a = pts[i - 1], b = pts[i], t = (px - a[0]) / (b[0] - a[0]);
+        return a[1] + (b[1] - a[1]) * (0.5 - Math.cos(t * Math.PI) / 2);
+      }
+      return 18;
+    }
+
+    var drips = el('g', {filter: 'url(#bsh)'});
+    var n = Math.max(8, Math.round(W / 34));
     for (var i = 0; i < n; i++) {
-      var cx = rnd(0, W), w = rnd(5, 16), len = Math.pow(Math.random(), 1.6) * H * 0.95 + 25;
-      var r = w / 2, top = 6;
-      var p = 'M' + (cx - r) + ' ' + top + ' C' + (cx - r) + ' ' + (top + len * .4) + ' ' + (cx - r * .7) + ' ' + (top + len * .8) + ' ' + (cx - r * .85) + ' ' + (top + len) +
-              ' A' + (r * .95) + ' ' + (r * 1.1) + ' 0 0 0 ' + (cx + r * .85) + ' ' + (top + len) +
-              ' C' + (cx + r * .7) + ' ' + (top + len * .8) + ' ' + (cx + r) + ' ' + (top + len * .4) + ' ' + (cx + r) + ' ' + top + ' Z';
-      var drip = el('path', {d: p, class: 'd'});
-      drip.style.setProperty('--t', rnd(2.5, 9).toFixed(2) + 's');
-      drip.style.setProperty('--w', rnd(0, 2.5).toFixed(2) + 's');
-      grp.appendChild(drip);
-      if (Math.random() < .35) {
-        var drop = el('ellipse', {cx: cx, cy: top + len + r * 1.6, rx: r * .7, ry: r * 1.05, class: 'drop'});
-        drop.style.setProperty('--ft', rnd(1.6, 3.2).toFixed(2) + 's');
-        drop.style.setProperty('--fw', rnd(4, 11).toFixed(2) + 's');
-        drop.style.setProperty('--fd', rnd(120, 420).toFixed(0) + 'px');
-        grp.appendChild(drop);
+      var cx = rnd(10, W - 10), long = Math.random() < 0.3;
+      var w = long ? rnd(10, 24) : rnd(6, 14);
+      var len = long ? Math.pow(Math.random(), 1.4) * 0.5 * H + 70 : rnd(8, 42);
+      var y0 = poolY(cx) - 3, R = w * 0.48;
+      var g = el('g', {class: 'ooze'});
+      g.style.setProperty('--from', f(-(len + R * 2 + 6)) + 'px');
+      g.style.setProperty('--t', (long ? rnd(4.5, 12) : rnd(1.8, 4)).toFixed(2) + 's');
+      g.style.setProperty('--w', rnd(0.1, long ? 3.5 : 2).toFixed(2) + 's');
+      g.appendChild(el('path', {d: dripPath(cx, w, y0, len), fill: 'url(#bdrip)'}));
+      if (w > 7) {
+        g.appendChild(el('path', {d: 'M' + f(cx - w * 0.22) + ' ' + f(y0 + 10) + ' Q' + f(cx - w * 0.2 + wobble(w)) + ' ' + f(y0 + len * 0.5) + ' ' + f(cx - w * 0.1) + ' ' + f(y0 + len - R * 1.8), stroke: 'rgba(255,225,225,.38)', 'stroke-width': f(Math.max(1.2, w * 0.12)), 'stroke-linecap': 'round', fill: 'none'}));
+        g.appendChild(el('ellipse', {cx: f(cx - R * 0.32), cy: f(y0 + len - R * 0.25), rx: f(R * 0.2), ry: f(R * 0.32), fill: 'rgba(255,235,235,.55)', transform: 'rotate(18 ' + f(cx - R * 0.32) + ' ' + f(y0 + len - R * 0.15) + ')'}));
+      }
+      drips.appendChild(g);
+      if (long && Math.random() < 0.45) {
+        var dy = y0 + len + R * 0.4, dr = Math.max(2.4, R * 0.55);
+        var drop = el('path', {class: 'drop', fill: 'url(#bdrip)',
+          d: 'M' + f(cx) + ' ' + f(dy - dr * 1.6) + ' C' + f(cx + dr * 0.3) + ' ' + f(dy - dr) + ' ' + f(cx + dr) + ' ' + f(dy - dr * 0.2) + ' ' + f(cx + dr) + ' ' + f(dy + dr * 0.35) +
+             ' A' + f(dr) + ' ' + f(dr) + ' 0 0 1 ' + f(cx - dr) + ' ' + f(dy + dr * 0.35) + ' C' + f(cx - dr) + ' ' + f(dy - dr * 0.2) + ' ' + f(cx - dr * 0.3) + ' ' + f(dy - dr) + ' ' + f(cx) + ' ' + f(dy - dr * 1.6) + ' Z'});
+        drop.style.transformBox = 'fill-box'; drop.style.transformOrigin = 'top';
+        drop.style.setProperty('--ft', rnd(0.9, 1.6).toFixed(2) + 's');
+        drop.style.setProperty('--fw', rnd(6, 16).toFixed(2) + 's');
+        drop.style.setProperty('--fd', f(Math.min(H - dy - 10, rnd(160, 520))) + 'px');
+        drips.appendChild(drop);
       }
     }
-    svg.appendChild(grp);
-    // gloss highlights
-    var gl = el('g', {fill: 'rgba(255,255,255,.28)'});
-    Array.prototype.forEach.call(grp.querySelectorAll('.d'), function (dp, k) { if (k % 3) return; });
-    svg.appendChild(gl);
+    svg.appendChild(drips);
+
+    // the pool sits on top so drips ooze out from underneath it
+    var d = 'M0 -2 H' + W + ' V' + f(poolY(W));
+    for (var px = W; px >= 0; px -= 6) d += ' L' + f(px) + ' ' + f(poolY(px));
+    d += ' Z';
+    svg.appendChild(el('path', {d: d, fill: 'url(#bpool)', filter: 'url(#bsh)'}));
+    var hl = 'M4 ' + f(poolY(4) - 5);
+    for (var qx = 10; qx <= W - 4; qx += 8) hl += ' L' + f(qx) + ' ' + f(poolY(qx) - 5);
+    svg.appendChild(el('path', {d: hl, stroke: 'rgba(255,215,215,.22)', 'stroke-width': 1.6, fill: 'none', 'stroke-linecap': 'round'}));
+
     box.appendChild(svg);
   }
   var tid; window.addEventListener('resize', function () { clearTimeout(tid); tid = setTimeout(draw, 250); });
