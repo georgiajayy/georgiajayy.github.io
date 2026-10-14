@@ -23,7 +23,8 @@ body{font-family:'Alegreya',Georgia,serif;font-size:16px;line-height:1.5}
 a{color:var(--pink)}
 .wrap{max-width:none;margin:0;padding:24px clamp(16px,3vw,56px) 48px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
 /* sidebar: hot pink panel inside a white-skull border */
-.side{flex:0 1 380px;min-width:0;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2080%2080%22%3E%3Crect%20width%3D%2280%22%20height%3D%2280%22%20fill%3D%22%23000%22/%3E%3Cg%20transform%3D%22translate%284%208%29%22%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cg%20transform%3D%22rotate%2832%2036%2040%29%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Crect%20x%3D%225%22%20y%3D%2236.5%22%20width%3D%2262%22%20height%3D%228%22%20rx%3D%223%22/%3E%3C/g%3E%3Cg%20transform%3D%22rotate%28-32%2036%2040%29%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Crect%20x%3D%225%22%20y%3D%2236.5%22%20width%3D%2262%22%20height%3D%228%22%20rx%3D%223%22/%3E%3C/g%3E%3Cpath%20d%3D%22M36%203C22%203%2014%2013%2014%2025C14%2033%2018%2038%2022%2040L22%2050C22%2052%2024%2053%2026%2053L46%2053C48%2053%2050%2052%2050%2050L50%2040C54%2038%2058%2033%2058%2025C58%2013%2050%203%2036%203Z%22/%3E%3C/g%3E%3Cellipse%20cx%3D%2227%22%20cy%3D%2226%22%20rx%3D%226.5%22%20ry%3D%227.5%22%20fill%3D%22%23000%22/%3E%3Cellipse%20cx%3D%2245%22%20cy%3D%2226%22%20rx%3D%226.5%22%20ry%3D%227.5%22%20fill%3D%22%23000%22/%3E%3Cpath%20d%3D%22M36%2033L32.5%2040L39.5%2040Z%22%20fill%3D%22%23000%22/%3E%3Cpath%20d%3D%22M28%2053V45M33%2053V45M39%2053V45M44%2053V45%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22/%3E%3C/g%3E%3C/svg%3E") 0 0/32px 32px round;padding:32px}
+.side-col{flex:0 1 380px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.side{min-width:0;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2080%2080%22%3E%3Crect%20width%3D%2280%22%20height%3D%2280%22%20fill%3D%22%23000%22/%3E%3Cg%20transform%3D%22translate%284%208%29%22%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cg%20transform%3D%22rotate%2832%2036%2040%29%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Crect%20x%3D%225%22%20y%3D%2236.5%22%20width%3D%2262%22%20height%3D%228%22%20rx%3D%223%22/%3E%3C/g%3E%3Cg%20transform%3D%22rotate%28-32%2036%2040%29%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2237%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2266%22%20cy%3D%2244%22%20r%3D%225%22/%3E%3Crect%20x%3D%225%22%20y%3D%2236.5%22%20width%3D%2262%22%20height%3D%228%22%20rx%3D%223%22/%3E%3C/g%3E%3Cpath%20d%3D%22M36%203C22%203%2014%2013%2014%2025C14%2033%2018%2038%2022%2040L22%2050C22%2052%2024%2053%2026%2053L46%2053C48%2053%2050%2052%2050%2050L50%2040C54%2038%2058%2033%2058%2025C58%2013%2050%203%2036%203Z%22/%3E%3C/g%3E%3Cellipse%20cx%3D%2227%22%20cy%3D%2226%22%20rx%3D%226.5%22%20ry%3D%227.5%22%20fill%3D%22%23000%22/%3E%3Cellipse%20cx%3D%2245%22%20cy%3D%2226%22%20rx%3D%226.5%22%20ry%3D%227.5%22%20fill%3D%22%23000%22/%3E%3Cpath%20d%3D%22M36%2033L32.5%2040L39.5%2040Z%22%20fill%3D%22%23000%22/%3E%3Cpath%20d%3D%22M28%2053V45M33%2053V45M39%2053V45M44%2053V45%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22/%3E%3C/g%3E%3C/svg%3E") 0 0/32px 32px round;padding:32px}
 .side-in{background:var(--pink);color:#000;padding:18px 18px 22px}
 .sb-h{display:inline-block;margin:18px 0 6px;background:#000;color:var(--pink);font-family:'Special Elite',monospace;font-weight:400;font-size:24px;line-height:1.15;padding:0 10px}
 .sb-h:first-child{margin-top:0}
@@ -42,7 +43,7 @@ a{color:var(--pink)}
 .main{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px}
 .logo{display:block;width:min(640px,100%);height:auto;margin:0 auto}
 footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;color:var(--pink)}
-@media (max-width: 860px){.side{order:2;flex-basis:100%}.main{order:1}}
+@media (max-width: 860px){.side-col{order:2;flex-basis:100%}.main{order:1}}
 
 /* quick links: a scattered column to the right of the logo */
 .head{display:flex;align-items:center;gap:32px}
@@ -94,11 +95,16 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .quick{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 22px;font-size:20px}
 .quick > a, .quick .ic{transform:rotate(-2deg)!important}
 }
+.games-sign{display:block;width:100%;max-width:380px;margin:0 auto;transition:transform .2s ease,filter .2s ease}
+.games-sign img{display:block;width:100%;height:auto}
+.games-sign:hover,.games-sign:focus-visible{transform:rotate(-3deg) scale(1.03);filter:drop-shadow(0 0 18px rgba(182,255,59,.55));outline:none}
+@media (prefers-reduced-motion:reduce){.games-sign{transition:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+<div class="side-col">
 <aside class="side" aria-label="Menu and blog feed">
 <div class="side-in">
 <nav aria-label="Main">
@@ -116,7 +122,7 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 </ul>
 <h2 class="sb-h">Extras</h2>
 <ul class="sb-menu">
-<li><a class="hl" href="#">7. Data Slasher</a> the minigame</li>
+<li><a class="hl" href="games.html">7. Data Slasher</a> the minigame</li>
 <li><a class="hl" href="#">8. The Manifesto</a> three rules, no exceptions</li>
 <li><a class="hl" href="#">9. Contact</a> email me, hire me, haunt me</li>
 </ul>
@@ -127,6 +133,8 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 </section>
 </div>
 </aside>
+<a class="games-sign" href="games.html" aria-label="Want to play a game? Enter the games archive"><picture><source srcset="assets/games-sign.webp" type="image/webp"><img src="assets/games-sign.png" alt="Infectious substance hazard sign: want to play a game? Click here to enter" width="640" height="572" loading="lazy"></picture></a>
+</div>
 
 <main class="main">
 <div class="head">
@@ -197,7 +205,8 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
     {t: 'Lionesses Euro 2025', d: 'How England won the final despite Spain creating twice the chances.', k: 'lionesses euro 2025 england spain xg expected goals football womens statsbomb python streamlit dashboard project archive data', h: 'projects/lionesses-euro-2025.html'},
     {t: 'Project Archive', d: 'Pre-loved projects, dug back up.', k: 'archive old projects past', h: '#'},
     {t: 'The Tarot', d: 'Skills, drawn as cards: Python, SQL, Power BI, Excel, Streamlit, videography.', k: 'tarot skills tools python sql power bi excel streamlit pandas videography editing meltwater', h: '#'},
-    {t: 'Data Slasher', d: 'The minigame. Slash the outliers.', k: 'game minigame data slasher play outliers bar charts', h: '#'},
+    {t: 'Games', d: 'The archive of mini games. Want to play a game?', k: 'games game minigames play arcade archive fun', h: 'games.html'},
+    {t: 'Data Slasher', d: 'The minigame. Slash the outliers.', k: 'game minigame data slasher play outliers bar charts', h: 'games.html'},
     {t: 'The Manifesto', d: 'Three rules, no exceptions.', k: 'manifesto rules data hardcore charts pie', h: '#'},
     {t: 'Contact', d: 'Email me, hire me, haunt me.', k: 'contact email hire freelance work enquiries', h: 'mailto:work.georgiajayy@gmail.com'},
     {t: 'GitHub', d: 'github.com/georgiajayy', k: 'github code repos', h: 'https://github.com/georgiajayy'},
