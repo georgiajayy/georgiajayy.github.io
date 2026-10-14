@@ -4,98 +4,370 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bio · Georgia Jayy</title>
-<meta name="description" content="About Georgia Jayy: junior data analyst and freelance creative.">
+<meta name="description" content="The story of G: data analyst, football coach and professional overthinker, told as a flippable zine.">
 <meta property="og:title" content="Bio · Georgia Jayy">
-<meta property="og:description" content="About Georgia Jayy: junior data analyst and freelance creative.">
+<meta property="og:description" content="The story of G, told as a flippable zine.">
 <meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=UnifrakturMaguntia&amp;family=Anton&amp;family=Courier+Prime:wght@400;700&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
 <style>
-:root{--pink:#FF69B4}
-html,body{margin:0;background:#000;color:#FFF}
-body{font-family:'Alegreya',Georgia,serif;font-size:18px;line-height:1.65}
-a{color:var(--pink)}
-.page{max-width:900px;margin:0 auto;padding:24px clamp(16px,4vw,48px) 64px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.top img{width:min(220px,50vw);height:auto;display:block}
-.nav{display:flex;gap:20px;flex-wrap:wrap;font-family:'Permanent Marker','Marker Felt',cursive;font-size:20px;filter:url(#rough)}
-.nav a{color:#FFF;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
-.nav a[aria-current]{color:var(--pink)}
-.nav a:hover,.nav a:focus-visible{color:var(--pink);outline:none}
-h1{font-family:'Permanent Marker','Marker Felt',cursive;font-weight:400;font-size:clamp(56px,11vw,120px);line-height:1;margin:48px 0 8px;display:inline-block;transform:rotate(-2deg);filter:url(#rough-lg)}
-.kicker{font-family:'Special Elite',monospace;color:var(--pink);letter-spacing:3px;font-size:14px;margin:0 0 32px}
-h2{font-family:'Special Elite',monospace;font-weight:400;font-size:24px;margin:44px 0 10px;display:inline-block;background:var(--pink);color:#000;padding:0 10px}
-p{margin:0 0 16px;max-width:62ch}
-.card{border:2px solid #FFF;padding:20px 22px;margin:16px 0;border-radius:3px 12px 4px 10px}
-.card h3{font-family:'Special Elite',monospace;font-weight:400;font-size:22px;margin:0 0 8px}
-.links{display:flex;flex-wrap:wrap;gap:10px 18px;font-family:'Special Elite',monospace;font-size:16px}
-.links a{color:#000;background:#FFF;text-decoration:none;padding:3px 10px}
-.links a:hover,.links a:focus-visible{background:var(--pink);outline:none}
-.list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
-.list li{border:1px dashed var(--pink);padding:4px 12px;font-family:'Special Elite',monospace;font-size:15px}
-.soon{font-family:'Special Elite',monospace;color:#9a9a9a}
-footer{margin-top:64px;font-family:'Special Elite',monospace;font-size:13px;color:var(--pink);text-align:center}
+/* Layout: one full-screen stage; a two-page spread on wide screens, one page on narrow ones. Pages scale with the screen. */
+:root{
+  --pink:#FF69B4;--paper:#F2EEE4;--ink:#141414;--night:#000;
+  --vh:100vh;
+}
+@supports (height:100dvh){:root{--vh:100dvh}}
+html,body{margin:0;background:#000;color:#FFF;height:100%}
+body{font-family:'Alegreya',Georgia,serif;overflow:hidden}
+.stage{height:var(--vh);display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));box-sizing:border-box}
+.bar{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Special Elite','Courier New',monospace;letter-spacing:2px;font-size:14px}
+.bar a{color:#FFF;text-decoration:none;border:1px solid #FFF;padding:5px 10px}
+.bar a:hover,.bar a:focus-visible{background:#FFF;color:#000;outline:none}
+.bar .issue{color:var(--pink)}
+
+.book{--h:min(calc(var(--vh) - 120px),calc((100vw - 40px) / 1.44));height:var(--h);width:calc(var(--h) * 1.44);position:relative;container-type:size;perspective:2800px;flex:0 0 auto}
+.single .book{--h:min(calc(var(--vh) - 120px),calc((100vw - 32px) / 0.72));width:calc(var(--h) * 0.72)}
+.spread{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.single .spread{grid-template-columns:1fr}
+.single .slot.l{display:none}
+.slot{position:relative;min-width:0;cursor:pointer}
+.slot.blank{cursor:default}
+.slot.l > .pg{box-shadow:inset -3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)}
+.slot.r > .pg{box-shadow:inset 3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)}
+.single .slot.r > .pg{box-shadow:none}
+
+.leaf{position:absolute;top:0;height:100%;width:50%;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.45,.05,.3,1);z-index:5}
+.single .leaf{width:100%;transition:transform .55s ease-in,opacity .55s ease-in}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face.back{transform:rotateY(180deg)}
+.face.front > .pg{box-shadow:inset 3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)}
+.face.back > .pg{box-shadow:inset -3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)}
+
+.ctrl{display:flex;align-items:center;gap:18px;font-family:'Special Elite','Courier New',monospace;letter-spacing:2px}
+.ctrl button{font:inherit;font-size:15px;background:#000;color:#FFF;border:1px solid #FFF;padding:7px 14px;cursor:pointer;letter-spacing:2px}
+.ctrl button:hover:not(:disabled),.ctrl button:focus-visible{background:var(--pink);border-color:var(--pink);color:#000;outline:none}
+.ctrl button:disabled{opacity:.3;cursor:default}
+.count{font-size:14px;color:#ccc;font-variant-numeric:tabular-nums;min-width:7ch;text-align:center}
+.hint{font-family:'Special Elite',monospace;font-size:12px;color:#777;letter-spacing:1px}
+
+/* ---------- pages ---------- */
+.pg{position:absolute;inset:0;box-sizing:border-box;overflow:hidden;background:var(--paper);color:var(--ink);padding:6cqh 5cqh 7cqh;font-size:2.6cqh;line-height:1.45;display:flex;flex-direction:column;gap:1.6cqh}
+.pg.dark{background:var(--night);color:#FFF;border:1px solid #3a3a3a}
+.pg p{margin:0}
+.pg a{color:inherit}
+.run{position:absolute;left:5cqh;right:5cqh;bottom:2.6cqh;display:flex;justify-content:space-between;font-family:'Special Elite',monospace;font-size:1.4cqh;letter-spacing:.3cqh;opacity:.75}
+.num{font-family:'UnifrakturMaguntia',serif;font-size:9cqh;line-height:.8;color:var(--pink)}
+.drop::first-letter{float:left;font-family:'UnifrakturMaguntia',serif;font-size:6.2cqh;line-height:.85;padding:.4cqh 1cqh 0 0;color:var(--pink)}
+.pull{font-family:'Permanent Marker','Marker Felt',cursive;font-size:4.2cqh;line-height:1.15;color:var(--ink);border-top:.5cqh solid var(--ink);border-bottom:.5cqh solid var(--ink);padding:1.4cqh 0;transform:rotate(-1.5deg);margin:1cqh 0}
+.pull em{color:var(--pink);font-style:normal}
+.tape{position:absolute;width:13cqh;height:3.4cqh;background:rgba(255,105,180,.55);transform:rotate(-8deg);top:2.4cqh;right:6cqh}
+.tape.b{left:5cqh;right:auto;transform:rotate(6deg);background:rgba(20,20,20,.18)}
+.stamp{align-self:flex-start;font-family:'Special Elite',monospace;font-size:1.6cqh;letter-spacing:.35cqh;border:.3cqh solid currentColor;padding:.4cqh 1.2cqh;transform:rotate(-3deg)}
+
+/* ransom-note letters */
+.ransom{display:flex;flex-wrap:wrap;gap:.5cqh .35cqh;margin:0;font-weight:400;line-height:1}
+.ransom .w{display:inline-flex;gap:.25cqh;margin-right:1.3cqh}
+.ransom span.c{display:inline-block;padding:.3cqh .8cqh;font-size:var(--rs,5.2cqh)}
+.c.r0{background:#141414;color:#F2EEE4;font-family:'Anton',Impact,sans-serif}
+.c.r1{background:var(--pink);color:#000;font-family:'Permanent Marker',cursive}
+.c.r2{background:#FFF;color:#000;font-family:'UnifrakturMaguntia',serif;outline:.25cqh solid #000}
+.c.r3{background:transparent;color:inherit;font-family:'Special Elite',monospace;border:.3cqh dashed currentColor}
+.c.r4{background:#141414;color:var(--pink);font-family:'Courier Prime',monospace;font-weight:700}
+.dark .c.r0{background:#F2EEE4;color:#000}
+
+/* cover */
+.cover{padding:4cqh 4cqh 5cqh}
+.cover .mast{width:88%;align-self:center;display:block}
+.cover .star{position:absolute;right:-2cqh;bottom:0;height:62%;width:auto}
+.cover .lines{position:relative;z-index:2;display:flex;flex-direction:column;gap:1.6cqh;max-width:58%;margin-top:1cqh}
+.cover .issue{font-family:'Special Elite',monospace;font-size:1.7cqh;letter-spacing:.4cqh;color:var(--pink)}
+.cover .line{font-family:'Anton',Impact,sans-serif;font-size:2.6cqh;line-height:1.05;text-transform:uppercase}
+.cover .line small{display:block;font-family:'Special Elite',monospace;font-size:1.6cqh;text-transform:none;color:#ccc;letter-spacing:.1cqh;margin-top:.4cqh}
+.barcode{position:absolute;left:4cqh;bottom:3cqh;width:12cqh;display:flex;flex-direction:column;gap:.5cqh;background:#FFF;color:#000;padding:1cqh;z-index:3;font-family:'Courier Prime',monospace;font-size:1.3cqh;text-align:center}
+.barcode i{display:block;height:5cqh;background:repeating-linear-gradient(90deg,#000 0 .25cqh,#fff .25cqh .55cqh,#000 .55cqh 1.1cqh,#fff 1.1cqh 1.3cqh,#000 1.3cqh 1.45cqh,#fff 1.45cqh 1.9cqh)}
+
+/* contents */
+.toc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.4cqh}
+.toc button{all:unset;cursor:pointer;display:flex;align-items:baseline;gap:1.2cqh;width:100%;font-size:2.5cqh;box-sizing:border-box}
+.toc button:hover b,.toc button:focus-visible b{background:var(--pink)}
+.toc button:focus-visible{outline:.3cqh dashed var(--ink);outline-offset:.4cqh}
+.toc .n{font-family:'UnifrakturMaguntia',serif;color:var(--pink);min-width:4cqh;font-size:3cqh}
+.toc b{font-family:'Special Elite',monospace;font-weight:400}
+.toc .dots{flex:1;border-bottom:.3cqh dotted currentColor;transform:translateY(-.6cqh)}
+.toc .p{font-family:'Anton',Impact,sans-serif}
+.editor{font-family:'Permanent Marker',cursive;font-size:3.2cqh;line-height:1.2;transform:rotate(-2deg)}
+.editor span{color:var(--pink)}
+
+/* after dark / back cover */
+.dark .pull{color:#FFF;border-color:#FFF}
+.rawk{font-family:'Anton',Impact,sans-serif;font-size:7cqh;line-height:.95;color:var(--pink);transform:rotate(-4deg);margin:1cqh 0}
+.stickers{display:flex;flex-wrap:wrap;gap:1.2cqh}
+.stickers a{font-family:'Special Elite',monospace;font-size:1.9cqh;text-decoration:none;background:#FFF;color:#000;padding:.6cqh 1.4cqh;transform:rotate(var(--t,0deg))}
+.stickers a:hover,.stickers a:focus-visible{background:var(--pink);outline:none}
+.sign{position:absolute;right:3cqh;bottom:7cqh;width:24cqh;transform:rotate(6deg)}
+.sign img{width:100%;height:auto;display:block}
+
+@media (prefers-reduced-motion:reduce){.leaf{transition:none!important}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<filter id="rough" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="rough-lg" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter>
-</svg>
-<div class="page">
-<header class="top">
-<a href="./" aria-label="Back to the homepage"><picture><source srcset="assets/logo-drip.webp" type="image/webp"><img src="assets/logo-drip.png" alt="Georgia Jayy" width="1562" height="876"></picture></a>
-<nav class="nav" aria-label="Pages">
-<a href="./">HOME</a>
-<a href="bio.html" aria-current="page">BIO</a>
-<a href="data.html">DATA</a>
-<a href="creative.html">CREATIVE</a>
-<a href="games.html">GAMES</a>
-</nav>
-</header>
-<main>
-<h1>BIO</h1>
-<p class="kicker">DATA ANALYST ★ FOOTBALL COACH ★ PROFESSIONAL OVERTHINKER</p>
-<p>rawr XD hi, i'm G. gather round, this is my story.</p>
+<div class="stage">
+  <div class="bar">
+    <a href="./">&larr; HOME</a>
+    <span class="issue">G MAGAZINE ★ ISSUE 01</span>
+  </div>
 
-<h2>I. The CD Years</h2>
-<p>Our tale begins with a ten-year-old and a CD collection that got completely out of hand. While other kids collected stickers, young G was building towers of albums, reading every sleeve note, and kicking a football against any wall that would take it. Music, film, sport: she wanted all of it, and she wanted it loud.</p>
+  <div class="book" id="book" aria-roledescription="magazine" aria-label="The story of G">
+    <div class="spread">
+      <div class="slot l" id="slotL"></div>
+      <div class="slot r" id="slotR" aria-live="polite"></div>
+    </div>
+  </div>
 
-<h2>II. Behind the Camera</h2>
-<p>Years later, deep in a Media (Film Production) degree at UCL, news arrived on the wind: COPA90 needed a production intern. It was summer 2023. She fell upon the opportunity like a punk on a battered guitar, digging up stories for football content that went on to hit 1M+ views across TikTok and Instagram, and getting stuck into branded shoots for Nike, Adidas, EA Sports and UEFA.</p>
-<p>In June 2024 she graduated with a 2:1, threw her cap in the air, and walked straight back onto the pitch.</p>
-
-<h2>III. For the Girls</h2>
-<p>What followed was a full tour of the beautiful game. Grassroots campaigns at Bloomsbury Football Foundation. Growing a football charity's following by 2,000+ in under three months at League Leaders. Then the big one: the Google Pixel Powerhouse Project, researching and shaping campaigns with Arsenal, BBC Sport, ITV Sport and The FA to push the women's game further than ever.</p>
-<p>Along the way she dug into culture for the content team at 411, and today she's the digital media specialist at BLAQ UK (UK Black Pride).</p>
-
-<h2>IV. The Spreadsheet Awakens</h2>
-<p>But one question kept haunting her: what actually makes fans tick? Vibes could only take her so far. So in summer 2026 she armed herself with Generation UK's Data Analytics programme and emerged fluent in SQL, Python, Excel and Power BI. She still cries at a bad pie chart.</p>
-
-<h2>V. Coach G</h2>
-<p>Then, in October 2026, she made it official: an FA-qualified football coach, with safeguarding and first aid badges to match. So yes, she will make you do drills.</p>
-
-<h2>After Dark</h2>
-<p>When the laptop closes, she's watching horror films with the lights off or building tiny cursed mini games for the internet. Then! She! RAWKS! OUT!!!111</p>
-
-<h2>To Be Continued...</h2>
-<p>Football, data, culture and storytelling, all colliding at once. Hire her before she haunts you.</p>
-<p>amen.</p>
-
-<h2>Find me</h2>
-<div class="links">
-<a href="mailto:work.georgiajayy@gmail.com">work.georgiajayy@gmail.com</a>
-<a href="https://www.linkedin.com/in/georgiajayysummers/" target="_blank" rel="noopener">LinkedIn</a>
-<a href="https://github.com/georgiajayy" target="_blank" rel="noopener">GitHub</a>
-<a href="https://www.instagram.com/ge0rgiajayy/" target="_blank" rel="noopener">Instagram</a>
-<a href="Georgia_Summers_CV.pdf" download>CV ↓</a>
+  <div class="ctrl">
+    <button type="button" id="prev" aria-label="Previous page">&lsaquo; PREV</button>
+    <span class="count" id="count">1 / 9</span>
+    <button type="button" id="next" aria-label="Next page">NEXT &rsaquo;</button>
+  </div>
 </div>
-</main>
-<footer>© GEORGiA JAYY</footer>
+
+<!-- the magazine's pages, cloned into view by the script -->
+<div id="src" hidden>
+
+  <article class="pg dark cover">
+    <img class="mast" src="assets/logo-drip.png" alt="Georgia Jayy">
+    <div class="lines">
+      <span class="issue">ISSUE #01 ★ OCT 2026 ★ FREE FOR FANS</span>
+      <h1 class="ransom" style="--rs:4cqh">THE STORY OF G</h1>
+      <span class="line">Exclusive: the girl who escaped the edit suite<small>from COPA90 to the coaching badge, p.4</small></span>
+      <span class="line">1M+ views &amp; counting<small>the research behind the reach, p.4</small></span>
+      <span class="line">Why pie charts make her cry<small>the spreadsheet awakens, p.6</small></span>
+    </div>
+    <img class="star" src="assets/vibe-coder.png" alt="Cover illustration of G holding a laptop, asking: How can I vibe code this?">
+    <div class="barcode"><i></i>£0.00</div>
+  </article>
+
+  <article class="pg">
+    <span class="tape"></span>
+    <h2 class="ransom">INSIDE</h2>
+    <p class="editor">rawr XD hi, i'm G. <span>gather round,</span> this is my story.</p>
+    <ol class="toc">
+      <li><button type="button" data-go="2"><span class="n">I</span><b>The CD Years</b><span class="dots"></span><span class="p">3</span></button></li>
+      <li><button type="button" data-go="3"><span class="n">II</span><b>Behind the Camera</b><span class="dots"></span><span class="p">4</span></button></li>
+      <li><button type="button" data-go="4"><span class="n">III</span><b>For the Girls</b><span class="dots"></span><span class="p">5</span></button></li>
+      <li><button type="button" data-go="5"><span class="n">IV</span><b>The Spreadsheet Awakens</b><span class="dots"></span><span class="p">6</span></button></li>
+      <li><button type="button" data-go="6"><span class="n">V</span><b>Coach G</b><span class="dots"></span><span class="p">7</span></button></li>
+      <li><button type="button" data-go="7"><span class="n">★</span><b>After Dark</b><span class="dots"></span><span class="p">8</span></button></li>
+      <li><button type="button" data-go="8"><span class="n">∞</span><b>To Be Continued...</b><span class="dots"></span><span class="p">9</span></button></li>
+    </ol>
+    <span class="stamp">DATA ANALYST ★ FOOTBALL COACH ★ PROFESSIONAL OVERTHINKER</span>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>2</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="num">I.</span>
+    <h2 class="ransom">THE CD YEARS</h2>
+    <p class="drop">Our tale begins with a ten-year-old and a CD collection that got completely out of hand. While other kids collected stickers, young G was building towers of albums, reading every sleeve note, and kicking a football against any wall that would take it.</p>
+    <p class="pull">Music, film, sport: she wanted all of it, and she wanted it <em>loud.</em></p>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>3</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="tape b"></span>
+    <span class="num">II.</span>
+    <h2 class="ransom">BEHIND THE CAMERA</h2>
+    <p class="drop">Years later, deep in a Media (Film Production) degree at UCL, news arrived on the wind: COPA90 needed a production intern. It was summer 2023.</p>
+    <p class="pull">She fell upon the opportunity like <em>a punk on a battered guitar.</em></p>
+    <p>She dug up stories for football content that went on to hit 1M+ views across TikTok and Instagram, and got stuck into branded shoots for Nike, Adidas, EA Sports and UEFA.</p>
+    <p>In June 2024 she graduated with a 2:1, threw her cap in the air, and walked straight back onto the pitch.</p>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>4</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="num">III.</span>
+    <h2 class="ransom">FOR THE GIRLS</h2>
+    <p class="drop">What followed was a full tour of the beautiful game. Grassroots campaigns at Bloomsbury Football Foundation. Growing a football charity's following by 2,000+ in under three months at League Leaders.</p>
+    <p>Then the big one: the Google Pixel Powerhouse Project, researching and shaping campaigns with Arsenal, BBC Sport, ITV Sport and The FA to</p>
+    <p class="pull"><em>push the women's game</em> further than ever.</p>
+    <p>Along the way she dug into culture for the content team at 411, and today she's the digital media specialist at BLAQ UK (UK Black Pride).</p>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>5</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="tape"></span>
+    <span class="num">IV.</span>
+    <h2 class="ransom">THE SPREADSHEET AWAKENS</h2>
+    <p class="drop">But one question kept haunting her: what actually makes fans tick? Vibes could only take her so far.</p>
+    <p>So in summer 2026 she armed herself with Generation UK's Data Analytics programme and emerged fluent in SQL, Python, Excel and Power BI.</p>
+    <p class="pull">She still <em>cries at a bad pie chart.</em></p>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>6</span></div>
+  </article>
+
+  <article class="pg">
+    <span class="num">V.</span>
+    <h2 class="ransom">COACH G</h2>
+    <p class="drop">Then, in October 2026, she made it official: an FA-qualified football coach, with safeguarding and first aid badges to match.</p>
+    <p class="pull">So yes, she <em>will</em> make you do drills.</p>
+    <span class="stamp">FA LEVEL 1 ★ SAFEGUARDING ★ FIRST AID</span>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>7</span></div>
+  </article>
+
+  <article class="pg dark">
+    <span class="num">★</span>
+    <h2 class="ransom">AFTER DARK</h2>
+    <p class="drop">When the laptop closes, she's watching horror films with the lights off or building tiny cursed mini games for the internet.</p>
+    <p class="rawk">THEN! SHE! RAWKS! OUT!!!111</p>
+    <a class="sign" href="games.html" aria-label="Want to play a game? Enter the games archive"><img src="assets/games-sign.png" alt="Hazard sign: want to play a game?"></a>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>8</span></div>
+  </article>
+
+  <article class="pg dark">
+    <h2 class="ransom">TO BE CONTINUED...</h2>
+    <p>Football, data, culture and storytelling, all colliding at once.</p>
+    <p class="pull">Hire her before <em>she haunts you.</em></p>
+    <p>amen.</p>
+    <div class="stickers">
+      <a href="mailto:work.georgiajayy@gmail.com" style="--t:-3deg">work.georgiajayy@gmail.com</a>
+      <a href="https://www.linkedin.com/in/georgiajayysummers/" target="_blank" rel="noopener" style="--t:2deg">LinkedIn</a>
+      <a href="https://github.com/georgiajayy" target="_blank" rel="noopener" style="--t:-2deg">GitHub</a>
+      <a href="https://www.instagram.com/ge0rgiajayy/" target="_blank" rel="noopener" style="--t:3deg">Instagram</a>
+      <a href="https://open.spotify.com/user/u0swet40w9urvwnha1s0jv1f4" target="_blank" rel="noopener" style="--t:-1deg">Spotify</a>
+      <a href="Georgia_Summers_CV.pdf" download style="--t:2deg">CV ↓</a>
+    </div>
+    <div class="barcode" style="left:auto;right:4cqh"><i></i>THE END?</div>
+    <div class="run"><span>G MAGAZINE ★ ISSUE 01</span><span>9</span></div>
+  </article>
+
 </div>
+
+<script>
+(function () {
+  var src = document.getElementById('src');
+  var pages = Array.prototype.slice.call(src.children);
+  var N = pages.length;
+  var book = document.getElementById('book');
+  var slotL = document.getElementById('slotL'), slotR = document.getElementById('slotR');
+  var prevB = document.getElementById('prev'), nextB = document.getElementById('next'), count = document.getElementById('count');
+  var mq = window.matchMedia('(max-width: 820px), (max-aspect-ratio: 1/1)');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var single = mq.matches, pos = 0, busy = false;
+
+  // ransom-note headings
+  pages.forEach(function (pg) {
+    Array.prototype.forEach.call(pg.querySelectorAll('.ransom'), function (h) {
+      var text = h.textContent; h.setAttribute('aria-label', text); h.textContent = '';
+      var k = 0;
+      text.split(' ').forEach(function (word) {
+        var w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
+        word.split('').forEach(function (ch) {
+          var s = document.createElement('span');
+          var r = (k * 7 + ch.charCodeAt(0)) % 5;
+          s.className = 'c r' + r; s.textContent = ch;
+          s.style.transform = 'rotate(' + (((k * 37) % 11) - 5) + 'deg) translateY(' + (((k * 13) % 5) - 2) * 0.15 + 'cqh)';
+          w.appendChild(s); k++;
+        });
+        h.appendChild(w);
+      });
+    });
+  });
+
+  function clone(i) { return i >= 0 && i < N ? pages[i].cloneNode(true) : null; }
+  function fill(slot, i) {
+    slot.innerHTML = '';
+    var c = clone(i);
+    slot.classList.toggle('blank', !c);
+    if (c) slot.appendChild(c);
+  }
+  function maxPos() { return single ? N - 1 : Math.floor(N / 2); }
+  function left(k) { return 2 * k - 1; }
+  function right(k) { return 2 * k; }
+  function render() {
+    document.body.classList.toggle('single', single);
+    if (single) { fill(slotR, pos); slotL.innerHTML = ''; }
+    else { fill(slotL, left(pos)); fill(slotR, right(pos)); }
+    prevB.disabled = pos <= 0; nextB.disabled = pos >= maxPos();
+    var shown = single ? (pos + 1) : Math.min(right(pos) + 1, N);
+    count.textContent = shown + ' / ' + N;
+  }
+  function face(cls, i) {
+    var f = document.createElement('div'); f.className = 'face ' + cls;
+    var c = clone(i); if (c) f.appendChild(c); else f.style.background = '#000';
+    return f;
+  }
+  function done(leaf, newPos) {
+    var finished = false;
+    function end() { if (finished) return; finished = true; leaf.remove(); pos = newPos; render(); busy = false; }
+    leaf.addEventListener('transitionend', end); setTimeout(end, 900);
+  }
+  function flip(dir) {
+    if (busy) return;
+    var np = pos + dir;
+    if (np < 0 || np > maxPos()) return;
+    if (reduce.matches) { pos = np; render(); return; }
+    busy = true;
+    var leaf = document.createElement('div'); leaf.className = 'leaf';
+    if (single) {
+      if (dir > 0) {
+        leaf.appendChild(face('front', pos)); leaf.style.left = '0'; leaf.style.transformOrigin = 'left center';
+        book.appendChild(leaf); fill(slotR, np);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(-100deg)'; leaf.style.opacity = '0'; }); });
+      } else {
+        leaf.appendChild(face('front', np)); leaf.style.left = '0'; leaf.style.transformOrigin = 'left center';
+        leaf.style.transform = 'rotateY(-100deg)'; leaf.style.opacity = '0';
+        book.appendChild(leaf);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(0deg)'; leaf.style.opacity = '1'; }); });
+      }
+    } else if (dir > 0) {
+      leaf.style.left = '50%'; leaf.style.transformOrigin = 'left center';
+      leaf.appendChild(face('front', right(pos))); leaf.appendChild(face('back', left(np)));
+      book.appendChild(leaf); fill(slotR, right(np));
+      requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(-180deg)'; }); });
+    } else {
+      leaf.style.left = '0'; leaf.style.transformOrigin = 'right center';
+      leaf.appendChild(face('back', right(np)));
+      var fr = face('front', left(pos)); fr.firstChild && (fr.firstChild.style.boxShadow = 'inset -3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)');
+      leaf.appendChild(fr);
+      var bk = leaf.querySelector('.face.back'); if (bk.firstChild) bk.firstChild.style.boxShadow = 'inset 3cqh 0 4cqh -2.5cqh rgba(0,0,0,.45)';
+      book.appendChild(leaf); fill(slotL, left(np));
+      requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.style.transform = 'rotateY(180deg)'; }); });
+    }
+    done(leaf, np);
+  }
+  function goPage(p) {
+    if (busy) return;
+    pos = single ? p : Math.floor((p + 1) / 2); render();
+  }
+
+  prevB.addEventListener('click', function () { flip(-1); });
+  nextB.addEventListener('click', function () { flip(1); });
+  slotR.addEventListener('click', function (e) { if (e.target.closest('a,button')) return; flip(1); });
+  slotL.addEventListener('click', function (e) { if (e.target.closest('a,button')) return; flip(-1); });
+  book.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]'); if (b) { e.stopPropagation(); goPage(+b.getAttribute('data-go')); }
+  }, true);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { flip(1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { flip(-1); }
+  });
+  var sx = null;
+  book.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  book.addEventListener('touchend', function (e) {
+    if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 40) flip(dx < 0 ? 1 : -1);
+  });
+  function onMode() {
+    var page = single ? pos : Math.max(0, left(pos));
+    single = mq.matches;
+    pos = single ? page : Math.floor((page + 1) / 2);
+    render();
+  }
+  if (mq.addEventListener) mq.addEventListener('change', onMode); else mq.addListener(onMode);
+  render();
+})();
+</script>
 </body>
 </html>
