@@ -128,13 +128,10 @@ a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 input[type=text],input[type=search],textarea{cursor:text}
 .logo-link{display:block}
 .logo-link:focus-visible{outline:2px dashed #E62E2E;outline-offset:6px}
-.blinkie{width:150px;height:20px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:5px;margin:0 0 10px;background:#E62E2E;border:1px solid #000;outline:1px solid #E62E2E;outline-offset:1px;font-family:'Silkscreen','Courier New',monospace;font-size:8px;letter-spacing:.5px;color:#000;overflow:hidden;animation:blk 1s steps(1) infinite}
-.blinkie .dot{width:5px;height:5px;border-radius:50%;background:#FFF;flex:0 0 auto;animation:blkd 1s steps(1) infinite}
-.blinkie .bt{white-space:nowrap;animation:blkt 1s steps(1) infinite}
-@keyframes blk{0%{background:#E62E2E}50%{background:#000}}
-@keyframes blkt{0%{color:#000}50%{color:#E62E2E}}
-@keyframes blkd{0%{background:#FFF}50%{background:#E62E2E}}
-@media (prefers-reduced-motion:reduce){.blinkie,.blinkie .dot,.blinkie .bt{animation:none}}
+.blinkie{display:inline-flex;align-items:center;gap:6px;margin:0 0 10px;font-family:'Silkscreen','Courier New',monospace;font-size:13px;letter-spacing:1px;color:#E62E2E;animation:blk 1s steps(1) infinite}
+.blinkie .dot{width:9px;height:9px;border-radius:50%;background:#E62E2E}
+@keyframes blk{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.blinkie{animation:none}}
 </style>
 </head>
 <body>
@@ -145,7 +142,7 @@ input[type=text],input[type=search],textarea{cursor:text}
 <aside class="side" aria-label="Menu and blog feed">
 <div class="side-in">
 <section class="rss" aria-labelledby="rss-h">
-<div class="blinkie" role="img" aria-label="Live"><span class="dot"></span><span class="bt">LIVE</span><span class="dot"></span></div>
+<div class="blinkie" role="img" aria-label="Live"><span class="dot"></span><span class="bt">LIVE</span></div>
 <div class="rss-top"><h2 class="sb-h" id="rss-h">Dead Notes Feed</h2><a class="rss-btn" href="feed.xml">RSS</a></div>
 <ul id="feed"><li>summoning posts...</li></ul>
 </section>
