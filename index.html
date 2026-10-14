@@ -99,19 +99,21 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 @media (max-width:600px){.games-sign{align-self:center}}
 .games-sign:focus:not(:focus-visible){outline:none}
 .games-sign img{display:block;width:100%;height:auto}
-/* moving skull-and-crossbones banner around the page edge */
-:root{--band:30px}
+/* moving zebra-stripe banner around the page edge */
+:root{--band:30px;--zl:60px}
 body{padding:var(--band)}
-.band{position:fixed;z-index:50;background:#FFF url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2080%2080%22%3E%3Crect%20width=%2280%22%20height=%2280%22%20fill=%22%23fff%22/%3E%3Cg%20transform=%22translate%284%208%29%22%3E%3Cg%20fill=%22%23000%22%3E%3Cg%20transform=%22rotate%2832%2036%2040%29%22%3E%3Ccircle%20cx=%226%22%20cy=%2237%22%20r=%225%22/%3E%3Ccircle%20cx=%226%22%20cy=%2244%22%20r=%225%22/%3E%3Ccircle%20cx=%2266%22%20cy=%2237%22%20r=%225%22/%3E%3Ccircle%20cx=%2266%22%20cy=%2244%22%20r=%225%22/%3E%3Crect%20x=%225%22%20y=%2236.5%22%20width=%2262%22%20height=%228%22%20rx=%223%22/%3E%3C/g%3E%3Cg%20transform=%22rotate%28-32%2036%2040%29%22%3E%3Ccircle%20cx=%226%22%20cy=%2237%22%20r=%225%22/%3E%3Ccircle%20cx=%226%22%20cy=%2244%22%20r=%225%22/%3E%3Ccircle%20cx=%2266%22%20cy=%2237%22%20r=%225%22/%3E%3Ccircle%20cx=%2266%22%20cy=%2244%22%20r=%225%22/%3E%3Crect%20x=%225%22%20y=%2236.5%22%20width=%2262%22%20height=%228%22%20rx=%223%22/%3E%3C/g%3E%3Cpath%20d=%22M36%203C22%203%2014%2013%2014%2025C14%2033%2018%2038%2022%2040L22%2050C22%2052%2024%2053%2026%2053L46%2053C48%2053%2050%2052%2050%2050L50%2040C54%2038%2058%2033%2058%2025C58%2013%2050%203%2036%203Z%22/%3E%3C/g%3E%3Cellipse%20cx=%2227%22%20cy=%2226%22%20rx=%226.5%22%20ry=%227.5%22%20fill=%22%23fff%22/%3E%3Cellipse%20cx=%2245%22%20cy=%2226%22%20rx=%226.5%22%20ry=%227.5%22%20fill=%22%23fff%22/%3E%3Cpath%20d=%22M36%2033L32.5%2040L39.5%2040Z%22%20fill=%22%23fff%22/%3E%3Cpath%20d=%22M28%2053V45M33%2053V45M39%2053V45M44%2053V45%22%20stroke=%22%23fff%22%20stroke-width=%222%22/%3E%3C/g%3E%3C/svg%3E") 0 0/var(--band) var(--band) repeat;pointer-events:none}
-.band.t{top:0;left:0;right:0;height:var(--band);animation:bandR 1.6s linear infinite}
-.band.b{bottom:0;left:0;right:0;height:var(--band);animation:bandL 1.6s linear infinite}
-.band.l{top:0;bottom:0;left:0;width:var(--band);animation:bandU 1.6s linear infinite}
-.band.r{top:0;bottom:0;right:0;width:var(--band);animation:bandD 1.6s linear infinite}
-@keyframes bandR{to{background-position:var(--band) 0}}
-@keyframes bandL{to{background-position:calc(var(--band) * -1) 0}}
-@keyframes bandD{to{background-position:0 var(--band)}}
-@keyframes bandU{to{background-position:0 calc(var(--band) * -1)}}
-@media (max-width:600px){:root{--band:20px}}
+.band{position:fixed;z-index:50;background-color:#000;background-repeat:repeat;pointer-events:none}
+.band.t,.band.b{left:0;right:0;height:var(--band);background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2060%2030%22%3E%3Crect%20width=%2260%22%20height=%2230%22%20fill=%22%23000%22/%3E%3Cg%20fill=%22%23fff%22%3E%3Cpath%20d=%22M3%200C8%206%202%2012%206%2019C8%2023%206%2027%207%2030H11C10%2026%2013%2021%2010%2015C8%2010%2011%205%208%200Z%22/%3E%3Cpath%20d=%22M18%200C20%204%2016%209%2019%2014C21%2018%2017%2024%2020%2030H22C21%2025%2025%2019%2023%2013C22%208%2024%204%2022%200Z%22/%3E%3Cpath%20d=%22M30%200C34%207%2028%2013%2033%2020C35%2024%2033%2027%2034%2030H39C37%2026%2040%2020%2037%2014C35%209%2037%204%2035%200Z%22/%3E%3Cpath%20d=%22M47%200C49%205%2045%2011%2049%2017C51%2021%2048%2026%2050%2030H53C52%2025%2055%2020%2052%2014C50%209%2053%204%2051%200Z%22/%3E%3Cpath%20d=%22M41%209C43%2012%2041%2015%2043%2018L45%2017C44%2014%2045%2011%2043%208Z%22/%3E%3C/g%3E%3C/svg%3E");background-size:var(--zl) var(--band)}
+.band.l,.band.r{top:0;bottom:0;width:var(--band);background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2030%2060%22%3E%3Crect%20width=%2230%22%20height=%2260%22%20fill=%22%23000%22/%3E%3Cg%20fill=%22%23fff%22%20transform=%22matrix%280%201%201%200%200%200%29%22%3E%3Cpath%20d=%22M3%200C8%206%202%2012%206%2019C8%2023%206%2027%207%2030H11C10%2026%2013%2021%2010%2015C8%2010%2011%205%208%200Z%22/%3E%3Cpath%20d=%22M18%200C20%204%2016%209%2019%2014C21%2018%2017%2024%2020%2030H22C21%2025%2025%2019%2023%2013C22%208%2024%204%2022%200Z%22/%3E%3Cpath%20d=%22M30%200C34%207%2028%2013%2033%2020C35%2024%2033%2027%2034%2030H39C37%2026%2040%2020%2037%2014C35%209%2037%204%2035%200Z%22/%3E%3Cpath%20d=%22M47%200C49%205%2045%2011%2049%2017C51%2021%2048%2026%2050%2030H53C52%2025%2055%2020%2052%2014C50%209%2053%204%2051%200Z%22/%3E%3Cpath%20d=%22M41%209C43%2012%2041%2015%2043%2018L45%2017C44%2014%2045%2011%2043%208Z%22/%3E%3C/g%3E%3C/svg%3E");background-size:var(--band) var(--zl)}
+.band.t{top:0;animation:bandR 2.4s linear infinite}
+.band.b{bottom:0;animation:bandL 2.4s linear infinite}
+.band.l{left:0;animation:bandU 2.4s linear infinite}
+.band.r{right:0;animation:bandD 2.4s linear infinite}
+@keyframes bandR{to{background-position:var(--zl) 0}}
+@keyframes bandL{to{background-position:calc(var(--zl) * -1) 0}}
+@keyframes bandD{to{background-position:0 var(--zl)}}
+@keyframes bandU{to{background-position:0 calc(var(--zl) * -1)}}
+@media (max-width:600px){:root{--band:20px;--zl:40px}}
 @media (prefers-reduced-motion:reduce){.band{animation:none}}
 </style>
 </head>
