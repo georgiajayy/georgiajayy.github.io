@@ -4,15 +4,54 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Games · Georgia Jayy</title>
+<meta name="description" content="The games archive: mini games built by Georgia Jayy. Pick a grave and play.">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;display=swap">
 <style>
-html,body{margin:0;min-height:100%;background:#000}
-.back{position:fixed;top:20px;left:20px;font-family:'Special Elite','Courier New',monospace;font-size:16px;letter-spacing:2px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF}
+/* Layout: gothic crypt. A blackletter title over a graveyard of tombstone tiles, one per game. */
+:root{--ink:#FFF;--bg:#000;--red:#E62E2E;--stone:#0E0E0E;--dim:#9A9A9A;--line:#3A3A3A;color-scheme:dark}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink)}
+body{font-family:'Special Elite','Courier New',monospace}
+.back{position:fixed;top:20px;left:20px;z-index:5;font-family:'Special Elite','Courier New',monospace;font-size:16px;letter-spacing:2px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF;background:#000}
 .back:hover,.back:focus-visible{background:#FFF;color:#000;outline:none}
+.crypt{max-width:1240px;margin:0 auto;padding:84px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px));box-sizing:border-box}
+header{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.orn{color:var(--red);letter-spacing:.8em;font-size:14px;padding-left:.8em}
+h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(64px,11vw,140px);line-height:.9}
+.sub{margin:0;font-size:14px;letter-spacing:.35em;color:var(--dim);text-transform:uppercase}
+.rule{width:min(560px,80%);display:flex;align-items:center;gap:14px;color:var(--red);font-size:18px;margin-top:6px}
+.rule::before,.rule::after{content:'';flex:1;height:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-top:3px}
+
+.yard{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:40px 32px;align-items:end}
+.grave{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;
+  padding:34px 22px 26px;min-height:340px;box-sizing:border-box;color:var(--ink);text-decoration:none;
+  background:var(--stone);border:2px solid #FFF;border-bottom-width:0;border-radius:50% 50% 0 0 / 34% 34% 0 0;
+  outline:1px solid var(--line);outline-offset:-10px;transition:transform .2s ease,border-color .2s ease}
+.grave::after{content:'';position:absolute;left:-14px;right:-14px;bottom:-12px;height:12px;background:repeating-linear-gradient(90deg,#FFF 0 3px,transparent 3px 7px);opacity:.55}
+a.grave:hover,a.grave:focus-visible{transform:translateY(-6px);border-color:var(--red);outline-color:var(--red);outline-style:solid}
+a.grave:focus-visible{box-shadow:0 0 0 3px #000,0 0 0 5px var(--red)}
+.no{font-size:12px;letter-spacing:.35em;color:var(--dim)}
+.cross{font-size:26px;line-height:1;color:var(--red)}
+.thumb{width:100%;aspect-ratio:4/3;display:grid;place-items:center;border:1px solid var(--line);background:#050505;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.1)}
+a.grave:hover .thumb img{filter:none}
+.thumb .sk{font-size:54px;color:#2A2A2A}
+.grave h2{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:36px;line-height:1}
+.grave p{margin:0;font-size:13px;line-height:1.55;color:#CFCFCF;max-width:28ch}
+.cta{margin-top:auto;font-size:13px;letter-spacing:.3em;padding:6px 14px;border:1px solid #FFF}
+a.grave:hover .cta,a.grave:focus-visible .cta{background:var(--red);border-color:var(--red);color:#000}
+.grave.sealed{color:#777;border-color:#444}
+.grave.sealed h2{color:#6A6A6A}
+.grave.sealed .cta{border-style:dashed;border-color:#555;color:#777}
+.grave.sealed::after{background:repeating-linear-gradient(90deg,#666 0 3px,transparent 3px 7px)}
+.rip{font-size:11px;letter-spacing:.3em;color:#666}
+
+footer{margin-top:72px;text-align:center;font-size:13px;letter-spacing:.2em;color:#FFF}
+@media (max-width:520px){.yard{gap:44px 0}.grave{min-height:0}}
+@media (prefers-reduced-motion:reduce){.grave{transition:none}}
 /* big red cursor */
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
@@ -21,5 +60,54 @@ input[type=text],input[type=search],textarea{cursor:text}
 </head>
 <body>
 <a class="back" href="./">&larr; BACK</a>
+<main class="crypt">
+  <header>
+    <div class="orn" aria-hidden="true">✠ ✠ ✠</div>
+    <h1>The Games</h1>
+    <p class="sub">the archive of mini games ★ play at your own risk</p>
+    <div class="rule" aria-hidden="true">✠</div>
+  </header>
+  <ol class="yard" id="yard" aria-label="Games"></ol>
+  <footer>© GEORGiA JAYY</footer>
+</main>
+
+<script>
+/*
+  ADD A GAME: copy one line below and fill it in.
+    title  the game's name
+    desc   one short line about it
+    href   where the game lives, e.g. 'games/data-slasher.html' (leave '' if it isn't ready yet)
+    img    optional screenshot, e.g. 'assets/games/data-slasher.png'
+*/
+var GAMES = [
+  { title: 'Data Slasher', desc: 'Screaming bar charts pop up in the windows. Slash the outliers before they escape.', href: '', img: '' },
+  { title: 'Coming Soon', desc: 'Still being dug up.', href: '', img: '' },
+  { title: 'Coming Soon', desc: 'Still being dug up.', href: '', img: '' },
+  { title: 'Coming Soon', desc: 'Still being dug up.', href: '', img: '' }
+];
+
+(function () {
+  var yard = document.getElementById('yard');
+  function roman(n) { var r = '', m = [[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']]; m.forEach(function (p) { while (n >= p[0]) { r += p[1]; n -= p[0]; } }); return r; }
+  GAMES.forEach(function (g, i) {
+    var li = document.createElement('li');
+    var open = !!g.href;
+    var t = document.createElement(open ? 'a' : 'div');
+    t.className = 'grave' + (open ? '' : ' sealed');
+    if (open) { t.href = g.href; t.setAttribute('aria-label', 'Play ' + g.title); }
+    var no = document.createElement('span'); no.className = 'no'; no.textContent = 'NO. ' + roman(i + 1); t.appendChild(no);
+    var cr = document.createElement('span'); cr.className = 'cross'; cr.setAttribute('aria-hidden', 'true'); cr.textContent = '✝'; t.appendChild(cr);
+    var th = document.createElement('div'); th.className = 'thumb';
+    if (g.img) { var im = document.createElement('img'); im.src = g.img; im.alt = ''; im.loading = 'lazy'; th.appendChild(im); }
+    else { var sk = document.createElement('span'); sk.className = 'sk'; sk.setAttribute('aria-hidden', 'true'); sk.textContent = '☠'; th.appendChild(sk); }
+    t.appendChild(th);
+    var h = document.createElement('h2'); h.textContent = g.title; t.appendChild(h);
+    var p = document.createElement('p'); p.textContent = g.desc; t.appendChild(p);
+    var c = document.createElement('span'); c.className = 'cta'; c.textContent = open ? 'PLAY' : 'COMING SOON'; t.appendChild(c);
+    if (!open) { var r = document.createElement('span'); r.className = 'rip'; r.textContent = 'R.I.P. (not yet)'; t.appendChild(r); }
+    li.appendChild(t); yard.appendChild(li);
+  });
+})();
+</script>
 </body>
 </html>
