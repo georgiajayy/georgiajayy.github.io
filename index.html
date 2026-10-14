@@ -62,9 +62,11 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .vibe-row{display:flex;align-items:center;gap:24px;margin-top:-1%}
 .vibe{display:block;flex:0 0 34%;width:34%;height:auto}
 .vibe-side{flex:1 1 0;min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:space-around;gap:28px}
-.bmc{align-self:flex-end;display:inline-flex;align-items:center;gap:10px;background:var(--pink);color:#000;font-family:'Permanent Marker','Marker Felt',cursive;font-size:22px;text-decoration:none;padding:8px 18px 9px;border:3px solid #FFF;border-radius:4px 14px 6px 12px;transform:rotate(3deg);filter:url(#rough);transition:transform .15s ease,background .15s ease}
-.bmc svg{width:24px;height:24px;fill:currentColor}
-.bmc:hover,.bmc:focus-visible{background:#FFF;transform:rotate(-2deg) scale(1.05);outline:none}
+.head-right{flex:0 0 auto;align-self:stretch;display:flex;flex-direction:column;gap:30px}
+.head-right .quick{flex:1 1 auto;justify-content:center}
+.bmc{align-self:flex-end;display:inline-flex;align-items:center;gap:10px;background:#FFF;color:#000;font-family:'Permanent Marker','Marker Felt',cursive;font-size:20px;text-decoration:none;padding:7px 16px 8px;border:3px solid #FFF;border-radius:4px 14px 6px 12px;transform:rotate(3deg);filter:url(#rough);transition:transform .15s ease,background .15s ease}
+.bmc svg{width:22px;height:22px;fill:currentColor}
+.bmc:hover,.bmc:focus-visible{background:var(--pink);border-color:var(--pink);transform:rotate(-2deg) scale(1.05);outline:none}
 @media (prefers-reduced-motion:reduce){.bmc{transition:none}}
 .srch{flex:0 0 auto;min-width:0;position:relative;display:flex;flex-direction:column;gap:8px}
 .srch-label{font-family:'Special Elite',monospace;color:var(--pink);font-size:14px;letter-spacing:3px}
@@ -83,7 +85,7 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .srch-res a:hover,.srch-res a.on,.srch-res a:focus-visible{background:var(--pink);outline:none}
 .srch-res a:hover b,.srch-res a.on b,.srch-res a:focus-visible b,.srch-res a:hover small,.srch-res a.on small,.srch-res a:focus-visible small{color:#000}
 .srch-none{padding:10px 12px;font-family:'Special Elite',monospace;color:#ccc}
-@media (max-width:560px){.vibe-row{flex-direction:column;align-items:stretch}.bmc{align-self:center}.vibe{width:60%;flex-basis:auto;margin:0 auto}}
+@media (max-width:560px){.vibe-row{flex-direction:column;align-items:stretch}.head-right{align-items:center;gap:14px}.bmc{align-self:center}.vibe{width:60%;flex-basis:auto;margin:0 auto}}
 .quick{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:26px;font-family:'Permanent Marker','Marker Felt',cursive;font-size:24px;filter:url(#rough)}
 .quick a{color:#FFF;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px;display:inline-block}
 .quick > a:nth-child(1){transform:rotate(-4deg)}
@@ -143,7 +145,6 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 <div class="vibe-row">
 <img class="vibe" src="assets/vibe-coder.png" alt="Illustration of Georgia in an emo outfit holding a laptop, asking: How can I vibe code this?" width="700" height="1161">
 <div class="vibe-side">
-<a class="bmc" href="https://buymeacoffee.com/georgiajayy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8Zm13 1.5h1.5a2.5 2.5 0 0 1 0 5H17v-2h1.5a.5.5 0 0 0 0-1H17v-2ZM3 20.5h17v1.5H3v-1.5ZM8 2.5c0 1-1 1.5-1 2.5s1 1.5 1 2.5H6.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H8Zm4 0c0 1-1 1.5-1 2.5s1 1.5 1 2.5h-1.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H12Z"/></svg>donate to me!</a>
 <div class="srch" role="search">
 <label class="srch-label" for="srch-q">SEARCH THE ARCHiVE</label>
 <div class="srch-box"><input id="srch-q" type="search" placeholder="..." autocomplete="off" aria-controls="srch-res" aria-expanded="false"><span class="srch-ic" aria-hidden="true">&#9760;</span></div>
@@ -153,6 +154,8 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 </div>
 </div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="rough" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<div class="head-right">
+<a class="bmc" href="https://buymeacoffee.com/georgiajayy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8Zm13 1.5h1.5a2.5 2.5 0 0 1 0 5H17v-2h1.5a.5.5 0 0 0 0-1H17v-2ZM3 20.5h17v1.5H3v-1.5ZM8 2.5c0 1-1 1.5-1 2.5s1 1.5 1 2.5H6.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H8Zm4 0c0 1-1 1.5-1 2.5s1 1.5 1 2.5h-1.5c0-1 1-1.5 1-2.5s-1-1.5-1-2.5H12Z"/></svg>donate to me!</a>
 <nav class="quick" aria-label="Quick links">
 <a href="#">BIO</a>
 <a href="#">DATA</a>
@@ -165,6 +168,7 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 <a href="mailto:work.georgiajayy@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 6.1L19.8 6H4.2ZM20 7.6l-7.4 5.8a1 1 0 0 1-1.2 0L4 7.6V18h16V7.6Z"/></svg></a>
 </span>
 </nav>
+</div>
 </div>
 <div class="stars" aria-hidden="true">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
 <div class="welcome">
