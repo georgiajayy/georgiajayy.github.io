@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Dead Notes · Georgia Jayy</title>
+  <link>https://georgiajayy.github.io/</link>
+  <atom:link href="https://georgiajayy.github.io/feed.xml" rel="self" type="application/rss+xml" />
+  <description>The blog of G: data, sport, culture and music.</description>
+  <language>en-gb</language>
+
+  <!--
+    HOW TO ADD A POST
+    1. Copy blog/post-template.html, rename it (e.g. blog/my-first-post.html) and write your post in it.
+    2. Copy the example <item> below, paste it just under this comment (newest post goes at the top),
+       remove the comment marks around it and fill it in.
+    3. Commit and sync. The post shows up in the Dead Notes column on the homepage.
+
+    <item>
+      <title>My first post</title>
+      <link>https://georgiajayy.github.io/blog/my-first-post.html</link>
+      <guid>https://georgiajayy.github.io/blog/my-first-post.html</guid>
+      <pubDate>Wed, 14 Oct 2026 09:00:00 +0100</pubDate>
+      <category>Data</category>
+      <description>One or two sentences that sum up the post.</description>
+    </item>
+  -->
+
+</channel>
+</rss>

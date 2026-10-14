@@ -12,12 +12,16 @@
 <meta property="og:description" content="Data stories, sport, culture and a minigame of doom.">
 <meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="description" content="Portfolio of Georgia Jayy: junior data analyst and freelance creative working across sport, culture, music and entertainment.">
+<link rel="alternate" type="application/rss+xml" title="Dead Notes · Georgia Jayy" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jacquard+24&amp;family=Anton&amp;family=UnifrakturMaguntia&amp;family=Courier+Prime:wght@400;700&amp;family=Special+Elite&amp;display=swap">
 <style>
 body{margin:0;background:#000}
 a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 .side{display:block}
+.blogcol{flex:1 1 340px;min-width:0;align-self:flex-start;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;border:3px double #FFF;display:flex;flex-direction:column;background:#000}
+.blogcol a.post-title{text-decoration:none}
+@media (max-width: 1000px){.blogcol{position:static;max-height:none;align-self:stretch}}
 @media (max-width: 760px){.side{display:none}}
 .win:hover{box-shadow:inset 0 0 0 3px #888}
 .win:focus-visible,.gbtn:focus-visible{outline:3px solid #FFF;outline-offset:3px}
@@ -54,7 +58,7 @@ a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 </head>
 <body>
 <div style="width: 100%; background: #000000; color: #FFFFFF; font-family: 'Courier Prime', 'Courier New', monospace; font-size: 15px; line-height: 1.5">
-<div style="max-width: 1120px; margin: 0 auto; padding: 24px 16px 40px">
+<div style="max-width: 1480px; margin: 0 auto; padding: 24px 16px 40px">
 <div style="position: relative; border: 3px double #FFFFFF; padding: 20px 16px 24px; display: flex; flex-direction: column; gap: 28px">
 
 <span aria-hidden="true" style="position: absolute; top: -12px; left: -10px; background: #000; padding: 0 4px; font-size: 20px">✠</span>
@@ -101,6 +105,7 @@ a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 <a href="#credits" style="text-decoration: none; padding: 12px 16px">[ CREDiTS ]</a>
 <a href="#game" style="text-decoration: none; padding: 12px 16px">[ MiNiGAME ]</a>
 <a href="#manifesto" style="text-decoration: none; padding: 12px 16px">[ MANiFESTO ]</a>
+<a href="#blog" style="text-decoration: none; padding: 12px 16px">[ BLOG ]</a>
 <a href="#contact" style="text-decoration: none; padding: 12px 16px">[ CONTACT ]</a>
 <a href="https://github.com/georgiajayy" target="_blank" rel="noopener" style="text-decoration: none; padding: 12px 16px">[ GiTHUB ]</a>
 </nav>
@@ -114,7 +119,7 @@ a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 <div id="search-results" style="display: none; position: absolute; left: 0; right: 0; top: 100%; background: #000000; border: 1px solid #FFFFFF; border-top: none; flex-direction: column"></div>
 </div>
 
-<div style="display: flex; gap: 20px; align-items: stretch">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
 
 <div class="side" aria-hidden="true" style="position: relative; width: 92px; flex-shrink: 0; border: 1px solid #FFFFFF; overflow: hidden">
 <svg width="100%" height="100%" style="position: absolute; inset: 0">
@@ -130,7 +135,7 @@ a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 </svg>
 </div>
 
-<main style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<main style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); border: 1px solid #FFFFFF">
 <div style="padding: 14px 18px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid #FFFFFF">
@@ -476,9 +481,24 @@ a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 
 </main>
 
-<div class="side" aria-hidden="true" style="position: relative; width: 92px; flex-shrink: 0; border: 1px solid #FFFFFF; overflow: hidden">
+<aside id="blog" class="blogcol" aria-labelledby="blog-title">
+<div style="background: #FFFFFF; color: #000000; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div style="display: flex; flex-direction: column">
+<h2 id="blog-title" style="margin: 0; font-family: 'UnifrakturMaguntia', serif; font-size: 40px; font-weight: 400; line-height: 1">Dead Notes</h2>
+<span style="font-size: 11px; letter-spacing: 3px; font-weight: 700">THE BLOG OF G</span>
+</div>
+<a href="feed.xml" aria-label="Subscribe to Dead Notes via RSS" style="color: #000000; background: #FFFFFF; text-decoration: none; border: 2px solid #000000; padding: 10px 12px; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 2px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.6" fill="currentColor"></circle></svg>RSS</a>
+</div>
+<div style="padding: 10px 18px; border-bottom: 1px solid #FFFFFF; font-size: 12px; letter-spacing: 3px; text-align: center; white-space: nowrap">┤ LATEST POSTS ├</div>
+<div id="blog-posts" aria-live="polite" style="display: flex; flex-direction: column">
+<p style="margin: 0; padding: 18px; font-size: 14px">Summoning posts...</p>
+</div>
+<div class="side" aria-hidden="true" style="flex: 1 0 80px; position: relative; overflow: hidden; border-top: 1px solid #FFFFFF; border-bottom: 1px solid #FFFFFF">
 <svg width="100%" height="100%" style="position: absolute; inset: 0"><rect width="100%" height="100%" fill="url(#skullsL)"></rect></svg>
 </div>
+<p style="margin: 0; padding: 14px 18px; font-size: 11px; letter-spacing: 2px; text-align: center">✠ FOLLOW ALONG ViA <a href="feed.xml">RSS</a> ✠</p>
+</aside>
 
 </div>
 
@@ -582,7 +602,7 @@ window.__DS_PARTS = {"V": ["<svg aria-hidden=\"true\" viewBox=\"0 0 60 64\" styl
 })();
 
 (function () {
-  var SEARCH = [{"id": "notes", "title": "About G", "desc": "Junior data analyst and freelance creative: production, editing, videography.", "kw": "about london birmingham georgia g junior data analyst freelance creative production editing videography video sport culture music entertainment fan behaviour audience insights digital engagement perspective interests"}, {"id": "credits", "title": "Credits", "desc": "Arsenal FC, BBC Sport, ITV Sport, The FA, Nike, Adidas, UEFA, BFI.", "kw": "credits arsenal bbc sport itv fa football association nike adidas uefa british film institute bfi campaigns brands clients"}, {"id": "releases", "title": "Release I: Lionesses Euro 2025", "desc": "How England won the final despite Spain creating twice the chances.", "kw": "lionesses euro 2025 england spain germany xg expected goals football women womens statsbomb python pandas mplsoccer matplotlib streamlit dashboard shot map 2029 russo toone kelly project data"}, {"id": "releases", "title": "Releases", "desc": "All projects, with more coming soon.", "kw": "releases projects portfolio work coming soon"}, {"id": "game", "title": "Data Slasher", "desc": "Minigame: slash the outlier bar charts before they escape.", "kw": "game minigame data slasher play outliers bar charts horror slayer"}, {"id": "manifesto", "title": "Manifesto", "desc": "Data Hardcore: three rules for charts.", "kw": "manifesto rules data hardcore chart design story pie"}, {"id": "contact", "title": "Contact", "desc": "Email, GitHub, LinkedIn and CV.", "kw": "contact email github linkedin cv resume hire freelance enquiries work"}];
+  var SEARCH = [{"id": "blog", "title": "Dead Notes (blog)", "desc": "Posts on data, sport, culture and music. Follow via RSS.", "kw": "blog posts notes dead notes rss feed writing articles"}, {"id": "notes", "title": "About G", "desc": "Junior data analyst and freelance creative: production, editing, videography.", "kw": "about london birmingham georgia g junior data analyst freelance creative production editing videography video sport culture music entertainment fan behaviour audience insights digital engagement perspective interests"}, {"id": "credits", "title": "Credits", "desc": "Arsenal FC, BBC Sport, ITV Sport, The FA, Nike, Adidas, UEFA, BFI.", "kw": "credits arsenal bbc sport itv fa football association nike adidas uefa british film institute bfi campaigns brands clients"}, {"id": "releases", "title": "Release I: Lionesses Euro 2025", "desc": "How England won the final despite Spain creating twice the chances.", "kw": "lionesses euro 2025 england spain germany xg expected goals football women womens statsbomb python pandas mplsoccer matplotlib streamlit dashboard shot map 2029 russo toone kelly project data"}, {"id": "releases", "title": "Releases", "desc": "All projects, with more coming soon.", "kw": "releases projects portfolio work coming soon"}, {"id": "game", "title": "Data Slasher", "desc": "Minigame: slash the outlier bar charts before they escape.", "kw": "game minigame data slasher play outliers bar charts horror slayer"}, {"id": "manifesto", "title": "Manifesto", "desc": "Data Hardcore: three rules for charts.", "kw": "manifesto rules data hardcore chart design story pie"}, {"id": "contact", "title": "Contact", "desc": "Email, GitHub, LinkedIn and CV.", "kw": "contact email github linkedin cv resume hire freelance enquiries work"}];
   var input = document.getElementById('site-search'), box = document.getElementById('search-results');
   function esc(t) { return t.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function render() {
@@ -691,6 +711,47 @@ function doomReply(key) {
   document.getElementById('doom-close').addEventListener('click', function () { toggle(false); fab.focus(); });
   form.addEventListener('submit', function (e) { e.preventDefault(); var v = input.value.trim(); if (!v || busy) return; input.value = ''; say(v, doomRoute(v)); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel.style.display !== 'none') { toggle(false); fab.focus(); } });
+})();
+</script>
+<script>
+(function () {
+  // Reads feed.xml and lists the newest posts in the Dead Notes column.
+  var MAX = 6, list = document.getElementById('blog-posts');
+  if (!list) return;
+  function el(tag, css, text) { var e = document.createElement(tag); if (css) e.style.cssText = css; if (text) e.textContent = text; return e; }
+  function message(t) { list.innerHTML = ''; list.appendChild(el('p', 'margin:0;padding:18px;font-size:14px', t)); }
+  function nice(d) {
+    var dt = new Date(d); if (isNaN(dt)) return '';
+    return dt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+  }
+  function plain(html) { var d = document.createElement('div'); d.innerHTML = html || ''; return (d.textContent || '').trim(); }
+  fetch('feed.xml', { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (txt) {
+      var xml = new DOMParser().parseFromString(txt, 'application/xml');
+      if (xml.querySelector('parsererror')) throw new Error('bad feed');
+      var items = Array.prototype.slice.call(xml.querySelectorAll('item'), 0, MAX);
+      if (!items.length) { message('NO POSTS YET. The first one is coming soon.'); return; }
+      list.innerHTML = '';
+      items.forEach(function (it) {
+        function get(n) { var x = it.querySelector(n); return x ? x.textContent.trim() : ''; }
+        var link = get('link') || '#', tag = get('category'), summary = plain(get('description'));
+        if (summary.length > 160) summary = summary.slice(0, 157).replace(/\s+\S*$/, '') + '...';
+        var art = el('article', 'padding:18px;border-bottom:1px dotted #FFFFFF;display:flex;flex-direction:column;gap:6px');
+        var meta = el('div', 'display:flex;justify-content:space-between;gap:8px;font-size:12px;letter-spacing:1px');
+        meta.appendChild(el('span', '', '✣ ' + nice(get('pubDate'))));
+        if (tag) meta.appendChild(el('span', 'border:1px solid #FFFFFF;padding:0 6px', tag.toUpperCase()));
+        var h = el('h3', "margin:0;font-family:'UnifrakturMaguntia',serif;font-size:26px;font-weight:400;line-height:1.15");
+        var a = el('a', '', get('title')); a.href = link; a.className = 'post-title'; h.appendChild(a);
+        art.appendChild(meta); art.appendChild(h);
+        if (summary) art.appendChild(el('p', 'margin:0;font-size:14px', summary));
+        var more = el('a', 'font-size:13px;align-self:flex-start', '-» read post'); more.href = link;
+        more.setAttribute('aria-label', 'Read post: ' + get('title'));
+        art.appendChild(more);
+        list.appendChild(art);
+      });
+    })
+    .catch(function () { message('The posts got lost in the crypt. Try refreshing.'); });
 })();
 </script>
 </body>

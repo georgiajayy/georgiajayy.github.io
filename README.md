@@ -24,6 +24,7 @@ spain created twice the chances. england still won. i wanted to know how.
 - a minigame where you slash screaming bar charts
 - a friendly ghoul who checks in on you
 - a manifesto against 47-slice pie charts
+- dead notes, my blog · [rss](https://georgiajayy.github.io/feed.xml)
 
 ## find me
 
