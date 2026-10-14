@@ -99,24 +99,6 @@ a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 @media (max-width: 700px){.haunt{height:180px}}
 @media (prefers-reduced-motion: reduce){.haunt *{animation:none!important}.h-eyes{opacity:1}.h-ghost-drift{transform:translateX(560px)}.h-bat{transform:translate(1020px,40px)}}
 @media (max-width: 440px){section>h2{letter-spacing:3px!important;font-size:14px!important}}
-.gig{position:relative;background:#F48FC1;color:#000;overflow:hidden;border:3px double #FFF;display:flex}
-.gig-grain{position:absolute;inset:0;opacity:.55;pointer-events:none}
-.gig-in{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:0 18px 16px;text-align:center}
-.gig-bar{margin:0 -18px;background:#000;color:#FFF;font-weight:700;letter-spacing:4px;font-size:13px;padding:7px 8px}
-.gig-title{margin:4px 0 0;font-family:'UnifrakturMaguntia',serif;font-weight:400;font-size:clamp(46px,5vw,72px);line-height:.95;color:#000;text-shadow:3px 3px 0 #FFF,-1px -1px 0 #FFF}
-.gig-sub{font-weight:700;letter-spacing:3px;font-size:12px}
-.gig-warn{margin:0;background:#000;color:#FFF;font-family:'Special Elite',monospace;font-size:13.5px;line-height:1.5;padding:12px 14px;transform:rotate(-1deg);text-align:left;clip-path:polygon(0 3%,4% 0,30% 2%,55% 0,80% 3%,100% 0,99% 40%,100% 97%,70% 100%,45% 97%,20% 100%,0 98%,1% 50%)}
-.gig-acts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.gig-act{position:relative;background:#000;color:#FFF;border:2px solid #FFF;outline:2px solid #000;padding:14px 12px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;transform:rotate(var(--tilt,0deg))}
-.gig-head{grid-column:1/-1;padding:18px 14px 20px}
-.gig-num{font-family:'UnifrakturMaguntia',serif;font-size:30px;line-height:1}
-.gig-head .gig-num{font-size:40px}
-.gig-rule{font-family:'Anton','Impact',sans-serif;font-size:19px;line-height:1.15;letter-spacing:1px}
-.gig-head .gig-rule{font-size:clamp(26px,2.6vw,34px)}
-.gig-tag{position:absolute;top:-10px;right:10px;background:#F48FC1;color:#000;border:2px solid #000;font-size:11px;font-weight:700;letter-spacing:2px;padding:1px 8px;transform:rotate(3deg)}
-.gig-foot{margin:2px -18px -16px;background:#000;color:#FFF;padding:10px 8px 12px;display:flex;flex-direction:column;gap:2px;font-size:11px;letter-spacing:2px}
-.gig-foot b{font-family:'UnifrakturMaguntia',serif;font-weight:400;font-size:clamp(18px,1.7vw,28px);letter-spacing:0;line-height:1.1}
-@media (max-width: 420px){.gig-acts{grid-template-columns:1fr}.gig-sup{transform:none}}
 .soc{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid #FFF;text-decoration:none;font-size:13px;letter-spacing:2px;font-weight:700}
 .soc:hover{background:#FFF;color:#000}.soc:focus-visible{outline:3px solid #FFF;outline-offset:2px}
 .side{display:block}
@@ -506,20 +488,16 @@ a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
 </div>
 </section>
 
-<section id="manifesto" class="gig" aria-labelledby="gig-title" style="flex: 2 1 300px; min-width: 0; align-self: stretch">
-<svg class="gig-grain" aria-hidden="true" width="100%" height="100%"><filter id="gigNoise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="5"></feTurbulence><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.25"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#gigNoise)"></rect></svg>
-<div class="gig-in">
-<div class="gig-bar">GEORGiA JAYY PRESENTS</div>
-<h2 id="gig-title" class="gig-title">The Manifesto</h2>
-<div class="gig-sub">✠ TOUR ✠ WORLDWiDE ✠ FOREVER ✠</div>
-<p class="gig-warn">!!!! WARNING ... somewhere right now, a pie chart with 47 slices is being presented to a room full of people nodding like they understand it. NOBODY UNDERSTANDS IT. NOT EVEN THE PIE. i refuse to let that be me. so here are MY RULES :</p>
-<ol class="gig-acts">
-<li class="gig-act gig-head"><span class="gig-num">I</span><svg aria-hidden="true" width="46" height="46" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34V20M16 34V10M26 34V24M2 34H32"></path><path d="M14 4q2-3 4 0t-2 4v2" ></path></svg><span class="gig-rule">EVERY CHART ASKS ONE QUESTION ONLY. NO MORE !</span><span class="gig-tag">HEADLiNER</span></li>
-<li class="gig-act gig-sup" style="--tilt:-1.5deg"><span class="gig-num">II</span><svg aria-hidden="true" width="32" height="32" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2l4 10 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z"></path></svg><span class="gig-rule">PRETTY ON PURPOSE. DESIGN IS EVERYTHING !</span></li>
-<li class="gig-act gig-sup" style="--tilt:1.2deg"><span class="gig-num">III</span><svg aria-hidden="true" width="32" height="32" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18q16-16 32 0q-16 16-32 0z"></path><circle cx="18" cy="18" r="5"></circle></svg><span class="gig-rule">ALWAYS TELL A STORY. DATA IS MORE THAN JUST NUMBERS AND SOFTWARE !</span></li>
-</ol>
-<div class="gig-foot"><span>TiCKETS AVAiLABLE AT</span><b>GEORGiAJAYY<wbr>.GiTHUB.iO</b><span>DOORS: ALWAYS OPEN ✠ NO 47-SLiCE PiE CHARTS ADMiTTED</span></div>
+<section id="manifesto" style="flex: 2 1 280px; min-width: 0; align-self: stretch; justify-content: center; background: #FFFFFF; color: #000000; padding: 26px 24px; font-family: 'Special Elite', monospace; font-size: 15px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 style="margin: 0; font-family: 'Special Elite', monospace; font-weight: 400; font-size: 34px; text-decoration: underline; text-decoration-thickness: 3px">THE MANIFESTO</h2>
 </div>
+<p style="margin: 0">!!!! WARNING ... somewhere right now, a pie chart with 47 slices is being presented to a room full of people nodding like they understand it. NOBODY UNDERSTANDS IT. NOT EVEN THE PIE. i refuse to let that be me. so here are MY RULES :</p>
+<ol style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 10px">
+<li><u>EVERY CHART ASKS ONE QUESTION ONLY. NO MORE !</u></li>
+<li><u>PRETTY ON PURPOSE. DESIGN IS EVERYTHING !</u></li>
+<li><u>ALWAYS TELL A STORY. DATA IS MORE THAN JUST NUMBERS AND SOFTWARE !</u></li>
+</ol>
 </section>
 </div>
 
