@@ -4,97 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Games · Georgia Jayy</title>
-<meta name="description" content="The games archive: mini games built by Georgia Jayy. Pick your poison.">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&amp;family=UnifrakturMaguntia&amp;family=Metal+Mania&amp;family=IM+Fell+English:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;display=swap">
 <style>
-/* Layout: a black-metal zine. Spiked logo + thorn-vine nav on the left, intro in the middle, engraved oval on the right; games below in stark boxes; a poem and an ornament to close. */
-:root{
-  --ink:#FFF;--bg:#000;--dim:#BDBDBD;--faint:#5A5A5A;
-  --metal:'Metal Mania','Pirata One',fantasy;
-  --black:'UnifrakturMaguntia','Old English Text MT',serif;
-  --cook:'UnifrakturCook','UnifrakturMaguntia',serif;
-  --body:'IM Fell English','Times New Roman',Times,serif;
-  color-scheme:dark;
-}
-html,body{margin:0;background:var(--bg);color:var(--ink)}
-body{font-family:var(--body);font-size:15px;line-height:1.35}
-a{color:var(--ink)}
-.page{max-width:1240px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px));box-sizing:border-box;position:relative}
-
-/* top: logo + nav | intro | oval */
-.top{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr) minmax(200px,260px);gap:0 28px;align-items:start}
-.left{position:relative;min-width:0}
-#logo{display:block;width:100%;height:auto}
-.logo-fallback{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.navwrap{position:relative;margin:-6px 0 0 40px;display:flex}
-#vine{position:absolute;right:-4px;top:-16px;height:calc(100% + 40px);width:120px;pointer-events:none}
-.nav{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;position:relative;z-index:1}
-.nav a{font-family:var(--metal);font-size:25px;letter-spacing:.02em;text-decoration:none;line-height:1.1;display:inline-block;text-transform:uppercase}
-.nav a:hover,.nav a:focus-visible{background:var(--ink);color:var(--bg);outline:none}
-.nav li:nth-child(odd) a{transform:translateX(6px)}
-
-.mid{min-width:0;padding-top:24px}
-.mid h1{margin:0 0 14px;font-family:var(--cook);font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1;text-align:center}
-.scroll{max-height:250px;overflow-y:auto;padding-right:10px;border-right:3px solid var(--ink);scrollbar-width:thin;scrollbar-color:#fff #000}
-.scroll p{margin:0 0 10px}
-.drop::first-letter{float:left;font-family:var(--black);font-size:64px;line-height:.82;padding:4px 8px 0 0}
-.sub{margin:22px 0 0;text-align:center;font-family:var(--black);font-size:clamp(28px,3vw,40px);line-height:.9}
-.sub small{display:block;font-family:var(--cook);font-size:.62em;font-style:normal;transform:translateY(-4px)}
-
-.oval{margin-top:6px;aspect-ratio:3/4;border-radius:50%;border:2px solid var(--ink);outline:1px solid var(--ink);outline-offset:5px;overflow:hidden;display:grid;place-items:end center;background:radial-gradient(ellipse at 50% 40%,#151515,#000 70%)}
-.oval img{width:82%;height:auto;display:block;transform:translateY(6%)}
-.cap{margin:12px 0 0;text-align:center;font-style:italic;color:var(--dim);font-size:13px}
-
-/* games */
-.games{margin-top:46px}
-.head{display:flex;align-items:center;gap:18px}
-.head h2{margin:0;font-family:var(--metal);font-weight:400;font-size:34px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
-.head::before,.head::after{content:'';flex:1;border-top:1px solid var(--ink)}
-.grid{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
-.tile{position:relative;display:flex;flex-direction:column;gap:10px;min-height:250px;box-sizing:border-box;padding:18px 18px 16px;border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;color:var(--ink);text-decoration:none;background:#000}
-.tile .no{font-family:var(--metal);font-size:15px;letter-spacing:.2em}
-.tile h3{margin:0;font-family:var(--black);font-weight:400;font-size:38px;line-height:.95}
-.tile p{margin:0;font-size:15px}
-.tile .shot{border:1px solid var(--ink);aspect-ratio:16/9;overflow:hidden;display:grid;place-items:center;font-family:var(--black);font-size:42px;color:var(--faint)}
-.tile .shot img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.4)}
-.tile .go{margin-top:auto;align-self:flex-start;font-family:var(--metal);font-size:20px;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid currentColor;line-height:1.1}
-a.tile:hover,a.tile:focus-visible{background:var(--ink);color:var(--bg);outline-color:var(--bg);outline-offset:-6px}
-a.tile:hover .shot,a.tile:focus-visible .shot{border-color:var(--bg)}
-a.tile:focus-visible{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--ink)}
-.tile.sealed{border-style:dashed;outline-style:dashed;outline-color:var(--faint);color:var(--dim)}
-.tile.sealed h3{color:#8a8a8a}
-.tile.sealed .go{border-bottom-style:dashed;color:var(--faint)}
-
-/* poem + ornament */
-.verse{margin:56px auto 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;max-width:820px}
-.verse .poem{font-size:15px;line-height:1.45}
-.verse .poem .drop::first-letter{font-size:58px}
-.verse em{color:var(--dim)}
-.verse .glyph{font-family:var(--black);font-size:150px;line-height:.8;text-align:center}
-#orn{display:block;width:min(420px,90%);height:auto;margin:40px auto 0}
-footer{margin-top:10px;text-align:center;font-family:var(--metal);letter-spacing:.2em;font-size:14px}
-
-@media (max-width:980px){
-  .top{grid-template-columns:minmax(0,1fr) minmax(170px,220px)}
-  .left{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);align-items:start;gap:0 20px}
-  .navwrap{margin:24px 0 0}
-  .mid{padding-top:10px}
-}
-@media (max-width:620px){
-  .top{grid-template-columns:minmax(0,1fr)}
-  .left{grid-template-columns:minmax(0,1fr)}
-  .navwrap{margin:-4px 0 0 18px}
-  .nav{flex-direction:row;flex-wrap:wrap;gap:6px 16px}
-  .nav li:nth-child(odd) a{transform:none}
-  #vine{display:none}
-  .oval{width:min(240px,70%);margin:24px auto 0}
-  .verse{grid-template-columns:minmax(0,1fr)}
-  .verse .glyph{display:none}
-}
+html,body{margin:0;min-height:100%;background:#000}
+.back{position:fixed;top:20px;left:20px;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF}
+.back:hover,.back:focus-visible{background:#FFF;color:#000;outline:none}
+.uc{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:40px 16px;box-sizing:border-box;text-align:center;color:#FFF}
+.uc h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(34px,6vw,68px);letter-spacing:.02em;line-height:1.05}
+.uc p{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;color:#ccc;font-size:clamp(20px,2.4vw,26px);letter-spacing:.02em}
+.tape{width:min(560px,90vw);height:22px;background:repeating-linear-gradient(-45deg,#FFC400 0 18px,#111 18px 36px);border:2px solid #FFC400}
 /* big red cursor */
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
@@ -102,192 +24,12 @@ input[type=text],input[type=search],textarea{cursor:text}
 </style>
 </head>
 <body>
-<div class="page">
-  <section class="top">
-    <div class="left">
-      <h1 class="logo-fallback">Games</h1>
-      <canvas id="logo" width="660" height="300" aria-hidden="true"></canvas>
-      <div class="navwrap">
-        <ul class="nav" aria-label="Site">
-          <li><a href="./">Home</a></li>
-          <li><a href="bio.html">Bio</a></li>
-          <li><a href="data.html">Data</a></li>
-          <li><a href="creative.html">Creative</a></li>
-          <li><a href="archive.html">Archive</a></li>
-          <li><a href="https://github.com/georgiajayy" target="_blank" rel="noopener">Github</a></li>
-          <li><a href="https://www.instagram.com/ge0rgiajayy/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://open.spotify.com/user/u0swet40w9urvwnha1s0jv1f4" target="_blank" rel="noopener">Spotify</a></li>
-        </ul>
-        <svg id="vine" viewBox="0 0 120 520" preserveAspectRatio="none" aria-hidden="true"></svg>
-      </div>
-    </div>
-
-    <div class="mid">
-      <h2 style="margin:0 0 14px;font-family:var(--cook);font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1;text-align:center">Pick your poison</h2>
-      <div class="scroll" tabindex="0" aria-label="About the games">
-        <p class="drop">Welcome to the crypt, where I keep the little cursed games I build when the spreadsheets go quiet. Some are about data, some are about football, and some are just about hitting things that scream.</p>
-        <p>Everything here is made by me, usually at 2am, usually with a horror film on in the background. Expect bugs. Expect bar charts with teeth. Expect to lose.</p>
-        <p>Each game below is a grave. The open ones you can play right now. The sealed ones are still being dug up, so check back soon and see what crawled out.</p>
-        <p>Found a bug, beat a high score, or want to build something together? Email me at <a href="mailto:work.georgiajayy@gmail.com">work.georgiajayy@gmail.com</a>.</p>
-      </div>
-      <p class="sub">The Games Archive<small>play at your own risk</small></p>
-    </div>
-
-    <div class="right">
-      <div class="oval"><img src="assets/vibe-coder.png" alt="Illustration of G holding a laptop, asking: How can I vibe code this?"></div>
-      <p class="cap">the keeper of the crypt</p>
-    </div>
-  </section>
-
-  <section class="games" aria-labelledby="gh">
-    <div class="head"><h2 id="gh">Enter if you dare</h2></div>
-    <ol class="grid" id="grid"></ol>
-  </section>
-
-  <section class="verse" aria-label="A poem">
-    <div class="poem">
-      <p class="drop" style="margin:0">Coded in candlelight, pixels of bone,<br>
-      Bar charts that scream when they're left alone.<br>
-      Click on the grave and the game will begin,<br>
-      Lose all your lives and you'll start again.<br>
-      Outliers rising, the dataset bleeds,<br>
-      Feed it your high score, it's all that it needs.<br>
-      <em>(Press play, press play)</em><br>
-      <em>(Game over, again)</em></p>
-    </div>
-    <div class="glyph" aria-hidden="true">G</div>
-  </section>
-
-  <svg id="orn" viewBox="0 0 420 110" aria-hidden="true"></svg>
-  <footer>© GEORGiA JAYY</footer>
-</div>
-
-<script>
-/*
-  ADD A GAME: copy one line in GAMES and fill it in.
-    title  the game's name
-    desc   one short line about it
-    href   where the game lives, e.g. 'games/data-slasher.html' (leave '' if it isn't ready yet)
-    img    optional screenshot, e.g. 'assets/games/data-slasher.png'
-*/
-var GAMES = [
-  { title: 'Data Slasher', desc: 'Screaming bar charts pop up in the windows. Slash the outliers before they escape.', href: '', img: '' },
-  { title: 'Sealed', desc: 'Something is still being dug up here.', href: '', img: '' },
-  { title: 'Sealed', desc: 'Something is still being dug up here.', href: '', img: '' }
-];
-
-(function () {
-  // ---- game tiles
-  var grid = document.getElementById('grid');
-  function roman(n) { var r = '', m = [[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']]; m.forEach(function (p) { while (n >= p[0]) { r += p[1]; n -= p[0]; } }); return r; }
-  GAMES.forEach(function (g, i) {
-    var open = !!g.href, li = document.createElement('li');
-    var t = document.createElement(open ? 'a' : 'div');
-    t.className = 'tile' + (open ? '' : ' sealed');
-    if (open) { t.href = g.href; t.setAttribute('aria-label', 'Play ' + g.title); }
-    var no = document.createElement('span'); no.className = 'no'; no.textContent = 'No. ' + roman(i + 1); t.appendChild(no);
-    var sh = document.createElement('div'); sh.className = 'shot';
-    if (g.img) { var im = document.createElement('img'); im.src = g.img; im.alt = ''; im.loading = 'lazy'; sh.appendChild(im); }
-    else { sh.textContent = open ? '✠' : '†'; sh.setAttribute('aria-hidden', 'true'); }
-    t.appendChild(sh);
-    var h = document.createElement('h3'); h.textContent = g.title; t.appendChild(h);
-    var p = document.createElement('p'); p.textContent = g.desc; t.appendChild(p);
-    var go = document.createElement('span'); go.className = 'go'; go.textContent = open ? 'Enter ▸' : 'Sealed'; t.appendChild(go);
-    li.appendChild(t); grid.appendChild(li);
-  });
-
-  var NS = 'http://www.w3.org/2000/svg';
-  function el(n, at) { var e = document.createElementNS(NS, n); for (var k in at) e.setAttribute(k, at[k]); return e; }
-  function seeded(s) { return function () { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
-
-  // ---- thorny vine beside the nav
-  (function () {
-    var svg = document.getElementById('vine'), r = seeded(7), d = 'M70 0', pts = [], y = 0, x = 70;
-    while (y < 520) { var ny = y + 26, nx = 70 + (r() - .5) * 46; d += ' Q' + (x + (r() - .5) * 40).toFixed(1) + ' ' + (y + 13) + ' ' + nx.toFixed(1) + ' ' + ny; pts.push([nx, ny]); x = nx; y = ny; }
-    var g = el('g', {fill: '#fff', stroke: '#fff', 'stroke-linecap': 'round'});
-    g.appendChild(el('path', {d: d, fill: 'none', 'stroke-width': 3.2}));
-    g.appendChild(el('path', {d: d, fill: 'none', 'stroke-width': 1, transform: 'translate(4 2)'}));
-    pts.forEach(function (p, i) {
-      var side = i % 2 ? 1 : -1, L = 8 + r() * 12, a = (side > 0 ? -25 : 205) + (r() - .5) * 30, rad = a * Math.PI / 180;
-      var tx = p[0] + Math.cos(rad) * L, ty = p[1] + Math.sin(rad) * L;
-      g.appendChild(el('path', {d: 'M' + (p[0] - 2.4) + ' ' + p[1] + ' L' + tx.toFixed(1) + ' ' + ty.toFixed(1) + ' L' + (p[0] + 2.4) + ' ' + (p[1] + 1.5) + ' Z', 'stroke-width': .6}));
-      if (i % 4 === 2) {
-        var cx = p[0] + side * 22, cy = p[1] - 6;
-        g.appendChild(el('path', {d: 'M' + p[0] + ' ' + p[1] + ' C' + (p[0] + side * 30) + ' ' + (p[1] - 4) + ' ' + (cx + side * 10) + ' ' + (cy - 22) + ' ' + cx + ' ' + (cy - 14) + ' C' + (cx - side * 6) + ' ' + (cy - 8) + ' ' + (cx - side * 2) + ' ' + (cy + 2) + ' ' + (cx + side * 4) + ' ' + cy, fill: 'none', 'stroke-width': 1.6}));
-        for (var k = 0; k < 3; k++) { var sx = p[0] + side * (8 + k * 6), sy = p[1] - 2 - k * 2; g.appendChild(el('path', {d: 'M' + sx + ' ' + sy + ' l' + (side * 2) + ' -7 l' + (side * 1.5) + ' 6.5 Z', 'stroke-width': .5})); }
-      }
-      if (i % 5 === 0 && i) {
-        g.appendChild(el('circle', {cx: p[0] - side * 9, cy: p[1] + 4, r: 3.4}));
-        g.appendChild(el('circle', {cx: p[0] - side * 9, cy: p[1] + 4, r: 1.2, fill: '#000', stroke: 'none'}));
-      }
-    });
-    svg.appendChild(g);
-  })();
-
-  // ---- ornament at the bottom: mirrored thorn flourish around a cross
-  (function () {
-    var svg = document.getElementById('orn'), r = seeded(11);
-    function half(flip) {
-      var g = el('g', {fill: '#fff', stroke: '#fff', 'stroke-linecap': 'round', transform: flip ? 'translate(420 0) scale(-1 1)' : ''});
-      g.appendChild(el('path', {d: 'M195 58 C160 50 130 70 100 58 C78 50 60 40 40 52 C28 59 14 56 6 50', fill: 'none', 'stroke-width': 2.4}));
-      g.appendChild(el('path', {d: 'M190 64 C160 74 140 60 112 70 C90 78 70 86 52 74', fill: 'none', 'stroke-width': 1.4}));
-      g.appendChild(el('path', {d: 'M150 56 C140 34 120 30 112 40 C106 48 116 54 122 46', fill: 'none', 'stroke-width': 1.6}));
-      g.appendChild(el('path', {d: 'M84 54 C78 74 60 82 52 74 C46 68 54 62 60 66', fill: 'none', 'stroke-width': 1.4}));
-      for (var i = 0; i < 16; i++) {
-        var x = 14 + i * 11 + r() * 4, up = i % 2 === 0, y = 52 + Math.sin(i * .8) * 6;
-        g.appendChild(el('path', {d: 'M' + (x - 2) + ' ' + y + ' L' + (x + (r() - .5) * 4).toFixed(1) + ' ' + (up ? y - 9 - r() * 6 : y + 9 + r() * 6).toFixed(1) + ' L' + (x + 2) + ' ' + y + ' Z', 'stroke-width': .4}));
-      }
-      g.appendChild(el('path', {d: 'M8 50 L0 46 L6 53 Z', 'stroke-width': .5}));
-      return g;
-    }
-    svg.appendChild(half(false)); svg.appendChild(half(true));
-    var c = el('g', {fill: '#fff'});
-    c.appendChild(el('path', {d: 'M206 14 h8 v24 h20 v8 h-20 v46 h-8 v-46 h-20 v-8 h20 Z'}));
-    c.appendChild(el('circle', {cx: 210, cy: 42, r: 13, fill: 'none', stroke: '#fff', 'stroke-width': 2}));
-    c.appendChild(el('path', {d: 'M210 92 l-5 12 l5 -4 l5 4 Z'}));
-    svg.appendChild(c);
-  })();
-
-  // ---- black-metal logo: blackletter word with thorny spikes growing off its edges
-  function drawLogo() {
-    var cv = document.getElementById('logo'), cx = cv.getContext('2d'), W = cv.width, H = cv.height;
-    cx.clearRect(0, 0, W, H);
-    var off = document.createElement('canvas'); off.width = W; off.height = H;
-    var o = off.getContext('2d');
-    o.fillStyle = '#fff'; o.textAlign = 'center'; o.textBaseline = 'alphabetic';
-    o.font = '700 168px "UnifrakturCook", "UnifrakturMaguntia", serif';
-    o.save(); o.translate(W / 2, 205); o.scale(1, 1.18); o.fillText('Games', 0, 0); o.restore();
-    var data = o.getImageData(0, 0, W, H).data, r = seeded(23), edges = [];
-    function A(x, y) { return x < 0 || y < 0 || x >= W || y >= H ? 0 : data[(y * W + x) * 4 + 3]; }
-    for (var y = 2; y < H - 2; y += 2) for (var x = 2; x < W - 2; x += 2) {
-      if (A(x, y) < 140) continue;
-      if (A(x, y - 3) < 40) edges.push([x, y, -1]);
-      else if (A(x, y + 3) < 40) edges.push([x, y, 1]);
-    }
-    cx.drawImage(off, 0, 0);
-    cx.fillStyle = '#fff'; cx.strokeStyle = '#fff';
-    edges.forEach(function (e) {
-      var roll = r();
-      if (roll > 0.2) return;
-      var long = roll < 0.045, L = long ? 30 + r() * 60 : 6 + r() * 16, w = long ? 2.2 + r() * 2 : 1.2 + r() * 1.4;
-      var ang = (r() - .5) * (long ? 0.7 : 1.1), dx = Math.sin(ang) * L, dy = e[2] * Math.cos(ang) * L;
-      cx.beginPath(); cx.moveTo(e[0] - w, e[1]); cx.quadraticCurveTo(e[0] + dx * .3, e[1] + dy * .55, e[0] + dx, e[1] + dy); cx.lineTo(e[0] + w, e[1]); cx.closePath(); cx.fill();
-      if (long && r() < 0.5) {
-        var bx = e[0] + dx * .55, by = e[1] + dy * .55, s = r() < .5 ? -1 : 1;
-        cx.beginPath(); cx.moveTo(bx - 1, by); cx.lineTo(bx + s * (8 + r() * 10), by + e[2] * (4 + r() * 8)); cx.lineTo(bx + 1, by + e[2] * 2); cx.closePath(); cx.fill();
-      }
-    });
-    // a long thorny line slashing through the word, like a band logo
-    cx.lineWidth = 2.4; cx.beginPath(); cx.moveTo(18, 210); cx.bezierCurveTo(200, 196, 420, 226, W - 14, 188); cx.stroke();
-    for (var t = 0.04; t < 1; t += 0.045) {
-      var px = 18 + (W - 32) * t, py = 210 + Math.sin(t * Math.PI) * 4 - t * 20, s2 = (Math.round(t * 100) % 2) ? -1 : 1;
-      cx.beginPath(); cx.moveTo(px - 2, py); cx.lineTo(px + (r() - .5) * 6, py + s2 * (7 + r() * 9)); cx.lineTo(px + 2, py); cx.closePath(); cx.fill();
-    }
-  }
-  if (document.fonts && document.fonts.load) {
-    Promise.all([document.fonts.load('700 168px "UnifrakturCook"'), document.fonts.ready]).then(drawLogo, drawLogo);
-  } else drawLogo();
-})();
-</script>
+<a class="back" href="./">&larr; Back</a>
+<main class="uc">
+<div class="tape" aria-hidden="true"></div>
+<h1>Currently Under Construction</h1>
+<p>This page is being built. Check back soon x</p>
+<div class="tape" aria-hidden="true"></div>
+</main>
 </body>
 </html>
