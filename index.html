@@ -15,7 +15,7 @@
 <meta name="description" content="Portfolio of Georgia Jayy: junior data analyst and freelance creative working across sport, culture, music and entertainment.">
 <link rel="alternate" type="application/rss+xml" title="Dead Notes · Georgia Jayy" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=UnifrakturMaguntia&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Permanent+Marker&amp;family=Alegreya:ital,wght@0,400;0,700;1,400&amp;display=swap">
 <style>
 :root{--pink:#FF69B4;--ink:#000;--paper:#FFF}
 html,body{margin:0;background:#000;color:#FFF}
@@ -77,34 +77,6 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .quick{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 22px;font-size:20px}
 .quick > a, .quick .ic{transform:rotate(-2deg)!important}
 }
-/* mini Data Slasher under the latest updates */
-.ms{margin-top:22px;border:1px solid #FFF;padding:16px 14px 14px;position:relative;max-width:360px}
-.ms-h{position:absolute;top:-12px;left:14px;margin:0;background:#000;padding:0 8px;font-family:'UnifrakturMaguntia',serif;font-weight:400;font-size:24px;line-height:1}
-.ms-sub{margin:4px 0 10px;font-family:'Special Elite',monospace;font-size:11px;letter-spacing:2px;color:var(--pink)}
-.ms-hud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #FFF;border-bottom:0;font-family:'Special Elite',monospace}
-.ms-hud div{padding:5px 8px;display:flex;flex-direction:column;border-right:1px solid #FFF;min-width:0}
-.ms-hud div:last-child{border-right:0}
-.ms-hud span{font-size:10px;letter-spacing:2px}
-.ms-hud b{font-size:20px;line-height:1.1;font-weight:400;color:#FFF;font-variant-numeric:tabular-nums}
-.ms-bar{height:4px;background:rgba(255,255,255,.15);border-left:1px solid #FFF;border-right:1px solid #FFF}
-.ms-bar i{display:block;height:100%;width:100%;background:#FFF;transition:width 1s linear}
-.ms-board{position:relative;border:1px solid #FFF}
-.ms-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#5A5A5A}
-.ms-win{position:relative;aspect-ratio:4/5;background:#0A0A0A;border:0;padding:0;cursor:crosshair;overflow:hidden}
-.ms-win.on{background:#FFF}
-.ms-win:focus-visible{outline:2px solid var(--pink);outline-offset:-2px}
-.ms-win svg.bc{animation:ms-up .18s ease-out}
-.ms-win .splat{position:absolute;inset:0;animation:ms-splat .16s ease-out}
-.ms-win .drip{transform-origin:top;animation:ms-drip .9s ease-in forwards}
-@keyframes ms-up{from{transform:translateY(40%)}to{transform:none}}
-@keyframes ms-splat{from{transform:scale(.3)}to{transform:none}}
-@keyframes ms-drip{from{transform:scaleY(.2)}to{transform:none}}
-.ms-ov{position:absolute;inset:0;background:rgba(0,0,0,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:12px;text-align:center;font-family:'Special Elite',monospace;font-size:13px}
-.ms-ov[hidden]{display:none}
-.ms-ov .big{font-family:'UnifrakturMaguntia',serif;font-size:34px;line-height:1;color:var(--pink)}
-.ms-btn{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:2px;background:var(--pink);color:#000;border:2px solid #FFF;padding:6px 14px;cursor:pointer}
-.ms-btn:hover,.ms-btn:focus-visible{background:#FFF;outline:none}
-@media (prefers-reduced-motion:reduce){.ms-win svg.bc,.ms-win .splat,.ms-win .drip{animation:none}.ms-bar i{transition:none}}
 </style>
 </head>
 <body>
@@ -172,25 +144,6 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 <p><b>[Month]:</b> Another update goes here. This is just random text to show how a longer paragraph wraps in this typeface and how much space it takes up.</p>
 <p><b>[Month]:</b> A short one.</p>
 <p><b>[Month]:</b> One more placeholder entry, so you can see how the log stacks as it grows over time.</p>
-<div class="ms" id="slasher">
-<h3 class="ms-h">Data Slasher</h3>
-<p class="ms-sub">SLASH THE OUTLIERS BEFORE THEY ESCAPE</p>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<radialGradient id="msBlood" cx="45%" cy="42%" r="62%"><stop offset="0" stop-color="#B0105E"/><stop offset=".55" stop-color="#FF1493"/><stop offset="1" stop-color="#FF69B4"/></radialGradient>
-<linearGradient id="msDrip" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF3EA5"/><stop offset="1" stop-color="#C2185B"/></linearGradient>
-<filter id="msFx" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="3" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="7" xChannelSelector="R" yChannelSelector="G" result="s"/><feGaussianBlur in="s" stdDeviation="1.4" result="b"/><feSpecularLighting in="b" surfaceScale="8" specularConstant="1.2" specularExponent="45" lighting-color="#FFFFFF" result="sp"><fePointLight x="0" y="-20" z="25"/></feSpecularLighting><feComposite in="sp" in2="s" operator="in" result="g"/><feComposite in="s" in2="g" operator="arithmetic" k1="0" k2="1" k3="0.5" k4="0"/></filter>
-<filter id="msStain" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter>
-</defs></svg>
-<div class="ms-hud"><div><span>SLASHED</span><b id="ms-score">0</b></div><div><span>TiME</span><b><span id="ms-time">20</span>s</b></div><div><span>BEST</span><b id="ms-best">0</b></div></div>
-<div class="ms-bar"><i id="ms-bar"></i></div>
-<div class="ms-board">
-<div class="ms-grid" id="ms-grid"></div>
-<div class="ms-ov" id="ms-ov">
-<span id="ms-msg">Screaming bar charts pop up in the windows.<br>Click to slash them. 20 seconds.</span>
-<button type="button" class="ms-btn" id="ms-go">SLASH</button>
-</div>
-</div>
-</div>
 </section>
 <div class="stamps" aria-label="Stamp grid placeholder"><div class="stamp"><span>stamp 1</span></div><div class="stamp"><span>stamp 2</span></div><div class="stamp"><span>stamp 3</span></div><div class="stamp"><span>stamp 4</span></div><div class="stamp"><span>stamp 5</span></div><div class="stamp"><span>stamp 6</span></div><div class="stamp"><span>stamp 7</span></div><div class="stamp"><span>stamp 8</span></div><div class="stamp"><span>stamp 9</span></div><div class="stamp"><span>stamp 10</span></div><div class="stamp"><span>stamp 11</span></div><div class="stamp"><span>stamp 12</span></div></div>
 </div>
@@ -218,64 +171,6 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
       list.appendChild(li);
     });
   }).catch(function () { msg('the posts got lost in the crypt. try refreshing.'); });
-})();
-</script>
-<script>
-(function () {
-  var BAR = '<svg class="bc" aria-hidden="true" viewBox="0 0 60 64" style="position:absolute;left:8%;bottom:0;width:84%"><path d="M6 64 H54" stroke="#000" stroke-width="2"/><rect x="10" y="38" width="11" height="26"/><rect x="24" y="14" width="12" height="50"/><rect x="39" y="30" width="11" height="34"/><path d="M24 26 L12 8 L15 6 L26 21 Z M36 26 L48 8 L45 6 L34 21 Z"/><circle cx="27" cy="22" r="2.4" fill="#FFF"/><circle cx="33" cy="22" r="2.4" fill="#FFF"/><ellipse cx="30" cy="31" rx="3" ry="5" fill="#FFF"/><circle cx="15.5" cy="45" r="1.6" fill="#FFF"/><circle cx="44.5" cy="38" r="1.6" fill="#FFF"/></svg>';
-  var SPLAT = '<span class="splat" aria-hidden="true"><svg viewBox="0 0 100 100" style="position:absolute;left:-10%;top:-10%;width:120%;height:120%;overflow:visible;transform:rotate(ROTdeg)"><g filter="url(#msFx)" fill="url(#msBlood)"><path d="M50 30 C60 27 70 33 72 44 C81 46 83 57 74 62 C72 72 60 77 52 70 C44 79 29 74 30 64 C21 60 21 47 32 44 C32 35 40 30 50 30 Z"/><path d="M72 44 L95 29 L75 49 Z"/><path d="M30 64 L6 81 L33 67 Z"/><path d="M44 31 L36 8 L49 30 Z"/><ellipse cx="22" cy="30" rx="5" ry="3.5"/><circle cx="81" cy="27" r="3.6"/><circle cx="88" cy="44" r="2"/><circle cx="15" cy="58" r="2.8"/><circle cx="70" cy="87" r="2.4"/><circle cx="34" cy="87" r="1.8"/><circle cx="91" cy="71" r="1.7"/><circle cx="11" cy="40" r="1.5"/><circle cx="58" cy="12" r="1.6"/><ellipse cx="64" cy="19" rx="9" ry="2.2" transform="rotate(-25 64 19)"/></g></svg><svg viewBox="0 0 100 100" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><g class="drip" fill="url(#msDrip)" filter="url(#msFx)"><path d="M44 62 h6 v26 a3 3 0 0 1 -6 0 Z"/><path d="M58 64 h4 v16 a2 2 0 0 1 -4 0 Z"/><path d="M34 60 h3.5 v12 a1.75 1.75 0 0 1 -3.5 0 Z"/><path d="M68 58 h3 v9 a1.5 1.5 0 0 1 -3 0 Z"/></g></svg></span>';
-  var STAIN = '<svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;inset:0;width:100%;height:100%;opacity:.7"><g filter="url(#msStain)" fill="#C2185B"><path d="M50 34 C58 32 66 37 67 45 C74 47 75 55 69 59 C67 67 58 70 52 65 C45 71 34 67 35 60 C28 57 29 48 37 45 C37 38 43 34 50 34 Z"/><path d="M46 62 h5 v26 a2.5 2.5 0 0 1 -5 0 Z"/><path d="M58 63 h3 v14 a1.5 1.5 0 0 1 -3 0 Z"/><circle cx="24" cy="34" r="3"/><circle cx="78" cy="30" r="2.4"/><circle cx="20" cy="60" r="2"/></g></svg>';
-  var ROUND = 20, grid = document.getElementById('ms-grid'), ov = document.getElementById('ms-ov');
-  var wins = [], cells = [], stains = [], timers = [], score = 0, time = ROUND, best = 0, playing = false;
-  try { best = +localStorage.getItem('ms-best') || 0; } catch (e) {}
-  for (var k = 0; k < 9; k++) {
-    var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-win';
-    b.setAttribute('aria-label', 'Window ' + (k + 1));
-    (function (i) { b.addEventListener('click', function () { hit(i); }); })(k);
-    grid.appendChild(b); wins.push(b); cells.push(0); stains.push(false);
-  }
-  function $(id) { return document.getElementById(id); }
-  function draw(i) {
-    var w = wins[i], v = cells[i];
-    w.classList.toggle('on', v === 1);
-    w.innerHTML = v === 1 ? BAR : v === 2 ? SPLAT.replace('ROT', Math.floor(Math.random() * 360)) : (stains[i] ? STAIN : '');
-    w.setAttribute('aria-label', v === 1 ? 'Bar chart outlier in window ' + (i + 1) + ', slash it!' : 'Window ' + (i + 1));
-  }
-  function hud() {
-    $('ms-score').textContent = score; $('ms-time').textContent = time; $('ms-best').textContent = best;
-    var bar = $('ms-bar'); bar.style.width = (time / ROUND * 100) + '%';
-    bar.style.background = playing && time <= 5 ? '#FF69B4' : '#FFFFFF';
-  }
-  function clear() { timers.forEach(function (t) { clearInterval(t); clearTimeout(t); }); timers = []; }
-  function spawn() {
-    if (!playing) return;
-    var empty = []; cells.forEach(function (v, i) { if (v === 0) empty.push(i); });
-    if (!empty.length) return;
-    var i = empty[Math.floor(Math.random() * empty.length)];
-    cells[i] = 1; draw(i);
-    timers.push(setTimeout(function () { if (playing && cells[i] === 1) { cells[i] = 0; draw(i); } }, Math.max(500, 1000 - score * 15)));
-  }
-  function hit(i) {
-    if (!playing || cells[i] !== 1) return;
-    cells[i] = 2; stains[i] = true; score++; draw(i); hud();
-    timers.push(setTimeout(function () { if (cells[i] === 2) { cells[i] = 0; draw(i); } }, 900));
-  }
-  function tick() {
-    time--;
-    if (time > 0) { hud(); return; }
-    time = 0; playing = false; clear();
-    if (score > best) { best = score; try { localStorage.setItem('ms-best', best); } catch (e) {} }
-    cells = cells.map(function () { return 0; }); wins.forEach(function (_, i) { draw(i); }); hud();
-    $('ms-msg').innerHTML = '<span class="big">' + score + ' slashed</span>';
-    $('ms-go').textContent = 'PLAY AGAIN'; ov.hidden = false;
-  }
-  $('ms-go').addEventListener('click', function () {
-    clear(); score = 0; time = ROUND; playing = true;
-    cells = cells.map(function () { return 0; }); stains = stains.map(function () { return false; });
-    wins.forEach(function (_, i) { draw(i); }); hud(); ov.hidden = true;
-    timers.push(setInterval(spawn, 650)); timers.push(setInterval(tick, 1000));
-  });
-  hud();
 })();
 </script>
 </body>
