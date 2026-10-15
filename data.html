@@ -34,6 +34,9 @@ h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-we
 a.story:hover .thumb,a.story:focus-visible .thumb{transform:translate(-6px,-6px);box-shadow:6px 6px 0 var(--red)}
 a.story:focus-visible{outline:none}
 a.story:focus-visible .thumb{outline:2px dashed var(--red);outline-offset:8px}
+.kick{display:flex;align-items:baseline;gap:10px;font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.2em;color:var(--dim);margin-top:4px}
+.kick b{font-family:'Alegreya',Georgia,serif;font-weight:900;font-size:22px;letter-spacing:0;color:var(--red)}
+.story.soon .kick b{color:#666}
 .story h2{margin:0;font-weight:900;font-size:clamp(24px,2.2vw,30px);line-height:1.05;letter-spacing:-.01em}
 a.story:hover h2{color:var(--red)}
 .story p{margin:0;font-size:17px;line-height:1.4;color:#CFCFCF}
@@ -323,17 +326,18 @@ input[type=text],input[type=search],textarea{cursor:text}
     title  the headline
     dek    one line about it
     href   the project page or link ('' if it isn't ready yet)
+    month  when it was published, e.g. 'SEP 2026' (projects are numbered automatically, #1, #2, #3...)
     tags   short labels, e.g. ['Python', 'Streamlit']
     art    id of a <template> above with the tile artwork, or img: 'assets/your-thumb.png'
 */
 var PROJECTS = [
-  { title: 'Third Time’s a Charm?', dek: 'Spain took 23 shots to England\'s 8 in the Euro 2025 final. Can the Lionesses make it three in a row by 2029?', href: 'projects/lionesses-euro-2025.html', tags: ['Football', 'Python', 'Streamlit'], art: 'art-lionesses' },
+  { title: 'Third Time’s a Charm?', dek: 'Spain took 23 shots to England\'s 8 in the Euro 2025 final. Can the Lionesses make it three in a row by 2029?', href: 'projects/lionesses-euro-2025.html', month: 'SEP 2026', tags: ['Football', 'Python', 'Streamlit'], art: 'art-lionesses' },
   { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-soon' },
   { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-soon' }
 ];
 (function () {
   var grid = document.getElementById('grid'), live = 0;
-  PROJECTS.forEach(function (p) {
+  PROJECTS.forEach(function (p, i) {
     var open = !!p.href; if (open) live++;
     var li = document.createElement('li');
     var a = document.createElement(open ? 'a' : 'div');
@@ -343,6 +347,10 @@ var PROJECTS = [
     if (p.img) { var im = document.createElement('img'); im.src = p.img; im.alt = ''; im.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block'; th.appendChild(im); }
     else if (p.art) { var t = document.getElementById(p.art); if (t) th.appendChild(t.content.cloneNode(true)); }
     a.appendChild(th);
+    var k = document.createElement('div'); k.className = 'kick';
+    var n = document.createElement('b'); n.textContent = '#' + (i + 1); k.appendChild(n);
+    var m = document.createElement('span'); m.textContent = p.month || 'COMING SOON'; k.appendChild(m);
+    a.appendChild(k);
     var h = document.createElement('h2'); h.textContent = p.title; a.appendChild(h);
     var d = document.createElement('p'); d.textContent = p.dek; a.appendChild(d);
     var tg = document.createElement('div'); tg.className = 'tags';
