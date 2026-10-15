@@ -64,51 +64,62 @@ input[type=text],input[type=search],textarea{cursor:text}
 
 <!-- tile artwork, one per project -->
 <template id="art-lionesses">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black and white anime-style animation: a skeleton England striker winds up, an impact frame flashes BOOM, speed lines streak as the ball flies over a sliding Spain defender into the net, GOAL appears">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black and white anime-style animation in five cuts: a close-up of the England skeleton striker's eyes, her boot striking the ball, an impact flash, the ball rocketing towards goal, and the net bulging as GOAL!! appears">
   <style>
-    .mg *{transform-box:view-box}
-    .mg-thigh{transform-origin:128px 238px;animation:mgThigh 4s cubic-bezier(.6,0,.2,1) infinite}
-    .mg-shin{transform-origin:150px 270px;animation:mgShin 4s cubic-bezier(.6,0,.2,1) infinite}
-    .mg-armR{transform-origin:150px 178px;animation:mgArmR 4s ease-in-out infinite}
-    .mg-armL{transform-origin:110px 178px;animation:mgArmL 4s ease-in-out infinite}
-    .mg-eng{transform-origin:130px 300px;animation:mgLean 4s ease-in-out infinite}
-    .mg-cam{transform-origin:200px 200px;animation:mgCam 4s linear infinite}
-    .mg-ball{animation:mgBall 4s linear infinite}
-    .mg-spin{transform-origin:0 0;animation:mgSpin 4s linear infinite}
-    .mg-smear{animation:mgSmear 4s linear infinite;opacity:0}
-    .mg-esp{animation:mgSlide 4s cubic-bezier(.3,0,.2,1) infinite}
-    .mg-net{transform-origin:376px 236px;animation:mgNet 4s ease-out infinite}
-    .mg-glint{transform-origin:0 0;animation:mgGlint 4s ease-out infinite;opacity:0}
-    .mg-kick{animation:mgKick 4s steps(1,end) infinite;opacity:0}
-    .mg-impact{animation:mgImpact 4s steps(1,end) infinite;opacity:0}
-    .mg-flight{animation:mgFlight 4s linear infinite;opacity:0}
-    .mg-goalb{animation:mgGoalB 4s ease-out infinite;opacity:0}
-    .mg-goaltxt{transform-origin:200px 92px;animation:mgGoalT 4s cubic-bezier(.2,1.6,.4,1) infinite;opacity:0}
-    .mg-star3{transform-origin:118px 42px;animation:mgStar 4s ease-out infinite}
-    @keyframes mgThigh{0%,8%{transform:rotate(0)}28%{transform:rotate(40deg)}33%{transform:rotate(-50deg)}48%,100%{transform:rotate(0)}}
-    @keyframes mgShin{0%,8%{transform:rotate(0)}28%{transform:rotate(66deg)}32.5%{transform:rotate(-8deg)}48%,100%{transform:rotate(0)}}
-    @keyframes mgArmR{0%,10%{transform:rotate(0)}30%{transform:rotate(-34deg)}50%,100%{transform:rotate(0)}}
-    @keyframes mgArmL{0%,10%{transform:rotate(0)}30%{transform:rotate(26deg)}50%,100%{transform:rotate(0)}}
-    @keyframes mgLean{0%,10%{transform:rotate(0)}28%{transform:rotate(-6deg)}35%{transform:rotate(5deg)}55%,100%{transform:rotate(0)}}
-    @keyframes mgCam{0%,32%{transform:translate(0,0) scale(1)}33%{transform:translate(-6px,4px) scale(1.04)}34%{transform:translate(6px,-5px) scale(1.04)}35%{transform:translate(-4px,-3px) scale(1.03)}36%{transform:translate(3px,4px) scale(1.02)}38%{transform:translate(0,0) scale(1)}
-      56%{transform:translate(0,0)}57%{transform:translate(5px,-3px)}58%{transform:translate(-4px,3px)}60%,100%{transform:translate(0,0)}}
-    @keyframes mgBall{0%,34%{transform:translate(176px,302px)}
-      41%{transform:translate(230px,228px)}47%{transform:translate(290px,170px)}54%{transform:translate(350px,198px)}
-      57%{transform:translate(366px,214px)}64%{transform:translate(360px,300px)}72%{transform:translate(354px,308px)}
-      86%{transform:translate(354px,308px);opacity:1}92%{transform:translate(354px,308px);opacity:0}
-      93%{transform:translate(176px,302px);opacity:0}100%{transform:translate(176px,302px);opacity:1}}
-    @keyframes mgSpin{0%,34%{transform:rotate(0)}64%{transform:rotate(900deg)}100%{transform:rotate(940deg)}}
-    @keyframes mgSmear{0%,35%{opacity:0}37%,53%{opacity:1}56%,100%{opacity:0}}
-    @keyframes mgSlide{0%,12%{transform:translate(46px,0)}36%{transform:translate(0,0)}60%{transform:translate(-6px,0)}88%,100%{transform:translate(46px,0)}}
-    @keyframes mgNet{0%,55%{transform:scale(1,1)}58%{transform:scale(1.14,1.05)}66%{transform:scale(.97,1)}72%,100%{transform:scale(1,1)}}
-    @keyframes mgGlint{0%,20%{opacity:0;transform:scale(.2) rotate(0)}24%{opacity:1;transform:scale(1.2) rotate(45deg)}29%{opacity:1;transform:scale(.9) rotate(90deg)}31%,100%{opacity:0;transform:scale(.2) rotate(90deg)}}
-    @keyframes mgKick{0%{opacity:0}26%{opacity:1}31%{opacity:0}100%{opacity:0}}
-    @keyframes mgImpact{0%{opacity:0}31.5%{opacity:1}35%{opacity:0}100%{opacity:0}}
-    @keyframes mgFlight{0%,35%{opacity:0}37%,53%{opacity:1}56%,100%{opacity:0}}
-    @keyframes mgGoalB{0%,55%{opacity:0}57%{opacity:1}74%{opacity:.6}82%,100%{opacity:0}}
-    @keyframes mgGoalT{0%,56%{opacity:0;transform:scale(.3) rotate(-12deg)}61%{opacity:1;transform:scale(1) rotate(-6deg)}84%{opacity:1;transform:scale(1.04) rotate(-6deg)}88%,100%{opacity:0;transform:scale(1.2) rotate(-6deg)}}
-    @keyframes mgStar{0%,57%{transform:scale(.6);fill:#FFF}62%{transform:scale(1.6);fill:#000}70%,90%{transform:scale(1);fill:#000}96%,100%{transform:scale(.6);fill:#FFF}}
-    @media (prefers-reduced-motion:reduce){.mg *{animation:none!important}.mg-ball{transform:translate(350px,198px)}.mg-smear,.mg-flight,.mg-goaltxt{opacity:1}.mg-star3{fill:#000}}
+    .an *{transform-box:view-box}
+    .an-c1{animation:anC1 6s steps(1,end) infinite}
+    .an-c2{animation:anC2 6s steps(1,end) infinite;opacity:0}
+    .an-c3{animation:anC3 6s steps(1,end) infinite;opacity:0}
+    .an-c4{animation:anC4 6s steps(1,end) infinite;opacity:0}
+    .an-c5{animation:anC5 6s steps(1,end) infinite;opacity:0}
+    @keyframes anC1{0%{opacity:1}20%{opacity:0}100%{opacity:0}}
+    @keyframes anC2{0%{opacity:0}20%{opacity:1}36%{opacity:0}100%{opacity:0}}
+    @keyframes anC3{0%{opacity:0}36%{opacity:1}40%{opacity:0}100%{opacity:0}}
+    @keyframes anC4{0%{opacity:0}40%{opacity:1}58%{opacity:0}100%{opacity:0}}
+    @keyframes anC5{0%{opacity:0}58%{opacity:1}100%{opacity:1}}
+    /* cut 1: eyes */
+    .an-face{transform-origin:200px 220px;animation:anPush 6s linear infinite}
+    @keyframes anPush{0%{transform:scale(1)}20%{transform:scale(1.12)}100%{transform:scale(1.12)}}
+    .an-pupil{transform-origin:0 0;animation:anPupil 6s ease-in infinite}
+    @keyframes anPupil{0%,6%{transform:scale(1)}12%,100%{transform:scale(.45)}}
+    .an-glint{transform-origin:0 0;animation:anGlint 6s ease-out infinite;opacity:0}
+    @keyframes anGlint{0%,11%{opacity:0;transform:scale(.2) rotate(0)}14%{opacity:1;transform:scale(1.3) rotate(45deg)}19%{opacity:1;transform:scale(1) rotate(90deg)}20%,100%{opacity:0}}
+    .an-pan{animation:anPan .45s linear infinite}
+    @keyframes anPan{to{transform:translateX(-200px)}}
+    .an-hair{transform-origin:120px 120px;animation:anHair .3s ease-in-out infinite alternate}
+    @keyframes anHair{to{transform:rotate(3deg)}}
+    .an-eyeburst{animation:anEyeB 6s steps(1,end) infinite;opacity:0}
+    @keyframes anEyeB{0%{opacity:0}13%{opacity:1}20%{opacity:0}100%{opacity:0}}
+    /* cut 2: strike */
+    .an-leg{transform-origin:40px -40px;animation:anLeg 6s cubic-bezier(.7,0,.3,1) infinite}
+    @keyframes anLeg{0%,20%{transform:rotate(-38deg)}29%{transform:rotate(-30deg)}33%{transform:rotate(4deg)}36%,100%{transform:rotate(8deg)}}
+    .an-smear{animation:anSmear 6s steps(1,end) infinite;opacity:0}
+    @keyframes anSmear{0%{opacity:0}31%{opacity:1}34%{opacity:0}100%{opacity:0}}
+    .an-bigball{transform-origin:300px 255px;animation:anSquash 6s ease-out infinite}
+    @keyframes anSquash{0%,32.5%{transform:scale(1,1)}34%{transform:translate(8px,0) scale(.78,1.16)}36%,100%{transform:translate(20px,0) scale(1.1,.92)}}
+    .an-strikeW{animation:anStrikeW 6s steps(1,end) infinite;opacity:0}
+    @keyframes anStrikeW{0%{opacity:0}33%{opacity:1}36%{opacity:0}100%{opacity:0}}
+    .an-shake{animation:anShake 6s linear infinite}
+    @keyframes anShake{0%,32.5%{transform:translate(0,0)}33%{transform:translate(-7px,5px)}34%{transform:translate(7px,-6px)}35%{transform:translate(-5px,-4px)}36%{transform:translate(4px,5px)}37%,58%{transform:translate(0,0)}59%{transform:translate(6px,-4px)}60%{transform:translate(-5px,4px)}61%{transform:translate(3px,-2px)}62%,100%{transform:translate(0,0)}}
+    /* cut 4: flight */
+    .an-fball{transform-origin:200px 200px;animation:anFball 6s cubic-bezier(.5,0,1,1) infinite}
+    @keyframes anFball{0%,40%{transform:translate(-40px,30px) scale(.45)}58%,100%{transform:translate(30px,-20px) scale(1.9)}}
+    .an-fspin{transform-origin:200px 200px;animation:anFspin .35s linear infinite}
+    @keyframes anFspin{to{transform:rotate(360deg)}}
+    .an-hand{transform-origin:400px 400px;animation:anHand 6s ease-out infinite}
+    @keyframes anHand{0%,40%{transform:translate(40px,40px) rotate(6deg)}52%,100%{transform:translate(0,0) rotate(-4deg)}}
+    .an-fburst{transform-origin:200px 200px;animation:anFburst .5s steps(2,end) infinite}
+    @keyframes anFburst{to{transform:rotate(4deg)}}
+    /* cut 5: goal */
+    .an-net{transform-origin:376px 236px;animation:anNet 6s ease-out infinite}
+    @keyframes anNet{0%,58%{transform:scale(1,1)}61%{transform:scale(1.16,1.06)}68%{transform:scale(.97,1)}74%,100%{transform:scale(1,1)}}
+    .an-gball{animation:anGball 6s ease-out infinite}
+    @keyframes anGball{0%,58%{transform:translate(300px,190px)}61%{transform:translate(372px,214px)}70%{transform:translate(366px,296px)}100%{transform:translate(360px,304px)}}
+    .an-goalb{animation:anGoalB 6s ease-out infinite;opacity:0}
+    @keyframes anGoalB{0%,59%{opacity:0}61%{opacity:1}80%{opacity:.5}92%,100%{opacity:0}}
+    .an-goaltxt{transform-origin:200px 92px;animation:anGoalT 6s cubic-bezier(.2,1.6,.4,1) infinite;opacity:0}
+    @keyframes anGoalT{0%,60%{opacity:0;transform:scale(.3) rotate(-14deg)}65%{opacity:1;transform:scale(1) rotate(-6deg)}94%{opacity:1;transform:scale(1.05) rotate(-6deg)}100%{opacity:0;transform:scale(1.2) rotate(-6deg)}}
+    @media (prefers-reduced-motion:reduce){.an *{animation:none!important}.an-c1,.an-c2,.an-c3,.an-c4{opacity:0}.an-c5,.an-goaltxt,.an-goalb{opacity:1}.an-gball{transform:translate(366px,296px)}}
   </style>
   <defs>
     <pattern id="mgTone" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.25" fill="#000"/></pattern>
@@ -126,10 +137,86 @@ input[type=text],input[type=search],textarea{cursor:text}
     <path id="mgStarShape" d="M0-12L3.5-3.8H12.4L5.2 1.6L7.8 10.6L0 5.4L-7.8 10.6L-5.2 1.6L-12.4-3.8H-3.5Z"/>
     <path id="mgSpark" d="M0-9L1.6-1.6L9 0L1.6 1.6L0 9L-1.6 1.6L-9 0L-1.6-1.6Z" fill="#FFF" stroke="#000" stroke-width=".8"/>
   </defs>
+  <g class="an"><g class="an-shake">
 
-  <g class="mg">
-  <rect width="400" height="400" fill="#FFF"/>
-  <g class="mg-cam">
+  <!-- CUT 1: extreme close-up, eyes lock on -->
+  <g class="an-c1">
+    <rect width="400" height="400" fill="#FFF"/>
+    <g class="an-pan"><path d="M98.6 185.2h87.7v2.0h-87.7ZM202.2 2.6h239.7v0.9h-239.7ZM293.3 221.7h68.2v1.3h-68.2ZM161.6 281.4h205.0v1.0h-205.0ZM-111.2 95.2h161.3v2.1h-161.3ZM419.4 236.2h136.7v1.8h-136.7ZM32.9 40.7h194.8v1.8h-194.8ZM-129.8 168.7h113.3v1.1h-113.3ZM447.6 112.5h99.9v2.0h-99.9ZM-156.2 351.7h135.8v1.5h-135.8ZM139.8 9.4h241.3v1.0h-241.3ZM-103.0 238.7h175.7v2.1h-175.7ZM-193.4 81.2h76.7v1.6h-76.7ZM-132.1 7.0h159.3v2.1h-159.3ZM118.5 168.0h187.7v0.9h-187.7ZM-62.0 231.9h181.8v2.1h-181.8ZM244.0 21.7h181.3v1.0h-181.3ZM595.9 107.3h259.6v1.0h-259.6ZM560.7 282.2h107.4v1.7h-107.4ZM92.8 17.2h194.8v1.6h-194.8ZM-130.6 309.9h129.4v2.0h-129.4ZM161.0 233.7h140.4v2.2h-140.4ZM-185.3 229.8h219.9v1.3h-219.9ZM-29.3 173.4h148.8v1.3h-148.8ZM303.6 35.5h80.6v1.9h-80.6ZM424.6 10.2h221.5v1.5h-221.5ZM-1.4 283.8h207.5v1.4h-207.5ZM571.3 92.4h140.2v1.3h-140.2ZM95.5 344.0h193.5v1.0h-193.5ZM7.1 337.3h70.1v2.2h-70.1ZM557.2 69.1h257.2v1.6h-257.2ZM-151.3 4.7h101.7v1.3h-101.7ZM573.1 244.6h130.9v1.0h-130.9ZM-90.2 224.8h77.3v1.6h-77.3ZM-147.5 278.4h150.3v1.8h-150.3ZM106.4 305.7h237.4v1.0h-237.4ZM417.4 286.2h236.1v1.5h-236.1ZM-161.2 39.7h165.8v1.0h-165.8ZM-132.6 251.9h216.0v1.1h-216.0ZM-59.3 5.2h151.3v1.6h-151.3ZM-61.6 155.3h156.4v2.1h-156.4ZM553.0 214.2h65.8v2.2h-65.8ZM235.5 355.6h164.7v1.6h-164.7ZM-147.5 363.8h188.6v1.6h-188.6ZM379.9 120.1h204.1v0.9h-204.1ZM162.8 279.8h158.0v1.7h-158.0ZM282.3 21.2h134.6v2.0h-134.6ZM458.5 92.4h205.9v1.7h-205.9ZM-171.2 350.3h179.4v1.7h-179.4ZM125.3 271.2h73.8v1.1h-73.8ZM-54.9 243.2h73.0v1.3h-73.0ZM228.5 188.1h65.2v1.9h-65.2ZM426.3 133.5h61.7v2.1h-61.7ZM581.1 236.1h257.3v2.0h-257.3ZM79.0 42.5h106.3v1.9h-106.3ZM-23.1 76.9h82.1v1.0h-82.1ZM581.0 375.3h134.5v1.8h-134.5ZM217.6 187.0h133.9v1.7h-133.9ZM5.1 94.5h163.6v1.1h-163.6ZM555.1 175.7h64.4v0.9h-64.4ZM-153.8 320.0h110.2v2.0h-110.2ZM-23.4 242.1h71.7v1.2h-71.7ZM440.2 120.1h255.1v1.9h-255.1ZM544.5 360.7h235.3v2.1h-235.3ZM-124.5 387.0h123.5v1.1h-123.5ZM193.4 241.7h129.4v2.0h-129.4ZM-32.9 159.6h115.3v1.4h-115.3ZM254.8 244.2h148.0v1.1h-148.0ZM60.0 160.9h94.1v1.6h-94.1ZM369.3 75.4h191.8v1.0h-191.8Z" fill="#000" opacity=".55"/></g>
+    <g class="an-eyeburst"><path d="M900.0 196.2L899.8 215.2L364.8 201.3ZM898.6 244.1L897.0 264.7L352.2 211.9ZM896.7 267.8L893.9 292.4L359.3 218.4ZM891.1 311.1L886.1 338.6L366.1 230.1ZM879.2 369.4L874.7 386.6L369.8 244.6ZM873.5 390.7L867.6 410.6L377.0 253.0ZM858.9 436.3L850.8 457.7L365.5 262.4ZM848.6 463.2L839.5 484.6L359.8 267.9ZM827.0 511.3L822.9 519.3L364.8 283.2ZM809.5 544.3L798.1 563.7L359.7 293.6ZM786.8 581.7L771.9 603.6L337.2 293.0ZM760.0 620.0L749.5 633.6L348.5 314.3ZM731.7 655.3L724.9 663.1L317.3 302.0ZM721.4 667.1L702.8 687.0L322.5 314.1ZM682.2 707.5L671.7 717.2L316.0 324.6ZM657.2 730.1L645.5 739.9L311.8 332.5ZM626.7 754.9L605.7 770.4L305.4 342.5ZM587.1 783.2L565.8 796.8L302.0 359.9ZM552.6 804.7L542.5 810.5L291.6 360.1ZM517.7 823.7L494.2 835.2L275.5 355.4ZM480.9 841.2L469.4 846.1L272.0 368.5ZM447.6 854.7L434.5 859.5L252.5 343.2ZM410.0 867.7L383.4 875.6L243.2 347.4ZM367.3 879.7L351.3 883.5L235.5 351.9ZM343.6 885.1L320.6 889.5L234.9 381.6ZM308.7 891.5L288.4 894.4L221.4 350.3ZM250.1 898.2L235.3 899.1L211.3 384.9ZM205.6 900.0L187.3 899.9L199.0 389.9ZM177.5 899.6L167.6 899.3L193.2 373.9ZM145.5 897.9L133.2 896.8L185.6 365.7ZM91.6 891.6L80.3 889.7L175.3 349.7ZM47.7 883.2L33.6 879.9L157.1 383.4ZM8.9 873.4L-6.2 868.9L152.2 361.5ZM-18.2 865.1L-38.1 858.3L143.3 364.3ZM-56.9 851.2L-75.9 843.3L128.6 373.5ZM-94.2 835.2L-109.4 827.9L122.9 361.3ZM-125.4 819.8L-138.0 813.0L110.4 366.5ZM-164.0 797.9L-180.2 787.7L120.0 327.4ZM-195.2 777.8L-211.3 766.4L113.1 323.3ZM-230.9 751.6L-247.1 738.6L104.4 318.7ZM-263.1 724.9L-276.1 713.1L81.1 331.4ZM-285.9 703.8L-301.7 688.1L73.3 327.2ZM-312.8 676.5L-319.3 669.4L69.5 319.6ZM-352.2 630.3L-360.2 619.7L66.3 302.1ZM-370.3 605.9L-378.7 593.8L64.9 294.0ZM-388.7 578.7L-397.0 565.5L52.8 292.4ZM-409.2 544.8L-416.8 531.0L41.6 287.3ZM-424.1 517.0L-432.7 499.5L38.9 279.0ZM-445.2 471.5L-450.0 459.7L31.5 269.1ZM-459.2 435.5L-463.2 424.1L41.9 255.0ZM-474.8 386.1L-477.5 376.1L42.7 242.1ZM-480.8 362.8L-486.1 338.6L36.4 236.1ZM-492.1 304.9L-493.8 293.3L38.2 223.1ZM-495.7 277.1L-498.1 251.5L32.7 215.4ZM-498.9 239.9L-499.4 229.2L29.0 208.5ZM-500.0 207.5L-499.8 183.3L16.5 198.8ZM-499.0 162.6L-498.1 148.7L18.1 188.4ZM-495.1 116.9L-491.8 93.0L37.7 177.8ZM-490.4 84.5L-487.9 70.6L21.0 168.2ZM-482.1 42.5L-478.5 27.8L38.0 160.7ZM-471.1 1.0L-466.3 -14.7L21.5 144.8ZM-459.5 -34.8L-456.6 -42.7L23.5 136.0ZM-441.9 -79.1L-430.4 -104.4L47.9 130.2ZM-423.9 -117.4L-411.4 -140.8L59.8 125.3ZM-406.8 -149.0L-394.1 -170.3L48.6 109.3ZM-385.9 -183.0L-378.1 -194.7L63.9 109.1ZM-366.0 -211.9L-360.2 -219.8L60.4 96.9ZM-345.2 -239.0L-329.7 -257.7L83.4 102.8ZM-308.4 -281.1L-293.1 -296.9L66.2 69.4ZM-281.7 -307.9L-262.5 -325.4L83.2 72.2ZM-266.8 -321.6L-249.4 -336.7L97.3 81.4ZM-230.2 -352.2L-213.1 -365.1L97.0 63.5ZM-198.0 -375.9L-175.6 -390.7L103.6 54.6ZM-160.2 -400.2L-148.7 -407.0L106.6 40.9ZM-127.0 -418.9L-105.9 -429.6L125.8 53.7ZM-95.1 -434.8L-77.8 -442.5L125.2 33.3ZM-61.3 -449.4L-38.9 -458.0L133.2 25.5ZM-9.6 -467.9L14.0 -474.8L157.5 55.8ZM24.4 -477.6L49.0 -483.5L164.5 52.2ZM60.7 -486.0L74.1 -488.6L167.6 32.0ZM101.7 -493.1L119.2 -495.3L176.8 20.4ZM135.4 -497.0L144.9 -497.8L186.7 45.5ZM178.1 -499.7L187.9 -499.9L195.4 11.1ZM235.4 -499.1L245.5 -498.5L209.8 30.2ZM260.2 -497.4L274.7 -496.0L215.8 36.7ZM305.1 -492.1L324.8 -488.8L227.0 37.8ZM336.2 -486.6L350.8 -483.6L231.8 48.3ZM380.0 -476.5L401.6 -470.3L245.0 41.0ZM412.5 -467.0L423.8 -463.3L251.4 43.3ZM456.4 -451.3L478.4 -442.3L263.1 47.3ZM498.9 -433.0L517.4 -423.9L273.6 49.8ZM526.6 -419.2L542.5 -410.5L285.1 43.5ZM560.7 -399.9L579.4 -388.3L289.0 57.0ZM592.2 -379.8L607.7 -369.0L301.6 54.1ZM622.2 -358.4L635.4 -348.1L302.3 68.0ZM664.2 -323.9L683.9 -305.8L311.7 78.6ZM694.7 -295.3L711.3 -278.1L315.3 88.4ZM719.6 -269.1L726.8 -261.0L336.4 78.7ZM743.8 -240.8L759.7 -220.5L343.2 88.2ZM769.0 -207.7L782.0 -189.0L341.9 101.8ZM784.8 -184.7L795.5 -167.9L326.6 119.2ZM805.4 -151.5L816.9 -130.9L332.5 126.0ZM826.9 -111.5L831.4 -102.2L366.5 118.8ZM844.7 -72.6L848.1 -64.4L369.6 129.5ZM856.0 -44.2L864.3 -20.7L366.9 141.2ZM873.5 9.1L880.3 35.2L367.5 156.0ZM885.0 55.7L886.8 64.6L377.1 163.9ZM889.9 81.7L893.4 103.8L352.4 176.4ZM895.9 124.8L898.3 151.4L351.8 186.5ZM898.7 158.1L899.6 177.5L382.9 191.6Z" fill="#000"/></g>
+    <g class="an-face">
+      <g class="an-hair" fill="none" stroke="#000" stroke-linecap="round">
+        <path d="M70 60C20 90 10 160 -20 190" stroke-width="22"/><path d="M90 40C40 60 20 110 -30 120" stroke-width="16"/><path d="M60 120C30 170 20 230 -20 260" stroke-width="12"/>
+        <path d="M70 60C20 90 10 160 -20 190" stroke="#FFF" stroke-width="2.5" stroke-dasharray="40 30"/>
+      </g>
+      <g transform="translate(200 214) scale(8.2)">
+        <path d="M0-21C-13-21-20-12-20-2C-20 6-16 10-12 12V17C-12 19-11 20-9 20H9C11 20 12 19 12 17V12C16 10 20 6 20-2C20-12 13-21 0-21Z" fill="#FFF" stroke="#000" stroke-width=".9"/>
+        <path d="M11-15C15-12 17-7 17-2M13-13C16-10 17.5-6 17.5-3M15-11C17-8 18-5 18-2" fill="none" stroke="#000" stroke-width=".25"/>
+        <path d="M-17 4C-15 8-13 10-11 11M-16 6C-14 9-12.5 10.5-11 11.5" fill="none" stroke="#000" stroke-width=".22"/>
+        <ellipse cx="-7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/><ellipse cx="7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/>
+        <g transform="translate(-6.8 -1)"><circle class="an-pupil" r="2.1" fill="#FFF"/><circle cx="1.3" cy="-1.7" r=".7" fill="#FFF"/></g>
+        <g transform="translate(8.2 -1)"><circle class="an-pupil" r="2.1" fill="#FFF"/><circle cx="1.3" cy="-1.7" r=".7" fill="#FFF"/></g>
+        <path d="M0 5L-2.8 10H2.8Z" fill="#000"/>
+      </g>
+      <g transform="translate(278 196)"><path class="an-glint" d="M0-38L6-6L38 0L6 6L0 38L-6 6L-38 0L-6-6Z" fill="#FFF" stroke="#000" stroke-width="2.5"/></g>
+    </g>
+    <path d="M0 0H400V44H0ZM0 356H400V400H0Z" fill="#000"/>
+  </g>
+
+  <!-- CUT 2: boot meets ball -->
+  <g class="an-c2">
+    <rect width="400" height="400" fill="#FFF"/>
+    <rect width="400" height="400" fill="url(#mgToneL)" opacity=".6"/>
+    <path d="M0 330H400" stroke="#000" stroke-width="3"/>
+    <path d="M0 340H400M0 352H400M0 366H400" stroke="#000" stroke-width="1"/>
+    <path class="an-smear" d="M20 40C60 220 160 300 250 290C190 270 110 200 60 40Z" fill="#000"/>
+    <path class="an-smear" d="M40 60C80 210 170 280 240 282" fill="none" stroke="#FFF" stroke-width="3" stroke-dasharray="2 10"/>
+    <g class="an-strikeW"><path d="M985.0 258.8L984.8 270.2L377.5 256.3ZM983.8 296.5L982.4 315.4L363.1 260.7ZM979.2 345.0L976.6 363.2L346.3 263.8ZM968.0 408.2L965.8 417.7L347.9 269.6ZM957.8 448.1L950.6 471.6L348.3 274.4ZM944.1 490.8L936.8 510.2L385.6 292.7ZM920.8 547.8L913.9 562.4L383.3 301.6ZM908.3 573.7L896.4 595.9L350.7 290.1ZM879.2 625.0L873.5 634.0L348.7 295.4ZM840.6 680.8L833.2 690.3L355.2 309.8ZM814.2 713.2L803.8 725.0L350.4 312.9ZM790.6 739.1L783.9 746.0L335.4 304.0ZM744.7 782.9L732.0 793.7L334.0 312.7ZM709.2 811.8L695.3 822.1L329.7 315.2ZM666.2 842.1L647.5 853.8L323.4 316.2ZM628.5 864.9L612.1 873.9L334.7 346.1ZM578.9 890.3L566.1 896.1L329.8 354.4ZM551.7 902.2L536.3 908.3L321.2 345.9ZM505.6 919.3L488.5 924.8L303.8 314.0ZM446.7 936.1L423.8 941.1L304.0 341.6ZM388.4 947.3L374.0 949.3L298.0 348.9ZM350.7 951.9L331.0 953.5L291.6 337.5ZM298.3 954.9L271.3 954.9L285.0 338.7ZM245.9 953.9L236.3 953.3L279.0 349.9ZM206.8 950.6L179.2 947.0L271.7 355.2ZM163.1 944.3L147.4 941.3L267.7 346.8ZM123.5 936.1L106.6 931.9L268.4 321.4ZM70.0 921.2L60.9 918.2L254.1 348.4ZM25.4 905.1L13.1 900.1L254.8 328.6ZM-40.2 874.9L-49.0 870.2L246.2 327.7ZM-67.8 859.6L-89.8 846.2L232.5 341.3ZM-121.6 824.8L-132.8 816.7L237.4 320.3ZM-144.1 808.0L-164.1 791.9L217.3 339.0ZM-182.3 776.2L-191.0 768.2L236.8 307.9ZM-217.1 742.8L-229.4 729.8L220.0 316.5ZM-253.5 702.3L-258.8 695.7L222.4 306.3ZM-281.9 665.6L-293.2 649.6L196.9 316.9ZM-314.4 616.6L-323.7 600.6L206.6 300.9ZM-340.0 570.2L-344.2 561.8L191.0 301.6ZM-358.5 530.5L-368.1 506.8L192.5 292.6ZM-373.9 491.2L-379.2 475.9L223.4 276.3ZM-391.6 434.7L-394.0 425.3L223.6 270.8ZM-399.8 400.2L-402.1 388.9L209.5 270.4ZM-407.8 355.1L-409.0 346.7L218.1 264.3ZM-412.9 308.6L-414.0 293.1L223.9 259.0ZM-414.8 239.6L-414.1 219.2L217.6 252.5ZM-413.3 206.4L-412.1 191.2L207.0 248.7ZM-409.4 166.4L-405.8 141.6L176.5 239.2ZM-398.7 104.8L-394.6 87.4L222.4 240.4ZM-389.1 66.4L-384.9 51.9L214.7 234.5ZM-366.2 -1.7L-361.9 -12.5L228.3 232.1ZM-346.7 -46.5L-338.4 -63.3L224.6 225.2ZM-327.6 -83.7L-323.2 -91.5L209.7 212.7ZM-300.0 -129.4L-285.7 -150.3L206.7 201.5ZM-281.4 -156.3L-272.1 -168.8L230.1 214.2ZM-242.6 -205.0L-230.1 -219.0L211.3 189.0ZM-216.3 -233.6L-207.3 -242.7L213.6 184.1ZM-171.1 -276.0L-151.8 -292.0L221.0 177.8ZM-136.0 -304.2L-117.5 -317.7L243.0 197.3ZM-100.2 -329.5L-87.3 -337.8L251.8 203.3ZM-70.3 -348.1L-58.3 -355.1L248.6 191.8ZM-15.8 -377.1L8.9 -388.3L251.1 180.0ZM35.4 -399.0L61.6 -408.4L248.6 153.6ZM72.8 -412.1L85.0 -415.8L264.0 186.8ZM115.2 -424.1L127.3 -427.0L263.7 166.3ZM177.2 -436.7L201.9 -440.0L273.5 171.8ZM218.9 -441.9L242.9 -443.7L280.0 191.0ZM266.8 -444.8L293.1 -445.0L284.3 155.9ZM322.5 -444.0L340.3 -442.8L289.6 186.2ZM373.7 -439.4L388.5 -437.3L298.7 155.9ZM426.6 -430.5L442.4 -427.1L302.1 176.8ZM470.3 -420.0L492.0 -413.7L304.2 189.2ZM499.5 -411.3L510.2 -407.8L318.1 155.1ZM563.8 -387.1L574.1 -382.5L326.1 162.4ZM608.0 -366.0L626.8 -355.9L321.8 186.8ZM644.1 -345.8L653.5 -340.1L316.6 203.1ZM691.1 -315.1L708.2 -302.6L336.1 185.5ZM730.7 -284.8L743.6 -273.8L351.9 175.9ZM766.6 -253.0L775.6 -244.3L335.4 202.8ZM789.9 -229.8L798.9 -220.3L350.0 193.7ZM820.8 -195.5L831.3 -182.6L336.4 212.8ZM862.3 -140.9L870.8 -128.2L353.9 208.9ZM880.8 -112.5L894.1 -90.0L354.7 213.8ZM911.2 -57.8L919.2 -41.4L363.0 217.3ZM928.9 -19.7L932.3 -11.6L360.6 223.3ZM943.2 16.6L946.0 24.6L379.2 221.5ZM956.8 58.4L961.6 75.4L377.7 229.1ZM971.5 118.2L974.2 132.7L369.4 239.1ZM978.8 161.9L981.5 185.5L349.9 247.4ZM983.9 215.9L984.5 229.2L358.8 251.6Z" fill="#FFF"/></g>
+    <g class="an-bigball">
+      <circle cx="300" cy="255" r="62" fill="#FFF" stroke="#000" stroke-width="5"/>
+      <path d="M300 226L327 245L317 277H283L273 245Z" fill="#000"/>
+      <path d="M300 226V193M327 245L357 236M317 277L336 304M283 277L264 304M273 245L243 236" stroke="#000" stroke-width="4"/>
+      <path d="M262 214C276 200 296 196 312 200" fill="none" stroke="#000" stroke-width="2"/>
+      <path d="M248 270C252 290 266 304 284 312" fill="none" stroke="#000" stroke-width="1.5"/>
+    </g>
+    <g class="an-leg">
+      <path d="M40 -40L196 228" stroke="#000" stroke-width="58" stroke-linecap="round"/>
+      <path d="M40 -40L196 228" stroke="#FFF" stroke-width="44" stroke-linecap="round"/>
+      <path d="M60 0L176 200" stroke="#000" stroke-width="2"/>
+      <path d="M74 10L180 192M82 30L186 210" stroke="#000" stroke-width="1"/>
+      <path d="M150 160L222 168L248 232L176 260L136 222Z" fill="#000"/>
+      <path d="M176 210L222 196M180 220L226 206M184 230L230 216" stroke="#FFF" stroke-width="3"/>
+      <path d="M152 236L136 248M168 252L156 266M188 256L182 272" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+      <path d="M210 175L240 232" stroke="#FFF" stroke-width="2.5"/>
+    </g>
+    <path d="M0 0H400V44H0ZM0 356H400V400H0Z" fill="#000"/>
+  </g>
+
+  <!-- CUT 3: impact frame -->
+  <g class="an-c3">
+    <rect width="400" height="400" fill="#000"/>
+    <path d="M797.6 321.5L797.1 332.5L292.0 305.0ZM795.2 358.6L793.2 377.3L258.5 308.9ZM785.0 426.5L783.0 435.6L260.3 317.8ZM768.3 489.6L764.8 500.1L272.2 331.2ZM757.0 521.8L752.0 534.2L235.1 322.6ZM741.9 557.7L730.5 581.4L276.9 347.7ZM702.4 630.8L689.5 650.4L275.9 364.4ZM682.1 661.0L670.7 676.3L250.1 353.4ZM640.8 712.5L623.1 731.6L255.4 371.9ZM586.2 766.7L578.8 773.0L242.7 375.1ZM555.6 791.8L537.7 805.0L235.7 378.0ZM501.8 828.7L490.3 835.6L237.3 399.3ZM468.4 847.8L451.1 856.6L229.7 401.4ZM406.2 876.5L393.5 881.3L204.4 368.9ZM368.7 890.0L349.7 895.8L213.0 414.6ZM294.1 909.0L279.0 911.7L192.7 382.7ZM240.6 916.8L227.6 918.0L185.7 384.3ZM210.9 919.1L199.8 919.6L182.1 392.3ZM136.9 918.6L117.3 917.0L171.3 381.6ZM73.2 911.1L53.7 907.4L165.2 368.2ZM50.9 906.8L24.8 900.8L151.0 416.2ZM-33.5 882.8L-51.6 875.9L150.0 373.6ZM-62.7 871.4L-74.2 866.4L148.8 367.3ZM-131.9 837.0L-153.4 824.0L122.8 391.3ZM-162.6 818.1L-172.7 811.3L134.5 364.7ZM-228.8 767.9L-236.8 760.8L106.8 380.5ZM-260.2 738.6L-272.9 725.5L93.7 381.9ZM-288.8 708.0L-300.3 694.4L125.1 345.0ZM-323.1 665.1L-327.8 658.5L113.9 346.1ZM-354.1 618.2L-358.5 610.8L75.0 360.6ZM-379.3 571.6L-389.9 548.8L85.3 342.9ZM-407.3 504.5L-413.7 485.1L66.8 336.8ZM-424.3 447.1L-429.1 425.9L86.7 320.6ZM-434.1 398.6L-437.2 377.0L85.8 313.2ZM-440.4 344.1L-441.1 333.6L67.6 306.9ZM-441.9 288.2L-441.7 279.4L107.9 298.2ZM-437.0 221.6L-435.3 209.2L95.3 288.6ZM-430.1 179.0L-424.8 155.0L100.2 282.9ZM-418.3 130.2L-413.8 115.1L118.9 282.4ZM-393.1 58.6L-390.0 51.4L70.0 253.5ZM-380.7 31.2L-376.0 21.7L78.5 251.1ZM-342.9 -36.2L-336.3 -46.3L100.2 248.7ZM-320.6 -68.5L-307.4 -85.7L121.6 256.7ZM-279.6 -118.3L-260.8 -138.0L104.0 229.3ZM-237.5 -160.2L-217.8 -177.2L123.8 237.4ZM-195.7 -194.7L-176.3 -208.8L122.1 222.9ZM-168.8 -213.9L-152.3 -224.7L115.4 203.9ZM-115.8 -246.0L-97.7 -255.3L125.7 198.9ZM-50.9 -276.2L-43.3 -279.2L142.4 208.8ZM-17.1 -288.5L6.3 -295.7L148.5 204.7ZM37.8 -303.9L62.4 -309.1L157.9 204.6ZM94.1 -314.3L117.9 -317.1L164.8 187.3ZM167.5 -319.9L192.5 -319.8L178.3 200.5ZM219.4 -318.6L238.8 -317.0L185.6 208.7ZM286.7 -310.4L300.9 -307.7L190.1 236.3ZM330.7 -300.9L347.4 -296.4L202.1 210.4ZM382.6 -285.3L394.3 -281.0L202.5 232.2ZM413.3 -273.6L434.4 -264.5L223.4 194.9ZM487.9 -237.0L496.3 -232.1L238.1 197.6ZM535.1 -206.8L549.3 -196.5L213.3 251.4ZM578.7 -173.1L593.6 -160.1L242.1 226.7ZM598.9 -155.2L614.8 -140.0L220.9 255.2ZM651.9 -99.7L658.5 -91.8L240.8 247.9ZM690.3 -49.2L702.5 -30.6L269.1 240.3ZM711.5 -16.0L719.0 -2.8L261.4 251.9ZM733.7 25.0L740.4 39.1L284.9 248.8ZM762.9 94.3L770.6 117.6L252.0 275.6ZM778.6 146.2L783.9 168.7L277.5 276.5ZM789.6 198.3L791.3 209.1L238.3 290.5ZM796.8 261.0L797.9 286.9L254.5 296.8Z" fill="#FFF"/>
+    <circle cx="178" cy="300" r="30" fill="#FFF"/>
+    <text x="200" y="120" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-style="italic" font-size="78" fill="#000" stroke="#FFF" stroke-width="11" stroke-linejoin="round" paint-order="stroke" transform="rotate(-8 200 100)">BOOM!</text>
+  </g>
+
+  <!-- CUT 4: ball rockets past a reaching hand -->
+  <g class="an-c4">
+    <rect width="400" height="400" fill="#FFF"/>
+    <g class="an-fburst"><path d="M900.0 202.2L899.5 225.2L309.7 202.1ZM898.5 245.9L896.6 268.7L315.7 209.5ZM897.0 265.1L895.1 282.5L316.5 212.4ZM891.2 310.7L886.6 336.4L274.5 213.4ZM883.9 349.2L881.0 362.1L294.8 221.6ZM874.0 389.2L871.6 397.5L277.7 222.3ZM867.9 409.6L859.5 434.6L302.7 234.4ZM856.5 442.9L847.8 465.3L271.7 227.9ZM836.1 492.1L831.5 502.0L263.5 229.7ZM817.7 529.2L811.8 540.2L270.9 238.6ZM801.7 557.6L788.3 579.3L271.8 244.5ZM780.6 591.0L769.8 606.6L285.4 259.2ZM771.5 604.2L755.6 625.8L284.2 262.0ZM738.7 646.9L721.8 666.6L264.4 255.4ZM718.8 670.0L710.9 678.5L256.8 252.4ZM699.0 690.9L688.9 701.0L270.7 271.0ZM676.3 712.9L660.2 727.4L258.1 264.6ZM644.7 740.6L625.6 755.8L258.5 273.7ZM613.0 765.2L598.5 775.5L261.0 285.7ZM591.7 780.2L568.6 795.1L238.6 259.7ZM546.5 808.2L524.6 820.2L234.0 262.2ZM509.3 828.0L495.2 834.7L242.7 289.2ZM488.8 837.7L480.3 841.4L232.1 272.2ZM436.9 858.7L425.3 862.7L235.6 301.7ZM409.6 867.9L383.9 875.4L224.5 283.7ZM382.7 875.7L364.6 880.4L227.0 305.4ZM354.5 882.7L331.9 887.5L222.5 307.5ZM295.3 893.5L286.3 894.7L215.2 316.3ZM278.7 895.6L263.7 897.1L210.2 300.0ZM224.0 899.6L208.9 899.9L202.7 316.2ZM195.3 900.0L180.8 899.7L198.5 285.8ZM164.4 899.1L154.5 898.5L195.5 277.3ZM125.6 896.0L97.9 892.5L190.2 277.5ZM103.2 893.3L75.8 888.9L184.7 295.5ZM52.1 884.2L39.4 881.3L178.0 297.2ZM9.7 873.6L-7.0 868.7L174.1 287.3ZM-4.9 869.3L-30.0 861.1L177.7 268.1ZM-49.4 854.1L-72.4 844.8L171.5 271.0ZM-87.1 838.4L-111.5 826.9L156.6 291.8ZM-128.5 818.1L-137.7 813.1L156.3 280.7ZM-142.0 810.8L-163.6 798.2L157.3 273.2ZM-177.9 789.3L-201.1 773.7L137.3 293.6ZM-221.8 758.7L-235.4 748.1L142.2 274.6ZM-246.1 739.5L-259.6 728.0L145.3 264.5ZM-270.8 718.0L-279.1 710.4L139.7 265.3ZM-300.7 689.2L-319.3 669.4L126.1 269.4ZM-322.5 665.8L-332.4 654.5L143.9 248.9ZM-340.3 645.1L-355.1 626.5L111.3 270.6ZM-364.0 614.6L-377.7 595.2L111.3 262.9ZM-389.5 577.4L-400.8 559.2L108.2 256.8ZM-404.7 552.7L-415.5 533.3L126.7 241.2ZM-423.2 518.7L-433.6 497.7L106.1 246.0ZM-436.6 491.1L-447.3 466.4L106.0 240.8ZM-456.5 442.9L-459.4 434.8L108.5 233.2ZM-464.1 421.3L-470.6 400.8L111.2 228.1ZM-478.0 374.0L-483.0 353.5L93.2 225.7ZM-484.1 348.3L-488.2 327.7L95.2 221.1ZM-493.0 299.0L-495.0 283.9L88.8 214.7ZM-497.0 265.0L-498.7 243.2L81.5 209.2ZM-499.6 224.9L-500.0 206.3L103.6 202.2ZM-499.9 208.7L-499.8 183.9L83.1 199.4ZM-499.1 163.8L-497.6 141.9L94.3 192.9ZM-495.0 116.7L-493.5 105.0L91.9 186.1ZM-491.1 88.5L-487.3 67.4L110.4 184.1ZM-484.3 52.6L-478.9 29.6L100.8 176.9ZM-473.1 7.9L-470.6 -0.7L125.1 178.1ZM-466.0 -15.5L-459.2 -35.5L123.4 173.9ZM-451.8 -55.2L-443.9 -74.5L133.3 172.7ZM-437.9 -88.3L-432.5 -100.0L134.0 169.4ZM-425.7 -113.9L-419.0 -126.9L129.7 163.8ZM-406.4 -149.7L-401.8 -157.6L119.5 152.9ZM-388.1 -179.7L-376.8 -196.7L117.2 144.8ZM-370.9 -205.1L-355.4 -226.1L143.7 158.4ZM-342.8 -242.1L-333.9 -252.7L130.4 142.2ZM-326.7 -261.1L-310.1 -279.3L134.3 140.4ZM-301.6 -288.3L-287.1 -302.7L147.2 147.1ZM-265.1 -323.2L-253.7 -333.1L135.0 125.3ZM-233.6 -349.5L-214.2 -364.3L144.9 127.6ZM-205.5 -370.6L-188.2 -382.5L149.8 127.1ZM-187.0 -383.3L-170.1 -394.1L146.9 117.4ZM-143.6 -409.9L-119.5 -422.8L152.4 111.6ZM-122.4 -421.3L-99.2 -432.8L168.9 137.2ZM-91.4 -436.4L-73.6 -444.3L159.3 107.8ZM-57.6 -450.9L-38.2 -458.2L159.4 92.9ZM-16.5 -465.7L-0.4 -470.7L175.8 122.4ZM11.8 -474.2L38.4 -481.1L177.8 113.8ZM62.3 -486.3L88.2 -491.0L182.2 101.8ZM82.5 -490.1L109.8 -494.2L185.9 106.2ZM128.6 -496.4L143.2 -497.7L189.1 81.3ZM167.2 -499.2L181.2 -499.7L196.5 106.2ZM192.4 -500.0L213.0 -499.9L200.4 107.8ZM231.2 -499.3L254.9 -497.8L206.9 88.9ZM264.1 -497.1L282.8 -495.1L208.8 116.8ZM318.1 -490.0L341.4 -485.6L215.3 119.1ZM345.7 -484.7L356.9 -482.2L225.8 83.4ZM377.6 -477.1L397.2 -471.7L225.1 109.7ZM420.2 -464.5L439.3 -457.8L235.2 98.8ZM442.4 -456.7L464.1 -448.3L230.8 120.7ZM488.6 -437.7L502.2 -431.4L235.8 123.1ZM520.4 -422.4L535.8 -414.2L241.3 122.2ZM555.5 -403.0L572.6 -392.6L237.4 138.7ZM578.6 -388.8L593.1 -379.2L263.9 103.4ZM619.5 -360.4L634.6 -348.7L243.2 144.0ZM647.3 -338.5L660.1 -327.6L264.0 124.8ZM672.2 -316.7L687.4 -302.5L264.5 131.5ZM703.4 -286.4L714.4 -274.8L265.1 138.5ZM728.6 -258.9L736.5 -249.6L264.5 144.9ZM752.3 -230.0L758.2 -222.3L288.7 131.9ZM770.3 -205.9L779.9 -192.0L269.3 151.9ZM789.3 -177.8L803.0 -155.5L265.7 159.6ZM806.7 -149.2L816.0 -132.4L282.9 153.8ZM824.4 -116.4L829.5 -106.2L288.9 155.8ZM844.7 -72.8L848.4 -63.8L275.3 168.8ZM855.7 -45.2L863.6 -22.6L297.2 165.5ZM862.3 -26.5L869.3 -5.0L313.1 163.3ZM878.9 29.4L883.9 50.9L270.5 183.5ZM887.1 66.4L889.4 78.9L300.6 181.4ZM892.8 100.1L895.7 122.3L276.1 190.3ZM895.4 120.1L897.9 146.4L277.1 192.6ZM899.3 168.5L899.8 185.0L278.0 197.4Z" fill="#000"/></g>
+    <g class="an-fball">
+      <g class="an-fspin">
+        <circle cx="200" cy="200" r="40" fill="#FFF" stroke="#000" stroke-width="4"/>
+        <path d="M200 182L217 194L211 214H189L183 194Z" fill="#000"/>
+        <path d="M200 182V160M217 194L238 188M211 214L224 232M189 214L176 232M183 194L162 188" stroke="#000" stroke-width="3"/>
+      </g>
+    </g>
+    <path d="M0 0H400V44H0ZM0 356H400V400H0Z" fill="#000"/>
+  </g>
+
+  <!-- CUT 5: wide shot, net bulges -->
+  <g class="an-c5">
+    <rect width="400" height="400" fill="#FFF"/>
     <!-- stands: screentone crowd -->
     <rect x="-20" y="96" width="440" height="44" fill="url(#mgTone)"/>
     <g fill="#FFF" stroke="#000" stroke-width="1.2"><circle cx="30" cy="112" r="5"/><circle cx="96" cy="108" r="5"/><circle cx="170" cy="114" r="5"/><circle cx="236" cy="108" r="5"/><circle cx="302" cy="113" r="5"/><circle cx="372" cy="109" r="5"/></g>
@@ -140,19 +227,14 @@ input[type=text],input[type=search],textarea{cursor:text}
     <path d="M-20 382H420" stroke="#000" stroke-width="2.5"/>
     <path d="M250 382L300 168H420" fill="none" stroke="#000" stroke-width="2"/>
     <!-- goal -->
-    <g class="mg-net"><path d="M346 168H400V306H346Z" fill="url(#mgMesh)"/></g>
+    <g class="an-net"><path d="M346 168H400V306H346Z" fill="url(#mgMesh)"/></g>
     <path d="M344 306V166H404" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round"/>
     <path d="M344 306V166H404" fill="none" stroke="#FFF" stroke-width="2.5" stroke-linejoin="round"/>
 
-    <!-- kick build-up: radial speed lines -->
-    <g class="mg-kick"><path d="M798.0 301.4L797.9 310.9L271.8 300.9ZM796.5 342.9L795.8 351.6L271.8 307.2ZM790.2 398.3L786.0 421.3L292.1 320.5ZM785.1 425.7L781.2 443.4L262.5 318.8ZM774.1 470.6L771.4 479.8L257.5 323.4ZM756.3 523.4L747.3 545.5L287.6 344.8ZM738.1 565.9L733.1 576.1L257.7 338.7ZM722.9 595.7L712.1 614.9L283.6 359.7ZM693.9 643.9L688.7 651.5L266.1 359.6ZM674.4 671.4L663.8 685.3L241.9 349.2ZM648.0 704.4L641.9 711.3L273.0 382.9ZM614.6 740.2L601.4 752.9L239.1 363.4ZM582.2 770.1L567.8 782.2L256.7 394.4ZM549.2 796.6L535.0 806.9L233.7 376.8ZM518.4 818.2L504.9 826.8L220.9 367.2ZM491.3 835.0L470.8 846.5L213.5 363.3ZM457.6 853.4L439.7 862.0L215.9 378.1ZM405.2 876.9L389.5 882.8L210.0 384.7ZM350.2 895.6L339.3 898.6L203.5 391.3ZM332.6 900.4L313.1 905.1L198.2 384.2ZM287.5 910.3L265.5 913.8L192.2 388.1ZM241.0 916.8L215.7 918.9L184.2 375.8ZM204.0 919.5L192.1 919.8L181.7 415.8ZM146.5 919.2L134.3 918.5L172.5 389.7ZM116.8 917.0L100.4 915.1L169.9 372.1ZM64.9 909.6L40.2 904.5L152.2 424.7ZM22.3 900.1L-3.1 892.9L158.7 368.4ZM-8.1 891.4L-33.3 882.9L140.7 410.4ZM-52.0 875.8L-76.1 865.5L136.1 398.7ZM-106.8 850.7L-118.6 844.5L139.8 372.0ZM-137.6 833.7L-146.3 828.4L130.1 379.6ZM-183.5 803.7L-194.7 795.4L136.2 356.9ZM-200.4 791.2L-208.9 784.5L105.8 392.1ZM-239.0 758.9L-248.6 749.9L126.4 355.6ZM-280.0 717.9L-290.5 706.0L116.4 354.8ZM-295.2 700.6L-300.7 694.1L116.5 351.3ZM-330.8 654.3L-336.6 645.8L118.2 340.9ZM-351.2 623.0L-357.6 612.3L66.5 366.5ZM-366.7 596.2L-375.0 580.3L74.9 354.1ZM-387.2 554.8L-397.8 529.9L87.2 338.6ZM-404.1 513.5L-409.3 498.8L109.9 324.0ZM-419.3 466.3L-422.5 454.4L58.8 331.9ZM-431.0 416.2L-434.0 399.2L107.2 312.5ZM-436.0 385.8L-437.6 373.7L96.2 310.6ZM-440.0 349.6L-441.5 324.9L99.6 304.7ZM-441.9 311.6L-441.8 285.7L74.1 299.8ZM-439.0 238.8L-437.3 223.5L54.7 286.2ZM-435.2 208.4L-431.3 185.5L64.9 280.9ZM-426.7 163.1L-424.6 154.1L97.5 281.1ZM-415.1 119.5L-407.3 95.4L58.7 261.0ZM-405.1 89.4L-397.8 70.2L67.7 258.1ZM-386.4 43.4L-376.2 22.1L86.3 256.2ZM-366.4 3.2L-356.0 -15.1L103.1 257.5ZM-342.0 -37.6L-327.2 -59.5L116.4 258.1ZM-316.5 -74.0L-300.0 -94.8L91.6 231.7ZM-304.2 -89.7L-288.0 -109.0L118.6 250.0ZM-257.6 -141.2L-242.6 -155.5L127.2 246.7ZM-241.1 -156.9L-226.1 -170.2L108.9 222.1ZM-198.6 -192.5L-177.7 -207.8L128.9 232.9ZM-179.2 -206.7L-157.9 -221.1L138.4 241.3ZM-116.4 -245.7L-107.8 -250.2L122.5 195.2ZM-86.7 -260.7L-64.0 -270.8L135.9 206.0ZM-38.3 -281.0L-27.6 -284.9L140.5 196.3ZM-17.4 -288.4L6.6 -295.8L143.6 188.8ZM31.2 -302.4L48.6 -306.4L162.1 230.2ZM61.8 -309.0L80.7 -312.3L160.9 202.2ZM125.8 -317.8L145.3 -319.1L172.6 221.9ZM154.4 -319.6L177.1 -320.0L176.0 198.6ZM187.9 -319.9L211.9 -319.1L182.2 180.4ZM235.9 -317.3L254.1 -315.3L188.0 207.7ZM299.1 -308.1L312.4 -305.3L195.3 217.8ZM327.3 -301.7L353.0 -294.8L197.8 226.9ZM363.0 -291.8L381.8 -285.6L216.6 183.1ZM415.1 -272.9L429.9 -266.5L225.9 188.4ZM463.9 -250.2L471.6 -246.1L235.4 191.4ZM486.6 -237.8L498.2 -230.9L238.9 196.4ZM524.1 -214.4L543.2 -201.0L223.9 234.4ZM573.1 -177.8L581.5 -170.7L228.9 239.6ZM597.1 -156.9L607.4 -147.2L248.2 225.3ZM632.7 -121.5L647.1 -105.4L230.4 253.1ZM652.3 -99.3L663.8 -85.2L254.8 237.2ZM685.4 -56.2L695.0 -42.2L239.6 258.0ZM700.7 -33.4L713.4 -12.7L256.0 252.4ZM728.4 14.6L740.3 38.8L274.6 252.6ZM747.5 55.0L755.0 73.0L260.1 266.2ZM765.7 102.4L770.8 118.3L296.7 261.9ZM772.8 124.9L779.2 148.7L291.1 269.1ZM786.0 178.7L789.0 194.7L255.1 285.7ZM793.6 226.3L795.2 240.9L287.1 288.2ZM796.4 255.7L797.0 264.7L256.5 295.0Z" fill="#000"/></g>
-    <!-- flight speed lines -->
-    <g class="mg-flight"><path d="M237.1 179.3h53.4l0.0 1.6h-53.4ZM206.7 242.9h99.1l0.0 2.3h-99.1ZM300.2 196.0h44.1l0.0 1.2h-44.1ZM155.9 289.3h30.4l0.0 2.4h-30.4ZM267.9 150.4h74.5l0.0 1.4h-74.5ZM324.1 184.4h61.5l0.0 1.4h-61.5ZM281.8 211.8h53.3l0.0 1.1h-53.3ZM167.3 260.7h34.4l0.0 1.0h-34.4ZM228.2 289.1h89.0l0.0 1.9h-89.0ZM211.8 286.5h58.0l0.0 2.1h-58.0ZM215.4 150.1h90.7l0.0 1.9h-90.7ZM318.6 218.6h64.6l0.0 2.2h-64.6ZM165.6 204.9h61.0l0.0 1.3h-61.0ZM201.5 153.8h40.1l0.0 1.7h-40.1ZM286.4 253.3h100.7l0.0 1.5h-100.7ZM310.0 243.7h61.7l0.0 2.5h-61.7ZM315.7 164.4h100.5l0.0 2.6h-100.5ZM277.9 266.3h64.8l0.0 2.1h-64.8ZM253.7 273.0h79.7l0.0 2.5h-79.7ZM210.3 189.9h32.8l0.0 2.4h-32.8ZM271.1 238.1h49.0l0.0 1.3h-49.0ZM307.9 217.0h58.4l0.0 1.7h-58.4ZM302.0 208.5h39.9l0.0 2.4h-39.9ZM275.8 151.6h91.1l0.0 1.8h-91.1ZM200.5 253.9h41.3l0.0 1.6h-41.3ZM279.0 187.1h75.1l0.0 2.1h-75.1Z" fill="#000"/></g>
-    <!-- goal burst -->
-    <g class="mg-goalb"><path d="M981.8 220.3L981.3 235.8L438.3 208.7ZM978.4 272.3L976.8 286.0L437.5 215.0ZM974.6 301.7L971.6 319.0L407.8 213.8ZM964.6 351.8L961.4 364.6L449.9 228.3ZM953.9 390.6L946.8 411.9L408.8 221.5ZM925.4 464.8L920.9 474.5L406.9 227.1ZM917.5 481.4L905.5 504.4L431.5 242.3ZM881.4 544.6L871.7 559.0L404.1 234.3ZM862.6 571.8L852.7 585.0L437.6 262.8ZM834.3 607.7L826.2 617.0L427.8 263.1ZM807.4 637.3L788.4 656.0L404.1 248.5ZM759.8 681.5L743.9 694.4L418.8 276.2ZM734.4 701.7L714.7 715.9L393.6 249.8ZM671.3 743.3L664.4 747.3L403.1 278.5ZM643.9 758.2L633.6 763.4L382.9 247.8ZM596.9 779.8L584.0 784.9L396.7 293.5ZM543.7 798.8L529.6 802.9L388.6 296.7ZM507.5 808.7L496.1 811.3L382.9 296.4ZM441.9 820.8L421.0 823.2L372.5 299.3ZM421.6 823.1L396.3 825.0L368.1 286.0ZM354.6 826.0L330.4 825.2L360.4 256.2ZM312.6 824.0L302.5 823.1L355.9 274.7ZM258.2 817.3L240.4 814.0L350.5 268.1ZM207.9 806.5L184.7 800.1L339.8 285.9ZM174.3 796.9L164.4 793.7L344.6 259.2ZM127.0 779.7L109.7 772.3L340.5 256.3ZM70.7 753.3L58.2 746.4L331.7 261.4ZM31.6 730.6L9.7 716.2L332.0 251.5ZM0.2 709.5L-21.3 693.3L328.6 250.5ZM-37.0 680.6L-45.5 673.3L305.9 271.5ZM-82.3 638.5L-100.0 619.4L310.9 253.7ZM-105.8 612.9L-114.6 602.6L300.3 258.5ZM-143.3 565.3L-149.2 556.9L309.7 242.5ZM-169.9 524.6L-177.2 512.0L303.8 239.9ZM-190.4 487.5L-194.0 480.3L286.7 243.7ZM-215.8 430.7L-221.4 416.0L314.5 223.8ZM-227.5 398.2L-232.9 380.5L276.3 232.5ZM-241.0 350.1L-246.7 323.9L292.3 221.1ZM-249.6 307.5L-252.5 288.0L287.8 217.1ZM-256.6 248.1L-257.7 226.3L315.9 208.3ZM-258.0 204.9L-257.5 181.6L310.1 204.9ZM-256.4 161.6L-255.5 150.6L302.9 201.2ZM-249.4 103.2L-247.0 89.8L286.5 192.4ZM-241.4 63.4L-237.9 49.5L285.5 187.0ZM-226.8 11.9L-218.0 -13.1L275.4 175.4ZM-210.6 -31.7L-205.1 -44.7L295.9 177.7ZM-186.5 -83.1L-179.5 -96.0L284.5 164.0ZM-168.0 -115.7L-159.1 -129.9L318.8 179.0ZM-129.9 -171.4L-118.0 -186.5L288.0 147.4ZM-113.7 -191.6L-99.6 -207.9L305.4 157.0ZM-83.7 -225.0L-66.9 -241.7L299.4 143.1ZM-48.7 -258.4L-28.8 -275.3L307.5 141.7ZM4.5 -300.6L19.6 -310.9L329.2 158.0ZM32.3 -319.1L46.7 -327.8L316.1 130.6ZM78.5 -345.4L93.5 -352.9L335.7 153.1ZM131.2 -369.4L155.9 -378.8L330.5 122.3ZM170.9 -383.8L185.9 -388.5L348.6 162.9ZM220.5 -397.6L244.3 -402.7L343.8 120.7ZM259.2 -405.4L275.0 -407.9L354.5 157.6ZM313.0 -412.1L338.5 -413.6L358.5 146.9ZM373.5 -413.9L399.9 -412.8L365.4 120.1ZM403.7 -412.6L429.3 -410.3L370.0 115.2ZM483.9 -401.9L491.4 -400.3L371.2 161.8ZM506.4 -396.9L523.6 -392.6L378.3 141.8ZM546.6 -385.9L565.7 -379.6L386.5 131.6ZM608.1 -363.1L624.2 -355.8L391.7 139.9ZM657.5 -339.1L665.1 -334.9L394.3 147.5ZM685.3 -323.1L693.3 -318.0L405.9 135.4ZM728.4 -294.2L739.7 -285.7L397.3 158.9ZM773.9 -257.4L781.2 -250.8L413.6 148.8ZM792.5 -240.2L811.1 -221.5L399.5 168.8ZM842.0 -186.5L853.3 -172.2L413.9 164.8ZM864.5 -157.1L872.9 -145.2L429.8 158.2ZM893.9 -112.6L903.0 -96.9L411.6 177.2ZM920.1 -64.0L924.8 -54.2L424.5 176.4ZM938.5 -22.1L945.0 -5.0L431.2 179.8ZM955.0 24.9L958.2 35.7L451.1 179.7ZM966.9 70.1L971.3 91.5L452.8 187.3ZM975.3 115.1L977.2 129.0L421.6 197.9ZM980.3 159.9L981.1 173.3L422.7 202.1Z" fill="#000"/></g>
 
+    <g class="an-goalb"><path d="M981.8 220.3L981.3 235.8L438.3 208.7ZM978.4 272.3L976.8 286.0L437.5 215.0ZM974.6 301.7L971.6 319.0L407.8 213.8ZM964.6 351.8L961.4 364.6L449.9 228.3ZM953.9 390.6L946.8 411.9L408.8 221.5ZM925.4 464.8L920.9 474.5L406.9 227.1ZM917.5 481.4L905.5 504.4L431.5 242.3ZM881.4 544.6L871.7 559.0L404.1 234.3ZM862.6 571.8L852.7 585.0L437.6 262.8ZM834.3 607.7L826.2 617.0L427.8 263.1ZM807.4 637.3L788.4 656.0L404.1 248.5ZM759.8 681.5L743.9 694.4L418.8 276.2ZM734.4 701.7L714.7 715.9L393.6 249.8ZM671.3 743.3L664.4 747.3L403.1 278.5ZM643.9 758.2L633.6 763.4L382.9 247.8ZM596.9 779.8L584.0 784.9L396.7 293.5ZM543.7 798.8L529.6 802.9L388.6 296.7ZM507.5 808.7L496.1 811.3L382.9 296.4ZM441.9 820.8L421.0 823.2L372.5 299.3ZM421.6 823.1L396.3 825.0L368.1 286.0ZM354.6 826.0L330.4 825.2L360.4 256.2ZM312.6 824.0L302.5 823.1L355.9 274.7ZM258.2 817.3L240.4 814.0L350.5 268.1ZM207.9 806.5L184.7 800.1L339.8 285.9ZM174.3 796.9L164.4 793.7L344.6 259.2ZM127.0 779.7L109.7 772.3L340.5 256.3ZM70.7 753.3L58.2 746.4L331.7 261.4ZM31.6 730.6L9.7 716.2L332.0 251.5ZM0.2 709.5L-21.3 693.3L328.6 250.5ZM-37.0 680.6L-45.5 673.3L305.9 271.5ZM-82.3 638.5L-100.0 619.4L310.9 253.7ZM-105.8 612.9L-114.6 602.6L300.3 258.5ZM-143.3 565.3L-149.2 556.9L309.7 242.5ZM-169.9 524.6L-177.2 512.0L303.8 239.9ZM-190.4 487.5L-194.0 480.3L286.7 243.7ZM-215.8 430.7L-221.4 416.0L314.5 223.8ZM-227.5 398.2L-232.9 380.5L276.3 232.5ZM-241.0 350.1L-246.7 323.9L292.3 221.1ZM-249.6 307.5L-252.5 288.0L287.8 217.1ZM-256.6 248.1L-257.7 226.3L315.9 208.3ZM-258.0 204.9L-257.5 181.6L310.1 204.9ZM-256.4 161.6L-255.5 150.6L302.9 201.2ZM-249.4 103.2L-247.0 89.8L286.5 192.4ZM-241.4 63.4L-237.9 49.5L285.5 187.0ZM-226.8 11.9L-218.0 -13.1L275.4 175.4ZM-210.6 -31.7L-205.1 -44.7L295.9 177.7ZM-186.5 -83.1L-179.5 -96.0L284.5 164.0ZM-168.0 -115.7L-159.1 -129.9L318.8 179.0ZM-129.9 -171.4L-118.0 -186.5L288.0 147.4ZM-113.7 -191.6L-99.6 -207.9L305.4 157.0ZM-83.7 -225.0L-66.9 -241.7L299.4 143.1ZM-48.7 -258.4L-28.8 -275.3L307.5 141.7ZM4.5 -300.6L19.6 -310.9L329.2 158.0ZM32.3 -319.1L46.7 -327.8L316.1 130.6ZM78.5 -345.4L93.5 -352.9L335.7 153.1ZM131.2 -369.4L155.9 -378.8L330.5 122.3ZM170.9 -383.8L185.9 -388.5L348.6 162.9ZM220.5 -397.6L244.3 -402.7L343.8 120.7ZM259.2 -405.4L275.0 -407.9L354.5 157.6ZM313.0 -412.1L338.5 -413.6L358.5 146.9ZM373.5 -413.9L399.9 -412.8L365.4 120.1ZM403.7 -412.6L429.3 -410.3L370.0 115.2ZM483.9 -401.9L491.4 -400.3L371.2 161.8ZM506.4 -396.9L523.6 -392.6L378.3 141.8ZM546.6 -385.9L565.7 -379.6L386.5 131.6ZM608.1 -363.1L624.2 -355.8L391.7 139.9ZM657.5 -339.1L665.1 -334.9L394.3 147.5ZM685.3 -323.1L693.3 -318.0L405.9 135.4ZM728.4 -294.2L739.7 -285.7L397.3 158.9ZM773.9 -257.4L781.2 -250.8L413.6 148.8ZM792.5 -240.2L811.1 -221.5L399.5 168.8ZM842.0 -186.5L853.3 -172.2L413.9 164.8ZM864.5 -157.1L872.9 -145.2L429.8 158.2ZM893.9 -112.6L903.0 -96.9L411.6 177.2ZM920.1 -64.0L924.8 -54.2L424.5 176.4ZM938.5 -22.1L945.0 -5.0L431.2 179.8ZM955.0 24.9L958.2 35.7L451.1 179.7ZM966.9 70.1L971.3 91.5L452.8 187.3ZM975.3 115.1L977.2 129.0L421.6 197.9ZM980.3 159.9L981.1 173.3L422.7 202.1Z" fill="#000"/></g>
     <!-- Spain defender: black shirt, white trim -->
-    <g class="mg-esp">
+    <g transform="translate(-6 0)">
       <ellipse cx="270" cy="324" rx="58" ry="6" fill="url(#mgTone)"/>
       <g stroke-linecap="round">
         <path d="M262 290L226 312" stroke="#000" stroke-width="12"/><path d="M262 290L226 312" stroke="#FFF" stroke-width="6.5"/>
@@ -177,8 +259,9 @@ input[type=text],input[type=search],textarea{cursor:text}
       <path d="M300 186l6-8M308 192l9-4M294 182l1-9" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
     </g>
 
+
     <!-- England striker: white shirt, black shorts -->
-    <g class="mg-eng">
+    <g >
       <ellipse cx="132" cy="324" rx="40" ry="5" fill="url(#mgTone)"/>
       <g stroke-linecap="round">
         <path d="M122 240L114 276" stroke="#000" stroke-width="13"/><path d="M122 240L114 276" stroke="#FFF" stroke-width="7.5"/>
@@ -186,18 +269,18 @@ input[type=text],input[type=search],textarea{cursor:text}
         <path d="M114 296L112 312" stroke="#000" stroke-width="11"/><path d="M114 296L112 312" stroke="#FFF" stroke-width="6"/>
         <path d="M104 318L122 318" stroke="#000" stroke-width="9"/>
       </g>
-      <g class="mg-thigh">
+      <g transform="rotate(-42 128 238)">
         <g stroke-linecap="round">
           <path d="M134 240L150 270" stroke="#000" stroke-width="13"/><path d="M134 240L150 270" stroke="#FFF" stroke-width="7.5"/>
           <path d="M128 236L142 256" stroke="#000" stroke-width="15"/>
         </g>
-        <g class="mg-shin" stroke-linecap="round">
+        <g transform="rotate(-6 150 270)" stroke-linecap="round">
           <path d="M150 270L166 296" stroke="#000" stroke-width="12"/><path d="M150 270L166 296" stroke="#FFF" stroke-width="6.5"/>
           <path d="M164 302L180 300" stroke="#000" stroke-width="9"/>
         </g>
       </g>
       <path d="M112 228H150L152 250H136L131 244L126 250H110Z" fill="#000"/>
-      <g class="mg-armL" stroke-linecap="round">
+      <g transform="rotate(18 110 178)" stroke-linecap="round">
         <path d="M110 180L92 204" stroke="#000" stroke-width="11"/><path d="M110 180L92 204" stroke="#FFF" stroke-width="5.5"/>
         <path d="M92 204L94 226" stroke="#000" stroke-width="10"/><path d="M92 204L94 226" stroke="#FFF" stroke-width="4.5"/>
       </g>
@@ -207,40 +290,20 @@ input[type=text],input[type=search],textarea{cursor:text}
       <path d="M122 170L131 178L140 170" fill="none" stroke="#000" stroke-width="3"/>
       <circle cx="140" cy="186" r="3.2" fill="#000"/>
       <text x="131" y="218" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="22" fill="#000">9</text>
-      <g class="mg-armR" stroke-linecap="round">
+      <g transform="rotate(-20 150 178)" stroke-linecap="round">
         <path d="M150 180L172 192" stroke="#000" stroke-width="11"/><path d="M150 180L172 192" stroke="#FFF" stroke-width="5.5"/>
         <path d="M172 192L186 176" stroke="#000" stroke-width="10"/><path d="M172 192L186 176" stroke="#FFF" stroke-width="4.5"/>
       </g>
       <path d="M118 136C102 134 92 146 96 164C98 172 92 178 86 180" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"/>
       <path d="M116 138C104 138 98 148 100 160" fill="none" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/>
       <use href="#mgSkull" transform="translate(130 146) rotate(-6)"/>
-      <!-- anime eye glint before the kick -->
-      <g transform="translate(135 145)"><use class="mg-glint" href="#mgSpark"/></g>
-    </g>
+          </g>
 
-    <!-- ball + smear -->
-    <path class="mg-smear" d="M182 296Q262 140 350 198" fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 14"/>
-    <g class="mg-ball">
-      <path class="mg-smear" d="M-10-8L-44 4L-10 9Z" fill="#000" opacity=".9"/>
-      <g class="mg-spin">
-        <circle r="10" fill="#FFF" stroke="#000" stroke-width="2.2"/>
-        <path d="M0-4L3.8-1.2L2.4 3.3H-2.4L-3.8-1.2Z" fill="#000"/>
-        <path d="M0-4V-10M3.8-1.2L9.4-3M2.4 3.3L5.8 8M-2.4 3.3L-5.8 8M-3.8-1.2L-9.4-3" stroke="#000" stroke-width="1.3"/>
-      </g>
-    </g>
 
-    <!-- GOAL!! -->
-    <g class="mg-goaltxt">
-      <text x="200" y="104" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-style="italic" font-size="62" letter-spacing="2" fill="#FFF" stroke="#000" stroke-width="9" stroke-linejoin="round" paint-order="stroke">GOAL!!</text>
-    </g>
+    <g class="an-gball"><circle r="10" fill="#FFF" stroke="#000" stroke-width="2.2"/><path d="M0-4L3.8-1.2L2.4 3.3H-2.4L-3.8-1.2Z" fill="#000"/></g>
+    <g class="an-goaltxt"><text x="200" y="104" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-style="italic" font-size="66" letter-spacing="2" fill="#FFF" stroke="#000" stroke-width="10" stroke-linejoin="round" paint-order="stroke">GOAL!!</text></g>
   </g>
 
-  <!-- impact frame: inverted flash -->
-  <g class="mg-impact">
-    <rect width="400" height="400" fill="#000"/>
-    <path d="M797.6 321.5L797.1 332.5L292.0 305.0ZM795.2 358.6L793.2 377.3L258.5 308.9ZM785.0 426.5L783.0 435.6L260.3 317.8ZM768.3 489.6L764.8 500.1L272.2 331.2ZM757.0 521.8L752.0 534.2L235.1 322.6ZM741.9 557.7L730.5 581.4L276.9 347.7ZM702.4 630.8L689.5 650.4L275.9 364.4ZM682.1 661.0L670.7 676.3L250.1 353.4ZM640.8 712.5L623.1 731.6L255.4 371.9ZM586.2 766.7L578.8 773.0L242.7 375.1ZM555.6 791.8L537.7 805.0L235.7 378.0ZM501.8 828.7L490.3 835.6L237.3 399.3ZM468.4 847.8L451.1 856.6L229.7 401.4ZM406.2 876.5L393.5 881.3L204.4 368.9ZM368.7 890.0L349.7 895.8L213.0 414.6ZM294.1 909.0L279.0 911.7L192.7 382.7ZM240.6 916.8L227.6 918.0L185.7 384.3ZM210.9 919.1L199.8 919.6L182.1 392.3ZM136.9 918.6L117.3 917.0L171.3 381.6ZM73.2 911.1L53.7 907.4L165.2 368.2ZM50.9 906.8L24.8 900.8L151.0 416.2ZM-33.5 882.8L-51.6 875.9L150.0 373.6ZM-62.7 871.4L-74.2 866.4L148.8 367.3ZM-131.9 837.0L-153.4 824.0L122.8 391.3ZM-162.6 818.1L-172.7 811.3L134.5 364.7ZM-228.8 767.9L-236.8 760.8L106.8 380.5ZM-260.2 738.6L-272.9 725.5L93.7 381.9ZM-288.8 708.0L-300.3 694.4L125.1 345.0ZM-323.1 665.1L-327.8 658.5L113.9 346.1ZM-354.1 618.2L-358.5 610.8L75.0 360.6ZM-379.3 571.6L-389.9 548.8L85.3 342.9ZM-407.3 504.5L-413.7 485.1L66.8 336.8ZM-424.3 447.1L-429.1 425.9L86.7 320.6ZM-434.1 398.6L-437.2 377.0L85.8 313.2ZM-440.4 344.1L-441.1 333.6L67.6 306.9ZM-441.9 288.2L-441.7 279.4L107.9 298.2ZM-437.0 221.6L-435.3 209.2L95.3 288.6ZM-430.1 179.0L-424.8 155.0L100.2 282.9ZM-418.3 130.2L-413.8 115.1L118.9 282.4ZM-393.1 58.6L-390.0 51.4L70.0 253.5ZM-380.7 31.2L-376.0 21.7L78.5 251.1ZM-342.9 -36.2L-336.3 -46.3L100.2 248.7ZM-320.6 -68.5L-307.4 -85.7L121.6 256.7ZM-279.6 -118.3L-260.8 -138.0L104.0 229.3ZM-237.5 -160.2L-217.8 -177.2L123.8 237.4ZM-195.7 -194.7L-176.3 -208.8L122.1 222.9ZM-168.8 -213.9L-152.3 -224.7L115.4 203.9ZM-115.8 -246.0L-97.7 -255.3L125.7 198.9ZM-50.9 -276.2L-43.3 -279.2L142.4 208.8ZM-17.1 -288.5L6.3 -295.7L148.5 204.7ZM37.8 -303.9L62.4 -309.1L157.9 204.6ZM94.1 -314.3L117.9 -317.1L164.8 187.3ZM167.5 -319.9L192.5 -319.8L178.3 200.5ZM219.4 -318.6L238.8 -317.0L185.6 208.7ZM286.7 -310.4L300.9 -307.7L190.1 236.3ZM330.7 -300.9L347.4 -296.4L202.1 210.4ZM382.6 -285.3L394.3 -281.0L202.5 232.2ZM413.3 -273.6L434.4 -264.5L223.4 194.9ZM487.9 -237.0L496.3 -232.1L238.1 197.6ZM535.1 -206.8L549.3 -196.5L213.3 251.4ZM578.7 -173.1L593.6 -160.1L242.1 226.7ZM598.9 -155.2L614.8 -140.0L220.9 255.2ZM651.9 -99.7L658.5 -91.8L240.8 247.9ZM690.3 -49.2L702.5 -30.6L269.1 240.3ZM711.5 -16.0L719.0 -2.8L261.4 251.9ZM733.7 25.0L740.4 39.1L284.9 248.8ZM762.9 94.3L770.6 117.6L252.0 275.6ZM778.6 146.2L783.9 168.7L277.5 276.5ZM789.6 198.3L791.3 209.1L238.3 290.5ZM796.8 261.0L797.9 286.9L254.5 296.8Z" fill="#FFF"/>
-    <circle cx="178" cy="300" r="26" fill="#FFF"/>
-    <text x="200" y="120" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-style="italic" font-size="70" fill="#000" stroke="#FFF" stroke-width="10" stroke-linejoin="round" paint-order="stroke" transform="rotate(-8 200 100)">BOOM!</text>
   </g>
   <rect x="2" y="2" width="396" height="396" fill="none" stroke="#000" stroke-width="4"/>
   </g>
