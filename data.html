@@ -22,8 +22,9 @@ body{font-family:'Alegreya',Georgia,serif}
 .back{position:fixed;top:20px;left:20px;z-index:5;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF;background:#000}
 .back:hover,.back:focus-visible{background:#E62E2E;border-color:#E62E2E;color:#000;outline:none}
 .page{max-width:1280px;margin:0 auto;padding:96px max(20px,env(safe-area-inset-right,0px)) 64px max(20px,env(safe-area-inset-left,0px));box-sizing:border-box}
-header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;border-bottom:2px solid var(--ink);padding-bottom:18px}
+header{display:flex;flex-direction:column;align-items:flex-start;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:18px}
 h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(72px,11vw,140px);line-height:.85}
+.tag{margin:0;font-family:'Special Elite','Courier New',monospace;font-size:15px;letter-spacing:.12em;line-height:1.5;color:#CFCFCF;max-width:60ch}
 .intro{margin:0;max-width:44ch;font-size:19px;line-height:1.45;color:#DDD}
 .count{font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.25em;color:var(--dim);margin:22px 0 0}
 
@@ -59,6 +60,7 @@ input[type=text],input[type=search],textarea{cursor:text}
 <main class="page">
   <header>
     <h1>Data</h1>
+    <p class="tag">One project a month. Football, fans and culture, cut open and counted.</p>
   </header>
   <ol class="grid" id="grid"></ol>
 </main>
