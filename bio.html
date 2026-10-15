@@ -4,19 +4,103 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bio · Georgia Jayy</title>
+<meta name="description" content="About Georgia Jayy: data analyst and creative from Birmingham, working across football, fans, culture and content.">
+<meta property="og:title" content="Bio · Georgia Jayy">
+<meta property="og:description" content="Data analyst and creative from Birmingham, working across football, fans, culture and content.">
+<meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;family=Alegreya:ital,wght@0,400;0,700;0,900;1,400&amp;display=swap">
 <style>
-html,body{margin:0;min-height:100%;background:#000}
-.back{position:fixed;top:20px;left:20px;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF}
-.back:hover,.back:focus-visible{background:#E62E2E;border-color:#E62E2E;color:#000;outline:none}
-.uc{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:40px 16px;box-sizing:border-box;text-align:center;color:#FFF}
-.uc h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(34px,6vw,68px);letter-spacing:.02em;line-height:1.05}
-.uc p{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;color:#ccc;font-size:clamp(20px,2.4vw,26px);letter-spacing:.02em}
-.tape{width:min(560px,90vw);height:22px;background:repeating-linear-gradient(-45deg,#E62E2E 0 18px,#111 18px 36px);border:2px solid #E62E2E}
+/* Layout: a grungy zine profile. Gothic tab bar, a framed title, then a main column (story) beside a sidebar (name, picture, links, highlights), every box in a scratchy white frame. */
+:root{--bg:#000;--ink:#FFF;--red:#E62E2E;--dim:#A8A8A8;--line:#2E2E2E;--type:'Special Elite','Courier New',monospace;--goth:'UnifrakturMaguntia','Old English Text MT',serif;--read:'Alegreya',Georgia,serif;color-scheme:dark}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font-family:var(--read);font-size:18px;line-height:1.6}
+a{color:var(--ink)}
+.frame{border:18px solid transparent;border-image:url("assets/frame.png") 18 round;background:#000;background-clip:padding-box}
+.page{max-width:1200px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px));box-sizing:border-box}
+
+/* tab bar */
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 16px;margin:0 0 34px;padding:0;list-style:none}
+.tabs a{display:block;padding:4px 14px 6px;font-family:var(--goth);font-size:clamp(22px,2.6vw,32px);line-height:1.1;text-decoration:none}
+.tabs a:hover,.tabs a:focus-visible{background:var(--red);color:#000;outline:none}
+.tabs a[aria-current]{color:var(--red)}
+
+.title{width:max-content;max-width:100%;margin:0 auto 34px;padding:6px 22px 10px;box-sizing:border-box}
+h1{margin:0;font-family:var(--goth);font-weight:400;font-size:clamp(52px,7vw,84px);line-height:1;text-align:center}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
+.main{padding:22px 26px 30px;min-width:0}
+.side{display:flex;flex-direction:column;gap:24px;min-width:0}
+.side .frame{padding:16px 18px 18px}
+
+h2{margin:30px 0 12px;font-family:var(--goth);font-weight:400;font-size:clamp(30px,3.4vw,40px);line-height:1}
+h2:first-child{margin-top:4px}
+.intro{margin:0 0 6px;font-size:21px;line-height:1.55}
+.intro b{color:var(--red);font-weight:700}
+p{margin:0 0 12px}
+
+/* what I do */
+.do{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.do li{border:1px solid var(--line);padding:14px 16px}
+.do h3{margin:0 0 6px;font-family:var(--type);font-weight:400;font-size:15px;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+.do p{margin:0;font-size:16px;line-height:1.5;color:#D6D6D6}
+
+/* arrow lists */
+.arrows{list-style:none;margin:0;padding:0}
+.arrows li{position:relative;padding-left:30px;margin:0 0 8px}
+.arrows li::before{content:'⟵';position:absolute;left:0;top:0;color:var(--ink);transform:scaleX(-1)}
+
+/* timeline */
+.tline{list-style:none;margin:0;padding:0;border-left:2px solid var(--ink);margin-left:6px}
+.tline li{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:0 0 22px 22px}
+.tline li::before{content:'';position:absolute;left:-8px;top:6px;width:12px;height:12px;background:var(--red);transform:rotate(45deg)}
+.when{font-family:var(--type);font-size:12px;letter-spacing:.14em;color:var(--dim);padding-top:4px}
+.tline h4{margin:0;font-family:var(--type);font-weight:400;font-size:18px;letter-spacing:.04em;line-height:1.3}
+.tline .org{margin:2px 0 6px;font-style:italic;color:var(--dim);font-size:16px}
+.tline p{margin:0;font-size:16px;line-height:1.5;color:#D6D6D6}
+
+/* toolkit chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{font-family:var(--type);font-size:13px;letter-spacing:.08em;border:1px solid var(--ink);padding:5px 10px}
+.chips li.hot{background:var(--ink);color:#000}
+
+/* sidebar */
+.name{text-align:center}
+.name strong{display:block;font-family:var(--goth);font-weight:400;font-size:40px;line-height:1.05}
+.name span{font-family:var(--type);font-size:12px;letter-spacing:.2em;color:var(--dim)}
+.pic{margin:0;text-align:center}
+.pic img{display:block;width:100%;height:auto;background:#000}
+.pic figcaption{margin-top:8px;font-family:var(--type);font-size:13px;letter-spacing:.12em}
+.side h3{margin:0 0 12px;text-align:center;font-family:var(--goth);font-weight:400;font-size:30px;line-height:1}
+.side .arrows a{text-decoration:underline;text-underline-offset:3px}
+.side .arrows a:hover,.side .arrows a:focus-visible{color:var(--red);outline:none}
+.hl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.hl b{display:block;font-family:var(--read);font-weight:900;font-size:28px;line-height:1;color:var(--red)}
+.hl span{font-family:var(--type);font-size:13px;letter-spacing:.06em;line-height:1.4}
+
+/* notices */
+.notices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px}
+.notice{display:flex;align-items:center;gap:18px;padding:14px 20px}
+.notice .ic{flex:0 0 auto;width:54px;height:54px}
+.notice h4{margin:0;font-family:var(--type);font-weight:400;font-size:16px;letter-spacing:.2em}
+.notice p{margin:2px 0 0;font-family:var(--type);font-size:14px;letter-spacing:.06em;line-height:1.4}
+.notice.red h4,.notice.red p{color:var(--red)}
+footer{margin-top:40px;text-align:center;font-family:var(--type);font-size:13px;letter-spacing:.2em}
+
+@media (max-width:900px){
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .side{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .do{grid-template-columns:minmax(0,1fr)}
+  .notices{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .tline li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .main{padding:14px 12px 20px}
+}
 /* big red cursor */
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
@@ -24,12 +108,110 @@ input[type=text],input[type=search],textarea{cursor:text}
 </style>
 </head>
 <body>
-<a class="back" href="./">&larr; Back</a>
-<main class="uc">
-<div class="tape" aria-hidden="true"></div>
-<h1>Currently Under Construction</h1>
-<p>This page is being built. Check back soon x</p>
-<div class="tape" aria-hidden="true"></div>
-</main>
+<div class="page">
+  <nav aria-label="Site">
+    <ul class="tabs">
+      <li class="frame"><a href="./">Home</a></li>
+      <li class="frame"><a href="bio.html" aria-current="page">Bio</a></li>
+      <li class="frame"><a href="data.html">Data</a></li>
+      <li class="frame"><a href="creative.html">Creative</a></li>
+      <li class="frame"><a href="games.html">Games</a></li>
+    </ul>
+  </nav>
+
+  <div class="title frame"><h1>About me</h1></div>
+
+  <div class="cols">
+    <main class="main frame">
+      <h2>Hi, I’m Georgia</h2>
+      <p class="intro">I’m a <b>data analyst and creative</b> from Birmingham who turns audience insight into stories people actually care about. I studied film at UCL, spent years behind the camera making football content, then learned to make the numbers talk too.</p>
+      <p>I’m happiest where sport, culture and data collide: working out what makes fans tick, why something takes off online, and how to tell that story so it lands. I’ve made content and campaigns with Arsenal, BBC Sport, ITV Sport, The FA, Nike, Adidas, EA Sports and UEFA, and I coach grassroots football at weekends.</p>
+
+      <h2>What I do</h2>
+      <ul class="do">
+        <li><h3>Data &amp; insight</h3><p>Excel, SQL, Python and Power BI. Cleaning messy data, building dashboards and turning trends into clear recommendations.</p></li>
+        <li><h3>Content &amp; social</h3><p>Social strategy, campaign planning, short-form video, photography and editing, with analytics guiding every post.</p></li>
+        <li><h3>Coaching &amp; community</h3><p>FA Level 1 coach. Mentoring, safeguarding and helping young players build confidence on and off the pitch.</p></li>
+      </ul>
+
+      <h2>The story so far</h2>
+      <ol class="tline" reversed>
+        <li><span class="when">MAR 2026 – NOW</span><div><h4>Digital Media Specialist</h4><p class="org">BLAQ UK (UK Black Pride) · Remote</p><p>Planning, making and publishing social content across Instagram, TikTok, LinkedIn and Facebook, and reading the analytics to learn what lands.</p></div></li>
+        <li><span class="when">JUN – SEP 2026</span><div><h4>Data Analytics Trainee</h4><p class="org">Generation UK &amp; Ireland · Remote</p><p>Cleaned and queried data in Excel, SQL and Python, built Power BI dashboards, and presented findings to non-technical audiences.</p></div></li>
+        <li><span class="when">OCT 2025 – FEB 2026</span><div><h4>Researcher, Content Team</h4><p class="org">411 · London</p><p>Dug into people, trends and cultural conversations to shape editorial and creative ideas.</p></div></li>
+        <li><span class="when">JAN – JUN 2025</span><div><h4>Campaign &amp; Content Contributor</h4><p class="org">Google Pixel FC, The Powerhouse Project</p><p>Audience research for campaigns with Arsenal, BBC Sport, ITV Sport and The FA. I also interviewed Arsenal Women players, including Chloe Kelly.</p></div></li>
+        <li><span class="when">FEB – APR 2025</span><div><h4>Content &amp; Community Lead</h4><p class="org">League Leaders (football charity) · London</p><p>Grew the following by 2,000+ in under three months and led a team of content creators.</p></div></li>
+        <li><span class="when">MAY – AUG 2024</span><div><h4>Marketing Communications Intern</h4><p class="org">Bloomsbury Football Foundation · London</p><p>Grassroots campaigns for young people and families. I mentored a young player who went on to join QPR Under 18s.</p></div></li>
+        <li><span class="when">MAY – AUG 2023</span><div><h4>Production Intern</h4><p class="org">COPA90 / Bullion Productions · London</p><p>Researched football content that reached 1M+ views and worked on branded shoots for Nike, Adidas, EA Sports and UEFA.</p></div></li>
+        <li><span class="when">2021 – 2024</span><div><h4>BA Media (Film Production), 2:1</h4><p class="org">University College London</p><p>Where the camera, the culture and the curiosity all started to come together.</p></div></li>
+      </ol>
+
+      <h2>Toolkit</h2>
+      <ul class="chips">
+        <li class="hot">SQL</li><li class="hot">Python</li><li class="hot">Power BI</li><li class="hot">Excel</li>
+        <li>Google Sheets</li><li>Dashboards</li><li>Data visualisation</li><li>KPI tracking</li>
+        <li>Audience research</li><li>Trend analysis</li><li>Content strategy</li><li>Campaign planning</li>
+        <li>Copywriting</li><li>Community management</li><li>Videography</li><li>Premiere Pro</li><li>Photoshop</li>
+        <li>Instagram</li><li>TikTok</li><li>LinkedIn</li><li>YouTube</li><li>Meta analytics</li>
+      </ul>
+
+      <h2>Certified</h2>
+      <ul class="arrows">
+        <li>Data Analytics Programme · Generation UK &amp; Ireland · Sep 2026</li>
+        <li>Introduction to Football Coaching (FA Level 1) · The FA · Oct 2026</li>
+        <li>Safeguarding Children in Football · The FA · Jul 2026</li>
+        <li>Introduction to First Aid in Football · The FA · Jul 2026</li>
+      </ul>
+
+      <h2>Off the clock</h2>
+      <ul class="arrows">
+        <li>Lifelong Arsenal supporter, and loud about the growth of the women’s game.</li>
+        <li>Big music fan with a CD collection that started when I was ten.</li>
+        <li>Horror films with the lights off. Always.</li>
+        <li>Filmmaking, photography, art, theatre, fashion and a good exhibition.</li>
+        <li>Two years vegan, experimenting with plant-based cooking and into sustainable living.</li>
+        <li>Building tiny cursed mini games when I should be asleep.</li>
+      </ul>
+    </main>
+
+    <aside class="side" aria-label="Profile">
+      <div class="frame name"><strong>Georgia Jayy</strong><span>BIRMINGHAM, UK</span></div>
+      <figure class="frame pic"><img src="assets/vibe-coder.png" alt="Illustration of Georgia holding a laptop, asking: How can I vibe code this?" width="700" height="1161"><figcaption>Picture of me (sort of)</figcaption></figure>
+      <div class="frame">
+        <h3>Contacts/Links</h3>
+        <ul class="arrows">
+          <li><a href="mailto:work.georgiajayy@gmail.com">work.georgiajayy@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/georgiajayysummers/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/georgiajayy" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.instagram.com/ge0rgiajayy/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://open.spotify.com/user/u0swet40w9urvwnha1s0jv1f4" target="_blank" rel="noopener">Spotify</a></li>
+          <li><a href="Georgia_Summers_CV.pdf" target="_blank" rel="noopener">Resume</a></li>
+        </ul>
+      </div>
+      <div class="frame">
+        <h3>Highlights</h3>
+        <ul class="hl">
+          <li><b>1M+</b><span>views on football content I researched at COPA90</span></li>
+          <li><b>2,000+</b><span>new followers in under three months at League Leaders</span></li>
+          <li><b>Chloe Kelly</b><span>one of the Arsenal Women players I interviewed for Google Pixel</span></li>
+          <li><b>QPR U18s</b><span>where a young player I mentored now plays</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="notices">
+    <div class="frame notice red">
+      <svg class="ic" viewBox="0 0 54 54" aria-hidden="true"><path d="M27 3L51 27L27 51L3 27Z" fill="#E62E2E" stroke="#000" stroke-width="2"/><path d="M27 15V31" stroke="#000" stroke-width="5" stroke-linecap="round"/><circle cx="27" cy="39" r="3" fill="#000"/></svg>
+      <div><h4>STATUS:</h4><p>Open to roles in data, insight and fan engagement.</p></div>
+    </div>
+    <div class="frame notice">
+      <svg class="ic" viewBox="0 0 54 54" aria-hidden="true"><rect x="5" y="8" width="44" height="30" fill="#000" stroke="#FFF" stroke-width="3"/><path d="M11 16h14M11 22h22M11 28h10" stroke="#FFF" stroke-width="2.5"/><path d="M20 38L16 47H38L34 38" fill="#FFF"/></svg>
+      <div><h4>NOW:</h4><p>Digital Media Specialist at BLAQ UK (UK Black Pride).</p></div>
+    </div>
+  </div>
+
+  <footer>© GEORGiA JAYY</footer>
+</div>
 </body>
 </html>
