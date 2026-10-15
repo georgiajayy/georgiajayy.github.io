@@ -71,6 +71,29 @@ h2{margin:0 0 18px;font-family:var(--goth);font-weight:400;font-size:clamp(34px,
 .finds p{margin:0;color:#D6D6D6;max-width:60ch}
 .stat{font-weight:900;color:var(--ink)}
 
+/* verdict + poll */
+.verdict{border:2px solid var(--ink);padding:28px 30px;position:relative}
+.verdict .call{margin:0 0 12px;font-family:var(--goth);font-size:clamp(34px,4.4vw,50px);line-height:1;color:var(--red)}
+.verdict p{margin:0;max-width:62ch;color:#E2E2E2}
+.verdict .stamp{position:absolute;top:-14px;right:22px;background:var(--red);color:#000;font-family:var(--type);font-size:12px;letter-spacing:.25em;padding:5px 12px;transform:rotate(3deg)}
+.poll{margin-top:28px;border:1px solid var(--line);padding:26px 30px}
+.poll h3{margin:0 0 18px;font-family:var(--type);font-weight:400;font-size:20px;letter-spacing:.06em}
+.opts{display:grid;gap:12px}
+.opt{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;width:100%;box-sizing:border-box;padding:14px 16px;background:#0B0B0B;border:2px solid var(--ink);color:var(--ink);font-family:var(--type);font-size:15px;letter-spacing:.08em;text-align:left;overflow:hidden}
+.opt:hover:not([disabled]),.opt:focus-visible{border-color:var(--red);outline:none}
+.opt:hover:not([disabled]) .lbl{color:var(--red)}
+.opt[disabled]{cursor:default}
+.opt .bar{position:absolute;inset:0 auto 0 0;width:0;background:#262626;transition:width .8s cubic-bezier(.2,.8,.2,1);z-index:0}
+.opt.mine .bar{background:var(--red)}
+.opt.mine{border-color:var(--red)}
+.opt.mine .lbl{color:#FFF}
+.opt.mine .pct{color:var(--red)}
+.opt.mine .lbl::after{content:'  ✓ YOUR VOTE';font-size:11px;letter-spacing:.2em}
+.opt .lbl,.opt .pct{position:relative;z-index:1}
+.opt .pct{font-family:var(--read);font-weight:900;font-size:20px;letter-spacing:0;font-variant-numeric:tabular-nums;opacity:0;transition:opacity .4s}
+.poll.voted .pct{opacity:1}
+.pmeta{margin:14px 0 0;font-family:var(--type);font-size:12px;letter-spacing:.14em;color:var(--dim);min-height:1.4em}
+@media (prefers-reduced-motion:reduce){.opt .bar{transition:none}}
 /* reflection */
 .reflect p{margin:0 0 18px;max-width:64ch;color:#D6D6D6}
 .reflect p:first-of-type::first-letter{float:left;font-family:var(--goth);font-size:76px;line-height:.8;padding:6px 10px 0 0;color:var(--ink)}
@@ -386,6 +409,23 @@ input[type=text],input[type=search],textarea{cursor:text}
     <li><div><h3>England’s attack is heading towards 30</h3><p><span class="stat">9 of 17</span> attacking contributors will be 30+ by Euro 2029, accounting for <span class="stat">49.8%</span> of attacking involvement.</p></div></li>
   </ol>
 
+  <p class="label">THE VERDICT</p>
+  <div class="verdict">
+    <span class="stamp">MY CALL</span>
+    <p class="call">Not on current trends.</p>
+    <p>England won Euro 2025 through finishing, not control, and that gap has widened every tournament since 2019. With almost half their attacking output coming from players who’ll be 30+ by 2029, a third straight title depends on the next generation arriving in time. Charm alone won’t do it.</p>
+  </div>
+
+  <div class="poll" id="poll">
+    <h3>Will England win Euro 2029? Your call.</h3>
+    <div class="opts" role="group" aria-label="Poll: will England win Euro 2029?">
+      <button type="button" class="opt" data-k="yes"><span class="bar"></span><span class="lbl">Yes, three in a row</span><span class="pct">0%</span></button>
+      <button type="button" class="opt" data-k="no"><span class="bar"></span><span class="lbl">No, Spain’s time</span><span class="pct">0%</span></button>
+      <button type="button" class="opt" data-k="maybe"><span class="bar"></span><span class="lbl">Too close to call</span><span class="pct">0%</span></button>
+    </div>
+    <p class="pmeta" id="pmeta" aria-live="polite">Pick one to see what everyone else thinks.</p>
+  </div>
+
   <p class="label">LOOKING BACK</p>
   <div class="reflect">
     <p>The most valuable moments came from the data correcting me. My first read of the final’s shot map was that Spain had better chances; the numbers showed they simply had more of them. Checking visuals against numbers is now a habit.</p>
@@ -399,5 +439,48 @@ input[type=text],input[type=search],textarea{cursor:text}
 
   <footer>© GEORGiA JAYY</footer>
 </main>
+<script>
+(function () {
+  var API = 'https://abacus.jasoncameron.dev', NS = 'georgiajayy-github-io', KEYS = ['yes', 'no', 'maybe'];
+  var poll = document.getElementById('poll'), meta = document.getElementById('pmeta');
+  var btns = Array.prototype.slice.call(poll.querySelectorAll('.opt'));
+  var STORE = 'euro2029-vote', mine = null;
+  try { mine = localStorage.getItem(STORE); } catch (e) {}
+  function get(k) {
+    return fetch(API + '/get/' + NS + '/euro2029-' + k).then(function (r) { return r.ok ? r.json() : { value: 0 }; }).then(function (j) { return j.value || 0; });
+  }
+  function show(counts) {
+    var total = counts.reduce(function (a, b) { return a + b; }, 0);
+    btns.forEach(function (b, i) {
+      var pct = total ? Math.round(counts[i] / total * 100) : 0;
+      b.querySelector('.bar').style.width = pct + '%';
+      b.querySelector('.pct').textContent = pct + '%';
+      b.classList.toggle('mine', b.getAttribute('data-k') === mine);
+      b.disabled = true;
+      b.setAttribute('aria-label', b.querySelector('.lbl').textContent + ', ' + pct + ' percent');
+    });
+    poll.classList.add('voted');
+    meta.textContent = total + (total === 1 ? ' VOTE' : ' VOTES') + ' SO FAR · THANKS FOR VOTING';
+  }
+  function load() {
+    return Promise.all(KEYS.map(get)).then(show);
+  }
+  function fail() {
+    btns.forEach(function (b) { b.disabled = true; b.classList.toggle('mine', b.getAttribute('data-k') === mine); });
+    meta.textContent = 'VOTE SAVED. RESULTS ARE TAKING A NAP, TRY REFRESHING.';
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (mine) return;
+      mine = b.getAttribute('data-k');
+      try { localStorage.setItem(STORE, mine); } catch (e) {}
+      btns.forEach(function (x) { x.disabled = true; });
+      meta.textContent = 'COUNTING...';
+      fetch(API + '/hit/' + NS + '/euro2029-' + mine).then(load).catch(fail);
+    });
+  });
+  if (mine) load().catch(fail);
+})();
+</script>
 </body>
 </html>
