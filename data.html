@@ -64,66 +64,172 @@ input[type=text],input[type=search],textarea{cursor:text}
 
 <!-- tile artwork, one per project -->
 <template id="art-lionesses">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Two skull-headed women footballers chasing the ball under three stars">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Animated illustration: a skeleton England player in a white kit shoots past a sliding Spain defender in red, the ball hits the net and a third star lights up">
+  <style>
+    .tl *{transform-box:view-box}
+    .tl-thigh{transform-origin:128px 238px;animation:tlThigh 4s cubic-bezier(.5,0,.3,1) infinite}
+    .tl-shin{transform-origin:150px 270px;animation:tlShin 4s cubic-bezier(.5,0,.3,1) infinite}
+    .tl-armR{transform-origin:150px 178px;animation:tlArmR 4s ease-in-out infinite}
+    .tl-armL{transform-origin:110px 178px;animation:tlArmL 4s ease-in-out infinite}
+    .tl-eng{transform-origin:130px 300px;animation:tlLean 4s ease-in-out infinite}
+    .tl-ball{animation:tlBall 4s linear infinite}
+    .tl-spin{transform-origin:0 0;animation:tlSpin 4s linear infinite}
+    .tl-trail{animation:tlTrail 4s linear infinite;opacity:0}
+    .tl-esp{animation:tlSlide 4s cubic-bezier(.3,0,.2,1) infinite}
+    .tl-net{transform-origin:376px 236px;animation:tlNet 4s ease-out infinite}
+    .tl-star3{transform-origin:118px 42px;animation:tlStar 4s ease-out infinite}
+    .tl-flash{animation:tlFlash 4s ease-out infinite;opacity:0}
+    .tl-crowd{animation:tlCrowd 4s ease-out infinite}
+    @keyframes tlThigh{0%,8%{transform:rotate(0)}26%{transform:rotate(38deg)}34%{transform:rotate(-46deg)}48%,100%{transform:rotate(0)}}
+    @keyframes tlShin{0%,8%{transform:rotate(0)}26%{transform:rotate(62deg)}33%{transform:rotate(-8deg)}48%,100%{transform:rotate(0)}}
+    @keyframes tlArmR{0%,10%{transform:rotate(0)}30%{transform:rotate(-30deg)}50%,100%{transform:rotate(0)}}
+    @keyframes tlArmL{0%,10%{transform:rotate(0)}30%{transform:rotate(24deg)}50%,100%{transform:rotate(0)}}
+    @keyframes tlLean{0%,10%{transform:rotate(0)}28%{transform:rotate(-5deg)}36%{transform:rotate(4deg)}55%,100%{transform:rotate(0)}}
+    @keyframes tlBall{0%,33%{transform:translate(176px,302px)}
+      40%{transform:translate(230px,228px)}47%{transform:translate(290px,170px)}54%{transform:translate(350px,198px)}
+      58%{transform:translate(366px,214px)}64%{transform:translate(360px,300px)}72%{transform:translate(354px,308px)}
+      86%{transform:translate(354px,308px);opacity:1}92%{transform:translate(354px,308px);opacity:0}
+      93%{transform:translate(176px,302px);opacity:0}100%{transform:translate(176px,302px);opacity:1}}
+    @keyframes tlSpin{0%,33%{transform:rotate(0)}64%{transform:rotate(720deg)}100%{transform:rotate(760deg)}}
+    @keyframes tlTrail{0%,34%{opacity:0}38%,52%{opacity:.85}58%,100%{opacity:0}}
+    @keyframes tlSlide{0%,12%{transform:translate(46px,0)}36%{transform:translate(0,0)}60%{transform:translate(-6px,0)}88%,100%{transform:translate(46px,0)}}
+    @keyframes tlNet{0%,55%{transform:scale(1,1)}59%{transform:scale(1.12,1.04)}66%{transform:scale(.97,1)}72%,100%{transform:scale(1,1)}}
+    @keyframes tlStar{0%,57%{transform:scale(.6);fill:none}62%{transform:scale(1.5);fill:#FFD23F}70%,90%{transform:scale(1);fill:#FFD23F}96%,100%{transform:scale(.6);fill:none}}
+    @keyframes tlFlash{0%,56%{opacity:0}59%{opacity:.18}68%,100%{opacity:0}}
+    @keyframes tlCrowd{0%,56%{transform:translateY(0)}60%{transform:translateY(-3px)}64%{transform:translateY(0)}68%{transform:translateY(-3px)}72%,100%{transform:translateY(0)}}
+    @media (prefers-reduced-motion:reduce){.tl *{animation:none!important}.tl-ball{transform:translate(350px,198px)}.tl-trail{opacity:.85}.tl-star3{fill:#FFD23F}}
+  </style>
   <defs>
-    <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#000" fill-opacity=".14"/></pattern>
-    <g id="skull">
-      <path d="M0-26C-15-26-24-16-24-3C-24 6-19 11-15 13L-15 20C-15 22-13 23-11 23L11 23C13 23 15 22 15 20L15 13C19 11 24 6 24-3C24-16 15-26 0-26Z" fill="#FFF" stroke="#000" stroke-width="3.5"/>
-      <ellipse cx="-9" cy="-1" rx="6.5" ry="7.5" fill="#000"/><ellipse cx="9" cy="-1" rx="6.5" ry="7.5" fill="#000"/>
-      <path d="M0 6L-3.5 12H3.5Z" fill="#000"/>
-      <path d="M-7 23V17M-2.5 23V17M2.5 23V17M7 23V17" stroke="#000" stroke-width="2"/>
+    <linearGradient id="tlSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05070F"/><stop offset="1" stop-color="#121A33"/></linearGradient>
+    <radialGradient id="tlLamp" cx=".5" cy="0" r="1"><stop offset="0" stop-color="#FFF" stop-opacity=".22"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>
+    <pattern id="tlMesh" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 0L8 8M8 0L0 8" stroke="#FFF" stroke-opacity=".55" stroke-width=".8"/></pattern>
+    <g id="tlSkull">
+      <path d="M0-21C-13-21-20-12-20-2C-20 6-16 10-12 12V17C-12 19-11 20-9 20H9C11 20 12 19 12 17V12C16 10 20 6 20-2C20-12 13-21 0-21Z" fill="#F4EFE4" stroke="#0A0A0A" stroke-width="2.5"/>
+      <path d="M-14-12C-10-18 4-20 12-12" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+      <ellipse cx="-7.5" cy="0" rx="5.4" ry="6.2" fill="#0A0A0A"/><ellipse cx="7.5" cy="0" rx="5.4" ry="6.2" fill="#0A0A0A"/>
+      <path d="M0 5L-2.8 10H2.8Z" fill="#0A0A0A"/>
+      <path d="M-6 20V15M-2 20V15M2 20V15M6 20V15" stroke="#0A0A0A" stroke-width="1.6"/>
     </g>
-    <g id="star"><path d="M0-14L4-4.5H14L6 2L9 12L0 6L-9 12L-6 2L-14-4.5H-4Z" fill="#000"/></g>
+    <g id="tlStarShape"><path d="M0-12L3.5-3.8H12.4L5.2 1.6L7.8 10.6L0 5.4L-7.8 10.6L-5.2 1.6L-12.4-3.8H-3.5Z"/></g>
   </defs>
-  <rect width="400" height="400" fill="#E62E2E"/>
-  <rect width="400" height="400" fill="url(#dots)"/>
 
-  <!-- three stars: the third one outlined -->
-  <use href="#star" x="160" y="42"/><use href="#star" x="200" y="34"/>
-  <path transform="translate(240 42)" d="M0-14L4-4.5H14L6 2L9 12L0 6L-9 12L-6 2L-14-4.5H-4Z" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <g class="tl">
+  <!-- night stadium -->
+  <rect width="400" height="400" fill="url(#tlSky)"/>
+  <g fill="#FFF"><circle cx="40" cy="4" r="5"/><circle cx="360" cy="4" r="5"/></g>
+  <g class="tl-crowd">
+    <rect x="0" y="104" width="400" height="34" fill="#0B1022"/>
+    <g fill="#2A3358"><circle cx="10" cy="114" r="4"/><circle cx="26" cy="118" r="4"/><circle cx="42" cy="113" r="4"/><circle cx="58" cy="117" r="4"/><circle cx="74" cy="112" r="4"/><circle cx="90" cy="118" r="4"/><circle cx="106" cy="114" r="4"/><circle cx="122" cy="117" r="4"/><circle cx="138" cy="112" r="4"/><circle cx="154" cy="118" r="4"/><circle cx="170" cy="113" r="4"/><circle cx="186" cy="117" r="4"/><circle cx="202" cy="112" r="4"/><circle cx="218" cy="118" r="4"/><circle cx="234" cy="114" r="4"/><circle cx="250" cy="117" r="4"/><circle cx="266" cy="112" r="4"/><circle cx="282" cy="118" r="4"/><circle cx="298" cy="113" r="4"/><circle cx="314" cy="117" r="4"/><circle cx="330" cy="112" r="4"/><circle cx="346" cy="118" r="4"/><circle cx="362" cy="114" r="4"/><circle cx="378" cy="117" r="4"/><circle cx="394" cy="113" r="4"/></g>
+    <g fill="#E62E2E" opacity=".75"><circle cx="58" cy="127" r="3.5"/><circle cx="202" cy="128" r="3.5"/><circle cx="330" cy="126" r="3.5"/></g>
+    <g fill="#FFF" opacity=".6"><circle cx="122" cy="127" r="3.5"/><circle cx="266" cy="128" r="3.5"/><circle cx="378" cy="126" r="3.5"/></g>
+  </g>
+  <rect x="0" y="136" width="400" height="6" fill="#0A0A0A"/>
 
   <!-- pitch -->
-  <path d="M0 330H400V400H0Z" fill="#000"/>
-  <path d="M0 336H400" stroke="#FFF" stroke-width="3"/>
-  <path d="M296 336A70 26 0 0 1 400 362" fill="none" stroke="#FFF" stroke-width="3" stroke-opacity=".6"/>
+  <rect x="0" y="142" width="400" height="258" fill="#1D6B35"/>
+  <g fill="#237A3E"><rect x="0" y="142" width="400" height="30"/><rect x="0" y="206" width="400" height="38"/><rect x="0" y="286" width="400" height="48"/></g>
+  <path d="M0 382H400" stroke="#FFF" stroke-opacity=".75" stroke-width="3"/>
+  <path d="M250 382L300 168H400" fill="none" stroke="#FFF" stroke-opacity=".55" stroke-width="2.5"/>
+  <ellipse cx="200" cy="330" rx="140" ry="22" fill="#000" opacity=".18"/>
 
-  <!-- player 1: striker mid-kick -->
-  <g stroke-linecap="round" stroke-linejoin="round">
-    <path d="M118 120C96 128 86 150 92 176C94 186 88 196 80 200" fill="none" stroke="#000" stroke-width="11"/>
-    <path d="M124 214L104 258L74 286" fill="none" stroke="#000" stroke-width="10"/>
-    <path d="M144 214L178 248L222 252" fill="none" stroke="#000" stroke-width="10"/>
-    <path d="M70 290L60 296" stroke="#FFF" stroke-width="12"/><path d="M226 252L238 250" stroke="#FFF" stroke-width="12"/>
-    <path d="M118 160L86 186" fill="none" stroke="#000" stroke-width="9"/>
-    <path d="M150 158L184 140" fill="none" stroke="#000" stroke-width="9"/>
-    <path d="M110 152H160L166 206H104Z" fill="#FFF" stroke="#000" stroke-width="4"/>
-    <text x="135" y="196" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="30" fill="#000">3</text>
-    <path d="M104 202H166L162 222H108Z" fill="#000"/>
+  <!-- goal -->
+  <g class="tl-net">
+    <path d="M346 168H400V306H346Z" fill="url(#tlMesh)"/>
   </g>
-  <use href="#skull" x="134" y="124" transform="rotate(-8 134 124)"/>
+  <path d="M344 306V166H400" fill="none" stroke="#FFF" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M344 306L332 312" stroke="#FFF" stroke-width="3" opacity=".7"/>
 
-  <!-- ball with speed lines -->
-  <g transform="translate(268 238)">
-    <path d="M-60 -10H-30M-66 4H-34M-56 18H-30" stroke="#000" stroke-width="4" stroke-linecap="round"/>
-    <circle r="18" fill="#FFF" stroke="#000" stroke-width="3.5"/>
-    <path d="M0-7L6.5-2L4 6H-4L-6.5-2Z" fill="#000"/>
-    <path d="M0-7V-18M6.5-2L16-6M4 6L10 15M-4 6L-10 15M-6.5-2L-16-6" stroke="#000" stroke-width="2"/>
+  <!-- Spain defender sliding in (red shirt, yellow trim, navy shorts) -->
+  <g class="tl-esp">
+    <ellipse cx="270" cy="324" rx="58" ry="7" fill="#000" opacity=".3"/>
+    <g stroke-linecap="round">
+      <path d="M262 290L226 312" stroke="#0A0A0A" stroke-width="12"/><path d="M262 290L226 312" stroke="#F4EFE4" stroke-width="7"/>
+      <path d="M226 312L196 318" stroke="#0A0A0A" stroke-width="11"/><path d="M226 312L196 318" stroke="#F4EFE4" stroke-width="6"/>
+      <path d="M196 318L186 320" stroke="#C8102E" stroke-width="11"/>
+      <path d="M276 294L246 318" stroke="#0A0A0A" stroke-width="12"/><path d="M276 294L246 318" stroke="#F4EFE4" stroke-width="7"/>
+      <path d="M246 318L226 322" stroke="#0A0A0A" stroke-width="11"/><path d="M246 318L226 322" stroke="#F4EFE4" stroke-width="6"/>
+      <path d="M226 322L216 323" stroke="#0A0A0A" stroke-width="11"/>
+    </g>
+    <path d="M258 280L286 280L292 300L256 304Z" fill="#14244F" stroke="#0A0A0A" stroke-width="2.5"/>
+    <path d="M264 230C276 226 292 230 298 238L292 284L256 284L254 244C256 236 258 232 264 230Z" fill="#C8102E" stroke="#0A0A0A" stroke-width="2.5"/>
+    <path d="M266 230L281 238L296 236" fill="none" stroke="#FFC400" stroke-width="3"/>
+    <path d="M256 280H292" stroke="#FFC400" stroke-width="3"/>
+    <text x="276" y="268" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="20" fill="#FFC400">6</text>
+    <g stroke-linecap="round">
+      <path d="M296 242L318 262" stroke="#0A0A0A" stroke-width="10"/><path d="M296 242L318 262" stroke="#F4EFE4" stroke-width="5"/>
+      <path d="M318 262L326 290" stroke="#0A0A0A" stroke-width="9"/><path d="M318 262L326 290" stroke="#F4EFE4" stroke-width="4.5"/>
+      <path d="M258 242L238 262" stroke="#0A0A0A" stroke-width="10"/><path d="M258 242L238 262" stroke="#F4EFE4" stroke-width="5"/>
+    </g>
+    <path d="M296 196C312 192 324 204 320 220" fill="none" stroke="#2B1A12" stroke-width="7" stroke-linecap="round"/>
+    <use href="#tlSkull" transform="translate(288 208) rotate(16)"/>
   </g>
 
-  <!-- player 2: defender sliding in -->
-  <g stroke-linecap="round" stroke-linejoin="round">
-    <path d="M330 154C352 164 358 186 352 210" fill="none" stroke="#000" stroke-width="11"/>
-    <path d="M326 248L318 290L326 318" fill="none" stroke="#000" stroke-width="10"/>
-    <path d="M344 248L356 284L376 312" fill="none" stroke="#000" stroke-width="10"/>
-    <path d="M322 322L310 326" stroke="#FFF" stroke-width="12"/><path d="M380 316L390 322" stroke="#FFF" stroke-width="12"/>
-    <path d="M316 194L292 224" fill="none" stroke="#000" stroke-width="9"/>
-    <path d="M356 192L378 220" fill="none" stroke="#000" stroke-width="9"/>
-    <path d="M310 186H362L364 238H308Z" fill="#000" stroke="#000" stroke-width="4"/>
-    <text x="336" y="226" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="26" fill="#E62E2E">9</text>
-    <path d="M308 236H364L360 254H312Z" fill="#FFF" stroke="#000" stroke-width="3"/>
+  <!-- England striker (white shirt, navy shorts, white socks) -->
+  <g class="tl-eng">
+    <ellipse cx="132" cy="324" rx="40" ry="6" fill="#000" opacity=".3"/>
+    <!-- standing leg -->
+    <g stroke-linecap="round">
+      <path d="M122 240L114 276" stroke="#0A0A0A" stroke-width="13"/><path d="M122 240L114 276" stroke="#F4EFE4" stroke-width="8"/>
+      <path d="M114 276L112 300" stroke="#0A0A0A" stroke-width="12"/><path d="M114 296L112 312" stroke="#FFF" stroke-width="9"/>
+      <path d="M114 296L112 312" stroke="#0A0A0A" stroke-width="1" fill="none"/>
+      <path d="M104 318L122 318" stroke="#0A0A0A" stroke-width="9"/>
+    </g>
+    <!-- kicking leg: thigh + shin rotate -->
+    <g class="tl-thigh">
+      <g stroke-linecap="round">
+        <path d="M134 240L150 270" stroke="#0A0A0A" stroke-width="13"/><path d="M134 240L150 270" stroke="#F4EFE4" stroke-width="8"/>
+        <path d="M128 236L142 256" stroke="#14244F" stroke-width="15"/>
+      </g>
+      <g class="tl-shin" stroke-linecap="round">
+        <path d="M150 270L166 296" stroke="#0A0A0A" stroke-width="12"/><path d="M150 270L160 286" stroke="#F4EFE4" stroke-width="7"/>
+        <path d="M159 285L166 298" stroke="#FFF" stroke-width="9"/>
+        <path d="M164 302L180 300" stroke="#0A0A0A" stroke-width="9"/>
+      </g>
+    </g>
+    <!-- shorts -->
+    <path d="M112 228H150L152 250H136L131 244L126 250H110Z" fill="#14244F" stroke="#0A0A0A" stroke-width="2.5"/>
+    <!-- back arm -->
+    <g class="tl-armL" stroke-linecap="round">
+      <path d="M110 180L92 204" stroke="#0A0A0A" stroke-width="11"/><path d="M110 180L92 204" stroke="#F4EFE4" stroke-width="6"/>
+      <path d="M92 204L94 226" stroke="#0A0A0A" stroke-width="10"/><path d="M92 204L94 226" stroke="#F4EFE4" stroke-width="5"/>
+    </g>
+    <!-- shirt -->
+    <path d="M114 172C122 166 140 166 148 172L156 186L150 190L150 230H112L112 190L106 186Z" fill="#FFF" stroke="#0A0A0A" stroke-width="2.5"/>
+    <path d="M122 170L131 178L140 170" fill="none" stroke="#14244F" stroke-width="3"/>
+    <path d="M150 188L156 184M112 188L106 184" stroke="#14244F" stroke-width="3"/>
+    <circle cx="140" cy="186" r="3.4" fill="#C8102E"/>
+    <text x="131" y="218" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="22" fill="#14244F">9</text>
+    <!-- front arm -->
+    <g class="tl-armR" stroke-linecap="round">
+      <path d="M150 180L172 192" stroke="#0A0A0A" stroke-width="11"/><path d="M150 180L172 192" stroke="#F4EFE4" stroke-width="6"/>
+      <path d="M172 192L186 176" stroke="#0A0A0A" stroke-width="10"/><path d="M172 192L186 176" stroke="#F4EFE4" stroke-width="5"/>
+    </g>
+    <!-- ponytail + skull -->
+    <path d="M118 136C102 134 92 146 96 164C98 172 92 178 86 180" fill="none" stroke="#3A2416" stroke-width="8" stroke-linecap="round"/>
+    <use href="#tlSkull" transform="translate(130 146) rotate(-6)"/>
   </g>
-  <use href="#skull" x="336" y="158" transform="rotate(10 336 158)"/>
 
-  <text x="24" y="380" font-family="Special Elite, monospace" font-size="15" letter-spacing="3" fill="#FFF">EURO 2029 · GERMANY</text>
+  <!-- ball -->
+  <path class="tl-trail" d="M182 296Q262 140 350 198" fill="none" stroke="#FFF" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+  <g class="tl-ball">
+    <g class="tl-spin">
+      <circle r="10" fill="#FFF" stroke="#0A0A0A" stroke-width="2"/>
+      <path d="M0-4L3.8-1.2L2.4 3.3H-2.4L-3.8-1.2Z" fill="#0A0A0A"/>
+      <path d="M0-4V-10M3.8-1.2L9.4-3M2.4 3.3L5.8 8M-2.4 3.3L-5.8 8M-3.8-1.2L-9.4-3" stroke="#0A0A0A" stroke-width="1.3"/>
+    </g>
+  </g>
+
+  <!-- goal flash -->
+  <rect class="tl-flash" width="400" height="400" fill="#FFD23F"/>
+
+  <!-- stars: two titles won, the third lights up on the goal -->
+  <g fill="#FFD23F" stroke="#FFD23F" stroke-width="1.5">
+    <use href="#tlStarShape" x="38" y="42"/><use href="#tlStarShape" x="78" y="42"/>
+  </g>
+  <g class="tl-star3"><use href="#tlStarShape" x="118" y="42" fill="inherit" stroke="#FFD23F" stroke-width="2" stroke-dasharray="3 2.5"/></g>
+  <text x="372" y="48" text-anchor="end" font-family="Special Elite, monospace" font-size="15" letter-spacing="3" fill="#FFF">EURO 2029?</text>
+  <text x="372" y="68" text-anchor="end" font-family="Special Elite, monospace" font-size="10" letter-spacing="2" fill="#9AA3C2">ENGLAND v SPAIN</text>
+  </g>
 </svg>
 </template>
 <template id="art-soon">
