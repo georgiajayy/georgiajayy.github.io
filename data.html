@@ -4,19 +4,47 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Data · Georgia Jayy</title>
+<meta name="description" content="Data projects by Georgia Jayy: football, fans, culture and the numbers behind them.">
+<meta property="og:title" content="Data · Georgia Jayy">
+<meta property="og:description" content="Data projects by Georgia Jayy: football, fans, culture and the numbers behind them.">
+<meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;family=Alegreya:wght@400;800;900&amp;display=swap">
 <style>
-html,body{margin:0;min-height:100%;background:#000}
-.back{position:fixed;top:20px;left:20px;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF}
+/* Layout: a story grid. Gothic page title, then tiles: a bold illustrated thumbnail, a big headline, a one-line dek and tags. */
+:root{--bg:#000;--ink:#FFF;--red:#E62E2E;--dim:#A8A8A8;--line:#2E2E2E;color-scheme:dark}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font-family:'Alegreya',Georgia,serif}
+.back{position:fixed;top:20px;left:20px;z-index:5;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF;background:#000}
 .back:hover,.back:focus-visible{background:#E62E2E;border-color:#E62E2E;color:#000;outline:none}
-.uc{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:40px 16px;box-sizing:border-box;text-align:center;color:#FFF}
-.uc h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(34px,6vw,68px);letter-spacing:.02em;line-height:1.05}
-.uc p{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;color:#ccc;font-size:clamp(20px,2.4vw,26px);letter-spacing:.02em}
-.tape{width:min(560px,90vw);height:22px;background:repeating-linear-gradient(-45deg,#E62E2E 0 18px,#111 18px 36px);border:2px solid #E62E2E}
+.page{max-width:1280px;margin:0 auto;padding:96px max(20px,env(safe-area-inset-right,0px)) 64px max(20px,env(safe-area-inset-left,0px));box-sizing:border-box}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;border-bottom:2px solid var(--ink);padding-bottom:18px}
+h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(72px,11vw,140px);line-height:.85}
+.intro{margin:0;max-width:44ch;font-size:19px;line-height:1.45;color:#DDD}
+.count{font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.25em;color:var(--dim);margin:22px 0 0}
+
+.grid{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:44px 32px}
+.story{display:flex;flex-direction:column;gap:12px;color:var(--ink);text-decoration:none;height:100%}
+.thumb{position:relative;aspect-ratio:1/1;overflow:hidden;border:2px solid var(--ink);transition:transform .25s ease}
+.thumb svg{display:block;width:100%;height:100%}
+a.story:hover .thumb,a.story:focus-visible .thumb{transform:translate(-6px,-6px);box-shadow:6px 6px 0 var(--red)}
+a.story:focus-visible{outline:none}
+a.story:focus-visible .thumb{outline:2px dashed var(--red);outline-offset:8px}
+.story h2{margin:0;font-weight:900;font-size:clamp(24px,2.2vw,30px);line-height:1.05;letter-spacing:-.01em}
+a.story:hover h2{color:var(--red)}
+.story p{margin:0;font-size:17px;line-height:1.4;color:#CFCFCF}
+.tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px 14px;font-family:'Special Elite',monospace;font-size:12px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+.tags span+span::before{content:'· ';color:var(--red)}
+.story.soon{color:#777}
+.story.soon .thumb{border-style:dashed;border-color:#555}
+.story.soon h2{color:#8C8C8C}
+.story.soon p{color:#6E6E6E}
+
+@media (prefers-reduced-motion:reduce){.thumb{transition:none}a.story:hover .thumb{transform:none}}
 /* big red cursor */
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
@@ -25,11 +53,80 @@ input[type=text],input[type=search],textarea{cursor:text}
 </head>
 <body>
 <a class="back" href="./">&larr; Back</a>
-<main class="uc">
-<div class="tape" aria-hidden="true"></div>
-<h1>Currently Under Construction</h1>
-<p>This page is being built. Check back soon x</p>
-<div class="tape" aria-hidden="true"></div>
+<main class="page">
+  <header>
+    <h1>Data</h1>
+    <p class="intro">Football, fans, culture and the numbers behind them. Each tile is a project: click one to read the story.</p>
+  </header>
+  <p class="count" id="count"></p>
+  <ol class="grid" id="grid"></ol>
 </main>
+
+<!-- tile artwork, one per project -->
+<template id="art-lionesses">
+<svg viewBox="0 0 400 400" role="img" aria-label="Chart: Spain 2.14 expected goals, England 0.88, in the Euro 2025 final">
+  <rect width="400" height="400" fill="#E62E2E"/>
+  <g stroke="#000" stroke-opacity=".12" stroke-width="2">
+    <line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="160" x2="400" y2="160"/><line x1="0" y1="240" x2="400" y2="240"/>
+  </g>
+  <text x="32" y="56" font-family="Special Elite, monospace" font-size="17" letter-spacing="3" fill="#000">EURO 2025 FINAL · xG</text>
+  <rect x="62" y="312" width="110" height="0" fill="#000"><animate attributeName="height" from="0" to="214" dur="1s" fill="freeze" begin="0.2s"/><animate attributeName="y" from="312" to="98" dur="1s" fill="freeze" begin="0.2s"/></rect>
+  <rect x="228" y="312" width="110" height="0" fill="#FFF" stroke="#000" stroke-width="4"><animate attributeName="height" from="0" to="88" dur="1s" fill="freeze" begin="0.2s"/><animate attributeName="y" from="312" to="224" dur="1s" fill="freeze" begin="0.2s"/></rect>
+  <text x="117" y="88" text-anchor="middle" font-family="Alegreya, serif" font-weight="900" font-size="34" fill="#000">2.14</text>
+  <text x="283" y="212" text-anchor="middle" font-family="Alegreya, serif" font-weight="900" font-size="34" fill="#000">0.88</text>
+  <line x1="32" y1="312" x2="368" y2="312" stroke="#000" stroke-width="4"/>
+  <text x="117" y="342" text-anchor="middle" font-family="Special Elite, monospace" font-size="18" letter-spacing="2" fill="#000">SPAIN</text>
+  <text x="283" y="342" text-anchor="middle" font-family="Special Elite, monospace" font-size="18" letter-spacing="2" fill="#000">ENGLAND</text>
+  <g transform="rotate(-8 283 150)">
+    <rect x="214" y="122" width="140" height="44" fill="#000"/>
+    <text x="284" y="152" text-anchor="middle" font-family="Alegreya, serif" font-weight="900" font-size="24" fill="#FFF">STILL WON.</text>
+  </g>
+  <text x="368" y="382" text-anchor="end" font-family="Special Elite, monospace" font-size="11" letter-spacing="1" fill="#000" fill-opacity=".7">SOURCE: STATSBOMB OPEN DATA</text>
+</svg>
+</template>
+<template id="art-soon">
+<svg viewBox="0 0 400 400" aria-hidden="true">
+  <rect width="400" height="400" fill="#0B0B0B"/>
+  <g fill="none" stroke="#2A2A2A" stroke-width="3"><path d="M60 300 L130 230 L190 260 L260 160 L340 120"/><circle cx="130" cy="230" r="7"/><circle cx="190" cy="260" r="7"/><circle cx="260" cy="160" r="7"/></g>
+  <text x="200" y="352" text-anchor="middle" font-family="Special Elite, monospace" font-size="18" letter-spacing="4" fill="#444">IN THE LAB</text>
+</svg>
+</template>
+
+<script>
+/*
+  ADD A PROJECT: copy one entry in PROJECTS and fill it in.
+    title  the headline
+    dek    one line about it
+    href   the project page or link ('' if it isn't ready yet)
+    tags   short labels, e.g. ['Python', 'Streamlit']
+    art    id of a <template> above with the tile artwork, or img: 'assets/your-thumb.png'
+*/
+var PROJECTS = [
+  { title: 'Out-created. Still won.', dek: 'Spain took 23 shots to England\'s 8 in the Euro 2025 final. So how did the Lionesses lift the trophy, and can they make it three in a row?', href: 'projects/lionesses-euro-2025.html', tags: ['Football', 'Python', 'Streamlit'], art: 'art-lionesses' },
+  { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-soon' },
+  { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-soon' }
+];
+(function () {
+  var grid = document.getElementById('grid'), live = 0;
+  PROJECTS.forEach(function (p) {
+    var open = !!p.href; if (open) live++;
+    var li = document.createElement('li');
+    var a = document.createElement(open ? 'a' : 'div');
+    a.className = 'story' + (open ? '' : ' soon');
+    if (open) a.href = p.href;
+    var th = document.createElement('div'); th.className = 'thumb';
+    if (p.img) { var im = document.createElement('img'); im.src = p.img; im.alt = ''; im.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block'; th.appendChild(im); }
+    else if (p.art) { var t = document.getElementById(p.art); if (t) th.appendChild(t.content.cloneNode(true)); }
+    a.appendChild(th);
+    var h = document.createElement('h2'); h.textContent = p.title; a.appendChild(h);
+    var d = document.createElement('p'); d.textContent = p.dek; a.appendChild(d);
+    var tg = document.createElement('div'); tg.className = 'tags';
+    (p.tags || []).forEach(function (x) { var s = document.createElement('span'); s.textContent = x; tg.appendChild(s); });
+    a.appendChild(tg);
+    li.appendChild(a); grid.appendChild(li);
+  });
+  document.getElementById('count').textContent = live + (live === 1 ? ' PROJECT' : ' PROJECTS') + ' LIVE · MORE ON THE WAY';
+})();
+</script>
 </body>
 </html>
