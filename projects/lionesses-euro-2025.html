@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lionesses Euro 2025 · Georgia Jayy</title>
+<title>Third Time’s a Charm? · Georgia Jayy</title>
 <meta name="description" content="Spain created more than twice England's chances in the Euro 2025 final. England still lifted the trophy. A data project by Georgia Jayy.">
-<meta property="og:title" content="Lionesses Euro 2025 · Georgia Jayy">
+<meta property="og:title" content="Third Time’s a Charm? · Georgia Jayy">
 <meta property="og:description" content="Out-created. Still won. A data project on England at Euro 2025.">
 <meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="theme-color" content="#000000">
@@ -13,145 +13,392 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=UnifrakturMaguntia&amp;family=Courier+Prime:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;family=Alegreya:ital,wght@0,400;0,700;0,900;1,400&amp;display=swap">
 <style>
-body{margin:0;background:#000}
-a{color:#FFFFFF}a:hover{color:#000;background:#FFF}
-.back{text-decoration:none;display:inline-block;padding:12px 0;letter-spacing:2px}
-.win:focus-visible,.gbtn:focus-visible{outline:3px solid #FFF;outline-offset:3px}
-.gbtn{background:#FFF;color:#000;border:2px solid #FFF;font-family:'Courier Prime',monospace;font-weight:700;font-size:16px;letter-spacing:3px;padding:12px 22px;min-height:48px;cursor:pointer}
-.gbtn:hover{background:#000;color:#FFF}
-.lg-ball{animation:lgBall 4.2s linear infinite}
-.lg-spin{animation:lgSpin .5s linear infinite;transform-box:fill-box;transform-origin:center}
-.lg-k1{animation:lgK1 4.2s ease-in-out infinite}
-.lg-k2{animation:lgK2 4.2s ease-in-out infinite}
-.lg-goal{animation:lgGoal 4.2s ease-out infinite;opacity:0}
-.lg-net{animation:lgNet 4.2s ease-out infinite}
-.lg-bob{animation:lgBob .7s ease-in-out infinite}
-@keyframes lgBall{0%,7%{transform:translate(0,0);opacity:1}24%{transform:translate(121px,-62px)}42%,47%{transform:translate(242px,0)}58%{transform:translate(360px,-34px)}68%,86%{transform:translate(483px,-12px);opacity:1}87%{opacity:0}99%{transform:translate(0,0);opacity:0}100%{transform:translate(0,0);opacity:1}}
-@keyframes lgSpin{to{transform:rotate(360deg)}}
-@keyframes lgK1{0%,2%{transform:rotate(0)}6%{transform:rotate(-40deg)}10%{transform:rotate(28deg)}18%,100%{transform:rotate(0)}}
-@keyframes lgK2{0%,41%{transform:rotate(0)}45%{transform:rotate(-40deg)}49%{transform:rotate(28deg)}57%,100%{transform:rotate(0)}}
-@keyframes lgGoal{0%,67%{opacity:0;transform:scale(.6)}71%{opacity:1;transform:scale(1.15)}75%,84%{opacity:1;transform:scale(1)}90%,100%{opacity:0;transform:scale(1)}}
-@keyframes lgNet{0%,67%{transform:translateX(0)}70%{transform:translateX(6px)}76%,100%{transform:translateX(0)}}
-@keyframes lgBob{50%{transform:translateY(-3px)}}
-@media (prefers-reduced-motion: reduce){.lg-ball,.lg-spin,.lg-k1,.lg-k2,.lg-net,.lg-bob{animation:none}.lg-goal{animation:none;opacity:1}}
+/* Layout: a long-read case study. Hero with the anime tile, a fact strip, the xG chart, numbered findings, a reflection, and the links. */
+:root{--bg:#000;--ink:#FFF;--red:#E62E2E;--dim:#A8A8A8;--line:#2E2E2E;--type:'Special Elite','Courier New',monospace;--goth:'UnifrakturMaguntia','Old English Text MT',serif;--read:'Alegreya',Georgia,serif;color-scheme:dark}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font-family:var(--read);font-size:19px;line-height:1.6}
+a{color:var(--ink)}
+.back{position:fixed;top:20px;left:20px;z-index:5;font-family:var(--goth);font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF;background:#000}
+.back:hover,.back:focus-visible{background:var(--red);border-color:var(--red);color:#000;outline:none}
+.page{max-width:1080px;margin:0 auto;padding:96px max(20px,env(safe-area-inset-right,0px)) 72px max(20px,env(safe-area-inset-left,0px));box-sizing:border-box}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:40px}
+.kick{display:flex;align-items:baseline;gap:12px;font-family:var(--type);font-size:13px;letter-spacing:.22em;color:var(--dim)}
+.kick b{font-family:var(--read);font-weight:900;font-size:26px;letter-spacing:0;color:var(--red)}
+h1{margin:14px 0 6px;font-family:var(--goth);font-weight:400;font-size:clamp(54px,7.6vw,96px);line-height:.92;text-wrap:balance}
+.sub{margin:0 0 18px;font-family:var(--type);font-size:15px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+.lede{margin:0;font-size:22px;line-height:1.5;max-width:34ch}
+.art{border:2px solid var(--ink);aspect-ratio:1/1}
+.art svg{display:block;width:100%;height:100%}
+
+/* fact strip */
+.facts{list-style:none;margin:0;padding:22px 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 28px;border-bottom:1px solid var(--line)}
+.facts li{display:flex;flex-direction:column;gap:6px;min-width:0}
+.facts span{font-family:var(--type);font-size:11px;letter-spacing:.25em;color:var(--red)}
+.facts b{font-family:var(--type);font-weight:400;font-size:14px;letter-spacing:.06em;line-height:1.5}
+
+/* section labels */
+.label{margin:64px 0 18px;font-family:var(--type);font-weight:400;font-size:13px;letter-spacing:.4em;color:var(--red);display:flex;align-items:center;gap:16px}
+.label::after{content:'';flex:1;border-top:1px solid var(--line)}
+h2{margin:0 0 18px;font-family:var(--goth);font-weight:400;font-size:clamp(34px,4.4vw,52px);line-height:1}
+
+/* chart */
+.chart{margin:0;border:1px solid var(--line);padding:26px 26px 20px}
+.chart .cap{margin:0 0 20px;font-family:var(--type);font-size:13px;letter-spacing:.16em;color:var(--dim)}
+.bars{display:grid;gap:16px}
+.bar{display:grid;grid-template-columns:110px minmax(0,1fr) 64px;align-items:center;gap:14px;font-family:var(--type);letter-spacing:.14em;font-size:14px}
+.track{height:34px;background:#111;position:relative}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--ink);transform-origin:left;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
+.fill.esp{background:var(--red)}
+.bar .v{font-family:var(--read);font-weight:900;font-size:24px;letter-spacing:0;text-align:right;font-variant-numeric:tabular-nums}
+.axis{display:grid;grid-template-columns:110px minmax(0,1fr) 64px;gap:14px;margin-top:6px}
+.axis div{display:flex;justify-content:space-between;font-family:var(--type);font-size:11px;color:#666;font-variant-numeric:tabular-nums}
+.note{margin:16px 0 0;font-family:var(--type);font-size:13px;letter-spacing:.06em;color:var(--dim)}
+@keyframes grow{from{transform:scaleX(0)}}
+
+/* question */
+.question{margin:0;font-family:var(--read);font-style:italic;font-size:clamp(26px,3.2vw,36px);line-height:1.3;max-width:28ch;border-left:4px solid var(--red);padding-left:22px}
+
+/* findings */
+.finds{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:f}
+.finds li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:20px;padding:22px 0;border-top:1px solid var(--line);counter-increment:f}
+.finds li:last-child{border-bottom:1px solid var(--line)}
+.finds li::before{content:counter(f,decimal-leading-zero);font-family:var(--read);font-weight:900;font-size:34px;line-height:1;color:var(--red)}
+.finds h3{margin:0 0 6px;font-family:var(--type);font-weight:400;font-size:20px;letter-spacing:.04em;line-height:1.3}
+.finds p{margin:0;color:#D6D6D6;max-width:60ch}
+.stat{font-weight:900;color:var(--ink)}
+
+/* reflection */
+.reflect p{margin:0 0 18px;max-width:64ch;color:#D6D6D6}
+.reflect p:first-of-type::first-letter{float:left;font-family:var(--goth);font-size:76px;line-height:.8;padding:6px 10px 0 0;color:var(--ink)}
+
+/* links */
+.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.links a{font-family:var(--type);font-size:15px;letter-spacing:.18em;text-decoration:none;padding:14px 20px;border:2px solid var(--ink)}
+.links a:first-child{background:var(--ink);color:#000}
+.links a:hover,.links a:focus-visible{background:var(--red);border-color:var(--red);color:#000;outline:none}
+footer{margin-top:72px;text-align:center;font-family:var(--type);font-size:13px;letter-spacing:.2em;color:#FFF}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bar,.axis{grid-template-columns:80px minmax(0,1fr) 54px}
+}
+@media (max-width:480px){.finds li{grid-template-columns:44px minmax(0,1fr);gap:12px}.finds li::before{font-size:26px}}
+@media (prefers-reduced-motion:reduce){.fill{animation:none}}
+/* big red cursor */
+html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
+a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
+input[type=text],input[type=search],textarea{cursor:text}
 </style>
 </head>
 <body>
-<div style="width: 100%; background: #000000; color: #FFFFFF; font-family: 'Courier Prime', 'Courier New', monospace; font-size: 15px; line-height: 1.5">
-<div style="max-width: 900px; margin: 0 auto; padding: 16px 16px 48px; display: flex; flex-direction: column; gap: 16px">
-<nav aria-label="Back" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 14px">
-<a class="back" href="../#archive">-» BACK TO GEORGIA JAYY</a>
-<a class="back" href="../#archive">[ PROJECT ARCHIVE ]</a>
-</nav>
-<main>
-<article style="border: 3px double #FFFFFF; padding: 22px 20px; display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
-<span style="font-size: 13px; letter-spacing: 3px">( DATA PROJECT · LiVE )</span>
-<span style="font-size: 13px; letter-spacing: 3px">FROM THE ARCHIVE</span>
-</div>
-<div style="display: flex; flex-direction: column; gap: 10px">
-<h3 style="margin: 0; font-family: 'UnifrakturMaguntia', serif; font-weight: 400; font-size: 48px; line-height: 1.05">Lionesses Euro 2025</h3>
-<svg role="img" aria-label="Animation: two skeleton girls with ponytails pass a football and score a goal" viewBox="0 0 680 140" style="display: block; width: 100%; max-width: 680px; height: auto; border-top: 1px dotted #FFFFFF; border-bottom: 1px dotted #FFFFFF">
-<g fill="#FFFFFF"><circle cx="40" cy="20" r="1.3"></circle><circle cx="230" cy="14" r="1.1"></circle><circle cx="470" cy="22" r="1.3"></circle><circle cx="300" cy="34" r="1"></circle></g>
-<path d="M0 133 H680" stroke="#FFFFFF" stroke-width="2"></path>
-<path d="M20 133 l3 -5 M90 133 l3 -6 M210 133 l3 -5 M290 133 l3 -6 M450 133 l3 -5 M530 133 l3 -6" stroke="#FFFFFF" stroke-width="1.5"></path>
-<path d="M142 124 Q263 40 384 124 M384 124 Q505 70 625 112" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="3 7" opacity="0.3"></path>
-<g class="lg-net"><path d="M609 64 V132" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M618 64 V132" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M627 64 V132" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M636 64 V132" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M645 64 V132" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M654 64 V132" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M600 75 H660" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M600 86 H660" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M600 97 H660" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M600 108 H660" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M600 119 H660" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M600 130 H660" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"></path><path d="M600 133 V64 H660 V133" fill="none" stroke="#FFFFFF" stroke-width="3"></path></g>
-<g class="lg-bob">
-<path d="M112 44 C96 40 88 58 96 72" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path>
-<path d="M110 42 L102 36 L104 46 Z M110 42 L116 35 L118 44 Z" fill="#FFFFFF"></path>
-<circle cx="120" cy="52" r="12" fill="#FFFFFF"></circle>
-<ellipse cx="116" cy="51" rx="3.2" ry="3.8" fill="#000000"></ellipse><ellipse cx="125" cy="51" rx="3.2" ry="3.8" fill="#000000"></ellipse>
-<path d="M120 55 L118.4 58.5 L121.6 58.5 Z" fill="#000000"></path>
-<path d="M116 64 V60 M120 64 V60 M124 64 V60" stroke="#000000" stroke-width="1.2"></path>
-<g fill="none" stroke="#FFFFFF" stroke-linecap="round">
-<path d="M120 64 V96" stroke-width="3"></path>
-<path d="M112 71 Q120 67 128 71 M112 78 Q120 74 128 78 M113 85 Q120 81 127 85" stroke-width="2"></path>
-<path d="M120 68 L107 82 L103 94" stroke-width="3"></path>
-<path d="M120 68 L134 78 L141 70" stroke-width="3"></path>
-<path d="M117 98 L112 114 L110 129" stroke-width="4"></path>
-</g>
-<rect x="111" y="92" width="18" height="9" fill="#FFFFFF"></rect>
-<rect x="104" y="127" width="10" height="5" rx="1.5" fill="#FFFFFF"></rect>
-<g class="lg-k1" style="transform-box: view-box; transform-origin: 124px 99px">
-<path d="M124 98 L128 114 L130 129" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path>
-<rect x="127" y="127" width="11" height="5" rx="1.5" fill="#FFFFFF"></rect>
-</g>
-</g>
-<g class="lg-bob">
-<path d="M364 44 C348 40 340 58 348 72" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path>
-<path d="M362 42 L354 36 L356 46 Z M362 42 L368 35 L370 44 Z" fill="#FFFFFF"></path>
-<circle cx="372" cy="52" r="12" fill="#FFFFFF"></circle>
-<ellipse cx="368" cy="51" rx="3.2" ry="3.8" fill="#000000"></ellipse><ellipse cx="377" cy="51" rx="3.2" ry="3.8" fill="#000000"></ellipse>
-<path d="M372 55 L370.4 58.5 L373.6 58.5 Z" fill="#000000"></path>
-<path d="M368 64 V60 M372 64 V60 M376 64 V60" stroke="#000000" stroke-width="1.2"></path>
-<g fill="none" stroke="#FFFFFF" stroke-linecap="round">
-<path d="M372 64 V96" stroke-width="3"></path>
-<path d="M364 71 Q372 67 380 71 M364 78 Q372 74 380 78 M365 85 Q372 81 379 85" stroke-width="2"></path>
-<path d="M372 68 L359 82 L355 94" stroke-width="3"></path>
-<path d="M372 68 L386 78 L393 70" stroke-width="3"></path>
-<path d="M369 98 L364 114 L362 129" stroke-width="4"></path>
-</g>
-<rect x="363" y="92" width="18" height="9" fill="#FFFFFF"></rect>
-<rect x="356" y="127" width="10" height="5" rx="1.5" fill="#FFFFFF"></rect>
-<g class="lg-k2" style="transform-box: view-box; transform-origin: 376px 99px">
-<path d="M376 98 L380 114 L382 129" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path>
-<rect x="379" y="127" width="11" height="5" rx="1.5" fill="#FFFFFF"></rect>
-</g>
-</g>
-<g class="lg-ball"><g transform="translate(142 124)"><g class="lg-spin"><circle r="7" fill="#FFFFFF"></circle><path d="M0 -3.4 L3.2 -1 L2 2.8 L-2 2.8 L-3.2 -1 Z" fill="#000000"></path><path d="M0 -3.4 V-7 M3.2 -1 L6.6 -2.2 M2 2.8 L4 6 M-2 2.8 L-4 6 M-3.2 -1 L-6.6 -2.2" stroke="#000000" stroke-width="1"></path></g></g></g>
-<text class="lg-goal" x="530" y="46" text-anchor="middle" font-family="UnifrakturMaguntia, serif" font-size="34" fill="#FFFFFF" style="transform-box: fill-box; transform-origin: center">Goal!</text>
+<a class="back" href="../data.html">&larr; Back</a>
+<main class="page">
+
+  <section class="hero">
+    <div>
+      <div class="kick"><b>#1</b><span>SEP 2026 · DATA PROJECT</span></div>
+      <h1>Third Time’s a Charm?</h1>
+      <p class="sub">Lionesses · Euro 2025</p>
+      <p class="lede">Spain created more than twice England’s chances in the Euro 2025 final. England still lifted the trophy. I wanted to know how, and whether they can make it three in a row in 2029.</p>
+    </div>
+    <div class="art">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black and white anime-style animation in five cuts: a close-up of the England skeleton striker's eyes, her boot striking the ball, an impact flash, the ball rocketing towards goal, and the net bulging as GOAL!! appears">
+  <style>
+    .an *{transform-box:view-box}
+    .an-c1{animation:anC1 6s steps(1,end) infinite}
+    .an-c2{animation:anC2 6s steps(1,end) infinite;opacity:0}
+    .an-c3{animation:anC3 6s steps(1,end) infinite;opacity:0}
+    .an-c4{animation:anC4 6s steps(1,end) infinite;opacity:0}
+    .an-c5{animation:anC5 6s steps(1,end) infinite;opacity:0}
+    @keyframes anC1{0%{opacity:1}20%{opacity:0}100%{opacity:0}}
+    @keyframes anC2{0%{opacity:0}20%{opacity:1}36%{opacity:0}100%{opacity:0}}
+    @keyframes anC3{0%{opacity:0}36%{opacity:1}40%{opacity:0}100%{opacity:0}}
+    @keyframes anC4{0%{opacity:0}40%{opacity:1}58%{opacity:0}100%{opacity:0}}
+    @keyframes anC5{0%{opacity:0}58%{opacity:1}100%{opacity:1}}
+    /* cut 1: eyes */
+    .an-face{transform-origin:200px 220px;animation:anPush 6s linear infinite}
+    @keyframes anPush{0%{transform:scale(1)}20%{transform:scale(1.12)}100%{transform:scale(1.12)}}
+    .an-pupil{transform-origin:0 0;animation:anPupil 6s ease-in infinite}
+    @keyframes anPupil{0%,6%{transform:scale(1)}12%,100%{transform:scale(.45)}}
+    .an-glint{transform-origin:0 0;animation:anGlint 6s ease-out infinite;opacity:0}
+    @keyframes anGlint{0%,11%{opacity:0;transform:scale(.2) rotate(0)}14%{opacity:1;transform:scale(1.3) rotate(45deg)}19%{opacity:1;transform:scale(1) rotate(90deg)}20%,100%{opacity:0}}
+    .an-pan{animation:anPan .45s linear infinite}
+    @keyframes anPan{to{transform:translateX(-200px)}}
+    .an-hair{transform-origin:120px 120px;animation:anHair .3s ease-in-out infinite alternate}
+    @keyframes anHair{to{transform:rotate(3deg)}}
+    .an-eyeburst{animation:anEyeB 6s steps(1,end) infinite;opacity:0}
+    @keyframes anEyeB{0%{opacity:0}13%{opacity:1}20%{opacity:0}100%{opacity:0}}
+    /* cut 2: strike */
+    .an-leg{transform-origin:150px -60px;animation:anLeg 6s cubic-bezier(.75,0,.35,1) infinite}
+    @keyframes anLeg{0%,20%{transform:rotate(48deg)}29%{transform:rotate(56deg)}33%{transform:rotate(0deg)}36%,100%{transform:rotate(-26deg)}}
+    .an-smear{animation:anSmear 6s steps(1,end) infinite;opacity:0}
+    @keyframes anSmear{0%{opacity:0}30.5%{opacity:1}33.5%{opacity:0}100%{opacity:0}}
+    .an-bigball{transform-origin:300px 255px;animation:anSquash 6s ease-out infinite}
+    @keyframes anSquash{0%,32.8%{transform:translate(0,0) scale(1,1)}33.6%{transform:translate(4px,-2px) scale(.8,1.14)}36%,100%{transform:translate(150px,-110px) scale(1.05,.95)}}
+    .an-strikeW{animation:anStrikeW 6s steps(1,end) infinite;opacity:0}
+    @keyframes anStrikeW{0%{opacity:0}33%{opacity:1}35%{opacity:0}100%{opacity:0}}
+    .an-shake{animation:anShake 6s linear infinite}
+    @keyframes anShake{0%,32.5%{transform:translate(0,0)}33%{transform:translate(-7px,5px)}34%{transform:translate(7px,-6px)}35%{transform:translate(-5px,-4px)}36%{transform:translate(4px,5px)}37%,58%{transform:translate(0,0)}59%{transform:translate(6px,-4px)}60%{transform:translate(-5px,4px)}61%{transform:translate(3px,-2px)}62%,100%{transform:translate(0,0)}}
+    /* cut 4: flight */
+    .an-fball{transform-origin:200px 200px;animation:anFball 6s cubic-bezier(.5,0,1,1) infinite}
+    @keyframes anFball{0%,40%{transform:translate(-40px,30px) scale(.45)}58%,100%{transform:translate(30px,-20px) scale(1.9)}}
+    .an-fspin{transform-origin:200px 200px;animation:anFspin .35s linear infinite}
+    @keyframes anFspin{to{transform:rotate(360deg)}}
+    .an-hand{transform-origin:400px 400px;animation:anHand 6s ease-out infinite}
+    @keyframes anHand{0%,40%{transform:translate(40px,40px) rotate(6deg)}52%,100%{transform:translate(0,0) rotate(-4deg)}}
+    .an-fburst{transform-origin:200px 200px;animation:anFburst .5s steps(2,end) infinite}
+    @keyframes anFburst{to{transform:rotate(4deg)}}
+    /* cut 5: goal */
+    .an-net{transform-origin:376px 236px;animation:anNet 6s ease-out infinite}
+    @keyframes anNet{0%,58%{transform:scale(1,1)}61%{transform:scale(1.16,1.06)}68%{transform:scale(.97,1)}74%,100%{transform:scale(1,1)}}
+    .an-gball{animation:anGball 6s ease-out infinite}
+    @keyframes anGball{0%,58%{transform:translate(300px,190px)}61%{transform:translate(372px,214px)}70%{transform:translate(366px,296px)}100%{transform:translate(360px,304px)}}
+    .an-goalb{animation:anGoalB 6s ease-out infinite;opacity:0}
+    @keyframes anGoalB{0%,59%{opacity:0}61%{opacity:1}80%{opacity:.5}92%,100%{opacity:0}}
+    .an-goaltxt{transform-origin:200px 92px;animation:anGoalT 6s cubic-bezier(.2,1.6,.4,1) infinite;opacity:0}
+    @keyframes anGoalT{0%,60%{opacity:0;transform:scale(.3) rotate(-14deg)}65%{opacity:1;transform:scale(1) rotate(-6deg)}94%{opacity:1;transform:scale(1.05) rotate(-6deg)}100%{opacity:0;transform:scale(1.2) rotate(-6deg)}}
+    @media (prefers-reduced-motion:reduce){.an *{animation:none!important}.an-c1,.an-c2,.an-c3,.an-c4{opacity:0}.an-c5,.an-goaltxt,.an-goalb{opacity:1}.an-gball{transform:translate(366px,296px)}}
+  </style>
+  <defs>
+    <pattern id="mgTone" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.25" fill="#000"/></pattern>
+    <pattern id="mgToneL" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".8" fill="#000"/></pattern>
+    <pattern id="mgToneD" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#000"/><circle cx="2.5" cy="2.5" r="1.1" fill="#FFF"/></pattern>
+    <pattern id="mgMesh" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 0L8 8M8 0L0 8" stroke="#000" stroke-width=".9"/></pattern>
+    <pattern id="mgHatch" width="400" height="10" patternUnits="userSpaceOnUse"><path d="M0 9H400" stroke="#000" stroke-width=".7" stroke-opacity=".5"/></pattern>
+    <g id="mgSkull">
+      <path d="M0-21C-13-21-20-12-20-2C-20 6-16 10-12 12V17C-12 19-11 20-9 20H9C11 20 12 19 12 17V12C16 10 20 6 20-2C20-12 13-21 0-21Z" fill="#FFF" stroke="#000" stroke-width="2.8"/>
+      <path d="M8-17C13-14 16-9 16-4" fill="none" stroke="#000" stroke-width="1.2"/>
+      <ellipse cx="-7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/><ellipse cx="7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/>
+      <path d="M0 5L-2.8 10H2.8Z" fill="#000"/>
+      <path d="M-6 20V15M-2 20V15M2 20V15M6 20V15" stroke="#000" stroke-width="1.6"/>
+    </g>
+    <path id="mgStarShape" d="M0-12L3.5-3.8H12.4L5.2 1.6L7.8 10.6L0 5.4L-7.8 10.6L-5.2 1.6L-12.4-3.8H-3.5Z"/>
+    <path id="mgSpark" d="M0-9L1.6-1.6L9 0L1.6 1.6L0 9L-1.6 1.6L-9 0L-1.6-1.6Z" fill="#FFF" stroke="#000" stroke-width=".8"/>
+  </defs>
+  <g class="an"><g class="an-shake">
+
+  <!-- CUT 1: extreme close-up, eyes lock on -->
+  <g class="an-c1">
+    <rect width="400" height="400" fill="#FFF"/>
+    <g class="an-pan"><path d="M98.6 185.2h87.7v2.0h-87.7ZM202.2 2.6h239.7v0.9h-239.7ZM293.3 221.7h68.2v1.3h-68.2ZM161.6 281.4h205.0v1.0h-205.0ZM-111.2 95.2h161.3v2.1h-161.3ZM419.4 236.2h136.7v1.8h-136.7ZM32.9 40.7h194.8v1.8h-194.8ZM-129.8 168.7h113.3v1.1h-113.3ZM447.6 112.5h99.9v2.0h-99.9ZM-156.2 351.7h135.8v1.5h-135.8ZM139.8 9.4h241.3v1.0h-241.3ZM-103.0 238.7h175.7v2.1h-175.7ZM-193.4 81.2h76.7v1.6h-76.7ZM-132.1 7.0h159.3v2.1h-159.3ZM118.5 168.0h187.7v0.9h-187.7ZM-62.0 231.9h181.8v2.1h-181.8ZM244.0 21.7h181.3v1.0h-181.3ZM595.9 107.3h259.6v1.0h-259.6ZM560.7 282.2h107.4v1.7h-107.4ZM92.8 17.2h194.8v1.6h-194.8ZM-130.6 309.9h129.4v2.0h-129.4ZM161.0 233.7h140.4v2.2h-140.4ZM-185.3 229.8h219.9v1.3h-219.9ZM-29.3 173.4h148.8v1.3h-148.8ZM303.6 35.5h80.6v1.9h-80.6ZM424.6 10.2h221.5v1.5h-221.5ZM-1.4 283.8h207.5v1.4h-207.5ZM571.3 92.4h140.2v1.3h-140.2ZM95.5 344.0h193.5v1.0h-193.5ZM7.1 337.3h70.1v2.2h-70.1ZM557.2 69.1h257.2v1.6h-257.2ZM-151.3 4.7h101.7v1.3h-101.7ZM573.1 244.6h130.9v1.0h-130.9ZM-90.2 224.8h77.3v1.6h-77.3ZM-147.5 278.4h150.3v1.8h-150.3ZM106.4 305.7h237.4v1.0h-237.4ZM417.4 286.2h236.1v1.5h-236.1ZM-161.2 39.7h165.8v1.0h-165.8ZM-132.6 251.9h216.0v1.1h-216.0ZM-59.3 5.2h151.3v1.6h-151.3ZM-61.6 155.3h156.4v2.1h-156.4ZM553.0 214.2h65.8v2.2h-65.8ZM235.5 355.6h164.7v1.6h-164.7ZM-147.5 363.8h188.6v1.6h-188.6ZM379.9 120.1h204.1v0.9h-204.1ZM162.8 279.8h158.0v1.7h-158.0ZM282.3 21.2h134.6v2.0h-134.6ZM458.5 92.4h205.9v1.7h-205.9ZM-171.2 350.3h179.4v1.7h-179.4ZM125.3 271.2h73.8v1.1h-73.8ZM-54.9 243.2h73.0v1.3h-73.0ZM228.5 188.1h65.2v1.9h-65.2ZM426.3 133.5h61.7v2.1h-61.7ZM581.1 236.1h257.3v2.0h-257.3ZM79.0 42.5h106.3v1.9h-106.3ZM-23.1 76.9h82.1v1.0h-82.1ZM581.0 375.3h134.5v1.8h-134.5ZM217.6 187.0h133.9v1.7h-133.9ZM5.1 94.5h163.6v1.1h-163.6ZM555.1 175.7h64.4v0.9h-64.4ZM-153.8 320.0h110.2v2.0h-110.2ZM-23.4 242.1h71.7v1.2h-71.7ZM440.2 120.1h255.1v1.9h-255.1ZM544.5 360.7h235.3v2.1h-235.3ZM-124.5 387.0h123.5v1.1h-123.5ZM193.4 241.7h129.4v2.0h-129.4ZM-32.9 159.6h115.3v1.4h-115.3ZM254.8 244.2h148.0v1.1h-148.0ZM60.0 160.9h94.1v1.6h-94.1ZM369.3 75.4h191.8v1.0h-191.8Z" fill="#000" opacity=".55"/></g>
+    <g class="an-eyeburst"><path d="M900.0 196.2L899.8 215.2L364.8 201.3ZM898.6 244.1L897.0 264.7L352.2 211.9ZM896.7 267.8L893.9 292.4L359.3 218.4ZM891.1 311.1L886.1 338.6L366.1 230.1ZM879.2 369.4L874.7 386.6L369.8 244.6ZM873.5 390.7L867.6 410.6L377.0 253.0ZM858.9 436.3L850.8 457.7L365.5 262.4ZM848.6 463.2L839.5 484.6L359.8 267.9ZM827.0 511.3L822.9 519.3L364.8 283.2ZM809.5 544.3L798.1 563.7L359.7 293.6ZM786.8 581.7L771.9 603.6L337.2 293.0ZM760.0 620.0L749.5 633.6L348.5 314.3ZM731.7 655.3L724.9 663.1L317.3 302.0ZM721.4 667.1L702.8 687.0L322.5 314.1ZM682.2 707.5L671.7 717.2L316.0 324.6ZM657.2 730.1L645.5 739.9L311.8 332.5ZM626.7 754.9L605.7 770.4L305.4 342.5ZM587.1 783.2L565.8 796.8L302.0 359.9ZM552.6 804.7L542.5 810.5L291.6 360.1ZM517.7 823.7L494.2 835.2L275.5 355.4ZM480.9 841.2L469.4 846.1L272.0 368.5ZM447.6 854.7L434.5 859.5L252.5 343.2ZM410.0 867.7L383.4 875.6L243.2 347.4ZM367.3 879.7L351.3 883.5L235.5 351.9ZM343.6 885.1L320.6 889.5L234.9 381.6ZM308.7 891.5L288.4 894.4L221.4 350.3ZM250.1 898.2L235.3 899.1L211.3 384.9ZM205.6 900.0L187.3 899.9L199.0 389.9ZM177.5 899.6L167.6 899.3L193.2 373.9ZM145.5 897.9L133.2 896.8L185.6 365.7ZM91.6 891.6L80.3 889.7L175.3 349.7ZM47.7 883.2L33.6 879.9L157.1 383.4ZM8.9 873.4L-6.2 868.9L152.2 361.5ZM-18.2 865.1L-38.1 858.3L143.3 364.3ZM-56.9 851.2L-75.9 843.3L128.6 373.5ZM-94.2 835.2L-109.4 827.9L122.9 361.3ZM-125.4 819.8L-138.0 813.0L110.4 366.5ZM-164.0 797.9L-180.2 787.7L120.0 327.4ZM-195.2 777.8L-211.3 766.4L113.1 323.3ZM-230.9 751.6L-247.1 738.6L104.4 318.7ZM-263.1 724.9L-276.1 713.1L81.1 331.4ZM-285.9 703.8L-301.7 688.1L73.3 327.2ZM-312.8 676.5L-319.3 669.4L69.5 319.6ZM-352.2 630.3L-360.2 619.7L66.3 302.1ZM-370.3 605.9L-378.7 593.8L64.9 294.0ZM-388.7 578.7L-397.0 565.5L52.8 292.4ZM-409.2 544.8L-416.8 531.0L41.6 287.3ZM-424.1 517.0L-432.7 499.5L38.9 279.0ZM-445.2 471.5L-450.0 459.7L31.5 269.1ZM-459.2 435.5L-463.2 424.1L41.9 255.0ZM-474.8 386.1L-477.5 376.1L42.7 242.1ZM-480.8 362.8L-486.1 338.6L36.4 236.1ZM-492.1 304.9L-493.8 293.3L38.2 223.1ZM-495.7 277.1L-498.1 251.5L32.7 215.4ZM-498.9 239.9L-499.4 229.2L29.0 208.5ZM-500.0 207.5L-499.8 183.3L16.5 198.8ZM-499.0 162.6L-498.1 148.7L18.1 188.4ZM-495.1 116.9L-491.8 93.0L37.7 177.8ZM-490.4 84.5L-487.9 70.6L21.0 168.2ZM-482.1 42.5L-478.5 27.8L38.0 160.7ZM-471.1 1.0L-466.3 -14.7L21.5 144.8ZM-459.5 -34.8L-456.6 -42.7L23.5 136.0ZM-441.9 -79.1L-430.4 -104.4L47.9 130.2ZM-423.9 -117.4L-411.4 -140.8L59.8 125.3ZM-406.8 -149.0L-394.1 -170.3L48.6 109.3ZM-385.9 -183.0L-378.1 -194.7L63.9 109.1ZM-366.0 -211.9L-360.2 -219.8L60.4 96.9ZM-345.2 -239.0L-329.7 -257.7L83.4 102.8ZM-308.4 -281.1L-293.1 -296.9L66.2 69.4ZM-281.7 -307.9L-262.5 -325.4L83.2 72.2ZM-266.8 -321.6L-249.4 -336.7L97.3 81.4ZM-230.2 -352.2L-213.1 -365.1L97.0 63.5ZM-198.0 -375.9L-175.6 -390.7L103.6 54.6ZM-160.2 -400.2L-148.7 -407.0L106.6 40.9ZM-127.0 -418.9L-105.9 -429.6L125.8 53.7ZM-95.1 -434.8L-77.8 -442.5L125.2 33.3ZM-61.3 -449.4L-38.9 -458.0L133.2 25.5ZM-9.6 -467.9L14.0 -474.8L157.5 55.8ZM24.4 -477.6L49.0 -483.5L164.5 52.2ZM60.7 -486.0L74.1 -488.6L167.6 32.0ZM101.7 -493.1L119.2 -495.3L176.8 20.4ZM135.4 -497.0L144.9 -497.8L186.7 45.5ZM178.1 -499.7L187.9 -499.9L195.4 11.1ZM235.4 -499.1L245.5 -498.5L209.8 30.2ZM260.2 -497.4L274.7 -496.0L215.8 36.7ZM305.1 -492.1L324.8 -488.8L227.0 37.8ZM336.2 -486.6L350.8 -483.6L231.8 48.3ZM380.0 -476.5L401.6 -470.3L245.0 41.0ZM412.5 -467.0L423.8 -463.3L251.4 43.3ZM456.4 -451.3L478.4 -442.3L263.1 47.3ZM498.9 -433.0L517.4 -423.9L273.6 49.8ZM526.6 -419.2L542.5 -410.5L285.1 43.5ZM560.7 -399.9L579.4 -388.3L289.0 57.0ZM592.2 -379.8L607.7 -369.0L301.6 54.1ZM622.2 -358.4L635.4 -348.1L302.3 68.0ZM664.2 -323.9L683.9 -305.8L311.7 78.6ZM694.7 -295.3L711.3 -278.1L315.3 88.4ZM719.6 -269.1L726.8 -261.0L336.4 78.7ZM743.8 -240.8L759.7 -220.5L343.2 88.2ZM769.0 -207.7L782.0 -189.0L341.9 101.8ZM784.8 -184.7L795.5 -167.9L326.6 119.2ZM805.4 -151.5L816.9 -130.9L332.5 126.0ZM826.9 -111.5L831.4 -102.2L366.5 118.8ZM844.7 -72.6L848.1 -64.4L369.6 129.5ZM856.0 -44.2L864.3 -20.7L366.9 141.2ZM873.5 9.1L880.3 35.2L367.5 156.0ZM885.0 55.7L886.8 64.6L377.1 163.9ZM889.9 81.7L893.4 103.8L352.4 176.4ZM895.9 124.8L898.3 151.4L351.8 186.5ZM898.7 158.1L899.6 177.5L382.9 191.6Z" fill="#000"/></g>
+    <g class="an-face">
+      <g class="an-hair" fill="none" stroke="#000" stroke-linecap="round">
+        <path d="M70 60C20 90 10 160 -20 190" stroke-width="22"/><path d="M90 40C40 60 20 110 -30 120" stroke-width="16"/><path d="M60 120C30 170 20 230 -20 260" stroke-width="12"/>
+        <path d="M70 60C20 90 10 160 -20 190" stroke="#FFF" stroke-width="2.5" stroke-dasharray="40 30"/>
+      </g>
+      <g transform="translate(200 214) scale(8.2)">
+        <path d="M0-21C-13-21-20-12-20-2C-20 6-16 10-12 12V17C-12 19-11 20-9 20H9C11 20 12 19 12 17V12C16 10 20 6 20-2C20-12 13-21 0-21Z" fill="#FFF" stroke="#000" stroke-width=".9"/>
+        <path d="M11-15C15-12 17-7 17-2M13-13C16-10 17.5-6 17.5-3M15-11C17-8 18-5 18-2" fill="none" stroke="#000" stroke-width=".25"/>
+        <path d="M-17 4C-15 8-13 10-11 11M-16 6C-14 9-12.5 10.5-11 11.5" fill="none" stroke="#000" stroke-width=".22"/>
+        <ellipse cx="-7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/><ellipse cx="7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/>
+        <g transform="translate(-6.8 -1)"><circle class="an-pupil" r="2.1" fill="#FFF"/><circle cx="1.3" cy="-1.7" r=".7" fill="#FFF"/></g>
+        <g transform="translate(8.2 -1)"><circle class="an-pupil" r="2.1" fill="#FFF"/><circle cx="1.3" cy="-1.7" r=".7" fill="#FFF"/></g>
+        <path d="M0 5L-2.8 10H2.8Z" fill="#000"/>
+      </g>
+      <g transform="translate(278 196)"><path class="an-glint" d="M0-38L6-6L38 0L6 6L0 38L-6 6L-38 0L-6-6Z" fill="#FFF" stroke="#000" stroke-width="2.5"/></g>
+    </g>
+    <path d="M0 0H400V44H0ZM0 356H400V400H0Z" fill="#000"/>
+  </g>
+
+  <!-- CUT 2: boot meets ball -->
+  <g class="an-c2">
+    <rect width="400" height="400" fill="#FFF"/>
+    <rect width="400" height="400" fill="url(#mgToneL)" opacity=".6"/>
+    <path d="M0 330H400" stroke="#000" stroke-width="3"/>
+    <path d="M0 340H400M0 352H400M0 366H400" stroke="#000" stroke-width="1"/>
+    <path class="an-smear" d="M-54.6 188.3 L-32.2 205.1 L-8.4 220.0 L16.6 232.8 L42.6 243.3 L69.5 251.5 L96.9 257.3 L124.8 260.7 L152.8 261.7 L180.9 260.2 L208.7 256.3 L236.0 250.0 L176.0 236.0 L150.1 237.1 L124.2 236.0 L98.5 232.6 L73.2 227.0 L48.5 219.3 L24.5 209.3 L1.5 197.4 L-20.3 183.5 L-40.9 167.7 L-60.0 150.2 L-77.6 131.1Z" fill="#000"/>
+    <path class="an-smear" d="M-56.7 172.5 L-39.9 186.4 L-22.3 199.0 L-3.8 210.4 L15.4 220.5 L35.3 229.2 L55.8 236.5 L76.7 242.3 L98.0 246.7 L119.5 249.6 L141.2 251.0 L162.9 250.8 L184.5 249.2" fill="none" stroke="#FFF" stroke-width="3" stroke-dasharray="2 10"/>
+    <g class="an-strikeW"><path d="M938.0 255.8L937.8 267.2L317.3 253.1ZM936.8 293.5L935.4 312.4L304.3 256.8ZM932.2 342.0L929.6 360.2L289.2 259.3ZM921.0 405.2L918.8 414.7L290.7 264.2ZM910.8 445.1L903.6 468.6L291.1 268.3ZM897.1 487.8L889.8 507.2L324.8 284.5ZM873.8 544.8L866.9 559.4L322.9 292.3ZM861.3 570.7L849.4 592.9L293.6 281.7ZM832.2 622.0L826.5 631.0L292.0 286.2ZM793.6 677.8L786.2 687.3L298.1 298.9ZM767.2 710.2L756.8 722.0L293.9 301.5ZM743.6 736.1L736.9 743.0L280.5 293.3ZM697.7 779.9L685.0 790.7L279.5 300.9ZM662.2 808.8L648.3 819.1L275.8 303.0ZM619.2 839.1L600.5 850.8L270.4 303.7ZM581.5 861.9L565.1 870.9L280.8 330.5ZM531.9 887.3L519.1 893.1L276.7 337.8ZM504.7 899.2L489.3 905.3L269.1 330.1ZM458.6 916.3L441.5 921.8L253.7 301.3ZM399.7 933.1L376.8 938.1L254.3 326.0ZM341.4 944.3L327.0 946.3L249.2 332.5ZM303.7 948.9L284.0 950.5L243.6 322.3ZM251.3 951.9L224.3 951.9L238.0 323.3ZM198.9 950.9L189.3 950.3L232.9 333.4ZM159.8 947.6L132.2 944.0L226.6 338.2ZM116.1 941.3L100.4 938.3L223.2 330.7ZM76.5 933.1L59.6 928.9L224.0 307.8ZM23.0 918.2L13.9 915.2L211.5 332.3ZM-21.6 902.1L-33.9 897.1L212.3 314.5ZM-87.2 871.9L-96.0 867.2L204.9 313.9ZM-114.8 856.6L-136.8 843.2L192.8 326.2ZM-168.6 821.8L-179.8 813.7L197.6 307.5ZM-191.1 805.0L-211.1 788.9L179.6 324.5ZM-229.3 773.2L-238.0 765.2L197.3 296.7ZM-264.1 739.8L-276.4 726.8L182.4 304.6ZM-300.5 699.3L-305.8 692.7L184.8 295.7ZM-328.9 662.6L-340.2 646.6L162.0 305.4ZM-361.4 613.6L-370.7 597.6L170.9 291.3ZM-387.0 567.2L-391.2 558.8L156.9 292.2ZM-405.5 527.5L-415.1 503.8L158.4 284.4ZM-420.9 488.2L-426.2 472.9L186.3 269.8ZM-438.6 431.7L-441.0 422.3L186.7 265.3ZM-446.8 397.2L-449.1 385.9L174.0 265.0ZM-454.8 352.1L-456.0 343.7L181.7 259.8ZM-459.9 305.6L-461.0 290.1L187.0 255.4ZM-461.8 236.6L-461.1 216.2L181.4 249.9ZM-460.3 203.4L-459.1 188.2L171.8 246.7ZM-456.4 163.4L-452.8 138.6L144.3 238.3ZM-445.7 101.8L-441.6 84.4L185.5 239.8ZM-436.1 63.4L-431.9 48.9L178.6 234.7ZM-413.2 -4.7L-408.9 -15.5L190.7 232.9ZM-393.7 -49.5L-385.4 -66.3L187.3 226.9ZM-374.6 -86.7L-370.2 -94.5L173.7 215.9ZM-347.0 -132.4L-332.7 -153.3L170.9 206.1ZM-328.4 -159.3L-319.1 -171.8L191.8 217.7ZM-289.6 -208.0L-277.1 -222.0L174.6 195.2ZM-263.3 -236.6L-254.3 -245.7L176.6 191.0ZM-218.1 -279.0L-198.8 -295.0L183.0 185.6ZM-183.0 -307.2L-164.5 -320.7L202.6 203.3ZM-147.2 -332.5L-134.3 -340.8L210.2 208.9ZM-117.3 -351.1L-105.3 -358.1L207.2 198.6ZM-62.8 -380.1L-38.1 -391.3L209.1 188.1ZM-11.6 -402.0L14.6 -411.4L206.6 164.5ZM25.8 -415.1L38.0 -418.8L220.3 194.5ZM68.2 -427.1L80.3 -430.0L219.7 176.1ZM130.2 -439.7L154.9 -443.0L228.2 181.1ZM171.9 -444.9L195.9 -446.7L233.8 198.3ZM219.8 -447.8L246.1 -448.0L237.4 166.8ZM275.5 -447.0L293.3 -445.8L241.8 194.1ZM326.7 -442.4L341.5 -440.3L249.8 166.8ZM379.6 -433.5L395.4 -430.1L252.5 185.5ZM423.3 -423.0L445.0 -416.7L254.2 196.7ZM452.5 -414.3L463.2 -410.8L266.5 165.9ZM516.8 -390.1L527.1 -385.5L273.4 172.3ZM561.0 -369.0L579.8 -358.9L269.2 194.1ZM597.1 -348.8L606.5 -343.1L264.3 208.7ZM644.1 -318.1L661.2 -305.6L281.7 192.6ZM683.7 -287.8L696.6 -276.8L295.6 183.9ZM719.6 -256.0L728.6 -247.3L280.6 207.9ZM742.9 -232.8L751.9 -223.3L293.6 199.6ZM773.8 -198.5L784.3 -185.6L281.2 216.5ZM815.3 -143.9L823.8 -131.2L296.7 212.7ZM833.8 -115.5L847.1 -93.0L297.3 216.9ZM864.2 -60.8L872.2 -44.4L304.6 219.8ZM881.9 -22.7L885.3 -14.6L302.4 225.0ZM896.2 13.6L899.0 21.6L319.0 223.2ZM909.8 55.4L914.6 72.4L317.6 229.8ZM924.5 115.2L927.2 129.7L310.1 238.4ZM931.8 158.9L934.5 182.5L292.4 245.6ZM936.9 212.9L937.5 226.2L300.4 249.1Z" fill="#FFF"/></g>
+    <g class="an-bigball">
+      <circle cx="300" cy="255" r="62" fill="#FFF" stroke="#000" stroke-width="5"/>
+      <path d="M300 226L327 245L317 277H283L273 245Z" fill="#000"/>
+      <path d="M300 226V193M327 245L357 236M317 277L336 304M283 277L264 304M273 245L243 236" stroke="#000" stroke-width="4"/>
+      <path d="M262 214C276 200 296 196 312 200" fill="none" stroke="#000" stroke-width="2"/>
+      <path d="M248 270C252 290 266 304 284 312" fill="none" stroke="#000" stroke-width="1.5"/>
+    </g>
+    <g class="an-leg">
+      <path d="M150 -60L190 200" stroke="#000" stroke-width="58" stroke-linecap="round"/>
+      <path d="M150 -60L190 200" stroke="#FFF" stroke-width="44" stroke-linecap="round"/>
+      <path d="M160 -20L186 168" stroke="#000" stroke-width="2"/>
+      <path d="M172 -10L194 150M176 20L196 160" stroke="#000" stroke-width="1"/>
+      <path d="M164 186C176 180 200 182 210 192L232 228C240 236 244 246 242 256C241 262 236 264 228 264H162C154 264 152 258 154 250L158 214C159 200 160 192 164 186Z" fill="#000"/>
+      <path d="M186 206L214 198M190 216L220 208M194 226L226 218" stroke="#FFF" stroke-width="3" stroke-linecap="round"/>
+      <path d="M156 252H240" stroke="#FFF" stroke-width="2.5"/>
+      <path d="M170 264V276M196 264V276M222 264V276" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+      <path d="M232 230C238 238 241 246 240 254" fill="none" stroke="#FFF" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <path d="M0 0H400V44H0ZM0 356H400V400H0Z" fill="#000"/>
+  </g>
+
+  <!-- CUT 3: impact frame -->
+  <g class="an-c3">
+    <rect width="400" height="400" fill="#000"/>
+    <path d="M797.6 321.5L797.1 332.5L292.0 305.0ZM795.2 358.6L793.2 377.3L258.5 308.9ZM785.0 426.5L783.0 435.6L260.3 317.8ZM768.3 489.6L764.8 500.1L272.2 331.2ZM757.0 521.8L752.0 534.2L235.1 322.6ZM741.9 557.7L730.5 581.4L276.9 347.7ZM702.4 630.8L689.5 650.4L275.9 364.4ZM682.1 661.0L670.7 676.3L250.1 353.4ZM640.8 712.5L623.1 731.6L255.4 371.9ZM586.2 766.7L578.8 773.0L242.7 375.1ZM555.6 791.8L537.7 805.0L235.7 378.0ZM501.8 828.7L490.3 835.6L237.3 399.3ZM468.4 847.8L451.1 856.6L229.7 401.4ZM406.2 876.5L393.5 881.3L204.4 368.9ZM368.7 890.0L349.7 895.8L213.0 414.6ZM294.1 909.0L279.0 911.7L192.7 382.7ZM240.6 916.8L227.6 918.0L185.7 384.3ZM210.9 919.1L199.8 919.6L182.1 392.3ZM136.9 918.6L117.3 917.0L171.3 381.6ZM73.2 911.1L53.7 907.4L165.2 368.2ZM50.9 906.8L24.8 900.8L151.0 416.2ZM-33.5 882.8L-51.6 875.9L150.0 373.6ZM-62.7 871.4L-74.2 866.4L148.8 367.3ZM-131.9 837.0L-153.4 824.0L122.8 391.3ZM-162.6 818.1L-172.7 811.3L134.5 364.7ZM-228.8 767.9L-236.8 760.8L106.8 380.5ZM-260.2 738.6L-272.9 725.5L93.7 381.9ZM-288.8 708.0L-300.3 694.4L125.1 345.0ZM-323.1 665.1L-327.8 658.5L113.9 346.1ZM-354.1 618.2L-358.5 610.8L75.0 360.6ZM-379.3 571.6L-389.9 548.8L85.3 342.9ZM-407.3 504.5L-413.7 485.1L66.8 336.8ZM-424.3 447.1L-429.1 425.9L86.7 320.6ZM-434.1 398.6L-437.2 377.0L85.8 313.2ZM-440.4 344.1L-441.1 333.6L67.6 306.9ZM-441.9 288.2L-441.7 279.4L107.9 298.2ZM-437.0 221.6L-435.3 209.2L95.3 288.6ZM-430.1 179.0L-424.8 155.0L100.2 282.9ZM-418.3 130.2L-413.8 115.1L118.9 282.4ZM-393.1 58.6L-390.0 51.4L70.0 253.5ZM-380.7 31.2L-376.0 21.7L78.5 251.1ZM-342.9 -36.2L-336.3 -46.3L100.2 248.7ZM-320.6 -68.5L-307.4 -85.7L121.6 256.7ZM-279.6 -118.3L-260.8 -138.0L104.0 229.3ZM-237.5 -160.2L-217.8 -177.2L123.8 237.4ZM-195.7 -194.7L-176.3 -208.8L122.1 222.9ZM-168.8 -213.9L-152.3 -224.7L115.4 203.9ZM-115.8 -246.0L-97.7 -255.3L125.7 198.9ZM-50.9 -276.2L-43.3 -279.2L142.4 208.8ZM-17.1 -288.5L6.3 -295.7L148.5 204.7ZM37.8 -303.9L62.4 -309.1L157.9 204.6ZM94.1 -314.3L117.9 -317.1L164.8 187.3ZM167.5 -319.9L192.5 -319.8L178.3 200.5ZM219.4 -318.6L238.8 -317.0L185.6 208.7ZM286.7 -310.4L300.9 -307.7L190.1 236.3ZM330.7 -300.9L347.4 -296.4L202.1 210.4ZM382.6 -285.3L394.3 -281.0L202.5 232.2ZM413.3 -273.6L434.4 -264.5L223.4 194.9ZM487.9 -237.0L496.3 -232.1L238.1 197.6ZM535.1 -206.8L549.3 -196.5L213.3 251.4ZM578.7 -173.1L593.6 -160.1L242.1 226.7ZM598.9 -155.2L614.8 -140.0L220.9 255.2ZM651.9 -99.7L658.5 -91.8L240.8 247.9ZM690.3 -49.2L702.5 -30.6L269.1 240.3ZM711.5 -16.0L719.0 -2.8L261.4 251.9ZM733.7 25.0L740.4 39.1L284.9 248.8ZM762.9 94.3L770.6 117.6L252.0 275.6ZM778.6 146.2L783.9 168.7L277.5 276.5ZM789.6 198.3L791.3 209.1L238.3 290.5ZM796.8 261.0L797.9 286.9L254.5 296.8Z" fill="#FFF"/>
+    <circle cx="178" cy="300" r="30" fill="#FFF"/>
+    <text x="200" y="120" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-style="italic" font-size="78" fill="#000" stroke="#FFF" stroke-width="11" stroke-linejoin="round" paint-order="stroke" transform="rotate(-8 200 100)">BOOM!</text>
+  </g>
+
+  <!-- CUT 4: ball rockets past a reaching hand -->
+  <g class="an-c4">
+    <rect width="400" height="400" fill="#FFF"/>
+    <g class="an-fburst"><path d="M900.0 202.2L899.5 225.2L309.7 202.1ZM898.5 245.9L896.6 268.7L315.7 209.5ZM897.0 265.1L895.1 282.5L316.5 212.4ZM891.2 310.7L886.6 336.4L274.5 213.4ZM883.9 349.2L881.0 362.1L294.8 221.6ZM874.0 389.2L871.6 397.5L277.7 222.3ZM867.9 409.6L859.5 434.6L302.7 234.4ZM856.5 442.9L847.8 465.3L271.7 227.9ZM836.1 492.1L831.5 502.0L263.5 229.7ZM817.7 529.2L811.8 540.2L270.9 238.6ZM801.7 557.6L788.3 579.3L271.8 244.5ZM780.6 591.0L769.8 606.6L285.4 259.2ZM771.5 604.2L755.6 625.8L284.2 262.0ZM738.7 646.9L721.8 666.6L264.4 255.4ZM718.8 670.0L710.9 678.5L256.8 252.4ZM699.0 690.9L688.9 701.0L270.7 271.0ZM676.3 712.9L660.2 727.4L258.1 264.6ZM644.7 740.6L625.6 755.8L258.5 273.7ZM613.0 765.2L598.5 775.5L261.0 285.7ZM591.7 780.2L568.6 795.1L238.6 259.7ZM546.5 808.2L524.6 820.2L234.0 262.2ZM509.3 828.0L495.2 834.7L242.7 289.2ZM488.8 837.7L480.3 841.4L232.1 272.2ZM436.9 858.7L425.3 862.7L235.6 301.7ZM409.6 867.9L383.9 875.4L224.5 283.7ZM382.7 875.7L364.6 880.4L227.0 305.4ZM354.5 882.7L331.9 887.5L222.5 307.5ZM295.3 893.5L286.3 894.7L215.2 316.3ZM278.7 895.6L263.7 897.1L210.2 300.0ZM224.0 899.6L208.9 899.9L202.7 316.2ZM195.3 900.0L180.8 899.7L198.5 285.8ZM164.4 899.1L154.5 898.5L195.5 277.3ZM125.6 896.0L97.9 892.5L190.2 277.5ZM103.2 893.3L75.8 888.9L184.7 295.5ZM52.1 884.2L39.4 881.3L178.0 297.2ZM9.7 873.6L-7.0 868.7L174.1 287.3ZM-4.9 869.3L-30.0 861.1L177.7 268.1ZM-49.4 854.1L-72.4 844.8L171.5 271.0ZM-87.1 838.4L-111.5 826.9L156.6 291.8ZM-128.5 818.1L-137.7 813.1L156.3 280.7ZM-142.0 810.8L-163.6 798.2L157.3 273.2ZM-177.9 789.3L-201.1 773.7L137.3 293.6ZM-221.8 758.7L-235.4 748.1L142.2 274.6ZM-246.1 739.5L-259.6 728.0L145.3 264.5ZM-270.8 718.0L-279.1 710.4L139.7 265.3ZM-300.7 689.2L-319.3 669.4L126.1 269.4ZM-322.5 665.8L-332.4 654.5L143.9 248.9ZM-340.3 645.1L-355.1 626.5L111.3 270.6ZM-364.0 614.6L-377.7 595.2L111.3 262.9ZM-389.5 577.4L-400.8 559.2L108.2 256.8ZM-404.7 552.7L-415.5 533.3L126.7 241.2ZM-423.2 518.7L-433.6 497.7L106.1 246.0ZM-436.6 491.1L-447.3 466.4L106.0 240.8ZM-456.5 442.9L-459.4 434.8L108.5 233.2ZM-464.1 421.3L-470.6 400.8L111.2 228.1ZM-478.0 374.0L-483.0 353.5L93.2 225.7ZM-484.1 348.3L-488.2 327.7L95.2 221.1ZM-493.0 299.0L-495.0 283.9L88.8 214.7ZM-497.0 265.0L-498.7 243.2L81.5 209.2ZM-499.6 224.9L-500.0 206.3L103.6 202.2ZM-499.9 208.7L-499.8 183.9L83.1 199.4ZM-499.1 163.8L-497.6 141.9L94.3 192.9ZM-495.0 116.7L-493.5 105.0L91.9 186.1ZM-491.1 88.5L-487.3 67.4L110.4 184.1ZM-484.3 52.6L-478.9 29.6L100.8 176.9ZM-473.1 7.9L-470.6 -0.7L125.1 178.1ZM-466.0 -15.5L-459.2 -35.5L123.4 173.9ZM-451.8 -55.2L-443.9 -74.5L133.3 172.7ZM-437.9 -88.3L-432.5 -100.0L134.0 169.4ZM-425.7 -113.9L-419.0 -126.9L129.7 163.8ZM-406.4 -149.7L-401.8 -157.6L119.5 152.9ZM-388.1 -179.7L-376.8 -196.7L117.2 144.8ZM-370.9 -205.1L-355.4 -226.1L143.7 158.4ZM-342.8 -242.1L-333.9 -252.7L130.4 142.2ZM-326.7 -261.1L-310.1 -279.3L134.3 140.4ZM-301.6 -288.3L-287.1 -302.7L147.2 147.1ZM-265.1 -323.2L-253.7 -333.1L135.0 125.3ZM-233.6 -349.5L-214.2 -364.3L144.9 127.6ZM-205.5 -370.6L-188.2 -382.5L149.8 127.1ZM-187.0 -383.3L-170.1 -394.1L146.9 117.4ZM-143.6 -409.9L-119.5 -422.8L152.4 111.6ZM-122.4 -421.3L-99.2 -432.8L168.9 137.2ZM-91.4 -436.4L-73.6 -444.3L159.3 107.8ZM-57.6 -450.9L-38.2 -458.2L159.4 92.9ZM-16.5 -465.7L-0.4 -470.7L175.8 122.4ZM11.8 -474.2L38.4 -481.1L177.8 113.8ZM62.3 -486.3L88.2 -491.0L182.2 101.8ZM82.5 -490.1L109.8 -494.2L185.9 106.2ZM128.6 -496.4L143.2 -497.7L189.1 81.3ZM167.2 -499.2L181.2 -499.7L196.5 106.2ZM192.4 -500.0L213.0 -499.9L200.4 107.8ZM231.2 -499.3L254.9 -497.8L206.9 88.9ZM264.1 -497.1L282.8 -495.1L208.8 116.8ZM318.1 -490.0L341.4 -485.6L215.3 119.1ZM345.7 -484.7L356.9 -482.2L225.8 83.4ZM377.6 -477.1L397.2 -471.7L225.1 109.7ZM420.2 -464.5L439.3 -457.8L235.2 98.8ZM442.4 -456.7L464.1 -448.3L230.8 120.7ZM488.6 -437.7L502.2 -431.4L235.8 123.1ZM520.4 -422.4L535.8 -414.2L241.3 122.2ZM555.5 -403.0L572.6 -392.6L237.4 138.7ZM578.6 -388.8L593.1 -379.2L263.9 103.4ZM619.5 -360.4L634.6 -348.7L243.2 144.0ZM647.3 -338.5L660.1 -327.6L264.0 124.8ZM672.2 -316.7L687.4 -302.5L264.5 131.5ZM703.4 -286.4L714.4 -274.8L265.1 138.5ZM728.6 -258.9L736.5 -249.6L264.5 144.9ZM752.3 -230.0L758.2 -222.3L288.7 131.9ZM770.3 -205.9L779.9 -192.0L269.3 151.9ZM789.3 -177.8L803.0 -155.5L265.7 159.6ZM806.7 -149.2L816.0 -132.4L282.9 153.8ZM824.4 -116.4L829.5 -106.2L288.9 155.8ZM844.7 -72.8L848.4 -63.8L275.3 168.8ZM855.7 -45.2L863.6 -22.6L297.2 165.5ZM862.3 -26.5L869.3 -5.0L313.1 163.3ZM878.9 29.4L883.9 50.9L270.5 183.5ZM887.1 66.4L889.4 78.9L300.6 181.4ZM892.8 100.1L895.7 122.3L276.1 190.3ZM895.4 120.1L897.9 146.4L277.1 192.6ZM899.3 168.5L899.8 185.0L278.0 197.4Z" fill="#000"/></g>
+    <g class="an-fball">
+      <g class="an-fspin">
+        <circle cx="200" cy="200" r="40" fill="#FFF" stroke="#000" stroke-width="4"/>
+        <path d="M200 182L217 194L211 214H189L183 194Z" fill="#000"/>
+        <path d="M200 182V160M217 194L238 188M211 214L224 232M189 214L176 232M183 194L162 188" stroke="#000" stroke-width="3"/>
+      </g>
+    </g>
+    <path d="M0 0H400V44H0ZM0 356H400V400H0Z" fill="#000"/>
+  </g>
+
+  <!-- CUT 5: wide shot, net bulges -->
+  <g class="an-c5">
+    <rect width="400" height="400" fill="#FFF"/>
+    <!-- stands: screentone crowd -->
+    <rect x="-20" y="96" width="440" height="44" fill="url(#mgTone)"/>
+    <g fill="#FFF" stroke="#000" stroke-width="1.2"><circle cx="30" cy="112" r="5"/><circle cx="96" cy="108" r="5"/><circle cx="170" cy="114" r="5"/><circle cx="236" cy="108" r="5"/><circle cx="302" cy="113" r="5"/><circle cx="372" cy="109" r="5"/></g>
+    <path d="M-20 140H420" stroke="#000" stroke-width="3"/>
+    <!-- pitch -->
+    <rect x="-20" y="142" width="440" height="280" fill="url(#mgHatch)"/>
+    <rect x="-20" y="290" width="440" height="60" fill="url(#mgToneL)" opacity=".7"/>
+    <path d="M-20 382H420" stroke="#000" stroke-width="2.5"/>
+    <path d="M250 382L300 168H420" fill="none" stroke="#000" stroke-width="2"/>
+    <!-- goal -->
+    <g class="an-net"><path d="M346 168H400V306H346Z" fill="url(#mgMesh)"/></g>
+    <path d="M344 306V166H404" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M344 306V166H404" fill="none" stroke="#FFF" stroke-width="2.5" stroke-linejoin="round"/>
+
+
+    <g class="an-goalb"><path d="M981.8 220.3L981.3 235.8L438.3 208.7ZM978.4 272.3L976.8 286.0L437.5 215.0ZM974.6 301.7L971.6 319.0L407.8 213.8ZM964.6 351.8L961.4 364.6L449.9 228.3ZM953.9 390.6L946.8 411.9L408.8 221.5ZM925.4 464.8L920.9 474.5L406.9 227.1ZM917.5 481.4L905.5 504.4L431.5 242.3ZM881.4 544.6L871.7 559.0L404.1 234.3ZM862.6 571.8L852.7 585.0L437.6 262.8ZM834.3 607.7L826.2 617.0L427.8 263.1ZM807.4 637.3L788.4 656.0L404.1 248.5ZM759.8 681.5L743.9 694.4L418.8 276.2ZM734.4 701.7L714.7 715.9L393.6 249.8ZM671.3 743.3L664.4 747.3L403.1 278.5ZM643.9 758.2L633.6 763.4L382.9 247.8ZM596.9 779.8L584.0 784.9L396.7 293.5ZM543.7 798.8L529.6 802.9L388.6 296.7ZM507.5 808.7L496.1 811.3L382.9 296.4ZM441.9 820.8L421.0 823.2L372.5 299.3ZM421.6 823.1L396.3 825.0L368.1 286.0ZM354.6 826.0L330.4 825.2L360.4 256.2ZM312.6 824.0L302.5 823.1L355.9 274.7ZM258.2 817.3L240.4 814.0L350.5 268.1ZM207.9 806.5L184.7 800.1L339.8 285.9ZM174.3 796.9L164.4 793.7L344.6 259.2ZM127.0 779.7L109.7 772.3L340.5 256.3ZM70.7 753.3L58.2 746.4L331.7 261.4ZM31.6 730.6L9.7 716.2L332.0 251.5ZM0.2 709.5L-21.3 693.3L328.6 250.5ZM-37.0 680.6L-45.5 673.3L305.9 271.5ZM-82.3 638.5L-100.0 619.4L310.9 253.7ZM-105.8 612.9L-114.6 602.6L300.3 258.5ZM-143.3 565.3L-149.2 556.9L309.7 242.5ZM-169.9 524.6L-177.2 512.0L303.8 239.9ZM-190.4 487.5L-194.0 480.3L286.7 243.7ZM-215.8 430.7L-221.4 416.0L314.5 223.8ZM-227.5 398.2L-232.9 380.5L276.3 232.5ZM-241.0 350.1L-246.7 323.9L292.3 221.1ZM-249.6 307.5L-252.5 288.0L287.8 217.1ZM-256.6 248.1L-257.7 226.3L315.9 208.3ZM-258.0 204.9L-257.5 181.6L310.1 204.9ZM-256.4 161.6L-255.5 150.6L302.9 201.2ZM-249.4 103.2L-247.0 89.8L286.5 192.4ZM-241.4 63.4L-237.9 49.5L285.5 187.0ZM-226.8 11.9L-218.0 -13.1L275.4 175.4ZM-210.6 -31.7L-205.1 -44.7L295.9 177.7ZM-186.5 -83.1L-179.5 -96.0L284.5 164.0ZM-168.0 -115.7L-159.1 -129.9L318.8 179.0ZM-129.9 -171.4L-118.0 -186.5L288.0 147.4ZM-113.7 -191.6L-99.6 -207.9L305.4 157.0ZM-83.7 -225.0L-66.9 -241.7L299.4 143.1ZM-48.7 -258.4L-28.8 -275.3L307.5 141.7ZM4.5 -300.6L19.6 -310.9L329.2 158.0ZM32.3 -319.1L46.7 -327.8L316.1 130.6ZM78.5 -345.4L93.5 -352.9L335.7 153.1ZM131.2 -369.4L155.9 -378.8L330.5 122.3ZM170.9 -383.8L185.9 -388.5L348.6 162.9ZM220.5 -397.6L244.3 -402.7L343.8 120.7ZM259.2 -405.4L275.0 -407.9L354.5 157.6ZM313.0 -412.1L338.5 -413.6L358.5 146.9ZM373.5 -413.9L399.9 -412.8L365.4 120.1ZM403.7 -412.6L429.3 -410.3L370.0 115.2ZM483.9 -401.9L491.4 -400.3L371.2 161.8ZM506.4 -396.9L523.6 -392.6L378.3 141.8ZM546.6 -385.9L565.7 -379.6L386.5 131.6ZM608.1 -363.1L624.2 -355.8L391.7 139.9ZM657.5 -339.1L665.1 -334.9L394.3 147.5ZM685.3 -323.1L693.3 -318.0L405.9 135.4ZM728.4 -294.2L739.7 -285.7L397.3 158.9ZM773.9 -257.4L781.2 -250.8L413.6 148.8ZM792.5 -240.2L811.1 -221.5L399.5 168.8ZM842.0 -186.5L853.3 -172.2L413.9 164.8ZM864.5 -157.1L872.9 -145.2L429.8 158.2ZM893.9 -112.6L903.0 -96.9L411.6 177.2ZM920.1 -64.0L924.8 -54.2L424.5 176.4ZM938.5 -22.1L945.0 -5.0L431.2 179.8ZM955.0 24.9L958.2 35.7L451.1 179.7ZM966.9 70.1L971.3 91.5L452.8 187.3ZM975.3 115.1L977.2 129.0L421.6 197.9ZM980.3 159.9L981.1 173.3L422.7 202.1Z" fill="#000"/></g>
+    <!-- Spain defender: black shirt, white trim -->
+    <g transform="translate(-6 0)">
+      <ellipse cx="270" cy="324" rx="58" ry="6" fill="url(#mgTone)"/>
+      <g stroke-linecap="round">
+        <path d="M262 290L226 312" stroke="#000" stroke-width="12"/><path d="M262 290L226 312" stroke="#FFF" stroke-width="6.5"/>
+        <path d="M226 312L196 318" stroke="#000" stroke-width="11"/><path d="M226 312L196 318" stroke="#FFF" stroke-width="5.5"/>
+        <path d="M196 318L184 320" stroke="#000" stroke-width="11"/>
+        <path d="M276 294L246 318" stroke="#000" stroke-width="12"/><path d="M276 294L246 318" stroke="#FFF" stroke-width="6.5"/>
+        <path d="M246 318L226 322" stroke="#000" stroke-width="11"/><path d="M246 318L226 322" stroke="#FFF" stroke-width="5.5"/>
+        <path d="M226 322L214 323" stroke="#000" stroke-width="11"/>
+      </g>
+      <path d="M258 280L286 280L292 300L256 304Z" fill="url(#mgToneD)" stroke="#000" stroke-width="2.5"/>
+      <path d="M264 230C276 226 292 230 298 238L292 284L256 284L254 244C256 236 258 232 264 230Z" fill="#000" stroke="#000" stroke-width="2.5"/>
+      <path d="M266 231L281 239L296 237" fill="none" stroke="#FFF" stroke-width="2.5"/>
+      <path d="M257 279H291" stroke="#FFF" stroke-width="2.5"/>
+      <text x="276" y="268" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="20" fill="#FFF">6</text>
+      <g stroke-linecap="round">
+        <path d="M296 242L318 262" stroke="#000" stroke-width="10"/><path d="M296 242L318 262" stroke="#FFF" stroke-width="5"/>
+        <path d="M318 262L326 290" stroke="#000" stroke-width="9"/><path d="M318 262L326 290" stroke="#FFF" stroke-width="4.5"/>
+        <path d="M258 242L238 262" stroke="#000" stroke-width="10"/><path d="M258 242L238 262" stroke="#FFF" stroke-width="5"/>
+      </g>
+      <path d="M296 196C312 192 324 204 320 220" fill="none" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+      <use href="#mgSkull" transform="translate(288 208) rotate(16)"/>
+      <path d="M300 186l6-8M308 192l9-4M294 182l1-9" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+
+    <!-- England striker: white shirt, black shorts -->
+    <g >
+      <ellipse cx="132" cy="324" rx="40" ry="5" fill="url(#mgTone)"/>
+      <g stroke-linecap="round">
+        <path d="M122 240L114 276" stroke="#000" stroke-width="13"/><path d="M122 240L114 276" stroke="#FFF" stroke-width="7.5"/>
+        <path d="M114 276L112 296" stroke="#000" stroke-width="12"/><path d="M114 276L112 296" stroke="#FFF" stroke-width="6.5"/>
+        <path d="M114 296L112 312" stroke="#000" stroke-width="11"/><path d="M114 296L112 312" stroke="#FFF" stroke-width="6"/>
+        <path d="M104 318L122 318" stroke="#000" stroke-width="9"/>
+      </g>
+      <g transform="rotate(-42 128 238)">
+        <g stroke-linecap="round">
+          <path d="M134 240L150 270" stroke="#000" stroke-width="13"/><path d="M134 240L150 270" stroke="#FFF" stroke-width="7.5"/>
+          <path d="M128 236L142 256" stroke="#000" stroke-width="15"/>
+        </g>
+        <g transform="rotate(-6 150 270)" stroke-linecap="round">
+          <path d="M150 270L166 296" stroke="#000" stroke-width="12"/><path d="M150 270L166 296" stroke="#FFF" stroke-width="6.5"/>
+          <path d="M164 302L180 300" stroke="#000" stroke-width="9"/>
+        </g>
+      </g>
+      <path d="M112 228H150L152 250H136L131 244L126 250H110Z" fill="#000"/>
+      <g transform="rotate(18 110 178)" stroke-linecap="round">
+        <path d="M110 180L92 204" stroke="#000" stroke-width="11"/><path d="M110 180L92 204" stroke="#FFF" stroke-width="5.5"/>
+        <path d="M92 204L94 226" stroke="#000" stroke-width="10"/><path d="M92 204L94 226" stroke="#FFF" stroke-width="4.5"/>
+      </g>
+      <path d="M114 172C122 166 140 166 148 172L156 186L150 190L150 230H112L112 190L106 186Z" fill="#FFF" stroke="#000" stroke-width="2.8"/>
+      <path d="M130 172L132 228" stroke="#000" stroke-width=".8" opacity=".5"/>
+      <path d="M144 196C147 210 148 220 148 228" fill="none" stroke="#000" stroke-width="1"/>
+      <path d="M122 170L131 178L140 170" fill="none" stroke="#000" stroke-width="3"/>
+      <circle cx="140" cy="186" r="3.2" fill="#000"/>
+      <text x="131" y="218" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="22" fill="#000">9</text>
+      <g transform="rotate(-20 150 178)" stroke-linecap="round">
+        <path d="M150 180L172 192" stroke="#000" stroke-width="11"/><path d="M150 180L172 192" stroke="#FFF" stroke-width="5.5"/>
+        <path d="M172 192L186 176" stroke="#000" stroke-width="10"/><path d="M172 192L186 176" stroke="#FFF" stroke-width="4.5"/>
+      </g>
+      <path d="M118 136C102 134 92 146 96 164C98 172 92 178 86 180" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+      <path d="M116 138C104 138 98 148 100 160" fill="none" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/>
+      <use href="#mgSkull" transform="translate(130 146) rotate(-6)"/>
+          </g>
+
+
+    <g class="an-gball"><circle r="10" fill="#FFF" stroke="#000" stroke-width="2.2"/><path d="M0-4L3.8-1.2L2.4 3.3H-2.4L-3.8-1.2Z" fill="#000"/></g>
+    <g class="an-goaltxt"><text x="200" y="104" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-style="italic" font-size="66" letter-spacing="2" fill="#FFF" stroke="#000" stroke-width="10" stroke-linejoin="round" paint-order="stroke">GOAL!!</text></g>
+  </g>
+
+  </g>
+  <rect x="2" y="2" width="396" height="396" fill="none" stroke="#000" stroke-width="4"/>
+  </g>
 </svg>
-<p style="margin: 0; max-width: 680px; font-size: 16px">Spain created more than twice England's chances in the Euro 2025 final. England still lifted the trophy. I wanted to know how, and whether they can make it three in a row in 2029.</p>
-</div>
+    </div>
+  </section>
 
-<div style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; max-width: 680px">
-<div style="display: flex; gap: 8px; min-width: 0"><span style="white-space: nowrap">✣ ROLE</span><span style="flex: 1; border-bottom: 2px dotted #FFFFFF; margin-bottom: 6px; min-width: 12px"></span><span style="text-align: right">ANALYSIS, DESIGN, BUILD + VIDEO</span></div>
-<div style="display: flex; gap: 8px; min-width: 0"><span style="white-space: nowrap">✣ BUILT OVER</span><span style="flex: 1; border-bottom: 2px dotted #FFFFFF; margin-bottom: 6px; min-width: 12px"></span><span style="text-align: right">8 LOGGED SESSIONS</span></div>
-<div style="display: flex; gap: 8px; min-width: 0"><span style="white-space: nowrap">✣ DATA</span><span style="flex: 1; border-bottom: 2px dotted #FFFFFF; margin-bottom: 6px; min-width: 12px"></span><span style="text-align: right">STATSBOMB OPEN DATA</span></div>
-<div style="display: flex; gap: 8px; min-width: 0"><span style="white-space: nowrap">✣ TOOLS</span><span style="flex: 1; border-bottom: 2px dotted #FFFFFF; margin-bottom: 6px; min-width: 12px"></span><span style="text-align: right">PYTHON · PANDAS · MPLSOCCER · STREAMLIT</span></div>
-</div>
+  <ul class="facts" aria-label="Project facts">
+    <li><span>✣ ROLE</span><b>Analysis, design, build + video</b></li>
+    <li><span>✣ BUILT OVER</span><b>8 logged sessions</b></li>
+    <li><span>✣ DATA</span><b>StatsBomb Open Data</b></li>
+    <li><span>✣ TOOLS</span><b>Python · pandas · mplsoccer · Streamlit</b></li>
+  </ul>
 
-<div style="border: 1px solid #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 13px; letter-spacing: 3px">OUT-CREATED. STILL WON. · EURO 2025 FINAL, EXPECTED GOALS (xG)</span>
-<div style="display: flex; align-items: center; gap: 12px"><span style="width: 76px; font-weight: 700">SPAIN</span><div style="flex: 1; height: 22px; border: 2px solid #FFFFFF; box-sizing: border-box"></div><span style="width: 52px; text-align: right; font-weight: 700">2.14</span></div>
-<div style="display: flex; align-items: center; gap: 12px"><span style="width: 76px; font-weight: 700">ENGLAND</span><div style="flex: 1"><div style="width: 41.1%; height: 22px; background: #FFFFFF"></div></div><span style="width: 52px; text-align: right; font-weight: 700">0.88</span></div>
-<span style="font-size: 13px">England won on penalties. Source: StatsBomb Open Data.</span>
-</div>
+  <p class="label">THE FINAL</p>
+  <h2>Out-created. Still won.</h2>
+  <figure class="chart">
+    <figcaption class="cap">EURO 2025 FINAL · EXPECTED GOALS (xG)</figcaption>
+    <div class="bars" role="img" aria-label="Expected goals in the Euro 2025 final: Spain 2.14, England 0.88">
+      <div class="bar"><span>SPAIN</span><div class="track"><div class="fill esp" style="width:85.6%"></div></div><span class="v">2.14</span></div>
+      <div class="bar"><span>ENGLAND</span><div class="track"><div class="fill" style="width:35.2%"></div></div><span class="v">0.88</span></div>
+    </div>
+    <div class="axis" aria-hidden="true"><span></span><div><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span><span>2.0</span><span>2.5</span></div><span></span></div>
+    <p class="note">England won on penalties. Source: StatsBomb Open Data.</p>
+  </figure>
 
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="letter-spacing: 6px; text-align: center">T H E &#160; Q U E S T i O N</span>
-<p style="margin: 0; border: 3px double #FFFFFF; padding: 16px 18px; text-align: center; font-size: 18px; font-weight: 700; line-height: 1.5">What does the data suggest about a third straight title at Euro 2029 in Germany?</p>
-</div>
+  <p class="label">THE QUESTION</p>
+  <p class="question">What does the data suggest about a third straight title at Euro 2029 in Germany?</p>
 
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="letter-spacing: 6px; text-align: center">W H A T &#160; T H E &#160; D A T A &#160; S A Y S</span>
-<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px 24px">
-<li style="display: flex; flex-direction: column; gap: 2px"><b style="letter-spacing: 1px">England grew into the tournament, then survived</b><span>Out-created by France in the opener, dominant against the Netherlands and Wales, then out-created again in the final, and still won on penalties.</span></li>
-<li style="display: flex; flex-direction: column; gap: 2px"><b style="letter-spacing: 1px">Volume, not quality</b><span>Spain took 23 shots to England's 8, but shot for shot England's chances were just as good.</span></li>
-<li style="display: flex; flex-direction: column; gap: 2px"><b style="letter-spacing: 1px">Penalties distorted the raw numbers</b><span>With penalties removed, Russo and Toone led England's open-play threat.</span></li>
-<li style="display: flex; flex-direction: column; gap: 2px"><b style="letter-spacing: 1px">Spain are rising</b><span>England win through clinical finishing rather than dominance, and have allowed more chances at every tournament since 2019.</span></li>
-<li style="display: flex; flex-direction: column; gap: 2px"><b style="letter-spacing: 1px">England's attack is heading towards 30</b><span>9 of 17 attacking contributors will be 30+ by Euro 2029, accounting for 49.8% of attacking involvement.</span></li>
-</ul>
-</div>
+  <p class="label">WHAT THE DATA SAYS</p>
+  <ol class="finds">
+    <li><div><h3>England grew into the tournament, then survived</h3><p>Out-created by France in the opener, dominant against the Netherlands and Wales, then out-created again in the final, and still won on penalties.</p></div></li>
+    <li><div><h3>Volume, not quality</h3><p>Spain took <span class="stat">23</span> shots to England’s <span class="stat">8</span>, but shot for shot England’s chances were just as good.</p></div></li>
+    <li><div><h3>Penalties distorted the raw numbers</h3><p>With penalties removed, Russo and Toone led England’s open-play threat.</p></div></li>
+    <li><div><h3>Spain are rising</h3><p>England win through clinical finishing rather than dominance, and have allowed more chances at every tournament since 2019.</p></div></li>
+    <li><div><h3>England’s attack is heading towards 30</h3><p><span class="stat">9 of 17</span> attacking contributors will be 30+ by Euro 2029, accounting for <span class="stat">49.8%</span> of attacking involvement.</p></div></li>
+  </ol>
 
-<div style="display: flex; flex-direction: column; gap: 10px">
-<span style="letter-spacing: 6px; text-align: center">L O O K i N G &#160; B A C K</span>
-<p style="margin: 0">The most valuable moments came from the data correcting me. My first read of the final's shot map was that Spain had better chances; the numbers showed they simply had more of them. Checking visuals against numbers is now a habit.</p>
-<p style="margin: 0">The analysis has honest limits: four tournaments is a short trend, some samples are small, and it describes what happened rather than predicting what will. Next, I'd like to use WSL data to find young English players performing well at club level, and build my own expected goals model.</p>
-</div>
+  <p class="label">LOOKING BACK</p>
+  <div class="reflect">
+    <p>The most valuable moments came from the data correcting me. My first read of the final’s shot map was that Spain had better chances; the numbers showed they simply had more of them. Checking visuals against numbers is now a habit.</p>
+    <p>The analysis has honest limits: four tournaments is a short trend, some samples are small, and it describes what happened rather than predicting what will. Next, I’d like to use WSL data to find young English players performing well at club level, and build my own expected goals model.</p>
+  </div>
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a href="https://lionesses-euro2025.streamlit.app/" target="_blank" rel="noopener" class="gbtn" style="text-decoration: none; display: inline-flex; align-items: center">OPEN THE DASHBOARD</a>
-<a href="https://youtu.be/RWfnlJrw5b4" target="_blank" rel="noopener" class="gbtn" style="text-decoration: none; display: inline-flex; align-items: center">WATCH ON YOUTUBE</a>
-<a href="https://github.com/georgiajayy/lionesses-euro2025" target="_blank" rel="noopener" class="gbtn" style="text-decoration: none; display: inline-flex; align-items: center">CODE ON GITHUB</a>
-</div>
-</article>
+  <div class="links">
+    <a href="https://lionesses-euro2025.streamlit.app/" target="_blank" rel="noopener">OPEN THE DASHBOARD ↗</a>
+    <a href="https://youtu.be/RWfnlJrw5b4" target="_blank" rel="noopener">WATCH ON YOUTUBE ↗</a>
+    <a href="https://github.com/georgiajayy/lionesses-euro2025" target="_blank" rel="noopener">CODE ON GITHUB ↗</a>
+  </div>
+
+  <footer>© GEORGiA JAYY</footer>
 </main>
-<footer style="display: flex; justify-content: center; border-top: 1px solid #FFFFFF; padding-top: 14px; font-size: 14px; letter-spacing: 1px"><span>© GEORGIA JAYY</span></footer>
-</div>
-</div>
 </body>
 </html>
