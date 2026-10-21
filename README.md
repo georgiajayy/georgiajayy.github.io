@@ -17,6 +17,15 @@ when i'm not in a spreadsheet, i'm behind a camera: content, videography, editin
 spain created twice the chances. england still won. i wanted to know how.
 [dashboard](https://lionesses-euro2025.streamlit.app/) · [video](https://youtu.be/RWfnlJrw5b4) · [code](https://github.com/georgiajayy/lionesses-euro2025)
 
+★ **who dies first?**
+everyone knows the black character dies first. i logged 27 horror films and built a game to find out if it's true.
+[project](https://georgiajayy.github.io/black-horror-1968-2025/) · [code](https://github.com/georgiajayy/black-horror-1968-2025)
+
+★ **matchday social desk**
+fans don't want the data. they want the story. so i built an ai team to tell it.
+my first ever hackathon, for microsoft x the premier league.
+[post](https://georgiajayy.github.io/blog/matchday-social-desk.html) · [video](https://www.youtube.com/watch?v=mMBdd2H4dCs) · [code](https://github.com/georgiajayy/matchday-social-desk)
+
 ★ more coming soon. if they survive.
 
 ## also on the site
