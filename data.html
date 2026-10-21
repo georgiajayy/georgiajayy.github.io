@@ -484,6 +484,146 @@ input[type=text],input[type=search],textarea{cursor:text}
 </svg>
 </template>
 
+<template id="art-matchday">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black and white anime-style animation in four cuts: a skeleton pundit in a headset says why it matters, match data races past as a red fact-checked stamp slams down, a phone shows a social post with hearts flying up, and a score bug reads North West Wonders 1, South East Eagles 0, as GOAL!! appears">
+  <style>
+    .md *{transform-box:view-box}
+    .md-c1{animation:mdC1 6s steps(1,end) infinite}
+    .md-c2{animation:mdC2 6s steps(1,end) infinite;opacity:0}
+    .md-c3{animation:mdC3 6s steps(1,end) infinite;opacity:0}
+    .md-c4{animation:mdC4 6s steps(1,end) infinite;opacity:0}
+    @keyframes mdC1{0%{opacity:1}24%{opacity:0}100%{opacity:0}}
+    @keyframes mdC2{0%{opacity:0}24%{opacity:1}48%{opacity:0}100%{opacity:0}}
+    @keyframes mdC3{0%{opacity:0}48%{opacity:1}72%{opacity:0}100%{opacity:0}}
+    @keyframes mdC4{0%{opacity:0}72%{opacity:1}100%{opacity:1}}
+    /* cut 1: the pundit */
+    .md-pundit{transform-origin:200px 230px;animation:mdPush 6s linear infinite}
+    @keyframes mdPush{0%{transform:scale(1)}24%{transform:scale(1.1)}100%{transform:scale(1.1)}}
+    .md-jaw{animation:mdJaw .22s steps(2,end) infinite}
+    @keyframes mdJaw{to{transform:translateY(4px)}}
+    .md-bubble{transform-origin:300px 120px;animation:mdBubble 6s cubic-bezier(.2,1.6,.4,1) infinite;opacity:0}
+    @keyframes mdBubble{0%,6%{opacity:0;transform:scale(.2) rotate(-12deg)}10%{opacity:1;transform:scale(1) rotate(-4deg)}24%,100%{opacity:1;transform:scale(1) rotate(-4deg)}}
+    .md-spin{transform-origin:200px 200px;animation:mdSpin 8s linear infinite}
+    @keyframes mdSpin{to{transform:rotate(360deg)}}
+    /* cut 2: the data */
+    .md-pan{animation:mdPan .9s linear infinite}
+    @keyframes mdPan{to{transform:translateX(-220px)}}
+    .md-stamp{transform-origin:200px 210px;animation:mdStamp 6s cubic-bezier(.2,1.5,.4,1) infinite;opacity:0}
+    @keyframes mdStamp{0%,33%{opacity:0;transform:scale(2.6) rotate(-4deg)}36%{opacity:1;transform:scale(1) rotate(-9deg)}48%,100%{opacity:1;transform:scale(1) rotate(-9deg)}}
+    .md-shake{animation:mdShake 6s linear infinite}
+    @keyframes mdShake{0%,35.5%{transform:translate(0,0)}36%{transform:translate(-7px,5px)}37%{transform:translate(6px,-6px)}38%{transform:translate(-4px,-3px)}39%,73%{transform:translate(0,0)}74%{transform:translate(6px,-4px)}75%{transform:translate(-5px,4px)}76%{transform:translate(3px,-2px)}77%,100%{transform:translate(0,0)}}
+    .md-flash{animation:mdFlash 6s steps(1,end) infinite;opacity:0}
+    @keyframes mdFlash{0%{opacity:0}36%{opacity:1}37.5%{opacity:0}72%{opacity:1}73.5%{opacity:0}100%{opacity:0}}
+    /* cut 3: the post */
+    .md-phone{transform-origin:200px 400px;animation:mdPhone 6s cubic-bezier(.2,.8,.2,1) infinite}
+    @keyframes mdPhone{0%,48%{transform:translateY(120px) rotate(10deg)}55%,100%{transform:translateY(0) rotate(-5deg)}}
+    .md-h1{animation:mdHeart 6s ease-out infinite;opacity:0}
+    .md-h2{animation:mdHeart 6s ease-out .25s infinite;opacity:0}
+    .md-h3{animation:mdHeart 6s ease-out .5s infinite;opacity:0}
+    @keyframes mdHeart{0%,55%{opacity:0;transform:translateY(40px) scale(.4)}59%{opacity:1;transform:translateY(0) scale(1)}70%{opacity:1;transform:translateY(-90px) scale(1.1)}72%,100%{opacity:0;transform:translateY(-110px) scale(1.1)}}
+    /* cut 4: the goal */
+    .md-bug{transform-origin:200px 250px;animation:mdBug 6s cubic-bezier(.2,.8,.2,1) infinite}
+    @keyframes mdBug{0%,72%{transform:translateX(-260px)}77%,100%{transform:translateX(0)}}
+    .md-score{animation:mdScore 6s steps(1,end) infinite}
+    @keyframes mdScore{0%,79%{opacity:0}80%,100%{opacity:1}}
+    .md-score0{animation:mdScore0 6s steps(1,end) infinite}
+    @keyframes mdScore0{0%,79%{opacity:1}80%,100%{opacity:0}}
+    .md-goal{transform-origin:200px 118px;animation:mdGoal 6s cubic-bezier(.2,1.6,.4,1) infinite;opacity:0}
+    @keyframes mdGoal{0%,80%{opacity:0;transform:scale(.3) rotate(-14deg)}85%{opacity:1;transform:scale(1) rotate(-6deg)}95%{opacity:1;transform:scale(1.05) rotate(-6deg)}100%{opacity:0;transform:scale(1.2) rotate(-6deg)}}
+    @media (prefers-reduced-motion:reduce){.md *{animation:none!important}.md-c1,.md-c2,.md-c3,.md-score0{opacity:0}.md-c4,.md-goal,.md-score{opacity:1}}
+  </style>
+  <defs>
+    <pattern id="mdTone" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.25" fill="#000"/></pattern>
+    <pattern id="mdToneD" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#000"/><circle cx="2.5" cy="2.5" r="1.1" fill="#FFF"/></pattern>
+    <pattern id="mdHatch" width="400" height="8" patternUnits="userSpaceOnUse"><path d="M0 7H400" stroke="#FFF" stroke-width=".6" stroke-opacity=".25"/></pattern>
+    <g id="mdSkull">
+      <path d="M0-21C-13-21-20-12-20-2C-20 6-16 10-12 12V17C-12 19-11 20-9 20H9C11 20 12 19 12 17V12C16 10 20 6 20-2C20-12 13-21 0-21Z" fill="#FFF" stroke="#000" stroke-width="2.8"/>
+      <path d="M8-17C13-14 16-9 16-4" fill="none" stroke="#000" stroke-width="1.2"/>
+      <ellipse cx="-7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/><ellipse cx="7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/>
+      <path d="M0 5L-2.8 10H2.8Z" fill="#000"/>
+    </g>
+  </defs>
+  <rect width="400" height="400" fill="#FFF"/>
+  <g class="md"><g class="md-shake">
+
+  <!-- cut 1: the skull pundit in a headset -->
+  <g class="md-c1">
+    <rect width="400" height="400" fill="url(#mdTone)"/>
+    <g class="md-spin"><path d="M619.7 205.5L620.0 220.7L335.8 217.8ZM619.1 247.2L618.2 258.9L316.6 229.2ZM614.0 290.6L611.3 305.0L294.0 237.7ZM608.9 315.8L605.2 330.5L312.4 248.5ZM592.7 369.0L590.2 375.3L308.8 262.3ZM578.6 401.9L574.6 410.0L331.5 285.0ZM558.5 438.9L554.7 444.9L277.7 268.4ZM544.0 460.9L534.5 474.0L291.2 286.5ZM523.3 488.1L516.2 496.4L269.9 279.5ZM498.0 516.0L490.0 523.8L283.8 305.5ZM469.3 542.3L462.3 548.1L265.3 299.9ZM436.0 567.4L428.0 572.7L250.4 296.1ZM398.8 589.9L387.9 595.6L259.2 334.1ZM378.1 600.4L362.8 607.2L257.5 349.4ZM341.3 615.5L331.8 618.8L243.3 346.0ZM297.5 628.5L281.7 632.0L224.6 332.7ZM256.9 636.1L243.5 637.7L212.9 327.4ZM225.0 639.3L209.4 639.9L205.8 360.7ZM187.4 639.8L174.7 639.2L195.8 312.0ZM155.8 637.7L141.1 635.9L185.9 334.0ZM118.6 632.0L106.6 629.5L172.5 349.3ZM72.1 620.0L62.1 616.7L163.2 330.4ZM41.5 608.9L28.1 603.2L152.3 331.5ZM7.9 593.5L-2.4 588.0L156.9 301.0ZM-18.3 578.8L-30.0 571.5L120.5 346.0ZM-59.1 550.6L-67.4 543.9L137.2 298.1ZM-84.2 529.2L-96.2 517.7L105.8 318.5ZM-111.7 501.5L-121.8 489.9L121.6 288.2ZM-135.1 473.2L-144.7 460.0L99.1 293.2ZM-157.7 440.1L-162.6 432.0L94.6 283.2ZM-180.6 397.5L-183.5 391.3L75.4 276.9ZM-192.6 369.2L-197.9 354.5L73.5 265.4ZM-204.8 331.9L-207.8 320.3L80.3 251.2ZM-212.3 299.9L-213.6 292.8L60.2 245.9ZM-218.0 260.7L-218.8 252.0L80.2 230.4ZM-220.0 225.4L-220.0 215.1L89.2 220.1ZM-218.8 188.1L-217.6 175.2L73.8 208.4ZM-214.0 149.2L-212.8 142.3L97.9 201.7ZM-208.0 120.3L-204.8 108.1L62.9 184.3ZM-193.8 74.1L-188.5 60.3L70.5 169.4ZM-183.5 48.8L-177.1 35.1L81.9 164.7ZM-166.2 14.4L-162.8 8.4L121.1 174.9ZM-139.7 -27.0L-134.2 -34.4L122.5 162.3ZM-118.1 -54.3L-111.3 -61.9L129.4 157.6ZM-99.1 -74.8L-90.5 -83.3L129.7 148.7ZM-70.5 -101.3L-59.8 -110.0L125.9 129.1ZM-38.9 -125.4L-29.4 -131.8L149.0 144.1ZM-5.7 -146.2L3.9 -151.4L151.6 131.1ZM21.0 -159.9L35.4 -166.4L150.7 109.9ZM59.0 -175.6L71.1 -179.7L155.3 88.4ZM94.4 -186.5L101.1 -188.2L176.0 124.2ZM143.6 -196.2L151.8 -197.2L183.5 88.8ZM178.4 -199.4L190.6 -199.9L196.2 116.8ZM220.4 -199.5L235.2 -198.5L208.0 99.3ZM244.6 -197.6L257.8 -196.0L213.9 107.2ZM290.0 -190.2L299.7 -188.0L228.9 95.4ZM317.2 -183.3L326.5 -180.5L243.0 78.3ZM367.1 -165.3L376.0 -161.3L257.8 90.8ZM388.7 -155.2L403.0 -147.7L262.8 100.9ZM426.2 -133.9L433.9 -128.8L249.6 144.3ZM464.7 -106.1L470.1 -101.6L288.6 112.7ZM492.0 -81.9L500.9 -73.1L270.8 149.0ZM515.4 -57.3L526.1 -44.7L301.0 134.6ZM536.8 -31.0L543.0 -22.5L289.7 154.9ZM554.1 -5.9L561.2 5.6L298.8 159.2ZM574.1 29.1L577.6 36.1L316.3 162.0ZM589.7 63.4L593.9 74.3L302.2 180.6ZM604.6 107.4L608.6 122.7L288.2 197.2ZM611.2 134.6L613.1 144.4L346.5 191.4ZM618.3 182.6L619.1 192.7L302.5 212.1Z" fill="#000"/></g>
+    <circle cx="200" cy="232" r="118" fill="#FFF" stroke="#000" stroke-width="3"/>
+    <g class="md-pundit">
+      <g transform="translate(200 236) scale(4.4)">
+        <use href="#mdSkull"/>
+        <g class="md-jaw"><path d="M-6 20V15M-2 20V15M2 20V15M6 20V15" stroke="#000" stroke-width="1.6"/></g>
+        <path d="M-22-4C-22-26 22-26 22-4" fill="none" stroke="#000" stroke-width="3.2"/>
+        <rect x="-26" y="-8" width="8" height="14" rx="2" fill="#000"/><rect x="18" y="-8" width="8" height="14" rx="2" fill="#000"/>
+        <path d="M-22 4C-22 14-14 18-6 18" fill="none" stroke="#000" stroke-width="1.8"/>
+        <rect x="-8" y="15.5" width="6" height="4" rx="2" fill="#000"/>
+      </g>
+    </g>
+    <g class="md-bubble">
+      <path d="M232 70L250 58L262 72L282 56L292 72L316 60L320 78L346 74L338 92L362 100L340 112L356 128L330 130L338 150L312 142L304 160L288 144L268 156L262 138L240 146L244 128L220 122L238 108L218 96L240 90Z" fill="#FFF" stroke="#000" stroke-width="3"/>
+      <text x="290" y="104" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#000">WHY IT</text>
+      <text x="290" y="122" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="15" textLength="64" lengthAdjust="spacingAndGlyphs" fill="#000">MATTERS</text>
+    </g>
+  </g>
+
+  <!-- cut 2: the match data races past, then FACT-CHECKED slams down -->
+  <g class="md-c2">
+    <rect width="400" height="400" fill="#000"/>
+    <rect width="400" height="400" fill="url(#mdHatch)"/>
+    <g class="md-pan"><path d="M-9.6 217.7h121.4v1.6h-121.4ZM300.6 26.2h42.9v1.9h-42.9ZM7.5 93.7h259.0v1.4h-259.0ZM469.2 190.5h180.6v0.8h-180.6ZM307.9 347.2h155.1v1.8h-155.1ZM337.1 25.6h206.8v1.5h-206.8ZM41.0 12.4h230.4v1.4h-230.4ZM375.1 351.5h197.1v2.1h-197.1ZM116.0 320.4h137.8v2.1h-137.8ZM503.1 39.0h69.9v0.9h-69.9ZM572.4 174.5h177.9v1.1h-177.9ZM205.8 154.3h117.2v1.5h-117.2ZM267.4 361.7h190.0v2.1h-190.0ZM485.1 396.4h187.7v0.9h-187.7ZM488.5 385.9h239.0v1.5h-239.0ZM371.1 84.4h223.0v1.5h-223.0ZM28.0 25.4h227.9v2.2h-227.9ZM-129.2 320.2h130.3v0.8h-130.3ZM35.1 307.5h232.0v0.7h-232.0ZM291.6 18.0h198.1v1.1h-198.1ZM504.7 392.3h151.2v2.2h-151.2ZM47.7 30.8h171.9v0.7h-171.9ZM-42.1 163.2h174.3v0.8h-174.3ZM-166.1 347.1h109.0v2.1h-109.0ZM517.3 151.1h141.3v1.4h-141.3ZM315.1 238.3h163.0v1.6h-163.0ZM552.5 202.8h134.9v1.8h-134.9ZM-9.9 120.4h255.1v1.4h-255.1ZM238.7 4.6h131.3v1.5h-131.3ZM-184.0 246.3h179.1v0.7h-179.1ZM301.9 186.5h189.4v1.2h-189.4ZM365.6 295.2h44.9v0.7h-44.9ZM340.8 385.3h95.2v1.3h-95.2ZM274.1 128.0h120.1v1.1h-120.1ZM95.3 238.2h106.1v1.2h-106.1ZM417.8 10.8h165.2v1.8h-165.2ZM48.0 89.0h216.8v1.0h-216.8ZM-50.1 174.1h193.6v0.8h-193.6ZM57.6 133.5h223.4v1.3h-223.4ZM484.4 67.7h114.1v1.6h-114.1Z" fill="#FFF" fill-opacity=".55"/><text x="12" y="52" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.35">11' PASS HAYES 7.7M 49 KM/H  ·  12' PASS BAKARE 13.4M  ·  14' INTERCEPTION MITCHELL</text><text x="30" y="82" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.80">11' PRESSURE ODUYA  ·  13' TACKLE KHAN WON  ·  14' PASS BRENNAN 23.1M</text><text x="48" y="112" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.61">11' SHOT HAYES XG 0.46  ·  13' PASS OKONJO 9.9M  ·  15' PRESSURE FORBES</text><text x="12" y="142" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.41">11' GOAL 1-0  ·  14' INTERCEPTION MITCHELL  ·  15' SHOT CLARKE XG 0.04</text><text x="30" y="172" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.87">12' KICK OFF EAGLES  ·  14' PASS BRENNAN 23.1M  ·  11' PASS HAYES 7.7M 49 KM/H</text><text x="48" y="202" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.68">12' PASS BAKARE 13.4M  ·  15' PRESSURE FORBES  ·  11' PRESSURE ODUYA</text><text x="12" y="232" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.48">13' TACKLE KHAN WON  ·  15' SHOT CLARKE XG 0.04  ·  11' SHOT HAYES XG 0.46</text><text x="30" y="262" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.94">13' PASS OKONJO 9.9M  ·  11' PASS HAYES 7.7M 49 KM/H  ·  11' GOAL 1-0</text><text x="48" y="292" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.74">14' INTERCEPTION MITCHELL  ·  11' PRESSURE ODUYA  ·  12' KICK OFF EAGLES</text><text x="12" y="322" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.54">14' PASS BRENNAN 23.1M  ·  11' SHOT HAYES XG 0.46  ·  12' PASS BAKARE 13.4M</text><text x="30" y="352" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.35">15' PRESSURE FORBES  ·  11' GOAL 1-0  ·  13' TACKLE KHAN WON</text><text x="48" y="382" font-family="Special Elite, Courier New, monospace" font-size="15" fill="#FFF" opacity="0.80">15' SHOT CLARKE XG 0.04  ·  12' KICK OFF EAGLES  ·  13' PASS OKONJO 9.9M</text></g>
+    <g class="md-stamp">
+      <rect x="62" y="168" width="276" height="84" fill="#E62E2E" stroke="#FFF" stroke-width="4"/>
+      <rect x="70" y="176" width="260" height="68" fill="none" stroke="#000" stroke-width="2"/>
+      <text x="200" y="224" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="32" letter-spacing="3" textLength="236" lengthAdjust="spacingAndGlyphs" fill="#000">FACT-CHECKED</text>
+    </g>
+  </g>
+
+  <!-- cut 3: the social post lands, hearts fly -->
+  <g class="md-c3">
+    <rect width="400" height="400" fill="#FFF"/>
+    <path d="M619.9 182.0L620.0 190.2L361.3 188.5ZM619.0 218.5L618.0 230.6L339.5 201.5ZM613.8 262.0L611.6 273.6L313.3 211.4ZM601.0 314.9L598.7 321.9L313.6 226.5ZM587.3 352.4L581.3 366.2L311.5 239.1ZM569.9 389.0L563.5 400.4L360.3 279.5ZM541.9 433.9L535.6 442.5L349.8 299.8ZM523.7 457.7L513.6 469.3L301.8 277.4ZM489.7 494.1L483.9 499.5L292.6 289.1ZM444.7 531.4L437.7 536.3L289.7 317.8ZM411.9 552.6L402.8 557.8L275.8 323.6ZM382.9 568.1L376.3 571.2L254.7 305.7ZM331.3 589.0L320.7 592.3L240.8 319.8ZM291.0 600.0L279.9 602.3L227.5 322.2ZM244.3 607.7L230.6 608.9L211.7 320.3ZM204.4 610.0L192.4 609.9L199.3 368.1ZM155.9 607.7L146.3 606.6L178.3 374.7ZM126.3 603.5L115.5 601.4L168.1 356.3ZM83.1 593.4L72.0 590.0L166.3 300.4ZM32.4 575.1L19.3 569.1L135.5 331.5ZM-12.9 552.1L-21.3 547.0L114.9 330.9ZM-43.5 532.2L-53.6 524.8L113.2 308.3ZM-80.6 502.6L-92.4 491.5L99.0 298.2ZM-112.1 471.1L-116.9 465.6L76.4 299.4ZM-136.7 441.0L-146.5 427.4L58.3 291.3ZM-158.6 408.6L-164.0 399.5L60.1 272.9ZM-176.8 375.5L-181.7 365.2L87.0 243.7ZM-195.5 331.2L-197.9 324.3L39.3 245.8ZM-208.0 289.8L-210.1 280.8L61.9 222.2ZM-218.1 229.5L-218.8 222.0L54.3 202.5ZM-219.9 196.7L-219.9 181.1L26.1 189.5ZM-217.3 142.9L-216.2 133.4L57.5 172.3ZM-213.0 113.4L-209.8 98.1L19.4 153.0ZM-203.0 71.6L-200.5 63.5L75.7 152.1ZM-188.3 29.9L-183.7 19.2L56.0 128.3ZM-168.0 -12.5L-164.6 -18.4L74.5 119.6ZM-145.0 -49.5L-137.8 -59.6L50.4 82.9ZM-113.3 -89.7L-105.2 -98.5L83.0 82.6ZM-80.9 -122.3L-75.4 -127.1L80.8 55.2ZM-48.2 -148.8L-35.5 -157.8L100.8 49.1ZM-16.7 -169.8L-7.4 -175.2L139.3 86.2ZM28.5 -193.4L35.2 -196.3L152.9 82.3ZM60.2 -206.0L68.1 -208.8L155.4 59.4ZM99.8 -217.9L106.4 -219.4L171.4 69.5ZM142.2 -226.0L152.5 -227.3L185.7 76.5ZM201.8 -230.0L214.7 -229.7L202.4 66.4ZM233.4 -228.7L243.6 -227.7L212.8 50.8ZM271.7 -223.8L286.7 -221.0L235.3 6.4ZM323.5 -211.4L334.6 -207.9L236.6 76.8ZM358.1 -199.1L367.5 -195.2L251.3 68.0ZM412.6 -172.2L419.8 -167.9L258.8 92.1ZM450.0 -147.5L459.6 -140.2L274.9 91.8ZM479.1 -123.8L484.3 -119.1L302.0 77.2ZM514.0 -88.9L524.0 -77.2L325.1 82.9ZM533.5 -65.3L539.8 -56.9L300.2 115.3ZM563.7 -20.1L569.6 -9.5L349.2 106.7ZM580.3 11.7L584.0 19.8L357.7 118.1ZM600.4 63.1L604.7 77.8L365.8 140.7ZM610.8 102.6L613.5 116.5L327.1 165.2ZM617.2 141.4L618.2 151.6L314.1 178.1Z" fill="#000"/>
+    <g class="md-phone">
+      <rect x="118" y="70" width="164" height="300" rx="22" fill="#000" stroke="#000" stroke-width="3"/>
+      <rect x="128" y="88" width="144" height="262" rx="10" fill="#FFF"/>
+      <rect x="128" y="88" width="144" height="262" rx="10" fill="url(#mdTone)" opacity=".25"/>
+      <rect x="140" y="104" width="120" height="74" fill="#000"/>
+      <text x="200" y="134" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="24" fill="#FFF">2 - 0</text>
+      <text x="200" y="160" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="10" letter-spacing="2" textLength="104" lengthAdjust="spacingAndGlyphs" fill="#FFF">WONDERS v EAGLES</text>
+      <rect x="140" y="188" width="30" height="14" fill="#E62E2E"/><text x="155" y="199" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="10" fill="#000">73'</text>
+      <text x="140" y="224" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="18" textLength="118" lengthAdjust="spacingAndGlyphs" fill="#000">KHAN DOUBLES</text>
+      <text x="140" y="244" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="18" textLength="80" lengthAdjust="spacingAndGlyphs" fill="#000">THE LEAD</text>
+      <path d="M140 258h112v4h-112ZM140 268h96v4h-96ZM140 278h104v4h-104Z" fill="#000" fill-opacity=".55"/>
+      <circle cx="152" cy="318" r="12" fill="#000"/><path d="M170 314h60v4h-60ZM170 324h40v3h-40Z" fill="#000"/>
+    </g>
+    <g class="md-h1"><path transform="translate(300 250) scale(1.6)" d="M0 6C-6-1-12-4-12-9.5A5.5 5.5 0 0 1 0-12A5.5 5.5 0 0 1 12-9.5C12-4 6-1 0 6Z" fill="#FFF" stroke="#000" stroke-width="1.38"/></g><g class="md-h2"><path transform="translate(96 280) scale(1.2)" d="M0 6C-6-1-12-4-12-9.5A5.5 5.5 0 0 1 0-12A5.5 5.5 0 0 1 12-9.5C12-4 6-1 0 6Z" fill="#FFF" stroke="#000" stroke-width="1.83"/></g><g class="md-h3"><path transform="translate(320 330) scale(1.0)" d="M0 6C-6-1-12-4-12-9.5A5.5 5.5 0 0 1 0-12A5.5 5.5 0 0 1 12-9.5C12-4 6-1 0 6Z" fill="#FFF" stroke="#000" stroke-width="2.20"/></g>
+  </g>
+
+  <!-- cut 4: the score bug and GOAL!! -->
+  <g class="md-c4">
+    <rect width="400" height="400" fill="#FFF"/>
+    <path d="M660.0 244.4L660.0 254.1L309.1 249.8ZM659.2 276.9L658.6 286.2L293.7 256.4ZM656.8 304.4L655.6 313.6L295.1 262.3ZM649.5 347.6L648.3 352.9L279.2 267.7ZM645.5 364.6L642.3 376.3L295.3 275.8ZM636.9 393.9L632.4 406.8L304.8 286.3ZM621.3 434.7L617.1 444.0L268.0 280.7ZM611.9 454.8L607.6 463.3L262.5 281.9ZM594.5 486.6L590.9 492.4L258.8 285.9ZM575.0 516.4L569.9 523.4L285.4 311.9ZM555.5 541.9L548.8 549.9L268.9 307.9ZM532.1 568.2L526.0 574.5L257.2 305.9ZM507.0 592.6L496.6 601.6L269.1 329.5ZM483.5 612.2L477.6 616.8L247.5 311.7ZM462.2 628.0L457.9 630.9L257.6 334.1ZM436.7 644.4L426.0 650.6L242.7 323.4ZM400.6 664.0L389.4 669.2L228.6 311.2ZM382.6 672.2L370.6 677.2L234.0 331.9ZM338.7 688.6L330.8 691.0L220.7 317.7ZM315.0 695.4L303.5 698.2L218.9 327.4ZM290.2 701.1L282.6 702.5L220.8 358.9ZM246.8 707.6L241.1 708.2L207.5 328.2ZM225.0 709.3L219.9 709.6L205.0 353.2ZM194.0 710.0L184.2 709.7L197.9 337.6ZM162.5 708.5L151.2 707.4L193.1 323.1ZM120.6 703.1L115.1 702.1L184.6 335.0ZM96.6 698.2L89.8 696.6L174.2 358.2ZM56.7 687.1L49.7 684.8L165.8 351.7ZM35.8 679.7L28.2 676.7L161.3 348.6ZM-1.2 663.7L-6.2 661.2L150.4 350.4ZM-23.0 652.4L-29.0 648.9L149.8 339.1ZM-51.9 634.9L-58.0 630.8L160.8 308.9ZM-74.0 619.5L-81.9 613.5L152.6 312.5ZM-106.0 593.4L-112.0 588.0L141.0 315.1ZM-132.9 567.5L-139.0 560.9L131.8 313.8ZM-154.1 543.6L-158.1 538.7L142.4 297.1ZM-172.4 520.0L-179.4 510.1L135.7 295.4ZM-184.3 502.8L-190.5 493.2L107.5 309.2ZM-200.6 476.1L-207.0 464.4L105.9 301.3ZM-219.2 439.4L-222.6 431.7L134.0 279.1ZM-227.2 420.5L-232.0 408.0L126.9 277.9ZM-242.1 377.0L-244.0 370.3L99.3 278.1ZM-249.5 347.7L-251.0 340.5L126.2 265.4ZM-255.7 313.1L-256.3 307.9L122.9 260.2ZM-258.5 287.3L-259.3 274.9L105.1 256.4ZM-259.9 260.0L-260.0 247.0L123.3 250.6ZM-259.5 229.2L-259.2 222.1L112.6 245.4ZM-256.8 196.1L-256.1 189.9L116.6 239.6ZM-250.3 156.1L-249.1 150.4L118.1 232.4ZM-242.3 123.7L-238.4 110.7L107.1 222.0ZM-232.9 94.5L-229.4 85.1L130.8 224.3ZM-224.1 71.9L-222.3 67.6L100.2 207.5ZM-207.8 37.1L-201.4 25.3L139.8 217.4ZM-191.3 8.2L-186.5 0.6L115.1 196.4ZM-177.8 -12.4L-169.8 -23.6L142.4 208.7ZM-155.5 -41.9L-148.2 -50.6L117.4 180.4ZM-132.1 -68.3L-124.3 -76.2L126.4 177.7ZM-105.8 -93.7L-99.9 -98.8L135.3 176.0ZM-83.1 -112.6L-73.1 -120.2L147.8 181.3ZM-58.6 -130.5L-48.1 -137.4L148.6 172.1ZM-31.8 -147.3L-24.7 -151.4L153.5 168.6ZM-2.5 -163.0L2.3 -165.4L158.1 163.3ZM29.1 -177.1L41.0 -181.6L164.0 156.4ZM50.8 -185.1L61.6 -188.7L170.7 161.1ZM81.8 -194.6L93.8 -197.6L182.6 180.9ZM121.7 -203.3L126.5 -204.1L184.4 156.7ZM148.3 -207.1L155.0 -207.8L189.6 151.6ZM178.8 -209.5L189.0 -209.9L196.2 141.1ZM209.8 -209.9L214.5 -209.8L202.1 169.0ZM247.7 -207.5L254.1 -206.8L208.3 175.3ZM281.0 -202.8L291.5 -200.8L216.4 164.2ZM313.7 -195.7L321.1 -193.8L224.9 155.8ZM333.4 -190.2L341.6 -187.7L231.0 151.0ZM372.6 -176.4L384.3 -171.5L232.9 171.8ZM399.5 -164.5L406.2 -161.2L232.5 183.9ZM424.6 -151.4L435.3 -145.3L252.8 158.5ZM454.5 -133.2L465.5 -125.6L245.2 184.0ZM475.5 -118.4L482.5 -113.1L248.5 186.5ZM501.2 -97.7L507.5 -92.1L263.3 178.3ZM528.2 -72.3L533.4 -66.9L275.7 176.9ZM554.5 -43.1L560.0 -36.3L255.0 205.4ZM563.8 -31.5L571.4 -21.4L255.4 208.3ZM589.3 4.9L594.4 13.3L269.3 207.4ZM607.2 36.1L609.4 40.3L265.3 216.1ZM618.9 60.0L620.9 64.4L295.7 207.2ZM629.8 86.0L631.8 91.5L265.2 225.6ZM641.5 121.0L643.9 129.4L292.3 224.0ZM649.2 150.9L651.6 162.7L308.3 227.6ZM655.5 185.7L656.3 192.1L288.1 238.2ZM658.3 210.4L658.7 215.1L288.5 242.8Z" fill="#000"/>
+    <circle cx="200" cy="250" r="70" fill="#FFF"/>
+    <g class="md-bug">
+      <rect x="38" y="222" width="324" height="56" fill="#000"/>
+      <rect x="42" y="226" width="104" height="48" fill="#FFF"/>
+      <text x="94" y="259" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="22" letter-spacing="2" textLength="60" lengthAdjust="spacingAndGlyphs" fill="#000">NWW</text>
+      <text class="md-score0" x="196" y="262" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="30" fill="#FFF">0  0</text>
+      <text class="md-score" x="196" y="262" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-size="30" fill="#FFF">1  0</text>
+      <rect x="246" y="226" width="68" height="48" fill="#FFF"/>
+      <text x="280" y="259" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="22" letter-spacing="2" textLength="50" lengthAdjust="spacingAndGlyphs" fill="#000">SEE</text>
+      <rect x="314" y="222" width="48" height="56" fill="#E62E2E"/>
+      <text x="338" y="258" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="18" fill="#000">11'</text>
+    </g>
+    <g class="md-goal"><text x="200" y="138" text-anchor="middle" font-family="Alegreya, Georgia, serif" font-weight="900" font-style="italic" font-size="78" letter-spacing="-1" textLength="300" lengthAdjust="spacingAndGlyphs" fill="#FFF" stroke="#000" stroke-width="6" paint-order="stroke">GOAL!!</text></g>
+  </g>
+
+  <rect class="md-flash" width="400" height="400" fill="#FFF"/>
+  </g></g>
+</svg>
+</template>
+
 <template id="art-soon">
 <svg viewBox="0 0 400 400" aria-hidden="true">
   <rect width="400" height="400" fill="#0B0B0B"/>
@@ -499,16 +639,18 @@ input[type=text],input[type=search],textarea{cursor:text}
     dek    one line about it
     href   the project page or link ('' if it isn't ready yet)
     month  when it was published, e.g. 'SEP 2026' (projects are numbered automatically, #1, #2, #3...)
+    label  optional: show this instead of the number, e.g. '#Hackathon' (it doesn't use up a number)
     tags   short labels, e.g. ['Python', 'Streamlit']
     art    id of a <template> above with the tile artwork, or img: 'assets/your-thumb.png'
 */
 var PROJECTS = [
   { title: 'Third Time’s a Charm?', dek: 'Spain took 23 shots to England\'s 8 in the Euro 2025 final. Can the Lionesses make it three in a row by 2029?', href: 'projects/lionesses-euro-2025.html', month: 'SEP 2026', tags: ['Football', 'Python', 'Streamlit'], art: 'art-lionesses' },
   { title: 'Who Dies First?', dek: 'Everyone knows the Black character dies first. I logged 27 horror films and built a game to find out if it\'s true.', href: 'https://georgiajayy.github.io/black-horror-1968-2025/', month: 'OCT 2026', tags: ['Film', 'Python', 'JavaScript'], art: 'art-whodies' },
+  { title: 'I built an AI team that watches football', dek: 'Fans don’t want the data, they want the story. My first hackathon: AI agents that tell every match differently for every fan.', href: 'projects/matchday-social-desk.html', label: '#Hackathon', month: 'MICROSOFT × PL', tags: ['Football', 'AI', 'Python'], art: 'art-matchday' },
   { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-soon' }
 ];
 (function () {
-  var grid = document.getElementById('grid'), live = 0;
+  var grid = document.getElementById('grid'), live = 0, num = 0;
   PROJECTS.forEach(function (p, i) {
     var open = !!p.href; if (open) live++;
     var li = document.createElement('li');
@@ -520,7 +662,7 @@ var PROJECTS = [
     else if (p.art) { var t = document.getElementById(p.art); if (t) th.appendChild(t.content.cloneNode(true)); }
     a.appendChild(th);
     var k = document.createElement('div'); k.className = 'kick';
-    var n = document.createElement('b'); n.textContent = '#' + (i + 1); k.appendChild(n);
+    var n = document.createElement('b'); n.textContent = p.label || '#' + (++num); k.appendChild(n);
     var m = document.createElement('span'); m.textContent = p.month || 'COMING SOON'; k.appendChild(m);
     a.appendChild(k);
     var h = document.createElement('h2'); h.textContent = p.title; a.appendChild(h);
