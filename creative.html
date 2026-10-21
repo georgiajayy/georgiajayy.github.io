@@ -4,19 +4,51 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Creative · Georgia Jayy</title>
+<meta name="description" content="Creative work by Georgia Jayy: film, football and culture.">
+<meta property="og:title" content="Creative · Georgia Jayy">
+<meta property="og:description" content="Creative work by Georgia Jayy: film, football and culture.">
+<meta property="og:image" content="https://georgiajayy.github.io/icon-512.png">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;family=Alegreya:wght@400;800;900&amp;display=swap">
 <style>
-html,body{margin:0;min-height:100%;background:#000}
-.back{position:fixed;top:20px;left:20px;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF}
+/* Layout: a story grid. Gothic page title, then tiles: a bold illustrated thumbnail, a big headline, a one-line dek and tags. */
+:root{--bg:#000;--ink:#FFF;--red:#E62E2E;--dim:#A8A8A8;--line:#2E2E2E;color-scheme:dark}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font-family:'Alegreya',Georgia,serif}
+.back{position:fixed;top:20px;left:20px;z-index:5;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF;background:#000}
 .back:hover,.back:focus-visible{background:#E62E2E;border-color:#E62E2E;color:#000;outline:none}
-.uc{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:40px 16px;box-sizing:border-box;text-align:center;color:#FFF}
-.uc h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(34px,6vw,68px);letter-spacing:.02em;line-height:1.05}
-.uc p{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;color:#ccc;font-size:clamp(20px,2.4vw,26px);letter-spacing:.02em}
-.tape{width:min(560px,90vw);height:22px;background:repeating-linear-gradient(-45deg,#E62E2E 0 18px,#111 18px 36px);border:2px solid #E62E2E}
+.page{max-width:1280px;margin:0 auto;padding:96px max(20px,env(safe-area-inset-right,0px)) 64px max(20px,env(safe-area-inset-left,0px));box-sizing:border-box}
+header{display:flex;flex-direction:column;align-items:flex-start;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:18px}
+h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(72px,11vw,140px);line-height:.85}
+.tag{margin:0;font-family:'Special Elite','Courier New',monospace;font-size:15px;letter-spacing:.12em;line-height:1.5;color:#CFCFCF;max-width:60ch}
+.intro{margin:0;max-width:44ch;font-size:19px;line-height:1.45;color:#DDD}
+.count{font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.25em;color:var(--dim);margin:22px 0 0}
+
+.grid{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:44px 32px}
+.story{display:flex;flex-direction:column;gap:12px;color:var(--ink);text-decoration:none;height:100%}
+.thumb{position:relative;aspect-ratio:1/1;overflow:hidden;border:2px solid var(--ink);transition:transform .25s ease}
+.thumb svg{display:block;width:100%;height:100%}
+a.story:hover .thumb,a.story:focus-visible .thumb{transform:translate(-6px,-6px);box-shadow:6px 6px 0 var(--red)}
+a.story:focus-visible{outline:none}
+a.story:focus-visible .thumb{outline:2px dashed var(--red);outline-offset:8px}
+.kick{display:flex;align-items:baseline;gap:10px;font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.2em;color:var(--dim);margin-top:4px}
+.kick b{font-family:'Alegreya',Georgia,serif;font-weight:900;font-size:22px;letter-spacing:0;color:var(--red)}
+.story.soon .kick b{color:#666}
+.story h2{margin:0;font-family:'Special Elite','Courier New',monospace;font-weight:400;font-size:clamp(21px,1.9vw,26px);line-height:1.15;letter-spacing:.04em}
+a.story:hover h2{color:var(--red)}
+.story p{margin:0;font-family:'Special Elite','Courier New',monospace;font-size:14px;line-height:1.6;letter-spacing:.03em;color:#CFCFCF}
+.tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px 14px;font-family:'Special Elite',monospace;font-size:12px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+.tags span+span::before{content:'· ';color:var(--red)}
+.story.soon{color:#777}
+.story.soon .thumb{border-style:dashed;border-color:#555}
+.story.soon h2{color:#8C8C8C}
+.story.soon p{color:#6E6E6E}
+
+@media (prefers-reduced-motion:reduce){.thumb{transition:none}a.story:hover .thumb{transform:none}}
 /* big red cursor */
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
@@ -25,11 +57,187 @@ input[type=text],input[type=search],textarea{cursor:text}
 </head>
 <body>
 <a class="back" href="./">&larr; Back</a>
-<main class="uc">
-<div class="tape" aria-hidden="true"></div>
-<h1>Currently Under Construction</h1>
-<p>This page is being built. Check back soon x</p>
-<div class="tape" aria-hidden="true"></div>
+<main class="page">
+  <header>
+    <h1>Creative</h1>
+    <p class="tag">Films and visuals. The stories behind the culture.</p>
+  </header>
+  <ol class="grid" id="grid"></ol>
 </main>
+
+<!-- tile artwork, one per project -->
+<template id="art-intermelanin">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black and white manga-style short film tile in four cuts: a clapperboard snaps shut on InterMelanin FC, a skeleton player with afro puffs does keepy-uppies, five players huddle with different hairstyles, and a flickering title card reads InterMelanin FC, a short film, featuring COPA90 and EA FC">
+  <style>
+    .im *{transform-box:view-box}
+    .im-c1{animation:imC1 6s steps(1,end) infinite}
+    .im-c2{animation:imC2 6s steps(1,end) infinite;opacity:0}
+    .im-c3{animation:imC3 6s steps(1,end) infinite;opacity:0}
+    .im-c4{animation:imC4 6s steps(1,end) infinite;opacity:0}
+    @keyframes imC1{0%{opacity:1}22%{opacity:0}100%{opacity:0}}
+    @keyframes imC2{0%{opacity:0}22%{opacity:1}48%{opacity:0}100%{opacity:0}}
+    @keyframes imC3{0%{opacity:0}48%{opacity:1}72%{opacity:0}100%{opacity:0}}
+    @keyframes imC4{0%{opacity:0}72%{opacity:1}100%{opacity:1}}
+    /* cut 1: the clapperboard */
+    .im-stick{transform-origin:86px 150px;animation:imStick 6s cubic-bezier(.7,0,.3,1) infinite}
+    @keyframes imStick{0%,6%{transform:rotate(-28deg)}11%{transform:rotate(0)}12.5%{transform:rotate(-3deg)}14%,100%{transform:rotate(0)}}
+    .im-snap{animation:imSnap 6s steps(1,end) infinite;opacity:0}
+    @keyframes imSnap{0%{opacity:0}11%{opacity:1}13%{opacity:0}100%{opacity:0}}
+    .im-shake{animation:imShake 6s linear infinite}
+    @keyframes imShake{0%,10.8%{transform:translate(0,0)}11.3%{transform:translate(-6px,5px)}12%{transform:translate(6px,-5px)}12.7%{transform:translate(-3px,-2px)}13.4%,100%{transform:translate(0,0)}}
+    .im-spin{transform-origin:200px 200px;animation:imSpin 9s linear infinite}
+    @keyframes imSpin{to{transform:rotate(360deg)}}
+    /* cut 2: keepy-uppies */
+    .im-ball{animation:imBall .6s cubic-bezier(.3,0,.7,1) infinite alternate}
+    @keyframes imBall{from{transform:translateY(0)}to{transform:translateY(-46px)}}
+    .im-face{transform-origin:200px 170px;animation:imPush 6s linear infinite}
+    @keyframes imPush{0%,22%{transform:scale(1)}48%,100%{transform:scale(1.08)}}
+    .im-blink{animation:imBlink 6s steps(1,end) infinite;opacity:0}
+    @keyframes imBlink{0%,34%{opacity:0}35%{opacity:1}36.5%,100%{opacity:0}}
+    /* cut 3: the huddle */
+    .im-huddle{animation:imHuddle 6s cubic-bezier(.2,.8,.2,1) infinite}
+    @keyframes imHuddle{0%,48%{transform:translateY(40px) scale(.94)}56%,100%{transform:translateY(0) scale(1)}}
+    .im-rays{transform-origin:200px 150px;animation:imSpin 14s linear infinite reverse}
+    /* cut 4: the title card */
+    .im-flick{animation:imFlick .18s steps(2,end) infinite}
+    @keyframes imFlick{to{opacity:.55}}
+    .im-grain{animation:imGrain .3s steps(3,end) infinite}
+    @keyframes imGrain{to{transform:translateX(37px)}}
+    .im-title{transform-origin:200px 196px;animation:imTitle 6s cubic-bezier(.2,1.5,.4,1) infinite;opacity:0}
+    @keyframes imTitle{0%,73%{opacity:0;transform:scale(1.6)}78%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1.03)}}
+    .im-feat{animation:imFeat 6s ease-out infinite;opacity:0}
+    @keyframes imFeat{0%,82%{opacity:0;transform:translateY(10px)}88%,100%{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion:reduce){.im *{animation:none!important}.im-c1,.im-c2,.im-c3{opacity:0}.im-c4,.im-title,.im-feat{opacity:1}}
+  </style>
+  <defs>
+    <pattern id="imTone" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.25" fill="#000"/></pattern>
+    <pattern id="imClap" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="20" height="40" fill="#000"/><rect x="20" width="20" height="40" fill="#FFF"/></pattern>
+    <g id="imSkull">
+      <path d="M0-21C-13-21-20-12-20-2C-20 6-16 10-12 12V17C-12 19-11 20-9 20H9C11 20 12 19 12 17V12C16 10 20 6 20-2C20-12 13-21 0-21Z" fill="#FFF" stroke="#000" stroke-width="2.8"/>
+      <path d="M8-17C13-14 16-9 16-4" fill="none" stroke="#000" stroke-width="1.2"/>
+      <ellipse cx="-7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/><ellipse cx="7.5" cy="0" rx="5.4" ry="6.2" fill="#000"/>
+      <path d="M0 5L-2.8 10H2.8Z" fill="#000"/>
+      <path d="M-6 20V15M-2 20V15M2 20V15M6 20V15" stroke="#000" stroke-width="1.6"/>
+    </g>
+    <g id="imBallG"><circle r="16" fill="#FFF" stroke="#000" stroke-width="3"/><path d="M0-6L5.7-1.9L3.5 4.9H-3.5L-5.7-1.9Z" fill="#000"/><path d="M0-6V-16M5.7-1.9L15-5M3.5 4.9L9 13M-3.5 4.9L-9 13M-5.7-1.9L-15-5" stroke="#000" stroke-width="1.6"/></g>
+  </defs>
+  <rect width="400" height="400" fill="#FFF"/>
+  <g class="im"><g class="im-shake">
+
+  <!-- cut 1: the clapperboard snaps shut -->
+  <g class="im-c1">
+    <rect width="400" height="400" fill="url(#imTone)"/>
+    <g class="im-spin"><path d="M630.0 205.3L629.9 219.9L360.7 211.0ZM627.7 254.2L626.0 268.6L368.3 230.3ZM624.5 278.4L622.5 289.9L368.5 239.5ZM612.9 330.1L608.1 345.5L307.8 243.6ZM599.3 369.6L595.7 378.3L332.3 264.5ZM580.1 411.0L576.8 417.2L305.8 267.0ZM564.5 438.1L555.6 451.8L332.8 296.7ZM541.5 471.2L532.2 483.1L289.9 281.3ZM505.2 512.9L499.4 518.7L273.9 284.8ZM470.2 544.5L463.1 550.1L274.5 304.2ZM437.0 568.8L423.6 577.3L267.1 315.8ZM399.6 590.9L388.5 596.5L268.8 346.0ZM377.9 601.5L362.6 608.1L260.7 350.8ZM323.1 622.0L307.6 626.3L233.8 331.3ZM291.0 630.3L282.5 632.0L223.2 322.8ZM256.2 636.3L246.3 637.5L217.6 356.2ZM217.4 639.6L203.5 640.0L203.1 338.6ZM169.5 638.9L154.2 637.6L187.7 348.1ZM125.8 633.5L114.1 631.3L171.3 361.6ZM92.3 626.3L76.0 621.7L171.3 312.7ZM37.8 608.2L23.4 602.1L158.1 307.7ZM-3.4 588.9L-12.7 583.7L129.6 337.3ZM-27.1 575.1L-33.3 571.2L137.0 309.4ZM-76.8 539.1L-83.5 533.3L97.1 329.8ZM-104.6 513.5L-116.1 501.5L106.8 299.3ZM-126.5 489.8L-134.3 480.4L77.6 311.9ZM-148.6 461.7L-157.0 449.7L68.0 301.9ZM-181.1 409.2L-184.4 402.7L47.6 288.0ZM-191.8 387.2L-195.9 377.7L64.7 269.3ZM-212.5 331.3L-215.3 321.3L36.6 255.9ZM-220.9 297.9L-222.9 288.0L75.2 234.5ZM-226.8 262.7L-227.6 255.1L85.3 223.1ZM-230.0 214.6L-229.8 197.4L83.7 208.9ZM-229.3 185.9L-228.0 168.8L58.1 199.2ZM-223.0 132.6L-221.2 123.5L56.1 182.1ZM-211.2 84.1L-207.6 73.1L71.9 168.9ZM-203.6 61.8L-197.7 46.6L100.0 171.1ZM-182.9 14.3L-175.6 0.6L99.3 156.2ZM-159.4 -26.0L-150.0 -39.8L77.0 125.7ZM-131.1 -64.4L-125.9 -70.5L96.5 122.6ZM-114.6 -83.1L-103.8 -94.3L109.6 122.7ZM-80.1 -116.2L-66.9 -127.2L95.2 83.0ZM-35.3 -149.9L-25.6 -156.1L125.4 92.5ZM-3.6 -168.7L6.8 -174.2L142.1 98.8ZM29.7 -184.8L37.4 -188.1L149.1 88.9ZM77.0 -202.0L93.2 -206.5L160.2 66.5ZM111.0 -210.7L121.2 -212.7L178.3 100.9ZM145.6 -216.6L160.5 -218.2L181.9 45.3ZM189.6 -219.9L204.6 -220.0L198.9 50.8ZM239.4 -218.2L253.1 -216.7L217.0 52.7ZM274.1 -213.6L288.0 -210.9L223.5 87.6ZM317.4 -203.7L331.6 -199.4L244.4 63.2ZM352.8 -191.9L368.2 -185.7L256.2 70.4ZM401.1 -170.1L407.3 -166.7L268.0 83.9ZM428.7 -154.1L440.3 -146.6L274.9 94.8ZM472.7 -122.5L483.1 -113.7L304.0 87.3ZM496.9 -101.0L506.6 -91.5L309.9 98.4ZM533.5 -61.5L540.0 -53.3L328.4 108.0ZM558.0 -28.2L565.5 -16.5L345.8 116.3ZM580.9 10.4L586.4 21.3L326.7 145.9ZM591.4 31.9L597.5 46.1L356.5 142.1ZM609.2 78.0L613.3 91.4L348.6 164.7ZM621.8 126.6L623.4 135.1L356.9 180.6ZM627.4 162.7L628.7 176.4L333.9 197.4Z" fill="#000"/></g>
+    <g transform="rotate(-6 200 220)">
+      <rect x="86" y="158" width="228" height="150" fill="#000" stroke="#000" stroke-width="3"/>
+      <rect x="86" y="150" width="228" height="22" fill="url(#imClap)" stroke="#000" stroke-width="3"/>
+      <path d="M96 210H304M96 246H304M200 246V298" stroke="#FFF" stroke-width="1.5"/>
+      <text x="200" y="200" text-anchor="middle" font-family="UnifrakturMaguntia, Old English Text MT, serif" font-size="27" textLength="196" lengthAdjust="spacingAndGlyphs" fill="#FFF">InterMelanin FC</text>
+      <text x="104" y="236" font-family="Special Elite, Courier New, monospace" font-size="13" letter-spacing="2" fill="#FFF">DIR. GEORGIA JAYY</text>
+      <text x="146" y="282" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="15" letter-spacing="2" fill="#FFF">SCENE 1</text>
+      <text x="254" y="282" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="15" letter-spacing="2" fill="#FFF">TAKE 1</text>
+      <g class="im-stick"><rect x="86" y="128" width="228" height="22" fill="url(#imClap)" stroke="#000" stroke-width="3"/></g>
+    </g>
+    <path class="im-snap" d="M70 128L40 108M80 116L70 84M96 112L102 80" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- cut 2: a player with afro puffs does keepy-uppies -->
+  <g class="im-c2">
+    <rect width="400" height="400" fill="#FFF"/>
+    <path d="M660.0 164.9L660.0 173.8L306.5 169.8ZM658.3 209.9L657.7 215.5L329.6 182.1ZM653.7 246.0L652.6 252.1L331.5 192.9ZM647.5 276.6L646.1 282.3L318.6 199.1ZM637.8 311.0L634.8 320.2L337.2 215.8ZM628.7 336.7L625.9 343.9L297.3 208.8ZM612.9 372.7L606.6 385.2L321.1 231.7ZM592.0 410.7L587.2 418.4L323.7 247.6ZM578.7 431.2L574.0 437.9L315.6 251.3ZM550.2 468.3L544.0 475.4L277.9 237.7ZM530.8 489.6L525.6 494.9L282.6 251.1ZM497.3 521.0L491.6 525.7L299.3 289.2ZM467.3 544.4L462.3 547.9L270.3 269.9ZM442.9 560.6L438.0 563.6L265.4 276.7ZM405.2 581.7L399.3 584.6L259.9 292.4ZM387.3 590.1L377.3 594.4L261.7 312.9ZM349.9 604.9L344.6 606.7L232.9 267.5ZM309.4 616.8L303.9 618.1L223.9 270.2ZM278.9 623.2L265.1 625.4L219.5 293.3ZM243.6 627.9L232.2 628.9L208.5 273.2ZM202.1 630.0L195.0 630.0L199.6 307.1ZM158.7 628.1L152.7 627.6L187.1 303.0ZM129.5 624.6L122.7 623.5L181.5 283.4ZM91.1 616.9L76.8 613.2L173.4 272.0ZM61.1 608.5L47.6 604.0L164.2 277.1ZM24.8 595.3L19.4 593.1L153.1 281.9ZM-6.8 580.9L-16.5 575.9L132.0 301.3ZM-30.2 568.3L-37.7 563.8L121.8 302.3ZM-67.7 544.1L-75.5 538.4L127.0 269.8ZM-101.3 517.6L-109.4 510.4L134.5 243.8ZM-126.1 494.5L-132.0 488.4L110.1 257.8ZM-143.2 476.3L-149.5 469.0L110.7 248.0ZM-164.3 450.9L-171.1 441.8L116.7 232.6ZM-193.4 408.4L-196.3 403.5L72.7 246.0ZM-210.1 378.4L-214.6 369.3L71.3 233.6ZM-220.8 355.9L-225.6 344.5L84.9 219.0ZM-233.6 323.6L-238.2 309.9L82.9 209.4ZM-245.1 286.1L-248.3 273.1L82.0 199.0ZM-254.3 242.5L-255.3 235.5L49.4 192.8ZM-257.9 213.4L-258.5 207.4L39.7 184.1ZM-259.8 183.0L-260.0 168.8L38.4 172.1ZM-258.7 134.8L-258.2 129.2L98.9 161.6ZM-255.8 107.7L-254.4 98.7L64.2 150.1ZM-246.3 58.7L-244.1 50.2L96.8 143.2ZM-238.2 30.0L-236.1 23.6L102.0 137.9ZM-226.9 -1.5L-222.3 -12.5L106.1 130.9ZM-212.9 -32.7L-207.5 -43.4L68.7 103.4ZM-196.8 -62.7L-189.7 -74.4L107.2 113.7ZM-173.6 -98.4L-166.1 -108.6L75.6 78.0ZM-151.9 -126.2L-147.8 -131.1L123.5 104.6ZM-127.4 -153.1L-122.4 -158.1L102.2 72.0ZM-109.1 -170.6L-99.6 -179.0L125.9 86.1ZM-80.3 -194.7L-74.6 -199.1L123.3 68.6ZM-43.3 -220.4L-35.5 -225.1L143.4 77.1ZM-15.4 -236.4L-2.8 -242.9L139.9 52.2ZM28.7 -256.9L34.1 -259.0L140.6 19.2ZM59.5 -268.0L69.6 -271.1L161.3 44.3ZM86.5 -275.8L100.0 -279.0L176.4 71.0ZM125.4 -283.9L135.8 -285.5L182.3 54.3ZM161.9 -288.4L174.0 -289.3L192.7 66.0ZM198.8 -290.0L208.4 -289.9L201.0 40.6ZM235.6 -288.6L241.5 -288.1L211.5 33.8ZM263.0 -285.7L276.4 -283.6L217.0 58.8ZM307.1 -277.4L319.0 -274.3L233.9 36.1ZM345.8 -266.3L351.4 -264.4L244.0 41.0ZM372.5 -256.4L383.3 -251.9L247.9 55.7ZM398.6 -244.9L405.1 -241.7L260.1 46.9ZM432.8 -226.7L438.0 -223.6L261.7 66.4ZM465.7 -205.5L474.2 -199.4L258.2 89.7ZM499.3 -179.3L505.7 -173.7L297.6 58.2ZM513.7 -166.4L524.0 -156.5L294.2 72.1ZM550.6 -127.8L559.9 -116.5L317.1 73.7ZM565.3 -109.6L570.5 -102.6L290.0 102.5ZM593.0 -69.1L596.7 -62.9L296.0 112.6ZM605.1 -48.0L608.2 -42.1L340.1 95.9ZM626.5 -2.2L629.8 6.1L335.6 116.8ZM635.7 22.4L638.9 32.2L315.5 132.3ZM647.0 61.2L648.7 68.7L311.1 143.9ZM653.8 94.7L654.9 102.0L324.5 150.4ZM659.0 139.1L659.3 144.8L304.0 163.6Z" fill="#000"/>
+    <circle cx="200" cy="178" r="122" fill="#FFF"/>
+    <g class="im-face">
+      <path d="M110.0 300.0Q200.0 246.0 290.0 300.0L302.0 408.0H98.0Z" fill="#000"/><path d="M173.0 258.0L200.0 294.0L227.0 258.0" stroke="#FFF" stroke-width="7.5" fill="none"/><circle cx="143.3" cy="120.3" r="33.5" fill="#000"/><circle cx="165.3" cy="105.6" r="2.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="145.3" cy="133.5" r="5.1" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="122.9" cy="120.9" r="5.2" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="120.8" cy="106.7" r="3.0" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="120.8" cy="102.3" r="4.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="163.6" cy="137.8" r="5.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="138.7" cy="137.8" r="4.1" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="161.0" cy="132.1" r="3.7" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="150.6" cy="140.9" r="5.4" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="123.0" cy="106.0" r="4.9" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="114.7" cy="118.4" r="5.2" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="129.2" cy="113.3" r="3.6" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="164.8" cy="110.5" r="3.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="156.1" cy="134.3" r="2.9" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="157.2" cy="131.1" r="2.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="148.9" cy="110.2" r="5.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="256.7" cy="120.3" r="33.5" fill="#000"/><circle cx="239.3" cy="121.5" r="3.9" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="280.7" cy="126.4" r="3.5" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="242.4" cy="119.2" r="3.7" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="250.0" cy="134.0" r="3.0" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="237.4" cy="114.7" r="5.0" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="275.4" cy="126.4" r="5.9" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="256.3" cy="103.5" r="5.2" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="253.7" cy="109.6" r="5.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="270.3" cy="122.3" r="3.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="242.6" cy="127.8" r="5.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="251.1" cy="148.4" r="5.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="265.0" cy="112.2" r="3.7" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="248.5" cy="102.6" r="5.4" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="277.9" cy="139.0" r="4.5" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="249.1" cy="124.0" r="3.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="267.2" cy="115.2" r="5.0" fill="none" stroke="#FFF" stroke-width="1"/><g transform="translate(200 168) scale(3.0)"><use href="#imSkull"/><path d="M-20-9C-12-13 12-13 20-9" stroke="#000" stroke-width="5" fill="none"/></g>
+      <g transform="translate(200 168) scale(3)"><path class="im-blink" d="M-13 0H-2M2 0H13" stroke="#FFF" stroke-width="3"/></g>
+    </g>
+    <g transform="translate(200 78)"><g class="im-ball"><use href="#imBallG"/></g></g>
+    
+  </g>
+
+  <!-- cut 3: the huddle -->
+  <g class="im-c3">
+    <rect width="400" height="400" fill="#000"/>
+    <g class="im-rays"><path d="M659.0 119.2L659.8 161.8L237.4 149.2ZM656.9 203.5L649.5 247.7L230.9 155.2ZM648.8 250.7L635.0 299.5L233.9 159.6ZM625.4 325.1L601.4 374.7L235.5 167.2ZM576.9 413.7L552.1 446.0L233.9 176.1ZM549.2 449.5L518.2 482.2L234.4 182.6ZM488.8 508.0L449.9 536.2L225.5 185.2ZM443.7 540.2L401.2 563.7L220.3 186.6ZM362.3 580.4L335.4 589.6L215.3 194.8ZM296.2 599.8L249.4 607.3L207.5 197.0ZM218.8 609.6L165.8 608.7L199.4 187.9ZM137.0 605.7L97.8 598.5L191.2 197.9ZM59.2 587.9L30.7 577.7L189.0 180.8ZM25.1 575.4L-23.7 551.9L183.2 184.9ZM-59.4 529.9L-88.3 508.5L176.1 182.2ZM-108.8 491.0L-135.4 464.8L170.8 179.8ZM-158.0 438.8L-188.6 396.1L164.5 175.4ZM-205.2 367.8L-226.9 321.4L154.9 171.1ZM-234.3 301.5L-243.8 270.8L154.9 164.0ZM-252.8 231.3L-259.1 179.2L158.9 155.0ZM-259.9 159.0L-259.4 125.6L153.4 149.2ZM-256.5 93.0L-250.7 58.0L169.1 144.9ZM-241.8 21.9L-223.4 -29.8L170.1 139.3ZM-213.7 -51.1L-195.2 -85.4L170.9 134.3ZM-190.0 -94.0L-161.9 -133.9L161.2 122.7ZM-151.5 -146.7L-121.1 -179.4L177.4 128.9ZM-78.8 -215.9L-48.7 -237.0L172.7 111.0ZM-11.9 -258.3L25.8 -275.8L179.0 104.7ZM37.3 -280.3L65.5 -289.9L186.4 110.3ZM95.2 -297.9L127.6 -304.3L192.6 112.6ZM188.0 -309.8L219.9 -309.6L200.3 119.2ZM267.2 -305.1L302.8 -298.4L209.1 101.7ZM337.7 -288.9L373.5 -276.0L213.3 113.1ZM389.0 -269.4L429.4 -248.7L219.1 112.7ZM453.8 -233.7L489.8 -207.2L228.9 110.6ZM511.2 -188.8L539.1 -160.8L231.4 118.6ZM555.4 -142.1L577.1 -113.5L239.5 120.1ZM600.1 -77.0L619.4 -38.9L227.0 136.3ZM629.2 -15.6L642.9 25.8L228.8 140.4ZM651.1 60.0L657.7 104.5L230.9 145.4Z" fill="#FFF" fill-opacity=".9"/></g>
+    <rect y="300" width="400" height="100" fill="#000"/>
+    <g class="im-huddle">
+      <path d="M15.5 304.2Q62.0 276.3 108.5 304.2L114.7 360.0H9.3Z" fill="#000"/><path d="M48.0 282.5L62.0 301.1L76.0 282.5" stroke="#FFF" stroke-width="3.9" fill="none"/><path d="M36.0 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M42.5 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M49.0 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M55.5 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M62.0 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M68.5 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M75.0 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M81.5 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><path d="M88.0 211.2q3.1 27.9 -1.6 58.9" stroke="#000" stroke-width="6.2" stroke-linecap="round" fill="none"/><g transform="translate(62 236) scale(1.55)"><use href="#imSkull"/><path d="M-19-6C-19-24 19-24 19-6C14-16-14-16-19-6Z" fill="#000"/></g><path d="M359.7 208.1q27.9 -6.2 24.8 34.1" stroke="#000" stroke-width="10.8" stroke-linecap="round" fill="none"/><path d="M291.5 304.2Q338.0 276.3 384.5 304.2L390.7 360.0H285.3Z" fill="#000"/><path d="M324.1 282.5L338.0 301.1L351.9 282.5" stroke="#FFF" stroke-width="3.9" fill="none"/><g transform="translate(338 236) scale(1.55)"><use href="#imSkull"/><path d="M-19-6C-19-24 19-24 19-6C14-16-14-16-19-6Z" fill="#000"/></g>
+      <path d="M73.5 297.0Q126.0 265.5 178.5 297.0L185.5 360.0H66.5Z" fill="#000"/><path d="M110.2 272.5L126.0 293.5L141.8 272.5" stroke="#FFF" stroke-width="4.4" fill="none"/><path d="M99.8 213.0q-10.5 31.5 -3.5 63.0" stroke="#000" stroke-width="8.8" stroke-dasharray="5.2 2.6" fill="none"/><path d="M152.2 213.0q10.5 31.5 3.5 63.0" stroke="#000" stroke-width="8.8" stroke-dasharray="5.2 2.6" fill="none"/><g transform="translate(126 220) scale(1.75)"><use href="#imSkull"/><path d="M-19-6C-19-24 19-24 19-6C14-16-14-16-19-6Z" fill="#000"/></g><path d="M221.5 297.0Q274.0 265.5 326.5 297.0L333.5 360.0H214.5Z" fill="#000"/><path d="M258.2 272.5L274.0 293.5L289.8 272.5" stroke="#FFF" stroke-width="4.4" fill="none"/><g transform="translate(274 220) scale(1.75)"><use href="#imSkull"/><path d="M-19-6C-19-24 19-24 19-6C14-16-14-16-19-6Z" fill="#000"/></g>
+      <path d="M141.5 295.8Q200.0 260.7 258.5 295.8L266.3 366.0H133.7Z" fill="#000"/><path d="M182.4 268.5L200.0 291.9L217.6 268.5" stroke="#FFF" stroke-width="4.9" fill="none"/><circle cx="163.1" cy="179.0" r="21.8" fill="#000"/><circle cx="151.9" cy="176.0" r="3.0" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="145.3" cy="179.8" r="2.4" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="156.9" cy="187.3" r="2.0" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="165.8" cy="184.4" r="1.9" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="174.3" cy="194.1" r="3.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="164.6" cy="172.9" r="2.9" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="156.0" cy="173.0" r="2.1" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="148.8" cy="176.6" r="2.1" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="176.0" cy="184.6" r="2.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="155.1" cy="195.7" r="2.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="158.2" cy="176.4" r="3.6" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="146.5" cy="177.6" r="3.5" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="162.2" cy="172.8" r="2.1" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="169.3" cy="184.8" r="3.8" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="170.1" cy="161.1" r="2.6" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="158.3" cy="167.0" r="3.9" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="236.9" cy="179.0" r="21.8" fill="#000"/><circle cx="231.2" cy="168.2" r="3.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="250.2" cy="186.3" r="3.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="234.4" cy="186.1" r="3.2" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="240.9" cy="164.0" r="3.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="232.7" cy="184.8" r="2.2" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="248.3" cy="193.3" r="2.6" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="243.2" cy="181.0" r="3.4" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="250.0" cy="186.1" r="2.6" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="244.6" cy="171.9" r="2.5" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="237.4" cy="195.4" r="2.1" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="228.3" cy="162.4" r="3.7" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="231.2" cy="189.5" r="3.4" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="231.8" cy="162.1" r="3.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="241.1" cy="183.3" r="3.0" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="229.1" cy="165.9" r="2.3" fill="none" stroke="#FFF" stroke-width="1"/><circle cx="253.2" cy="177.2" r="3.5" fill="none" stroke="#FFF" stroke-width="1"/><g transform="translate(200 210) scale(1.95)"><use href="#imSkull"/><path d="M-20-9C-12-13 12-13 20-9" stroke="#000" stroke-width="5" fill="none"/></g>
+      <path d="M20 330C80 300 140 312 200 312C260 312 320 300 380 330V400H20Z" fill="#000"/>
+      <path d="M34 324C100 300 300 300 366 324" stroke="#FFF" stroke-width="3" fill="none"/>
+    </g>
+  </g>
+
+  <!-- cut 4: the title card -->
+  <g class="im-c4">
+    <rect width="400" height="400" fill="#000"/>
+    <g class="im-grain"><path d="M73 83v220M192 26v254M317 61v191M100 0v162M232 8v255M98 28v89M389 89v273M244 4v152M199 14v289M150 19v260M57 111v180M220 41v187M81 4v270M99 94v126" stroke="#FFF" stroke-opacity=".18" stroke-width="1"/></g>
+    <g class="im-flick">
+      <rect x="22" y="22" width="356" height="356" rx="34" fill="none" stroke="#FFF" stroke-opacity=".35" stroke-width="2"/>
+    </g>
+    <g class="im-title">
+      <text x="200" y="196" text-anchor="middle" font-family="UnifrakturMaguntia, Old English Text MT, serif" font-size="58" textLength="320" lengthAdjust="spacingAndGlyphs" fill="#FFF">InterMelanin FC</text>
+      <text x="200" y="232" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="16" letter-spacing="6" fill="#FFF">A SHORT FILM</text>
+    </g>
+    <g class="im-feat">
+      <rect x="92" y="282" width="216" height="28" fill="#E62E2E"/>
+      <text x="200" y="301" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="13" letter-spacing="2" textLength="196" lengthAdjust="spacingAndGlyphs" fill="#000">FEAT. COPA90 × EA FC</text>
+    </g>
+  </g>
+
+  </g></g>
+</svg>
+</template>
+<template id="art-soon">
+<svg viewBox="0 0 400 400" aria-hidden="true">
+  <rect width="400" height="400" fill="#0B0B0B"/>
+  <rect x="56" y="108" width="288" height="184" fill="none" stroke="#2E2E2E" stroke-width="2"/>
+  <g fill="#2E2E2E"><rect x="68" y="118" width="16" height="12" rx="2"/><rect x="68" y="270" width="16" height="12" rx="2"/><rect x="98" y="118" width="16" height="12" rx="2"/><rect x="98" y="270" width="16" height="12" rx="2"/><rect x="128" y="118" width="16" height="12" rx="2"/><rect x="128" y="270" width="16" height="12" rx="2"/><rect x="158" y="118" width="16" height="12" rx="2"/><rect x="158" y="270" width="16" height="12" rx="2"/><rect x="188" y="118" width="16" height="12" rx="2"/><rect x="188" y="270" width="16" height="12" rx="2"/><rect x="218" y="118" width="16" height="12" rx="2"/><rect x="218" y="270" width="16" height="12" rx="2"/><rect x="248" y="118" width="16" height="12" rx="2"/><rect x="248" y="270" width="16" height="12" rx="2"/><rect x="278" y="118" width="16" height="12" rx="2"/><rect x="278" y="270" width="16" height="12" rx="2"/><rect x="308" y="118" width="16" height="12" rx="2"/><rect x="308" y="270" width="16" height="12" rx="2"/></g>
+  <path d="M152 140V260M248 140V260" stroke="#2E2E2E" stroke-width="2"/>
+  <path d="M188 182L218 200L188 218Z" fill="none" stroke="#3A3A3A" stroke-width="2"/>
+  <text x="200" y="338" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-size="14" letter-spacing="4" fill="#444">IN THE EDIT</text>
+</svg>
+</template>
+
+<script>
+/*
+  ADD A PROJECT: copy one entry in PROJECTS and fill it in.
+    title  the headline
+    dek    one line about it
+    href   the project page or link ('' if it isn't ready yet)
+    month  when it was published, e.g. 'OCT 2026' (projects are numbered automatically, #1, #2, #3...)
+    label  optional: show this instead of the number, e.g. '#ShortFilm' (it doesn't use up a number)
+    tags   short labels, e.g. ['Film', 'Football']
+    art    id of a <template> above with the tile artwork, or img: 'assets/your-thumb.png'
+*/
+var PROJECTS = [
+  { title: 'InterMelanin FC', dek: 'A short film about InterMelanin FC, a football team for Black LGBTQ+ women. Feat. COPA90 × EA FC.', href: 'projects/intermelanin-fc.html', label: '#ShortFilm', month: 'OCT 2026', tags: ['Film', 'Football', 'Community'], art: 'art-intermelanin' },
+  { title: 'Coming soon', dek: 'The next piece is still in the edit.', href: '', label: '#Next', tags: ['In the edit'], art: 'art-soon' }
+];
+(function () {
+  var grid = document.getElementById('grid'), live = 0, num = 0;
+  PROJECTS.forEach(function (p, i) {
+    var open = !!p.href; if (open) live++;
+    var li = document.createElement('li');
+    var a = document.createElement(open ? 'a' : 'div');
+    a.className = 'story' + (open ? '' : ' soon');
+    if (open) a.href = p.href;
+    var th = document.createElement('div'); th.className = 'thumb';
+    if (p.img) { var im = document.createElement('img'); im.src = p.img; im.alt = ''; im.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block'; th.appendChild(im); }
+    else if (p.art) { var t = document.getElementById(p.art); if (t) th.appendChild(t.content.cloneNode(true)); }
+    a.appendChild(th);
+    var k = document.createElement('div'); k.className = 'kick';
+    var n = document.createElement('b'); n.textContent = p.label || '#' + (++num); k.appendChild(n);
+    var m = document.createElement('span'); m.textContent = p.month || 'COMING SOON'; k.appendChild(m);
+    a.appendChild(k);
+    var h = document.createElement('h2'); h.textContent = p.title; a.appendChild(h);
+    var d = document.createElement('p'); d.textContent = p.dek; a.appendChild(d);
+    var tg = document.createElement('div'); tg.className = 'tags';
+    (p.tags || []).forEach(function (x) { var s = document.createElement('span'); s.textContent = x; tg.appendChild(s); });
+    a.appendChild(tg);
+    li.appendChild(a); grid.appendChild(li);
+  });
+})();
+</script>
 </body>
 </html>
