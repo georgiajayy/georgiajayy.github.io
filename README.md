@@ -24,7 +24,7 @@ everyone knows the black character dies first. i logged 27 horror films and buil
 ★ **matchday social desk**
 fans don't want the data. they want the story. so i built an ai team to tell it.
 my first ever hackathon, for microsoft x the premier league.
-[post](https://georgiajayy.github.io/blog/matchday-social-desk.html) · [video](https://www.youtube.com/watch?v=mMBdd2H4dCs) · [code](https://github.com/georgiajayy/matchday-social-desk)
+[project](https://georgiajayy.github.io/projects/matchday-social-desk.html) · [video](https://www.youtube.com/watch?v=mMBdd2H4dCs) · [code](https://github.com/georgiajayy/matchday-social-desk)
 
 ★ more coming soon. if they survive.
 
