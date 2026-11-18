@@ -3,33 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bio · Georgia Jayy</title>
+<title>About · Georgia Jayy</title>
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=UnifrakturMaguntia&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=UnifrakturMaguntia&display=swap">
 <style>
-html,body{margin:0;min-height:100%;background:#000}
-.back{position:fixed;top:20px;left:20px;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:22px;letter-spacing:1px;color:#FFF;text-decoration:none;padding:6px 10px;border:1px solid #FFF}
-.back:hover,.back:focus-visible{background:#E62E2E;border-color:#E62E2E;color:#000;outline:none}
-.uc{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:40px 16px;box-sizing:border-box;text-align:center;color:#FFF}
-.uc h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(34px,6vw,68px);letter-spacing:.02em;line-height:1.05}
-.uc p{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;color:#ccc;font-size:clamp(20px,2.4vw,26px);letter-spacing:.02em}
-.tape{width:min(560px,90vw);height:22px;background:repeating-linear-gradient(-45deg,#E62E2E 0 18px,#111 18px 36px);border:2px solid #E62E2E}
+html,body{margin:0;background:#000;color:#f5f5f5;font-family:'Special Elite',monospace}
+:root{--red:#E62E2E;--paper:#f5f5f5;--muted:#a9a9a9}
+*{box-sizing:border-box}
+.back{position:fixed;z-index:5;top:18px;left:18px;font-family:'UnifrakturMaguntia',serif;font-size:22px;letter-spacing:1px;color:#fff;text-decoration:none;padding:6px 10px;border:1px solid #fff;background:#000}
+.back:hover,.back:focus-visible{background:var(--red);border-color:var(--red);color:#000;outline:none}
+.page{width:min(920px,calc(100% - 34px));margin:0 auto;padding:100px 0 70px}
+.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--red);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid #333;padding-bottom:12px}
+h1{font-family:'UnifrakturMaguntia',serif;font-weight:400;font-size:clamp(58px,12vw,132px);line-height:.9;margin:24px 0 14px}
+.subtitle{font-size:clamp(14px,2vw,20px);color:#bbb;max-width:720px;line-height:1.55}
+.tape{height:12px;margin:32px 0;background:repeating-linear-gradient(-45deg,var(--red) 0 12px,#111 12px 24px);border:1px solid var(--red)}
+.section{padding:26px 0;border-top:1px solid #333}
+.section-head{display:flex;gap:22px;align-items:baseline;margin-bottom:20px}
+.num{color:var(--red);font-size:13px;white-space:nowrap}
+h2{font-family:'UnifrakturMaguntia',serif;font-weight:400;font-size:clamp(29px,5vw,46px);margin:0;line-height:1}
+p{font-size:clamp(15px,1.7vw,18px);line-height:1.8;color:#d2d2d2;margin:0 0 18px}
+p:last-child{margin-bottom:0}
+.highlight{color:#fff}
+.pullquote{margin:34px 0;padding:22px 24px;border-left:3px solid var(--red);background:#0b0b0b;font-family:'UnifrakturMaguntia',serif;font-size:clamp(25px,4.5vw,43px);line-height:1.1;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.item{border:1px solid #333;padding:18px;background:#080808}
+.item .label{font-size:11px;letter-spacing:.1em;color:var(--red);margin-bottom:9px}
+.item p{font-size:15px;margin:0}
+.smallcaps{color:#fff;letter-spacing:.04em}
+.credits{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.credits span{border:1px solid #444;padding:7px 10px;color:#ccc;font-size:12px}
+.contact{font-family:'UnifrakturMaguntia',serif;font-size:clamp(27px,5vw,42px);color:#fff;text-decoration:none;border-bottom:1px solid var(--red}
+.contact:hover{color:var(--red)}
+.footer{border-top:1px solid #333;margin-top:30px;padding-top:18px;color:#666;font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:600px){.page{padding-top:90px}.grid{grid-template-columns:1fr}.topline{font-size:10px}.section-head{gap:12px}}
 /* big red cursor */
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
 input[type=text],input[type=search],textarea{cursor:text}
+
 </style>
 </head>
 <body>
-<a class="back" href="./">&larr; Back</a>
-<main class="uc">
+<a class="back" href="./">← Back</a>
+<main class="page">
+<div class="topline"><span>Personal dossier / 001</span><span>Subject: Georgia Jayy</span></div>
+<h1>About</h1>
+<div class="subtitle">A life spent collecting culture. An ongoing study of taste, behaviour, media and the things people become obsessed with.</div>
 <div class="tape" aria-hidden="true"></div>
-<h1>Currently Under Construction</h1>
-<p>This page is being built. Check back soon x</p>
-<div class="tape" aria-hidden="true"></div>
+
+<section class="section">
+<div class="section-head"><span class="num">01 / ORIGIN</span><h2>The collection</h2></div>
+<p>I've always been interested in culture, although for a long time I understood that interest primarily through the act of collecting. As a child, I accumulated things with an almost indiscriminate enthusiasm: DVDs, video games, CDs, vinyl, magazines, books, memorabilia — anything that could be acquired, preserved, revisited or absorbed. I was fascinated by the objects themselves, but equally by the worlds contained within them. The artwork on a DVD cover, the typography of an album sleeve, the mythology surrounding a particular artist, the atmosphere of a film, the identity constructed around a football club, the aesthetics of a video game. Everything seemed to possess its own language, history and cultural significance.</p>
+<p>That fascination never particularly subsided. What began as a childhood habit has since developed into a personal archive comprising thousands of pieces of physical media, accumulated across genres, decades and cultural movements. Somewhere between the stacks of discs, obsolete formats, forgotten releases and things acquired simply because they felt interesting, collecting became less about ownership and more about preservation — an attempt, perhaps, to retain fragments of culture that might otherwise disappear into the accelerating ephemerality of contemporary life.</p>
+<p>I've always been drawn to the obscure, the overlooked, the out-of-print and the things that exist just outside the boundaries of what is considered culturally relevant at any given moment. The archive continues to grow, largely without any particular intention of stopping.</p>
+</section>
+
+<section class="section">
+<div class="section-head"><span class="num">02 / FORMATION</span><h2>Learning to look</h2></div>
+<p>At school, my interests were similarly difficult to confine to a single discipline. I gravitated towards English, history, art, music, drama, dance and sport — subjects that, in retrospect, all offered different ways of understanding people and the worlds they inhabit. I was interested in narrative, image, performance, identity, historical context, expression and the ways in which people communicate meaning, consciously or otherwise.</p>
+<p>Culture was never something I encountered exclusively through the classroom. It existed in music videos, films, football terraces, television, fashion, friendships, the internet and the countless small rituals through which people construct a sense of belonging.</p>
+<p>Eventually, these interests converged around media. I studied Media and Film at A-Level before progressing to University College London, where I studied Media with a specialism in Film Production. University gave me the opportunity to interrogate the things I had spent years instinctively gravitating towards — to consider moving image not simply as entertainment, but as a cultural artefact; to understand production as both a creative and collaborative process; and to explore the relationship between representation, authorship, audiences, technology and the wider social conditions in which media exists.</p>
+<div class="pullquote">Curiosity became methodology. Observation became research. Interests became the beginnings of a practice.</div>
+</section>
+
+<section class="section">
+<div class="section-head"><span class="num">03 / IN PRACTICE</span><h2>From observation to production</h2></div>
+<p>Since then, I've found myself working across the intersections of marketing, creative strategy, production, research and digital media. I've contributed to projects spanning Google, COPA90, Barclays, Bullion Productions, Def Jam and Sony Music, with work connected to Arsenal FC, BBC Sport, ITV, Nike, UEFA and others. My experiences have brought me into proximity with people and institutions across sport, music, film and entertainment, including projects featuring England internationals Chloe Kelly and Leah Williamson, six-time MOBO Award-winning artist Stormzy, singer-songwriter Mahalia, football creator Jeremy Lynch, BAFTA-nominated filmmaker Gurinder Chadha and Sadiq Khan, Mayor of London.</p>
+<p>Much of my work has involved existing somewhere between the initial idea and its eventual realisation — researching, developing concepts, identifying narratives, understanding audiences, producing content and translating abstract ideas into something people can actually engage with. Content I've researched and developed has generated more than one million views across platforms. I've helped a charity grow its social following by over 2,000 in under three months, contributed to securing Nike sponsorships for grassroots football, and worked on projects subsequently featured by BBC News, The Athletic, INDIVISA and England Football. In 2026, I programmed and delivered a youth-led event for the British Film Institute.</p>
+<div class="grid">
+<div class="item"><div class="label">REACH</div><p><span class="smallcaps">1M+ views</span> across content researched and developed.</p></div>
+<div class="item"><div class="label">COMMUNITY</div><p><span class="smallcaps">2,000+ followers</span> gained for a charity in under three months.</p></div>
+<div class="item"><div class="label">PARTNERSHIPS</div><p>Nike sponsorships secured for grassroots football.</p></div>
+<div class="item"><div class="label">PROGRAMMING</div><p>Youth-led event programmed and delivered for the BFI, 2026.</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><span class="num">04 / SUBJECTS</span><h2>Things I can't leave alone</h2></div>
+<p>I'm interested in the relationship between culture and behaviour. Why certain images become iconic. Why particular sounds, aesthetics or ideas resonate with one generation and alienate another. How communities form around shared obsessions. How taste is acquired, performed and legitimised. How something once considered peripheral eventually becomes commercially desirable, and how industries attempt to manufacture the very cultural relevance they spend so much time trying to understand.</p>
+<p>The distance between underground and mainstream has always fascinated me — not least because the distinction is rarely as stable as it appears.</p>
+<div class="grid">
+<div class="item"><div class="label">CULTURE / TASTE</div><p>Subcultures, fashion, music scenes, identity, cultural movements and the aesthetics of belonging.</p></div>
+<div class="item"><div class="label">INTERNET / FOLKLORE</div><p>Online communities, memetics, digital folklore, parasociality and the strange lives of niche interests.</p></div>
+<div class="item"><div class="label">MOVING IMAGE</div><p>Cinema, horror, documentary, experimental film, visual storytelling and representation.</p></div>
+<div class="item"><div class="label">AUDIENCES / BEHAVIOUR</div><p>Consumer psychology, collective obsessions, attention, participation and why people care.</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><span class="num">05 / SYSTEMS</span><h2>Culture, quantified</h2></div>
+<p>This curiosity extends into the digital landscape, where the internet has fundamentally altered the conditions under which culture is produced, distributed, discovered and consumed. Online communities, recommendation systems, algorithms, memetics, parasocial relationships and the increasingly blurred boundaries between participation and spectatorship offer an endless amount to examine.</p>
+<p>I'm interested in the internet not merely as technological infrastructure, but as a cultural environment in its own right: a place where identities are rehearsed, subcultures emerge, collective obsessions take shape and the distinction between the individual and the audience becomes increasingly difficult to locate.</p>
+<p>My approach is inherently multidisciplinary. I tend to move between creative instinct and analytical inquiry, drawing upon cultural research, audience insight, marketing, visual storytelling and data to better understand the relationship between people and the media they inhabit. I've developed an interest in the more technical dimensions of that process, working with SQL, Python, Excel and Power BI, while expanding my understanding of web development through HTML, JavaScript and UX/UI design.</p>
+<p>I'm interested in what happens when subjective cultural observation meets something more systematic — when intuition can be interrogated, patterns identified and assumptions challenged without necessarily sacrificing the ambiguity that makes culture interesting in the first place.</p>
+<div class="credits"><span>SQL</span><span>PYTHON</span><span>EXCEL</span><span>POWER BI</span><span>HTML</span><span>JAVASCRIPT</span><span>UX / UI</span></div>
+</section>
+
+<section class="section">
+<div class="section-head"><span class="num">06 / PERSONAL ARCHIVE</span><h2>Still collecting</h2></div>
+<p>Outside of work, I'm still doing largely what I've always done: collecting, watching, listening, reading, researching and becoming disproportionately interested in things most people would probably consider inconsequential. Cinema, particularly horror, experimental film and documentary, remains a significant part of my creative interests. So do music, football, fashion, internet culture, visual art, obscure media, forgotten histories and the strange specificity of subcultures.</p>
+<p>My interests are less a neatly organised set of hobbies than an ever-expanding network of references, rabbit holes and things I haven't quite finished investigating.</p>
+<p>I've always wanted to understand the things that capture people's attention — and, more importantly, what those things reveal about us. The objects we keep. The stories we repeat. The aesthetics we adopt. The communities we seek out. The things we decide are worth caring about.</p>
+<div class="pullquote">Perhaps that is what collecting was always about. Not simply accumulating things, but attempting to make sense of the worlds they came from.</div>
+<p class="highlight">I'm still collecting. Only the subject has become considerably larger.</p>
+</section>
+
+<section class="section">
+<div class="section-head"><span class="num">07 / PRESENT</span><h2>What comes next</h2></div>
+<p>Currently open to opportunities, projects and collaborations across marketing, creative strategy, cultural research, audience insights and digital media — and to anything sufficiently interesting that falls outside those categories.</p>
+<a class="contact" href="mailto:work.georgiajayy@gmail.com">Get in touch ↗</a>
+</section>
+<footer class="footer"><span>GEORGIA JAYY / PERSONAL DOSSIER</span><span>END OF ENTRY — 001</span></footer>
 </main>
 </body>
 </html>
