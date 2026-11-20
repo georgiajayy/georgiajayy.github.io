@@ -649,46 +649,121 @@ input[type=text],input[type=search],textarea{cursor:text}
 </template>
 
 <template id="art-beats">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Four-cut black and white manga animation of a skull wearing Beats headphones, nodding to music as soundwaves pulse, notes rise and the beat drops">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black and white manga-style animation in two cuts: a skull character wearing Beats headphones bobbing to music, followed by an extreme close-up of the skull and earcup pulsing with bass shockwaves">
 <style>
-.bm *{transform-box:view-box}
-.bm1{animation:bc1 5s steps(1,end) infinite}.bm2{animation:bc2 5s steps(1,end) infinite;opacity:0}.bm3{animation:bc3 5s steps(1,end) infinite;opacity:0}.bm4{animation:bc4 5s steps(1,end) infinite;opacity:0}
-@keyframes bc1{0%,30%{opacity:1}30.1%,100%{opacity:0}}@keyframes bc2{0%,30%{opacity:0}30.1%,56%{opacity:1}56.1%,100%{opacity:0}}@keyframes bc3{0%,56%{opacity:0}56.1%,86%{opacity:1}86.1%,100%{opacity:0}}@keyframes bc4{0%,86%{opacity:0}86.1%,100%{opacity:1}}
-.bm-head{transform-origin:200px 210px;animation:bnod .48s ease-in-out infinite alternate}@keyframes bnod{to{transform:translateY(9px) rotate(4deg)}}
-.bm-jaw{transform-origin:200px 245px;animation:bjaw .48s ease-in-out infinite alternate}@keyframes bjaw{to{transform:translateY(3px)}}
-.bm-lines{animation:blines .5s linear infinite}@keyframes blines{to{transform:translateX(-190px)}}
-.bm-thump{transform-origin:200px 205px;animation:bthump .24s ease-in-out infinite alternate}@keyframes bthump{to{transform:scale(1.07)}}
-.bm-wave{transform-origin:300px 205px;animation:bwave .55s ease-out infinite}.bm-wave.delay{animation-delay:.27s}
-@keyframes bwave{0%{opacity:.95;transform:scale(.7)}100%{opacity:0;transform:scale(1.5)}}
-.bm-note{animation:bnote 1.35s ease-out infinite}.bm-note.delay{animation-delay:.5s}@keyframes bnote{0%{opacity:0;transform:translateY(12px) scale(.7)}25%{opacity:1}100%{opacity:0;transform:translate(-20px,-58px) scale(1.15) rotate(12deg)}}
-.bm-eq{transform-origin:center bottom;animation:beq .24s ease-in-out infinite alternate}.bm-eq:nth-child(2n){animation-duration:.32s;animation-delay:.08s}.bm-eq:nth-child(3n){animation-duration:.2s;animation-delay:.14s}@keyframes beq{to{transform:scaleY(1.4)}}
-.bm-drop{transform-origin:200px 200px;animation:bdrop .7s cubic-bezier(.2,1.5,.35,1) both}@keyframes bdrop{0%{transform:scale(.55) rotate(-6deg)}50%{transform:scale(1.08) rotate(2deg)}100%{transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.bm *{animation:none!important}.bm1,.bm2,.bm4{opacity:0}.bm3{opacity:1}}
+  .ab * { transform-box: view-box; }
+  .ab-c1 { animation: abC1 3s steps(1,end) infinite; }
+  .ab-c2 { animation: abC2 3s steps(1,end) infinite; opacity: 0; }
+  @keyframes abC1 { 0% { opacity: 1; } 55% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes abC2 { 0% { opacity: 0; } 55% { opacity: 1; } 100% { opacity: 1; } }
+  .ab-pan { animation: abPan .55s linear infinite; }
+  @keyframes abPan { to { transform: translateX(-200px); } }
+  .ab-bob1 { transform-origin: 200px 215px; animation: abBob1 .45s ease-in-out infinite alternate; }
+  @keyframes abBob1 { 0% { transform: translateY(0px) rotate(-3deg); } 100% { transform: translateY(10px) rotate(4deg); } }
+  .ab-jaw1 { transform-origin: 200px 235px; animation: abJaw1 .45s ease-in-out infinite alternate; }
+  @keyframes abJaw1 { 0% { transform: translateY(0px); } 100% { transform: translateY(3px); } }
+  .ab-thump { transform-origin: 205px 205px; animation: abThump .225s ease-in-out infinite alternate; }
+  @keyframes abThump { 0% { transform: scale(1); } 100% { transform: scale(1.07); } }
+  .ab-wave { transform-origin: 295px 205px; animation: abWave .45s ease-out infinite; }
+  @keyframes abWave { 0% { opacity: .95; transform: scale(.75); } 100% { opacity: 0; transform: scale(1.45); } }
+  .ab-wave2 { transform-origin: 295px 205px; animation: abWave .45s ease-out .225s infinite; opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    .ab * { animation: none !important; }
+    .ab-c2 { opacity: 0; }
+    .ab-c1 { opacity: 1; }
+  }
 </style>
 <defs>
-<pattern id="bmTone" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".85" fill="#000"/></pattern>
-<g id="bmSkull">
-<path d="M0-54C-34-54-52-31-52-5C-52 15-42 25-31 30L-28 45C-28 50-24 53-18 53H18C24 53 28 50 28 45L31 30C42 25 52 15 52-5C52-31 34-54 0-54Z" fill="#FFF" stroke="#000" stroke-width="5.5" stroke-linejoin="round"/>
-<path d="M22-44C34-36 42-24 42-10M-43 10C-39 20-34 25-29 28" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
-<ellipse cx="-19" cy="-2" rx="14" ry="16"/><ellipse cx="19" cy="-2" rx="14" ry="16"/>
-<circle cx="-15" cy="-7" r="4.5" fill="#FFF"/><circle cx="23" cy="-7" r="4.5" fill="#FFF"/>
-<path d="M0 11L-7 25H7Z"/>
-<g class="bm-jaw"><path d="M-20 38H20" stroke="#000" stroke-width="3.5"/><path d="M-14 38V52M-7 38V52M0 38V52M7 38V52M14 38V52" stroke="#000" stroke-width="3"/></g>
-</g>
-<g id="bmPhones">
-<path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#000" stroke-width="14" stroke-linecap="round"/><path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round"/>
-<g transform="translate(-56 4)"><rect x="-14" y="-24" width="20" height="48" rx="9"/><rect x="-11" y="-20" width="12" height="40" rx="6" fill="#FFF"/><circle cx="-5" r="4.5"/></g>
-<g transform="translate(56 4)"><rect x="-6" y="-24" width="20" height="48" rx="9"/><rect x="-1" y="-20" width="12" height="40" rx="6" fill="#FFF"/><circle cx="5" r="5.5" fill="#000"/><path d="M3-10V5.5M3 .5A3.2 3.2 0 1 1 3 4.5" fill="none" stroke="#FFF" stroke-width="2"/></g>
-</g>
-<g id="bmNote" fill="#000" stroke="#FFF" stroke-width="1.5"><path d="M4-16V5.5A5.5 4.2 0 1 1 0 1.5V-13L14-16V2.5A5.5 4.2 0 1 1 10-1.5V-17.5Z"/></g>
+  <pattern id="abToneL" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".85" fill="#000"/></pattern>
+  <pattern id="abToneW" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.2" fill="#FFF"/></pattern>
+  <g id="abSkullHead">
+    <path d="M0-54C-34-54-52-31-52-5C-52 15-42 25-31 30L-28 45C-28 50-24 53-18 53H18C24 53 28 50 28 45L31 30C42 25 52 15 52-5C52-31 34-54 0-54Z" fill="#FFF" stroke="#000" stroke-width="5.5" stroke-linejoin="round"/>
+    <path d="M22-44C34-36 42-24 42-10" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-43 10C-39 20-34 25-29 28" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/>
+    <ellipse cx="-19" cy="-2" rx="14" ry="16" fill="#000"/>
+    <ellipse cx="19" cy="-2" rx="14" ry="16" fill="#000"/>
+    <circle cx="-15" cy="-7" r="4.5" fill="#FFF"/>
+    <circle cx="-23" cy="4" r="2" fill="#FFF"/>
+    <circle cx="23" cy="-7" r="4.5" fill="#FFF"/>
+    <circle cx="15" cy="4" r="2" fill="#FFF"/>
+    <path d="M0 11L-7 25H7Z" fill="#000" stroke-linejoin="round"/>
+    <g class="ab-jaw1">
+      <path d="M-20 38H20" stroke="#000" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M-14 38V52M-7 38V52M0 38V52M7 38V52M14 38V52" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g id="abBeatsPhones">
+    <path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#000" stroke-width="14" stroke-linecap="round"/>
+    <path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round"/>
+    <path d="M-48-8C-48-48-26-74 0-74C26-74 48-48 48-8" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="6 6"/>
+    <g transform="translate(-56 4)">
+      <rect x="-14" y="-24" width="20" height="48" rx="9" fill="#000" stroke="#000" stroke-width="3"/>
+      <rect x="-11" y="-20" width="12" height="40" rx="6" fill="#FFF"/>
+      <circle cx="-5" cy="0" r="4.5" fill="#000"/>
+    </g>
+    <g transform="translate(56 4)">
+      <rect x="-6" y="-24" width="20" height="48" rx="9" fill="#000" stroke="#000" stroke-width="3"/>
+      <rect x="-1" y="-20" width="12" height="40" rx="6" fill="#FFF"/>
+      <circle cx="5" cy="0" r="5.5" fill="#000"/>
+      <path d="M3.2-10V5.5M3.2 0.5A3.2 3.2 0 1 1 3.2 4.5" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
 </defs>
-<g class="bm">
-<g class="bm1"><rect width="400" height="400" fill="#FFF"/><rect width="400" height="400" fill="url(#bmTone)" opacity=".45"/><g class="bm-lines" fill="#000" opacity=".6"><path d="M20 64h150v2H20M220 82h190v2H220M-60 114h170v2H-60M260 142h160v2H260M40 198h120v2H40M250 236h175v2H250M-30 278h155v2H-30M230 314h180v2H230M420 70h150v2H420M620 88h190v2H620"/></g><g class="bm-head"><path d="M132 292Q200 250 268 292L284 356H116Z" fill="#000"/><path d="M154 276L200 308L246 276" fill="none" stroke="#FFF" stroke-width="4"/><g transform="translate(200 205) scale(1.35)"><use href="#bmSkull"/><use href="#bmPhones"/></g></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
-<g class="bm2"><rect width="400" height="400" fill="#000"/><circle cx="200" cy="200" r="185" fill="url(#bmTone)" opacity=".2"/><g class="bm-wave" fill="none" stroke="#FFF" stroke-width="4"><path d="M324 162A56 56 0 0 1 324 248M342 144A82 82 0 0 1 342 266"/></g><g class="bm-wave delay" fill="none" stroke="#FFF" stroke-width="3"><path d="M332 153A68 68 0 0 1 332 257"/></g><g class="bm-thump"><g transform="translate(155 208) scale(2.15)"><use href="#bmSkull"/><use href="#bmPhones"/></g></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
-<g class="bm3"><rect width="400" height="400" fill="#FFF"/><path d="M0 235H400V360H0Z" fill="url(#bmTone)" opacity=".5"/><g class="bm-head"><g transform="translate(190 198) scale(1.25)"><use href="#bmSkull"/><use href="#bmPhones"/></g></g><g class="bm-note" transform="translate(96 150) scale(1.6)"><use href="#bmNote"/></g><g class="bm-note delay" transform="translate(296 142) scale(1.7)"><use href="#bmNote"/></g><g fill="#000"><rect class="bm-eq" x="116" y="314" width="12" height="28"/><rect class="bm-eq" x="136" y="302" width="12" height="40"/><rect class="bm-eq" x="156" y="308" width="12" height="34"/><rect class="bm-eq" x="176" y="294" width="12" height="48"/><rect class="bm-eq" x="196" y="304" width="12" height="38"/><rect class="bm-eq" x="216" y="296" width="12" height="46"/><rect class="bm-eq" x="236" y="310" width="12" height="32"/><rect class="bm-eq" x="256" y="302" width="12" height="40"/><rect class="bm-eq" x="276" y="316" width="12" height="26"/></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
-<g class="bm4"><rect width="400" height="400" fill="#000"/><path d="M200 200L0 120V155ZM200 200L0 230V265ZM200 200L80 0H120ZM200 200L280 0H320ZM200 200L400 110V148ZM200 200L400 245V280ZM200 200L290 400H250ZM200 200L110 400H70Z" fill="#FFF"/><g class="bm-drop"><g transform="translate(200 212) scale(1.3)"><use href="#bmSkull"/><use href="#bmPhones"/></g><text x="200" y="102" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-style="italic" font-size="56" letter-spacing="2" fill="#FFF" stroke="#000" stroke-width="9" stroke-linejoin="round" paint-order="stroke">DROP!!</text></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
-<rect x="2" y="2" width="396" height="396" fill="none" stroke="#000" stroke-width="4"/>
-</g></svg>
+<g class="ab">
+  <g class="ab-c1">
+    <rect width="400" height="400" fill="#FFF"/>
+    <rect width="400" height="400" fill="url(#abToneL)" opacity=".55"/>
+    <g class="ab-pan" fill="#000" opacity=".6">
+      <rect x="20" y="64" width="150" height="2.2"/>
+      <rect x="220" y="82" width="190" height="1.5"/>
+      <rect x="-60" y="114" width="170" height="2"/>
+      <rect x="260" y="142" width="160" height="2.4"/>
+      <rect x="40" y="198" width="120" height="1.6"/>
+      <rect x="250" y="236" width="175" height="2.2"/>
+      <rect x="-30" y="278" width="155" height="1.8"/>
+      <rect x="230" y="314" width="180" height="2.5"/>
+      <rect x="420" y="70" width="150" height="2.2"/>
+      <rect x="620" y="88" width="190" height="1.5"/>
+      <rect x="340" y="120" width="170" height="2"/>
+      <rect x="660" y="148" width="160" height="2.4"/>
+      <rect x="440" y="204" width="120" height="1.6"/>
+      <rect x="650" y="242" width="175" height="2.2"/>
+      <rect x="370" y="284" width="155" height="1.8"/>
+      <rect x="630" y="320" width="180" height="2.5"/>
+    </g>
+    <g class="ab-bob1">
+      <path d="M132 292C146 274 172 268 200 268C228 268 254 274 268 292L284 356H116Z" fill="#000" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M154 276L200 308L246 276" fill="none" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <g transform="translate(200 205) scale(1.35)">
+        <use href="#abSkullHead"/>
+        <use href="#abBeatsPhones"/>
+      </g>
+    </g>
+    <rect x="0" y="0" width="400" height="44" fill="#000"/>
+    <rect x="0" y="356" width="400" height="44" fill="#000"/>
+  </g>
+  <g class="ab-c2">
+    <rect width="400" height="400" fill="#000"/>
+    <circle cx="200" cy="200" r="185" fill="url(#abToneW)" opacity=".22"/>
+    <g class="ab-wave" fill="none" stroke="#FFF" stroke-width="4" stroke-linecap="round">
+      <path d="M324 162A56 56 0 0 1 324 248"/>
+      <path d="M342 144A82 82 0 0 1 342 266"/>
+    </g>
+    <g class="ab-wave2" fill="none" stroke="#FFF" stroke-width="3" stroke-linecap="round">
+      <path d="M332 153A68 68 0 0 1 332 257"/>
+    </g>
+    <g class="ab-thump">
+      <g transform="translate(155 208) scale(2.15)">
+        <use href="#abSkullHead"/>
+        <use href="#abBeatsPhones"/>
+      </g>
+    </g>
+    <rect x="0" y="0" width="400" height="44" fill="#000"/>
+    <rect x="0" y="356" width="400" height="44" fill="#000"/>
+  </g>
+  <rect x="2" y="2" width="396" height="396" fill="none" stroke="#000" stroke-width="4"/>
+</g>
+</svg>
 </template>
 
 <template id="art-soon">
