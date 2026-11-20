@@ -28,6 +28,13 @@ h1{margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-we
 .intro{margin:0;max-width:44ch;font-size:19px;line-height:1.45;color:#DDD}
 .count{font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.25em;color:var(--dim);margin:22px 0 0}
 
+.project-section{margin-top:48px;padding-top:26px;border-top:1px solid var(--line)}
+.section-heading{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.section-number{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:.16em;color:var(--red);white-space:nowrap}
+.section-heading h2{margin:0;font-family:'Special Elite','Courier New',monospace;font-size:clamp(21px,3vw,30px);font-weight:400;line-height:1.2;letter-spacing:.035em;text-transform:uppercase}
+.section-note{max-width:62ch;margin:12px 0 0;font-family:'Special Elite','Courier New',monospace;font-size:14px;line-height:1.65;color:#CFCFCF}
+.section-empty{margin:22px 0 0;padding:16px 18px;border:1px dashed #444;color:#888;font-family:'Special Elite',monospace;font-size:12px;letter-spacing:.04em}
+.project-section .grid{margin-top:28px}
 .grid{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:44px 32px}
 .story{display:flex;flex-direction:column;gap:12px;color:var(--ink);text-decoration:none;height:100%}
 .thumb{position:relative;aspect-ratio:1/1;overflow:hidden;border:2px solid var(--ink);transition:transform .25s ease}
@@ -62,7 +69,24 @@ input[type=text],input[type=search],textarea{cursor:text}
     <h1>Projects</h1>
     <p class="tag">A study of taste, trends & human behaviour.</p>
   </header>
-  <ol class="grid" id="grid"></ol>
+
+  <section class="project-section" aria-labelledby="brand-heading">
+    <div class="section-heading">
+      <span class="section-number">01 /</span>
+      <h2 id="brand-heading">Brand, Strategy &amp; Cultural Research</h2>
+    </div>
+    <p class="section-note">Brand thinking, campaign analysis, cultural intelligence and the ideas shaping how people connect with brands.</p>
+    <p class="section-empty">Selected work and research in this area will be added here.</p>
+  </section>
+
+  <section class="project-section" aria-labelledby="data-heading">
+    <div class="section-heading">
+      <span class="section-number">02 /</span>
+      <h2 id="data-heading">Data Stories, Code &amp; Audience Analytics</h2>
+    </div>
+    <p class="section-note">Projects using data, code and audience research to investigate culture, sport, media and human behaviour.</p>
+    <ol class="grid" id="grid"></ol>
+  </section>
 </main>
 
 <!-- tile artwork, one per project -->
