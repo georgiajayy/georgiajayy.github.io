@@ -648,6 +648,49 @@ input[type=text],input[type=search],textarea{cursor:text}
 </svg>
 </template>
 
+<template id="art-beats">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Four-cut black and white manga animation of a skull wearing Beats headphones, nodding to music as soundwaves pulse, notes rise and the beat drops">
+<style>
+.bm *{transform-box:view-box}
+.bm1{animation:bc1 5s steps(1,end) infinite}.bm2{animation:bc2 5s steps(1,end) infinite;opacity:0}.bm3{animation:bc3 5s steps(1,end) infinite;opacity:0}.bm4{animation:bc4 5s steps(1,end) infinite;opacity:0}
+@keyframes bc1{0%,30%{opacity:1}30.1%,100%{opacity:0}}@keyframes bc2{0%,30%{opacity:0}30.1%,56%{opacity:1}56.1%,100%{opacity:0}}@keyframes bc3{0%,56%{opacity:0}56.1%,86%{opacity:1}86.1%,100%{opacity:0}}@keyframes bc4{0%,86%{opacity:0}86.1%,100%{opacity:1}}
+.bm-head{transform-origin:200px 210px;animation:bnod .48s ease-in-out infinite alternate}@keyframes bnod{to{transform:translateY(9px) rotate(4deg)}}
+.bm-jaw{transform-origin:200px 245px;animation:bjaw .48s ease-in-out infinite alternate}@keyframes bjaw{to{transform:translateY(3px)}}
+.bm-lines{animation:blines .5s linear infinite}@keyframes blines{to{transform:translateX(-190px)}}
+.bm-thump{transform-origin:200px 205px;animation:bthump .24s ease-in-out infinite alternate}@keyframes bthump{to{transform:scale(1.07)}}
+.bm-wave{transform-origin:300px 205px;animation:bwave .55s ease-out infinite}.bm-wave.delay{animation-delay:.27s}
+@keyframes bwave{0%{opacity:.95;transform:scale(.7)}100%{opacity:0;transform:scale(1.5)}}
+.bm-note{animation:bnote 1.35s ease-out infinite}.bm-note.delay{animation-delay:.5s}@keyframes bnote{0%{opacity:0;transform:translateY(12px) scale(.7)}25%{opacity:1}100%{opacity:0;transform:translate(-20px,-58px) scale(1.15) rotate(12deg)}}
+.bm-eq{transform-origin:center bottom;animation:beq .24s ease-in-out infinite alternate}.bm-eq:nth-child(2n){animation-duration:.32s;animation-delay:.08s}.bm-eq:nth-child(3n){animation-duration:.2s;animation-delay:.14s}@keyframes beq{to{transform:scaleY(1.4)}}
+.bm-drop{transform-origin:200px 200px;animation:bdrop .7s cubic-bezier(.2,1.5,.35,1) both}@keyframes bdrop{0%{transform:scale(.55) rotate(-6deg)}50%{transform:scale(1.08) rotate(2deg)}100%{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.bm *{animation:none!important}.bm1,.bm2,.bm4{opacity:0}.bm3{opacity:1}}
+</style>
+<defs>
+<pattern id="bmTone" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".85" fill="#000"/></pattern>
+<g id="bmSkull">
+<path d="M0-54C-34-54-52-31-52-5C-52 15-42 25-31 30L-28 45C-28 50-24 53-18 53H18C24 53 28 50 28 45L31 30C42 25 52 15 52-5C52-31 34-54 0-54Z" fill="#FFF" stroke="#000" stroke-width="5.5" stroke-linejoin="round"/>
+<path d="M22-44C34-36 42-24 42-10M-43 10C-39 20-34 25-29 28" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="-19" cy="-2" rx="14" ry="16"/><ellipse cx="19" cy="-2" rx="14" ry="16"/>
+<circle cx="-15" cy="-7" r="4.5" fill="#FFF"/><circle cx="23" cy="-7" r="4.5" fill="#FFF"/>
+<path d="M0 11L-7 25H7Z"/>
+<g class="bm-jaw"><path d="M-20 38H20" stroke="#000" stroke-width="3.5"/><path d="M-14 38V52M-7 38V52M0 38V52M7 38V52M14 38V52" stroke="#000" stroke-width="3"/></g>
+</g>
+<g id="bmPhones">
+<path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#000" stroke-width="14" stroke-linecap="round"/><path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round"/>
+<g transform="translate(-56 4)"><rect x="-14" y="-24" width="20" height="48" rx="9"/><rect x="-11" y="-20" width="12" height="40" rx="6" fill="#FFF"/><circle cx="-5" r="4.5"/></g>
+<g transform="translate(56 4)"><rect x="-6" y="-24" width="20" height="48" rx="9"/><rect x="-1" y="-20" width="12" height="40" rx="6" fill="#FFF"/><circle cx="5" r="5.5" fill="#000"/><path d="M3-10V5.5M3 .5A3.2 3.2 0 1 1 3 4.5" fill="none" stroke="#FFF" stroke-width="2"/></g>
+</g>
+<g id="bmNote" fill="#000" stroke="#FFF" stroke-width="1.5"><path d="M4-16V5.5A5.5 4.2 0 1 1 0 1.5V-13L14-16V2.5A5.5 4.2 0 1 1 10-1.5V-17.5Z"/></g>
+</defs>
+<g class="bm">
+<g class="bm1"><rect width="400" height="400" fill="#FFF"/><rect width="400" height="400" fill="url(#bmTone)" opacity=".45"/><g class="bm-lines" fill="#000" opacity=".6"><path d="M20 64h150v2H20M220 82h190v2H220M-60 114h170v2H-60M260 142h160v2H260M40 198h120v2H40M250 236h175v2H250M-30 278h155v2H-30M230 314h180v2H230M420 70h150v2H420M620 88h190v2H620"/></g><g class="bm-head"><path d="M132 292Q200 250 268 292L284 356H116Z" fill="#000"/><path d="M154 276L200 308L246 276" fill="none" stroke="#FFF" stroke-width="4"/><g transform="translate(200 205) scale(1.35)"><use href="#bmSkull"/><use href="#bmPhones"/></g></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
+<g class="bm2"><rect width="400" height="400" fill="#000"/><circle cx="200" cy="200" r="185" fill="url(#bmTone)" opacity=".2"/><g class="bm-wave" fill="none" stroke="#FFF" stroke-width="4"><path d="M324 162A56 56 0 0 1 324 248M342 144A82 82 0 0 1 342 266"/></g><g class="bm-wave delay" fill="none" stroke="#FFF" stroke-width="3"><path d="M332 153A68 68 0 0 1 332 257"/></g><g class="bm-thump"><g transform="translate(155 208) scale(2.15)"><use href="#bmSkull"/><use href="#bmPhones"/></g></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
+<g class="bm3"><rect width="400" height="400" fill="#FFF"/><path d="M0 235H400V360H0Z" fill="url(#bmTone)" opacity=".5"/><g class="bm-head"><g transform="translate(190 198) scale(1.25)"><use href="#bmSkull"/><use href="#bmPhones"/></g></g><g class="bm-note" transform="translate(96 150) scale(1.6)"><use href="#bmNote"/></g><g class="bm-note delay" transform="translate(296 142) scale(1.7)"><use href="#bmNote"/></g><g fill="#000"><rect class="bm-eq" x="116" y="314" width="12" height="28"/><rect class="bm-eq" x="136" y="302" width="12" height="40"/><rect class="bm-eq" x="156" y="308" width="12" height="34"/><rect class="bm-eq" x="176" y="294" width="12" height="48"/><rect class="bm-eq" x="196" y="304" width="12" height="38"/><rect class="bm-eq" x="216" y="296" width="12" height="46"/><rect class="bm-eq" x="236" y="310" width="12" height="32"/><rect class="bm-eq" x="256" y="302" width="12" height="40"/><rect class="bm-eq" x="276" y="316" width="12" height="26"/></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
+<g class="bm4"><rect width="400" height="400" fill="#000"/><path d="M200 200L0 120V155ZM200 200L0 230V265ZM200 200L80 0H120ZM200 200L280 0H320ZM200 200L400 110V148ZM200 200L400 245V280ZM200 200L290 400H250ZM200 200L110 400H70Z" fill="#FFF"/><g class="bm-drop"><g transform="translate(200 212) scale(1.3)"><use href="#bmSkull"/><use href="#bmPhones"/></g><text x="200" y="102" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-style="italic" font-size="56" letter-spacing="2" fill="#FFF" stroke="#000" stroke-width="9" stroke-linejoin="round" paint-order="stroke">DROP!!</text></g><path d="M0 0H400V44H0ZM0 356H400V400H0Z"/></g>
+<rect x="2" y="2" width="396" height="396" fill="none" stroke="#000" stroke-width="4"/>
+</g></svg>
+</template>
+
 <template id="art-soon">
 <svg viewBox="0 0 400 400" aria-hidden="true">
   <rect width="400" height="400" fill="#0B0B0B"/>
@@ -668,7 +711,7 @@ input[type=text],input[type=search],textarea{cursor:text}
     art    id of a <template> above with the tile artwork, or img: 'assets/your-thumb.png'
 */
 var PROJECTS = [
-  { section: 'brand', label: '#1', title: 'How Do You Sell Sound Through Culture?', dek: 'I analysed 25 headphone ads and tested four creative approaches with consumers to explore how Beats can turn cultural influence into credibility and purchase consideration.', href: 'projects/beats-by-dre.html', month: 'BEATS BY DRE', tags: ['Brand Positioning', 'Cultural Strategy', 'Campaign Analysis'], art: 'art-soon' },
+  { section: 'brand', label: '#1', title: 'How Do You Sell Sound Through Culture?', dek: 'I analysed 25 headphone ads and tested four creative approaches with consumers to explore how Beats can turn cultural influence into credibility and purchase consideration.', href: 'projects/beats-by-dre.html', month: 'BEATS BY DRE', tags: ['Brand Positioning', 'Cultural Strategy', 'Campaign Analysis'], art: 'art-beats' },
   { section: 'brand', label: '#2', title: 'Where Does Gen Z Go Before They Buy?', dek: 'Search engines give answers, not taste. I ran a Jobs-to-be-Done survey (30+ responses) to uncover how Gen Z actually discovers trends, and where brands can show up without ruining the feed.', href: '', month: 'PINTEREST', tags: ['Consumer Research', 'JTBD', 'Audience Insights'], art: 'art-soon' },
   { title: 'Third Time’s a Charm?', dek: 'Spain took 23 shots to England\'s 8 in the Euro 2025 final. Can the Lionesses make it three in a row by 2029?', href: 'projects/lionesses-euro-2025.html', month: 'SEP 2026', tags: ['Football', 'Python', 'Streamlit'], art: 'art-lionesses' },
   { title: 'Who Dies First?', dek: 'Everyone knows the Black character dies first. I logged 27 horror films and built a game to find out if it\'s true.', href: 'https://georgiajayy.github.io/black-horror-1968-2025/', month: 'OCT 2026', tags: ['Film', 'Python', 'JavaScript'], art: 'art-whodies' },
