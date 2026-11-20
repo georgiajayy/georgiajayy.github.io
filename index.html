@@ -56,10 +56,11 @@ footer{text-align:center;font-family:'Special Elite',monospace;font-size:13px;co
 .vibe-side{flex:1 1 0;min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:space-around;gap:28px}
 .head-right{flex:0 0 auto;align-self:stretch;display:flex;flex-direction:column;gap:30px}
 .head-right .quick{flex:0 0 auto;margin-top:clamp(12px,2.5vw,40px)}
-.bmc{align-self:flex-end;display:inline-flex;align-items:center;gap:10px;background:#FFF;color:#000;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:clamp(18px,1.5vw,24px);text-decoration:none;padding:7px 16px 8px;border:3px solid #FFF;border-radius:4px 14px 6px 12px;transform:rotate(3deg);filter:url(#rough);transition:transform .15s ease,background .15s ease}
-.bmc svg{width:22px;height:22px;fill:currentColor}
-.bmc:hover,.bmc:focus-visible{background:#E62E2E;border-color:#E62E2E;transform:rotate(-2deg) scale(1.05);outline:none}
-@media (prefers-reduced-motion:reduce){.bmc{transition:none}}
+.bmc{align-self:flex-end;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:5px 9px;max-width:100%;background:transparent;color:#aaa;font-family:'Special Elite',monospace;font-size:13px;line-height:1.6;letter-spacing:.02em;text-decoration:none;padding:8px 10px;border:1px solid #444;border-radius:0;transition:border-color .15s ease,color .15s ease}
+.bmc-label{color:#fff;letter-spacing:.08em;text-transform:uppercase}
+.bmc a{color:#fff;text-decoration:none;white-space:normal}
+.bmc a:hover,.bmc a:focus-visible{color:#E62E2E;text-decoration:underline;text-underline-offset:3px;outline:none}
+@media (max-width:560px){.bmc{align-self:stretch;justify-content:center;text-align:center;gap:4px 7px}}
 .srch{flex:0 0 auto;min-width:0;position:relative;display:flex;flex-direction:column;gap:8px}
 .srch-label{font-family:'Special Elite',monospace;color:#FFF;font-size:14px;letter-spacing:3px}
 .srch-box{display:flex;align-items:center;border:2px solid #FFF;background:#000}
@@ -169,7 +170,7 @@ input[type=text],input[type=search],textarea{cursor:text}
 </div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="rough" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 <div class="head-right">
-<a class="bmc" href="mailto:work.georgiajayy@gmail.com">Email Me!</a>
+<div class="bmc" aria-label="Donation links"><span class="bmc-label">Donate To:</span><a href="https://www.map.org.uk/how-to-help/donate/" target="_blank" rel="noopener noreferrer">🇵🇸 Palestine (MAP)</a><span aria-hidden="true">·</span><a href="https://friendsofthecongo.org/donate/" target="_blank" rel="noopener noreferrer">🇨🇩 Congo (Friends of the Congo)</a><span aria-hidden="true">·</span><a href="https://donate.redcross.org.uk/appeal/disaster-fund-sudan" target="_blank" rel="noopener noreferrer">🇸🇩 Sudan (British Red Cross)</a></div>
 <nav class="quick" aria-label="Quick links">
 <a class="goth" href="bio.html">Bio</a>
 <a class="goth" href="https://youtu.be/t8MqfKvLu3Y" target="_blank" rel="noopener noreferrer" aria-label="Watch Georgia Jayy’s showreel on YouTube">🎥 Showreel ↗</a>
