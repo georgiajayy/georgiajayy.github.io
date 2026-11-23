@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hungry Dracula · Georgia Jayy</title>
+<meta name="description" content="A retro Game Boy-inspired arcade game built in Scratch for Harvard CS50 Week 0. Catch blood, dodge garlic and silver swords, and beat the clock.">
+<meta property="og:title" content="The Hungry Dracula · Georgia Jayy">
+<meta property="og:description" content="A 30-second arcade game built in Scratch. Catch blood, dodge garlic and silver swords.">
+<meta property="og:image" content="https://github.com/georgiajayy/cs50-the-hungry-dracula/raw/main/thumbnail.jpg">
+<meta name="theme-color" content="#080808">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=UnifrakturMaguntia&family=Alegreya:ital,wght@0,400;0,700;0,900;1,400&display=swap">
+<style>
+:root{--bg:#080808;--panel:#111;--ink:#f5f1e8;--red:#e62e2e;--muted:#aaa;--line:#353535;--type:'Special Elite','Courier New',monospace;--goth:'UnifrakturMaguntia',serif;--read:'Alegreya',Georgia,serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.6 var(--read)}
+a{color:inherit}.back{position:fixed;z-index:5;top:18px;left:18px;padding:7px 12px;border:1px solid var(--ink);background:#080808;text-decoration:none;font:21px var(--goth)}.back:hover{background:var(--red);color:#080808;border-color:var(--red)}
+.page{max-width:1080px;margin:auto;padding:100px 24px 70px}.eyebrow,.meta span,.tag,.section-label,.button,.micro{font-family:var(--type);text-transform:uppercase;letter-spacing:.16em}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center;padding-bottom:38px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-size:11px;color:var(--red)}h1{font:400 clamp(58px,8vw,104px)/.88 var(--goth);margin:18px 0 16px;max-width:8ch}.subtitle{font:12px var(--type);letter-spacing:.15em;color:var(--muted);text-transform:uppercase}.lede{font-size:23px;line-height:1.45;max-width:34ch;margin:20px 0 0}
+.hero-image{border:2px solid var(--ink);background:#171717;overflow:hidden;position:relative}.hero-image img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}.hero-image:after{content:'PLAYER 01 / GAME BOY MODE';position:absolute;bottom:0;left:0;right:0;background:#080808;color:var(--red);padding:10px 13px;font:10px var(--type);letter-spacing:.18em}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}.meta div{display:flex;flex-direction:column;gap:6px}.meta span{font-size:10px;color:var(--red)}.meta b{font:13px/1.5 var(--type);font-weight:400}
+.section{padding-top:58px}.section-label{font-size:11px;color:var(--red);display:flex;gap:12px;align-items:center;margin-bottom:14px}.section-label:after{content:'';height:1px;background:var(--line);flex:1}
+h2{font:400 clamp(36px,5vw,58px)/1 var(--goth);margin:0 0 18px}h3{font:18px/1.35 var(--type);font-weight:400;margin:0 0 9px}.intro{max-width:72ch;color:#ddd}.intro p{margin:0 0 14px}
+.play-panel{border:2px solid var(--ink);display:grid;grid-template-columns:1.1fr .9fr;margin-top:24px;background:var(--panel)}.play-copy{padding:26px}.play-copy p{color:#ccc;margin:8px 0 18px}.score-list{display:grid;gap:9px;margin:18px 0 0}.score{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:8px 0;font:13px var(--type)}.score strong{color:var(--red);font-weight:400}
+.screen{background:#151515;display:flex;align-items:center;justify-content:center;padding:26px;min-height:270px;border-left:1px solid var(--line);position:relative;overflow:hidden}.screen:before{content:'';position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:18px 18px}.screen-inner{position:relative;text-align:center;border:1px solid #777;padding:28px 20px;width:100%;max-width:320px;box-shadow:8px 8px 0 #000}.pixel-title{font:clamp(25px,3vw,37px)/1.1 var(--type);color:var(--red);text-shadow:2px 2px #000}.pixel-sub{font:10px var(--type);letter-spacing:.12em;color:#ddd;margin-top:16px}
+.mechanics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.item{border:1px solid var(--line);padding:18px;background:var(--panel)}.item .symbol{font:34px var(--type);color:var(--red);display:block;margin-bottom:10px}.item p{font-size:15px;color:#bbb;margin:0}.item b{display:block;font:13px var(--type);margin-bottom:6px}
+.steps{list-style:none;padding:0;margin:0;counter-reset:step}.steps li{counter-increment:step;display:grid;grid-template-columns:55px 1fr;gap:18px;border-top:1px solid var(--line);padding:20px 0}.steps li:last-child{border-bottom:1px solid var(--line)}.steps li:before{content:'0' counter(step);font:28px var(--read);color:var(--red)}.steps p{margin:0;color:#ccc}
+.code-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.code-card{padding:20px;border:1px solid var(--line);background:var(--panel)}.code-card p{font-size:16px;color:#bbb;margin:8px 0 0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag{font-size:10px;border:1px solid #555;padding:7px 9px;color:#ddd}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.button{display:inline-block;text-decoration:none;font-size:11px;padding:14px 17px;border:1px solid var(--ink)}.button.primary{background:var(--ink);color:#080808}.button:hover{background:var(--red);border-color:var(--red);color:#080808}
+.footnote{font:10px/1.7 var(--type);color:var(--muted);margin-top:20px}
+footer{border-top:1px solid var(--line);margin-top:70px;padding-top:20px;text-align:center;font:10px var(--type);letter-spacing:.2em;color:var(--muted)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-image{max-width:560px}.meta{grid-template-columns:repeat(2,1fr)}.play-panel{grid-template-columns:1fr}.screen{border-left:0;border-top:1px solid var(--line)}}
+@media(max-width:520px){.page{padding:86px 18px 54px}.mechanics,.code-grid{grid-template-columns:1fr}.steps li{grid-template-columns:38px 1fr;gap:12px}.play-copy{padding:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="back" href="../data.html">← Projects</a>
+<main class="page">
+<header class="hero">
+<div>
+<div class="eyebrow">02 / CREATIVE CODING · GAME DESIGN</div>
+<h1>The Hungry Dracula</h1>
+<p class="subtitle">A tiny arcade game with a taste for trouble.</p>
+<p class="lede">A retro Game Boy-inspired catching game built in Scratch for Harvard CS50 Week 0. Steer Dracula, collect blood, avoid garlic and silver, and see how high you can score before sunrise.</p>
+<div class="tags"><span class="tag">Harvard CS50</span><span class="tag">Scratch</span><span class="tag">Game Development</span><span class="tag">Programming Logic</span></div>
+</div>
+<div class="hero-image"><img src="https://github.com/georgiajayy/cs50-the-hungry-dracula/raw/main/thumbnail.jpg" alt="The Hungry Dracula Scratch game thumbnail"></div>
+</header>
+
+<div class="meta">
+<div><span>BUILT WITH</span><b>Scratch</b></div>
+<div><span>COURSE</span><b>Harvard CS50 · Week 0</b></div>
+<div><span>GAME FORMAT</span><b>2D arcade · Catching game</b></div>
+<div><span>ROUND LENGTH</span><b>30 seconds</b></div>
+</div>
+
+<section class="section">
+<div class="section-label">01 / THE BRIEF</div>
+<h2>Can Dracula survive the snack run?</h2>
+<div class="intro">
+<p>I built The Hungry Dracula as my first CS50 Week 0 project, using Scratch to turn the fundamentals of programming into a small, playable arcade game. The idea was simple: guide Dracula across the screen, catch the useful drops and dodge the things that can end the run.</p>
+<p>The project combines custom pixel-art sprites and backdrops with a title screen, instructions, timed gameplay, scoring and a restart sequence. It gave me a practical way to work with events, variables, conditionals, loops and reusable procedures while building something with its own visual identity.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label">02 / HOW TO PLAY</div>
+<h2>Thirty seconds. Make them count.</h2>
+<div class="play-panel">
+<div class="play-copy">
+<h3>CONTROLS</h3>
+<p>Use the left and right arrow keys to move Dracula across the arena. Catch blood to build your score, but keep an eye out for garlic and silver swords. When the timer reaches zero, the round ends and you can restart.</p>
+<div class="score-list">
+<div class="score"><span>Blood</span><strong>+1 POINT</strong></div>
+<div class="score"><span>Silver Sword</span><strong>+3 POINTS</strong></div>
+<div class="score"><span>Garlic</span><strong>−2 POINTS</strong></div>
+<div class="score"><span>Time limit</span><strong>00:30</strong></div>
+</div>
+</div>
+<div class="screen"><div class="screen-inner"><div class="pixel-title">THE HUNGRY<br>DRACULA</div><div class="pixel-sub">CATCH THE BLOOD · AVOID THE GARLIC</div><div class="pixel-sub">PRESS START TO PLAY</div></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label">03 / THE BUILD</div>
+<h2>More than a sprite and a score.</h2>
+<div class="intro"><p>The game is organised around broadcast messages that coordinate the different parts of the experience. This keeps the title screen, instructions, active game and game-over state working as distinct stages rather than one continuous script.</p></div>
+<ol class="steps">
+<li><div><h3>Screen states and broadcasts</h3><p>A title screen leads into instructions and then the game arena. The <code>start game</code> broadcast synchronises player movement, falling items, audio and the countdown. When time expires, <code>game over</code> triggers the end screen and restart flow.</p></div></li>
+<li><div><h3>Reusable item spawning</h3><p>I created a custom block, <code>reset drop (delay)</code>, with a delay parameter. It resets each falling item to a position along the top of the arena, waits for the specified interval and reveals it during active play.</p></div></li>
+<li><div><h3>Scoring and collision logic</h3><p>The <code>score</code> and <code>timer</code> variables track the round. Conditional checks detect collisions with Dracula, handle points and penalties, and return items to the top when they leave the arena.</p></div></li>
+<li><div><h3>Loops and timing</h3><p><code>repeat until</code> loops keep the countdown, character movement, item drops and background audio running in sync until the 30-second round ends.</p></div></li>
+</ol>
+</section>
+
+<section class="section">
+<div class="section-label">04 / WHAT I BUILT</div>
+<h2>The project, in numbers.</h2>
+<div class="mechanics">
+<div class="item"><span class="symbol">05</span><b>CUSTOM SPRITES</b><p>Dracula, Blood, Garlic, Silver Sword and Restart Button.</p></div>
+<div class="item"><span class="symbol">12+</span><b>SCRIPTS</b><p>Screen transitions, controls, audio, countdown, item drops, scoring and resets.</p></div>
+<div class="item"><span class="symbol">02</span><b>CORE VARIABLES</b><p>Score and timer track the player's progress and the round state.</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label">05 / WHAT I LEARNED</div>
+<h2>Learning by making.</h2>
+<div class="code-grid">
+<article class="code-card"><h3>EVENT-DRIVEN THINKING</h3><p>Using broadcasts to coordinate separate sprites and game states made the project easier to organise and reason about.</p></article>
+<article class="code-card"><h3>REUSABLE LOGIC</h3><p>The parameterised drop procedure showed how a custom block can reduce repetition while allowing different timing behaviour.</p></article>
+<article class="code-card"><h3>STATE AND CONDITIONS</h3><p>Variables, collision checks and boundary conditions connected player actions to a consistent game state.</p></article>
+<article class="code-card"><h3>DESIGN AND FUNCTION</h3><p>Building custom sprites, backdrops and sound into the experience reminded me that interaction design and programming decisions work together.</p></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label">06 / PLAY & SOURCE</div>
+<h2>Take a closer look.</h2>
+<div class="intro"><p>The complete Scratch project archive includes the sprites, pixel-art backdrops, sound effects and scripts. Open it in Scratch to inspect the build and run the game.</p></div>
+<div class="actions">
+<a class="button primary" href="https://github.com/georgiajayy/cs50-the-hungry-dracula/raw/main/The%20Hungry%20Dracula.sb3">DOWNLOAD SCRATCH PROJECT ↗</a>
+<a class="button" href="https://github.com/georgiajayy/cs50-the-hungry-dracula" target="_blank" rel="noopener noreferrer">VIEW SOURCE REPOSITORY ↗</a>
+<a class="button" href="https://github.com/georgiajayy/cs50-the-hungry-dracula/blob/main/README.md" target="_blank" rel="noopener noreferrer">PROJECT README ↗</a>
+</div>
+<p class="footnote">PROJECT NOTE / This page documents the Scratch build. The downloadable .sb3 file can be opened in Scratch to play the game and inspect its scripts.</p>
+</section>
+<footer>GEORGIA JAYY · CREATIVE CODING / HARVARD CS50 WEEK 0</footer>
+</main>
+</body>
+</html>
