@@ -60,6 +60,31 @@ a.story:hover h2{color:var(--red)}
 html,body,a,button,label,[role=button],.slot{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,auto}
 a,button,[role=button]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='52' viewBox='0 0 44 52'%3E%3Cdefs%3E%3Cfilter id='g' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='2.4' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M3 3 L3 44 L13.5 34 L21 50 L29 46.5 L21.5 31 L36 31 Z' fill='%23E62E2E' stroke='%230B0B0B' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M6 12 L9 15 M5 24 L10 21 M8 33 L12 30 M14 22 L17 26 M19 28 L23 27 M22 38 L25 44' stroke='%237A1214' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='18' r='1.2' fill='%23FF6A6A'/%3E%3Ccircle cx='12' cy='27' r='1' fill='%23FF6A6A'/%3E%3Ccircle cx='24' cy='42' r='1.1' fill='%237A1214'/%3E%3Ccircle cx='17' cy='31' r='.9' fill='%237A1214'/%3E%3C/g%3E%3C/svg%3E") 3 3,pointer}
 input[type=text],input[type=search],textarea{cursor:text}
+
+/* Project index: compact, searchable database rather than image cards. */
+.project-section.database{margin-top:34px;padding-top:0;border-top:0;font-family:'Special Elite','Courier New',monospace}
+.database-top,.database-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#E62E2E;font-size:12px;letter-spacing:.16em;padding:13px 0;border-top:1px solid #E62E2E;border-bottom:1px solid #333}
+.search-label{display:block;margin:25px 0 8px;color:#A8A8A8;font-size:11px;letter-spacing:.18em}
+#project-search{box-sizing:border-box;width:100%;padding:15px 16px;background:#090909;border:1px solid #555;border-radius:0;color:#FFF;font:14px 'Special Elite',monospace;outline:none}
+#project-search:focus{border-color:#E62E2E;box-shadow:0 0 0 1px #E62E2E}
+#project-search::placeholder{color:#777}
+.db-head,.db-row{display:grid;grid-template-columns:70px minmax(220px,2fr) minmax(180px,1.2fr) 110px 24px;gap:18px;align-items:center}
+.db-head{padding:17px 14px 12px;color:#888;font-size:10px;letter-spacing:.16em;border-bottom:1px solid #555}
+.db-list{border-bottom:1px solid #555}
+.db-row{position:relative;padding:20px 14px;color:#FFF;text-decoration:none;border-bottom:1px solid #292929;transition:background .18s ease,border-color .18s ease}
+.db-row:last-child{border-bottom:0}
+.db-row:hover,.db-row:focus-visible{background:#111;border-color:#E62E2E;outline:none}
+.db-ref{color:#E62E2E;font-size:15px}
+.db-title{display:block;font:17px 'Special Elite',monospace;line-height:1.3}
+.db-dek{display:block;margin-top:7px;color:#AAA;font:12px/1.55 'Alegreya',Georgia,serif;letter-spacing:.01em}
+.db-tags{color:#BBB;font-size:10px;line-height:1.8;letter-spacing:.08em;text-transform:uppercase}
+.db-date{color:#999;font-size:11px;letter-spacing:.1em}
+.db-arrow{color:#E62E2E;font-size:20px;text-align:right}
+.db-empty{padding:24px 14px;color:#999;font-size:13px}
+.database-bottom{margin-top:0;border-top:1px solid #333;border-bottom:0;color:#888}
+@media(max-width:700px){.db-head{display:none}.db-row{grid-template-columns:42px minmax(0,1fr) 20px;gap:12px;padding:18px 8px}.db-tags{grid-column:2;grid-row:2}.db-date{grid-column:2;grid-row:3;margin-top:3px}.db-arrow{grid-column:3;grid-row:1}.db-title{font-size:15px}.db-dek{font-size:12px}.database-bottom{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.db-row{transition:none}}
+
 </style>
 </head>
 <body>
@@ -70,8 +95,14 @@ input[type=text],input[type=search],textarea{cursor:text}
     <p class="tag">A study of taste, trends & human behaviour.</p>
   </header>
 
-  <section class="project-section" aria-label="Selected projects">
-    <ol class="grid" id="grid"></ol>
+  <section class="project-section database" aria-label="Project database">
+    <div class="database-top"><span>PROJECT INDEX / 2026</span><span id="record-count">05 RECORDS</span></div>
+    <label class="search-label" for="project-search">SEARCH THE ARCHIVE</label>
+    <input id="project-search" type="search" placeholder="Search projects, disciplines or tools…" autocomplete="off">
+    <div class="db-head" aria-hidden="true"><span>REF</span><span>PROJECT / DESCRIPTION</span><span>DISCIPLINE &amp; TOOLS</span><span>DATE</span><span></span></div>
+    <div class="db-list" id="grid"></div>
+    <p class="db-empty" id="db-empty" hidden>No matching records.</p>
+    <div class="database-bottom"><span>END OF INDEX</span><span>SELECT A RECORD TO OPEN THE CASE STUDY ↗</span></div>
   </section>
 </main>
 
@@ -548,28 +579,29 @@ var PROJECTS = [
   { title: 'How Hungry Is Too Hungry?', dek: 'A retro Game Boy-inspired arcade game built in Scratch for Harvard CS50 Week 0. Catch blood, dodge garlic and silver swords, and chase the highest score before the 30-second timer runs out.', href: 'projects/the-hungry-dracula.html', month: 'NOV 2026', tags: ['HarvardCS50', 'Scratch', 'Game Development', 'Programming Logic'], img: 'https://github.com/georgiajayy/cs50-the-hungry-dracula/raw/main/thumbnail.jpg' }
 ];
 (function () {
-  var grid = document.getElementById('grid'), live = 0, num = 0;
-  PROJECTS.forEach(function (p, i) {
-    var open = !!p.href; if (open) live++;
-    var li = document.createElement('li');
-    var a = document.createElement(open ? 'a' : 'div');
-    a.className = 'story' + (open ? '' : ' soon');
-    if (open) a.href = p.href;
-    var th = document.createElement('div'); th.className = 'thumb';
-    if (p.img) { var im = document.createElement('img'); im.src = p.img; im.alt = ''; im.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block'; th.appendChild(im); }
-    else if (p.art) { var t = document.getElementById(p.art); if (t) th.appendChild(t.content.cloneNode(true)); }
-    a.appendChild(th);
-    var k = document.createElement('div'); k.className = 'kick';
-    var n = document.createElement('b'); n.textContent = p.label || '#' + (++num); k.appendChild(n);
-    var m = document.createElement('span'); m.textContent = p.month || 'COMING SOON'; k.appendChild(m);
-    a.appendChild(k);
-    var h = document.createElement('h2'); h.textContent = p.title; a.appendChild(h);
-    var d = document.createElement('p'); d.textContent = p.dek; a.appendChild(d);
-    var tg = document.createElement('div'); tg.className = 'tags';
-    (p.tags || []).forEach(function (x) { var s = document.createElement('span'); s.textContent = x; tg.appendChild(s); });
-    a.appendChild(tg);
-    li.appendChild(a); grid.appendChild(li);
-  });
+  var grid=document.getElementById('grid'), search=document.getElementById('project-search'), count=document.getElementById('record-count'), empty=document.getElementById('db-empty');
+  function render(){
+    var q=(search.value||'').toLowerCase().trim(), visible=0;
+    grid.innerHTML='';
+    PROJECTS.forEach(function(p,i){
+      var tags=(p.tags||[]).join(' · '), hay=[p.title,p.dek,p.month,tags].join(' ').toLowerCase();
+      if(q && hay.indexOf(q)===-1)return;
+      visible++;
+      var a=document.createElement('a');a.className='db-row';a.href=p.href;
+      var ref=document.createElement('span');ref.className='db-ref';ref.textContent=p.label||('#'+String(i+1).padStart(2,'0'));
+      var project=document.createElement('span');
+      var title=document.createElement('span');title.className='db-title';title.textContent=p.title;
+      var dek=document.createElement('span');dek.className='db-dek';dek.textContent=p.dek;
+      project.appendChild(title);project.appendChild(dek);
+      var discipline=document.createElement('span');discipline.className='db-tags';discipline.textContent=tags;
+      var date=document.createElement('span');date.className='db-date';date.textContent=p.month||'—';
+      var arrow=document.createElement('span');arrow.className='db-arrow';arrow.textContent='↗';
+      a.appendChild(ref);a.appendChild(project);a.appendChild(discipline);a.appendChild(date);a.appendChild(arrow);grid.appendChild(a);
+    });
+    count.textContent=String(visible).padStart(2,'0')+' / '+String(PROJECTS.length).padStart(2,'0')+' RECORDS';
+    empty.hidden=visible!==0;
+  }
+  search.addEventListener('input',render);render();
 })();
 </script>
 </body>
