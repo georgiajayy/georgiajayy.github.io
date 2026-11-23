@@ -16,7 +16,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.6 var(--read)}
 a{color:inherit}.back{position:fixed;z-index:5;top:18px;left:18px;padding:7px 12px;border:1px solid var(--ink);background:#000;text-decoration:none;font:21px var(--goth)}.back:hover{background:var(--red);color:#000;border-color:var(--red)}
 .page{max-width:1080px;margin:auto;padding:100px 24px 70px}.eyebrow,.meta span,.tag,.section-label,.button,.micro{font-family:var(--type);text-transform:uppercase;letter-spacing:.16em}
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center;padding-bottom:38px;border-bottom:2px solid var(--ink)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:38px;align-items:center;padding-bottom:38px;border-bottom:2px solid var(--ink)}
 .eyebrow{font-size:11px;color:var(--red)}h1{font:400 clamp(58px,8vw,104px)/.88 var(--goth);margin:18px 0 16px;max-width:8ch}.subtitle{font:12px var(--type);letter-spacing:.15em;color:var(--muted);text-transform:uppercase}.lede{font-size:23px;line-height:1.45;max-width:34ch;margin:20px 0 0}
 .hero-image{border:2px solid var(--ink);background:#171717;overflow:hidden;position:relative}.hero-image img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}.hero-image:after{content:'PLAYER 01 / GAME BOY MODE';position:absolute;bottom:0;left:0;right:0;background:#000;color:var(--red);padding:10px 13px;font:10px var(--type);letter-spacing:.18em}
 .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}.meta div{display:flex;flex-direction:column;gap:6px}.meta span{font-size:10px;color:var(--red)}.meta b{font:13px/1.5 var(--type);font-weight:400}
@@ -47,7 +47,6 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding-top:20px;text-al
 <p class="lede">A retro Game Boy-inspired catching game built in Scratch for Harvard CS50 Week 0. Steer Dracula, collect blood, avoid garlic and silver, and see how high you can score before sunrise.</p>
 <div class="tags"><span class="tag">Harvard CS50</span><span class="tag">Scratch</span><span class="tag">Game Development</span><span class="tag">Programming Logic</span></div>
 </div>
-<div class="hero-image"><img src="https://github.com/georgiajayy/cs50-the-hungry-dracula/raw/main/thumbnail.jpg" alt="The Hungry Dracula Scratch game thumbnail"></div>
 </header>
 
 <div class="meta">
