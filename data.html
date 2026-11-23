@@ -752,6 +752,64 @@ input[type=text],input[type=search],textarea{cursor:text}
 </svg>
 </template>
 
+<template id="art-vampire">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Animated gothic vampire skull with glowing red eyes, sharp fangs, a billowing black cape and circling bats">
+<style>
+  .av *{transform-box:fill-box}
+  .av-head{transform-origin:center;animation:avFloat 2.8s ease-in-out infinite}
+  @keyframes avFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+  .av-cape{transform-origin:50% 0%;animation:avCape 1.1s ease-in-out infinite alternate}
+  @keyframes avCape{to{transform:skewX(-5deg) scaleX(1.04)}}
+  .av-eyes{animation:avEyes 3.2s steps(1,end) infinite}
+  @keyframes avEyes{0%,42%,48%,100%{opacity:1}44%,46%{opacity:.15}}
+  .av-glow{transform-origin:center;animation:avGlow 1.6s ease-in-out infinite alternate}
+  @keyframes avGlow{to{opacity:.25;transform:scale(1.22)}}
+  .av-bat1{transform-origin:70px 115px;animation:avOrbit 5s linear infinite}
+  .av-bat2{transform-origin:325px 130px;animation:avOrbit 6.5s linear infinite reverse}
+  @keyframes avOrbit{to{transform:rotate(360deg)}}
+  .av-drip{animation:avDrip 2.4s ease-in infinite}
+  @keyframes avDrip{0%{transform:translateY(0);opacity:0}20%{opacity:1}85%{transform:translateY(22px);opacity:1}100%{transform:translateY(28px);opacity:0}}
+  .av-fang{transform-origin:center top;animation:avFang 2.8s ease-in-out infinite}
+  @keyframes avFang{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.12)}}
+  @media(prefers-reduced-motion:reduce){.av *{animation:none!important}}
+</style>
+<defs>
+  <pattern id="avGrain" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#FFF" opacity=".28"/><circle cx="6" cy="6" r=".55" fill="#E62E2E" opacity=".3"/></pattern>
+  <radialGradient id="avHalo"><stop offset="0" stop-color="#E62E2E" stop-opacity=".32"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  <g id="avBat" fill="#000" stroke="#FFF" stroke-width="2.5" stroke-linejoin="round"><path d="M0 2C-10-12-22-13-27-5C-20-4-19 3-17 9C-11 3-6 2 0 9C6 2 11 3 17 9C19 3 20-4 27-5C22-13 10-12 0 2Z"/><circle cx="0" cy="3" r="2" fill="#E62E2E" stroke="none"/></g>
+</defs>
+<g class="av">
+  <rect width="400" height="400" fill="#000"/>
+  <circle cx="200" cy="185" r="185" fill="url(#avHalo)" class="av-glow"/>
+  <rect width="400" height="400" fill="url(#avGrain)"/>
+  <g class="av-bat1"><use href="#avBat" x="70" y="115"/></g>
+  <g class="av-bat2"><use href="#avBat" x="325" y="130" transform="scale(.72)"/></g>
+  <path d="M28 400L68 265Q104 232 145 250L200 282L255 250Q296 232 332 265L372 400Z" fill="#FFF" stroke="#FFF" stroke-width="4" class="av-cape"/>
+  <path d="M40 400L92 278L145 267L200 315L255 267L308 278L360 400Z" fill="#000" stroke="#E62E2E" stroke-width="3" class="av-cape"/>
+  <path d="M150 248L200 294L250 248L230 400H170Z" fill="#E62E2E" opacity=".9"/>
+  <g class="av-head">
+    <path d="M200 72C130 72 99 121 105 185C109 226 139 253 164 267L164 287Q200 305 236 287L236 267C261 253 291 226 295 185C301 121 270 72 200 72Z" fill="#FFF" stroke="#FFF" stroke-width="5"/>
+    <path d="M119 158Q148 105 200 105Q252 105 281 158L265 220L239 250L200 264L161 250L135 220Z" fill="#FFF"/>
+    <path d="M113 162Q150 105 200 110Q250 105 287 162L272 128L247 92L200 76L153 92L128 128Z" fill="#000" stroke="#FFF" stroke-width="4"/>
+    <path d="M119 163Q153 132 184 160L174 190L128 190Z M281 163Q247 132 216 160L226 190L272 190Z" fill="#000"/>
+    <g class="av-eyes"><path d="M133 174L174 160L181 183L153 193Z M267 174L226 160L219 183L247 193Z" fill="#E62E2E"/><ellipse cx="159" cy="178" rx="5" ry="10" fill="#FFF"/><ellipse cx="241" cy="178" rx="5" ry="10" fill="#FFF"/></g>
+    <path d="M200 185L188 211L200 218L212 211Z" fill="#000"/>
+    <path d="M151 224Q200 244 249 224L238 267Q200 286 162 267Z" fill="#000" stroke="#000" stroke-width="3"/>
+    <path d="M164 231L176 232L172 263Z M236 231L224 232L228 263Z" fill="#FFF" stroke="#E62E2E" stroke-width="1.5" class="av-fang"/>
+    <path d="M181 237H219M184 247H216" stroke="#FFF" stroke-width="2"/>
+    <path d="M133 207L112 221M267 207L288 221" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M151 115L170 97L200 90L230 97L249 115" fill="none" stroke="#E62E2E" stroke-width="4"/>
+    <path d="M178 80L200 45L222 80Z" fill="#000" stroke="#FFF" stroke-width="3"/>
+    <path d="M184 75L200 53L216 75Z" fill="#E62E2E"/>
+  </g>
+  <path d="M200 287V345" stroke="#E62E2E" stroke-width="3" stroke-linecap="round" class="av-drip"/>
+  <path d="M186 328L200 351L214 328" fill="none" stroke="#FFF" stroke-width="2" opacity=".8"/>
+  <text x="200" y="382" text-anchor="middle" font-family="Special Elite,monospace" font-size="18" letter-spacing="5" fill="#FFF">NIGHT CREATURE</text>
+  <rect x="2" y="2" width="396" height="396" fill="none" stroke="#FFF" stroke-width="4"/>
+</g>
+</svg>
+</template>
+
 <template id="art-soon">
 <svg viewBox="0 0 400 400" aria-hidden="true">
   <rect width="400" height="400" fill="#0B0B0B"/>
@@ -774,10 +832,10 @@ input[type=text],input[type=search],textarea{cursor:text}
 var PROJECTS = [
   { title: 'Third Time’s a Charm?', dek: 'Spain took 23 shots to England\'s 8 in the Euro 2025 final. Can the Lionesses make it three in a row by 2029?', href: 'projects/lionesses-euro-2025.html', month: 'SEP 2026', tags: ['Football', 'Python', 'Streamlit'], art: 'art-lionesses' },
   { title: 'Who Dies First?', dek: 'Everyone knows the Black character dies first. I logged 27 horror films and built a game to find out if it\'s true.', href: 'https://georgiajayy.github.io/black-horror-1968-2025/', month: 'OCT 2026', tags: ['Film', 'Python', 'JavaScript'], art: 'art-whodies' },
-  { title: 'Can AI Pundit the Game?', dek: 'Fans don’t want the data, they want the story. My first hackathon: AI agents that tell every match differently for every fan.', href: 'projects/matchday-social-desk.html', label: '#Hackathon', month: 'MICROSOFT × PREMIER LEAGUE', tags: ['Football', 'AI', 'Python'], art: 'art-matchday' },
-  { title: 'How Do You Sell Sound Through Culture?', dek: 'I analysed 25 headphone ads and tested four creative approaches to explore how Beats can turn cultural influence into consumer trust and purchase intent.', href: 'projects/beats-by-dre.html', label: '#Externship', month: 'BEATS BY DRE', tags: ['Brand Positioning', 'Cultural Strategy', 'Campaign Analysis'], art: 'art-beats' },
-  { title: 'How Hungry Is Too Hungry?', dek: 'A retro Game Boy-inspired arcade game built in Scratch for Harvard CS50 Week 0. Catch blood, dodge garlic and silver swords, and chase the highest score before the 30-second timer runs out.', href: 'projects/the-hungry-dracula.html', month: 'NOV 2026', tags: ['Harvard CS50', 'Scratch', 'Game Development', 'Programming Logic'], img: 'https://github.com/georgiajayy/cs50-the-hungry-dracula/raw/main/thumbnail.jpg' },
-  { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-soon' }
+  { title: 'Can AI Pundit the Game?', dek: 'Fans don’t want the data, they want the story. AI agents that tell every match differently for every fan.', href: 'projects/matchday-social-desk.html', month: 'OCT 2026', tags: ['Microsoft × Premier League', 'Football', 'AI', 'Python'], art: 'art-matchday' },
+  { title: 'How Do You Sell Sound Through Culture?', dek: 'I analysed 25 headphone ads and tested four creative approaches to explore how Beats can turn cultural influence into consumer trust and purchase intent.', href: 'projects/beats-by-dre.html', month: 'NOV 2026', tags: ['Beats by Dre', 'Brand Positioning', 'Cultural Strategy', 'Campaign Analysis'], art: 'art-beats' },
+  { title: 'How Hungry Is Too Hungry?', dek: 'A retro Game Boy-inspired arcade game built in Scratch for Harvard CS50 Week 0. Catch blood, dodge garlic and silver swords, and chase the highest score before the 30-second timer runs out.', href: 'projects/the-hungry-dracula.html', month: 'NOV 2026', tags: ['HarvardCS50', 'Scratch', 'Game Development', 'Programming Logic'], img: 'https://github.com/georgiajayy/cs50-the-hungry-dracula/raw/main/thumbnail.jpg' },
+  { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-vampire' }
 ];
 (function () {
   var grid = document.getElementById('grid'), live = 0, num = 0;
