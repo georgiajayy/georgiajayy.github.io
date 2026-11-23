@@ -45,6 +45,9 @@ footer{margin-top:70px;text-align:center;font:12px var(--type);letter-spacing:.2
 @media(max-width:760px){.hero{grid-template-columns:1fr}.hero-art{max-width:480px;width:100%;margin:auto}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.recs{grid-template-columns:1fr}}
 @media(max-width:520px){.page{padding:86px 18px 56px}.metric-grid,.concept,.test-grid{grid-template-columns:1fr}.insights li{grid-template-columns:42px minmax(0,1fr);gap:12px}.insights li:before{font-size:27px}.callout{padding:24px 20px}.resource{align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Text-first case-study header: project artwork removed. */
+.hero{grid-template-columns:minmax(0,1fr)!important}
 </style>
 </head>
 <body>
@@ -57,19 +60,7 @@ footer{margin-top:70px;text-align:center;font:12px var(--type);letter-spacing:.2
 <p class="sub">Beats by Dre / Creative Strategy Case Study</p>
 <p class="lede">Beats has built a recognisable identity through music, sport and cultural influence. The strategic question is how that attention can translate into credibility, product relevance and consumer consideration.</p>
 </div>
-<div class="hero-art" role="img" aria-label="Black-and-white portrait of a man in a black top against a dark background">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black-and-white portrait">
-<style>
-.portrait { transform-origin: 200px 200px; animation: portraitZoom 9s ease-in-out infinite alternate; }
-@keyframes portraitZoom { 0% { transform: scale(1.02) translate(-2px, 1px); } 100% { transform: scale(1.09) translate(3px, -2px); } }
-@media(prefers-reduced-motion:reduce){.portrait{animation:none}}
-</style>
-<defs><clipPath id="portraitCrop"><rect width="400" height="400"/></clipPath></defs>
-<g clip-path="url(#portraitCrop)">
-<image class="portrait" href="data:image/webp;base64,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" x="0" y="0" width="400" height="400" preserveAspectRatio="xMidYMid slice"/>
-</g>
-</svg>
-</div>
+
 </header>
 <ul class="facts">
 <li><span>COMPETITIVE REVIEW</span><b>25 headphone advertisements</b></li>
