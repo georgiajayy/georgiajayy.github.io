@@ -70,21 +70,7 @@ input[type=text],input[type=search],textarea{cursor:text}
     <p class="tag">A study of taste, trends & human behaviour.</p>
   </header>
 
-  <section class="project-section" aria-labelledby="brand-heading">
-    <div class="section-heading">
-      <span class="section-number">01 /</span>
-      <h2 id="brand-heading">Brand, Strategy &amp; Cultural Research</h2>
-    </div>
-    <p class="section-note">Brand thinking, campaign analysis, cultural intelligence and the ideas shaping how people connect with brands.</p>
-    <ol class="grid" id="brand-grid"></ol>
-  </section>
-
-  <section class="project-section" aria-labelledby="data-heading">
-    <div class="section-heading">
-      <span class="section-number">02 /</span>
-      <h2 id="data-heading">Data Stories, Code &amp; Audience Analytics</h2>
-    </div>
-    <p class="section-note">Projects using data, code and audience research to investigate culture, sport, media and human behaviour.</p>
+  <section class="project-section" aria-label="Selected projects">
     <ol class="grid" id="grid"></ol>
   </section>
 </main>
@@ -786,15 +772,15 @@ input[type=text],input[type=search],textarea{cursor:text}
     art    id of a <template> above with the tile artwork, or img: 'assets/your-thumb.png'
 */
 var PROJECTS = [
-  { section: 'brand', label: '#1', title: 'How Do You Sell Sound Through Culture?', dek: 'I analysed 25 headphone ads and tested four creative approaches with consumers to explore how Beats can turn cultural influence into credibility and purchase consideration.', href: 'projects/beats-by-dre.html', month: 'BEATS BY DRE', tags: ['Brand Positioning', 'Cultural Strategy', 'Campaign Analysis'], art: 'art-beats' },
-  { section: 'brand', label: '#2', title: 'Where Does Gen Z Go Before They Buy?', dek: 'Search engines give answers, not taste. I ran a Jobs-to-be-Done survey (30+ responses) to uncover how Gen Z actually discovers trends, and where brands can show up without ruining the feed.', href: '', month: 'PINTEREST', tags: ['Consumer Research', 'JTBD', 'Audience Insights'], art: 'art-soon' },
+  { title: 'How Do You Sell Sound Through Culture?', dek: 'I analysed 25 headphone ads and tested four creative approaches with consumers to explore how Beats can turn cultural influence into credibility and purchase consideration.', href: 'projects/beats-by-dre.html', month: 'BEATS BY DRE', tags: ['Brand Positioning', 'Cultural Strategy', 'Campaign Analysis'], art: 'art-beats' },
+  { title: 'Where Does Gen Z Go Before They Buy?', dek: 'Search engines give answers, not taste. I ran a Jobs-to-be-Done survey (30+ responses) to uncover how Gen Z actually discovers trends, and where brands can show up without ruining the feed.', href: '', month: 'PINTEREST', tags: ['Consumer Research', 'JTBD', 'Audience Insights'], art: 'art-soon' },
   { title: 'Third Time’s a Charm?', dek: 'Spain took 23 shots to England\'s 8 in the Euro 2025 final. Can the Lionesses make it three in a row by 2029?', href: 'projects/lionesses-euro-2025.html', month: 'SEP 2026', tags: ['Football', 'Python', 'Streamlit'], art: 'art-lionesses' },
   { title: 'Who Dies First?', dek: 'Everyone knows the Black character dies first. I logged 27 horror films and built a game to find out if it\'s true.', href: 'https://georgiajayy.github.io/black-horror-1968-2025/', month: 'OCT 2026', tags: ['Film', 'Python', 'JavaScript'], art: 'art-whodies' },
   { title: 'Can AI Pundit the Game?', dek: 'Fans don’t want the data, they want the story. My first hackathon: AI agents that tell every match differently for every fan.', href: 'projects/matchday-social-desk.html', label: '#Hackathon', month: 'MICROSOFT × PREMIER LEAGUE', tags: ['Football', 'AI', 'Python'], art: 'art-matchday' },
   { title: 'Coming soon', dek: 'The next project is still being dug up.', href: '', tags: ['In the lab'], art: 'art-soon' }
 ];
 (function () {
-  var grid = document.getElementById('grid'), brandGrid = document.getElementById('brand-grid'), live = 0, num = 0;
+  var grid = document.getElementById('grid'), live = 0, num = 0;
   PROJECTS.forEach(function (p, i) {
     var open = !!p.href; if (open) live++;
     var li = document.createElement('li');
@@ -814,7 +800,7 @@ var PROJECTS = [
     var tg = document.createElement('div'); tg.className = 'tags';
     (p.tags || []).forEach(function (x) { var s = document.createElement('span'); s.textContent = x; tg.appendChild(s); });
     a.appendChild(tg);
-    li.appendChild(a); (p.section === 'brand' ? brandGrid : grid).appendChild(li);
+    li.appendChild(a); grid.appendChild(li);
   });
 })();
 </script>
