@@ -119,6 +119,9 @@ input[type=text],input[type=search],textarea{cursor:text}
 
 .text p{margin:0;max-width:64ch;color:#D6D6D6}
 
+
+/* Text-first case-study header: project artwork removed. */
+.hero{grid-template-columns:minmax(0,1fr)!important}
 </style>
 </head>
 <body>
@@ -132,18 +135,7 @@ input[type=text],input[type=search],textarea{cursor:text}
       <p class="sub">Matchday Social Desk · Microsoft × Premier League</p>
       <p class="lede">Fans don’t want the data. They want the story. So for the Inside the Game hackathon, I built a team of AI agents that watches a match live and tells it differently for every fan.</p>
     </div>
-    <div class="art">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black-and-white archival photograph of two football commentators working from a stadium gantry">
-<style>
-.md-photo{transform-origin:200px 200px;animation:mdKen 9s ease-in-out infinite alternate}
-@keyframes mdKen{0%{transform:scale(1.02) translate(-2px,1px)}100%{transform:scale(1.09) translate(3px,-2px)}}
-@media(prefers-reduced-motion:reduce){.md-photo{animation:none}}
-</style>
-<defs><clipPath id="mdCropInner"><rect width="400" height="400"/></clipPath></defs>
-<g clip-path="url(#mdCropInner)"><image class="md-photo" href="data:image/jpeg;base64,__JPEG_B64__" x="0" y="0" width="400" height="400" preserveAspectRatio="xMidYMid slice"/></g>
-</svg>
-
-    </div>
+    
   </section>
 
   <ul class="facts" aria-label="Project facts">
