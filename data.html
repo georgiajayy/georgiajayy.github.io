@@ -635,119 +635,15 @@ input[type=text],input[type=search],textarea{cursor:text}
 </template>
 
 <template id="art-beats">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black and white manga-style animation in two cuts: a skull character wearing Beats headphones bobbing to music, followed by an extreme close-up of the skull and earcup pulsing with bass shockwaves">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Black-and-white portrait, slowly moving across the frame">
 <style>
-  .ab * { transform-box: view-box; }
-  .ab-c1 { animation: abC1 3s steps(1,end) infinite; }
-  .ab-c2 { animation: abC2 3s steps(1,end) infinite; opacity: 0; }
-  @keyframes abC1 { 0% { opacity: 1; } 55% { opacity: 0; } 100% { opacity: 0; } }
-  @keyframes abC2 { 0% { opacity: 0; } 55% { opacity: 1; } 100% { opacity: 1; } }
-  .ab-pan { animation: abPan .55s linear infinite; }
-  @keyframes abPan { to { transform: translateX(-200px); } }
-  .ab-bob1 { transform-origin: 200px 215px; animation: abBob1 .45s ease-in-out infinite alternate; }
-  @keyframes abBob1 { 0% { transform: translateY(0px) rotate(-3deg); } 100% { transform: translateY(10px) rotate(4deg); } }
-  .ab-jaw1 { transform-origin: 200px 235px; animation: abJaw1 .45s ease-in-out infinite alternate; }
-  @keyframes abJaw1 { 0% { transform: translateY(0px); } 100% { transform: translateY(3px); } }
-  .ab-thump { transform-origin: 205px 205px; animation: abThump .225s ease-in-out infinite alternate; }
-  @keyframes abThump { 0% { transform: scale(1); } 100% { transform: scale(1.07); } }
-  .ab-wave { transform-origin: 295px 205px; animation: abWave .45s ease-out infinite; }
-  @keyframes abWave { 0% { opacity: .95; transform: scale(.75); } 100% { opacity: 0; transform: scale(1.45); } }
-  .ab-wave2 { transform-origin: 295px 205px; animation: abWave .45s ease-out .225s infinite; opacity: 0; }
-  @media (prefers-reduced-motion: reduce) {
-    .ab * { animation: none !important; }
-    .ab-c2 { opacity: 0; }
-    .ab-c1 { opacity: 1; }
-  }
+  .ab-photo { transform-origin: 200px 200px; animation: abKen 9s ease-in-out infinite alternate; }
+  @keyframes abKen { 0% { transform: scale(1.02) translate(-2px, 1px); } 100% { transform: scale(1.09) translate(3px, -2px); } }
+  @media (prefers-reduced-motion: reduce) { .ab-photo { animation: none; } }
 </style>
-<defs>
-  <pattern id="abToneL" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".85" fill="#000"/></pattern>
-  <pattern id="abToneW" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.2" fill="#FFF"/></pattern>
-  <g id="abSkullHead">
-    <path d="M0-54C-34-54-52-31-52-5C-52 15-42 25-31 30L-28 45C-28 50-24 53-18 53H18C24 53 28 50 28 45L31 30C42 25 52 15 52-5C52-31 34-54 0-54Z" fill="#FFF" stroke="#000" stroke-width="5.5" stroke-linejoin="round"/>
-    <path d="M22-44C34-36 42-24 42-10" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M-43 10C-39 20-34 25-29 28" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"/>
-    <ellipse cx="-19" cy="-2" rx="14" ry="16" fill="#000"/>
-    <ellipse cx="19" cy="-2" rx="14" ry="16" fill="#000"/>
-    <circle cx="-15" cy="-7" r="4.5" fill="#FFF"/>
-    <circle cx="-23" cy="4" r="2" fill="#FFF"/>
-    <circle cx="23" cy="-7" r="4.5" fill="#FFF"/>
-    <circle cx="15" cy="4" r="2" fill="#FFF"/>
-    <path d="M0 11L-7 25H7Z" fill="#000" stroke-linejoin="round"/>
-    <g class="ab-jaw1">
-      <path d="M-20 38H20" stroke="#000" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M-14 38V52M-7 38V52M0 38V52M7 38V52M14 38V52" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-    </g>
-  </g>
-  <g id="abBeatsPhones">
-    <path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#000" stroke-width="14" stroke-linecap="round"/>
-    <path d="M-56 4C-58-52-32-84 0-84C32-84 58-52 56 4" fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round"/>
-    <path d="M-48-8C-48-48-26-74 0-74C26-74 48-48 48-8" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="6 6"/>
-    <g transform="translate(-56 4)">
-      <rect x="-14" y="-24" width="20" height="48" rx="9" fill="#000" stroke="#000" stroke-width="3"/>
-      <rect x="-11" y="-20" width="12" height="40" rx="6" fill="#FFF"/>
-      <circle cx="-5" cy="0" r="4.5" fill="#000"/>
-    </g>
-    <g transform="translate(56 4)">
-      <rect x="-6" y="-24" width="20" height="48" rx="9" fill="#000" stroke="#000" stroke-width="3"/>
-      <rect x="-1" y="-20" width="12" height="40" rx="6" fill="#FFF"/>
-      <circle cx="5" cy="0" r="5.5" fill="#000"/>
-      <path d="M3.2-10V5.5M3.2 0.5A3.2 3.2 0 1 1 3.2 4.5" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
-    </g>
-  </g>
-</defs>
-<g class="ab">
-  <g class="ab-c1">
-    <rect width="400" height="400" fill="#FFF"/>
-    <rect width="400" height="400" fill="url(#abToneL)" opacity=".55"/>
-    <g class="ab-pan" fill="#000" opacity=".6">
-      <rect x="20" y="64" width="150" height="2.2"/>
-      <rect x="220" y="82" width="190" height="1.5"/>
-      <rect x="-60" y="114" width="170" height="2"/>
-      <rect x="260" y="142" width="160" height="2.4"/>
-      <rect x="40" y="198" width="120" height="1.6"/>
-      <rect x="250" y="236" width="175" height="2.2"/>
-      <rect x="-30" y="278" width="155" height="1.8"/>
-      <rect x="230" y="314" width="180" height="2.5"/>
-      <rect x="420" y="70" width="150" height="2.2"/>
-      <rect x="620" y="88" width="190" height="1.5"/>
-      <rect x="340" y="120" width="170" height="2"/>
-      <rect x="660" y="148" width="160" height="2.4"/>
-      <rect x="440" y="204" width="120" height="1.6"/>
-      <rect x="650" y="242" width="175" height="2.2"/>
-      <rect x="370" y="284" width="155" height="1.8"/>
-      <rect x="630" y="320" width="180" height="2.5"/>
-    </g>
-    <g class="ab-bob1">
-      <path d="M132 292C146 274 172 268 200 268C228 268 254 274 268 292L284 356H116Z" fill="#000" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M154 276L200 308L246 276" fill="none" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      <g transform="translate(200 205) scale(1.35)">
-        <use href="#abSkullHead"/>
-        <use href="#abBeatsPhones"/>
-      </g>
-    </g>
-    <rect x="0" y="0" width="400" height="44" fill="#000"/>
-    <rect x="0" y="356" width="400" height="44" fill="#000"/>
-  </g>
-  <g class="ab-c2">
-    <rect width="400" height="400" fill="#000"/>
-    <circle cx="200" cy="200" r="185" fill="url(#abToneW)" opacity=".22"/>
-    <g class="ab-wave" fill="none" stroke="#FFF" stroke-width="4" stroke-linecap="round">
-      <path d="M324 162A56 56 0 0 1 324 248"/>
-      <path d="M342 144A82 82 0 0 1 342 266"/>
-    </g>
-    <g class="ab-wave2" fill="none" stroke="#FFF" stroke-width="3" stroke-linecap="round">
-      <path d="M332 153A68 68 0 0 1 332 257"/>
-    </g>
-    <g class="ab-thump">
-      <g transform="translate(155 208) scale(2.15)">
-        <use href="#abSkullHead"/>
-        <use href="#abBeatsPhones"/>
-      </g>
-    </g>
-    <rect x="0" y="0" width="400" height="44" fill="#000"/>
-    <rect x="0" y="356" width="400" height="44" fill="#000"/>
-  </g>
-  <rect x="2" y="2" width="396" height="396" fill="none" stroke="#000" stroke-width="4"/>
+<defs><clipPath id="abCrop"><rect width="400" height="400"/></clipPath></defs>
+<g clip-path="url(#abCrop)">
+  <image class="ab-photo" href="data:image/webp;base64,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" x="0" y="0" width="400" height="400" preserveAspectRatio="xMidYMid slice"/>
 </g>
 </svg>
 </template>
